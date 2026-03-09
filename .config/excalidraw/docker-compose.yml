@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  excalidraw:
+    image: excalidraw/excalidraw:latest
+    container_name: excalidraw
+    ports:
+      - "3001:80"
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_BACKEND_V1_GET_URL=https://json.excalidraw.com/api/v1/
+      - REACT_APP_BACKEND_V2_GET_URL=https://json.excalidraw.com/api/v2/
+      - REACT_APP_BACKEND_V2_POST_URL=https://json.excalidraw.com/api/v2/post/
+      - REACT_APP_LIBRARY_URL=https://libraries.excalidraw.com
+      - REACT_APP_LIBRARY_BACKEND=https://us-central1-excalidraw-room-persistence.cloudfunctions.net
+    restart: unless-stopped
+    networks:
+      - excalidraw-network
+
+  excalidraw-room:
+    image: excalidraw/excalidraw-room:latest
+    container_name: excalidraw-room
+    ports:
+      - "3002:80"
+    environment:
+      - PORT=80
+    restart: unless-stopped
+    networks:
+      - excalidraw-network
+
+  excalidraw-storage:
+    image: excalidraw/excalidraw-json-storage:latest
+    container_name: excalidraw-storage
+    ports:
+      - "3003:80"
+    environment:
+      - PORT=80
+    restart: unless-stopped
+    networks:
+      - excalidraw-network
+
+networks:
+  excalidraw-network:
+    driver: bridge
