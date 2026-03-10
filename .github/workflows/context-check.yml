@@ -1,0 +1,195 @@
+name: Context Size Check
+
+on:
+  # 定时触发：每 30 分钟检查一次
+  schedule:
+    - cron: '*/30 * * * *'
+  
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      threshold:
+        description: '自定义黄色阈值（KB）'
+        required: false
+        default: '30'
+        type: string
+
+env:
+  # 阈值配置
+  CONTEXT_YELLOW_THRESHOLD: ${{ github.event.inputs.threshold && fromJSON(github.event.inputs.threshold) * 1024 || 30720 }}
+  CONTEXT_RED_THRESHOLD: 51200
+  CONVERSATION_HARD_LIMIT: 100
+
+jobs:
+  check-context:
+    name: Check Context Size
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run context monitor
+        id: monitor
+        run: |
+          python3 /root/.openclaw/skills/error-handler/scripts/context_monitor.py --json > monitor_result.json
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          cat monitor_result.json | python3 -m json.tool
+        continue-on-error: true
+      
+      - name: Parse monitor result
+        id: parse
+        run: |
+          if [ -f monitor_result.json ]; then
+            STATUS=$(cat monitor_result.json | python3 -c "import sys, json; print(json.load(sys.stdin)['status'])")
+            SIZE_KB=$(cat monitor_result.json | python3 -c "import sys, json; print(json.load(sys.stdin)['estimated_size_kb'])")
+            TURNS=$(cat monitor_result.json | python3 -c "import sys, json; print(json.load(sys.stdin).get('turn_count', 0))")
+            
+            echo "status=$STATUS" >> $GITHUB_OUTPUT
+            echo "size_kb=$SIZE_KB" >> $GITHUB_OUTPUT
+            echo "turns=$TURNS" >> $GITHUB_OUTPUT
+            
+            # 确定警告级别
+            if [ "$STATUS" = "danger" ]; then
+              echo "alert_level=critical" >> $GITHUB_OUTPUT
+            elif [ "$STATUS" = "warning" ]; then
+              echo "alert_level=warning" >> $GITHUB_OUTPUT
+            else
+              echo "alert_level=ok" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "status=unknown" >> $GITHUB_OUTPUT
+            echo "alert_level=error" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Generate report
+        if: steps.parse.outputs.alert_level != 'ok'
+        run: |
+          cat > report.md << 'EOF'
+          # 上下文大小监控报告
+          
+          **检查时间:** ${{ github.event.schedule && '定时检查' || '手动触发' }}
+          
+          ## 状态摘要
+          
+          | 指标 | 值 | 状态 |
+          |------|-----|------|
+          | 上下文大小 | ${{ steps.parse.outputs.size_kb }} KB | ${{ steps.parse.outputs.status }} |
+          | 对话轮数 | ${{ steps.parse.outputs.turns }} | - |
+          | 警告级别 | ${{ steps.parse.outputs.alert_level }} | - |
+          
+          ## 阈值配置
+          
+          - 黄色预警: 30 KB
+          - 红色预警: 50 KB
+          - 对话轮数限制: 100
+          
+          ## 建议操作
+          
+          EOF
+          
+          if [ "${{ steps.parse.outputs.alert_level }}" = "critical" ]; then
+            cat >> report.md << 'EOF'
+          ### 🚨 紧急处理
+          
+          上下文大小已达到危险阈值，请立即执行以下操作：
+          
+          1. **暂停当前操作** - 停止所有非必要的工具调用
+          2. **执行上下文压缩** - 使用 `/compress` 命令或手动总结关键信息
+          3. **考虑重置会话** - 如果压缩后仍超过阈值，使用 `/reset` 重置会话
+          4. **分批次处理** - 将大任务拆分为多个小任务，分会话处理
+          
+          EOF
+          elif [ "${{ steps.parse.outputs.alert_level }}" = "warning" ]; then
+            cat >> report.md << 'EOF'
+          ### ⚠️ 警告提示
+          
+          上下文大小超过建议阈值，建议采取以下措施：
+          
+          1. **关注增长趋势** - 监控上下文大小的增长情况
+          2. **适时总结** - 在合适时机总结已完成的工作
+          3. **控制工具调用** - 单轮工具调用控制在 3-4 个以内
+          4. **规划会话** - 考虑在合适时机新开会话
+          
+          EOF
+          fi
+          
+          cat report.md
+      
+      - name: Create issue (critical)
+        if: steps.parse.outputs.alert_level == 'critical'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `🚨 [CRITICAL] 上下文大小超限 - ${new Date().toISOString()}`;
+            const body = `## 警告详情
+            
+            - **上下文大小:** ${{ steps.parse.outputs.size_kb }} KB
+            - **状态:** ${{ steps.parse.outputs.status }}
+            - **对话轮数:** ${{ steps.parse.outputs.turns }}
+            
+            ## 建议操作
+            
+            1. 立即执行上下文压缩
+            2. 考虑重置会话
+            3. 分批次处理后续任务
+            
+            ## 相关链接
+            
+            - [429 预防机制文档](/root/.openclaw/skills/error-handler/429_PREVENTION.md)
+            - [监控脚本](/root/.openclaw/skills/error-handler/scripts/context_monitor.py)
+            
+            ---
+            *自动创建于 ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}*`;
+            
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['context-overflow', 'critical', 'automated']
+            });
+      
+      - name: Notify (warning)
+        if: steps.parse.outputs.alert_level == 'warning'
+        run: |
+          echo "::warning::上下文大小监控警告：当前 ${{ steps.parse.outputs.size_kb }} KB，建议执行压缩操作"
+      
+      - name: Upload artifact
+        if: steps.parse.outputs.alert_level != 'ok'
+        uses: actions/upload-artifact@v4
+        with:
+          name: context-monitor-report-${{ github.run_id }}
+          path: |
+            monitor_result.json
+            report.md
+          retention-days: 7
+      
+      - name: Summary
+        run: |
+          echo "## 上下文大小监控结果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 指标 | 值 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-----|" >> $GITHUB_STEP_SUMMARY
+          echo "| 状态 | ${{ steps.parse.outputs.status }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 上下文大小 | ${{ steps.parse.outputs.size_kb }} KB |" >> $GITHUB_STEP_SUMMARY
+          echo "| 对话轮数 | ${{ steps.parse.outputs.turns }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 警告级别 | ${{ steps.parse.outputs.alert_level }} |" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.parse.outputs.alert_level }}" = "critical" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### 🚨 需要立即处理" >> $GITHUB_STEP_SUMMARY
+            echo "上下文大小已达到危险阈值，请查看生成的报告并执行相应操作。" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.parse.outputs.alert_level }}" = "warning" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### ⚠️ 警告" >> $GITHUB_STEP_SUMMARY
+            echo "上下文大小超过建议阈值，建议适时执行压缩操作。" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### ✅ 状态正常" >> $GITHUB_STEP_SUMMARY
+          fi

@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "check_intervals": {
+    "critical": 1800,
+    "normal": 3600,
+    "relaxed": 7200
+  },
+  "thresholds": {
+    "overdue_alert_hours": 2,
+    "deadline_warning_hours": 4,
+    "max_parallel_tasks": 5
+  },
+  "modes": {
+    "sequential": {
+      "description": "顺序执行，专注处理",
+      "conditions": ["has_overdue_tasks", "has_critical_ad_hoc"],
+      "max_concurrent": 1
+    },
+    "parallel": {
+      "description": "并行执行，效率优先",
+      "conditions": ["no_overdue", "no_ad_hoc"],
+      "max_concurrent": 5
+    },
+    "notify_user": {
+      "description": "等待用户输入",
+      "conditions": ["has_blocked_tasks"],
+      "max_concurrent": 0
+    }
+  },
+  "escalation_rules": [
+    {
+      "condition": "task_overdue > 2",
+      "action": "immediate_report",
+      "message": "严重：多项任务已过期，需要立即处理"
+    },
+    {
+      "condition": "task_blocked > 3",
+      "action": "batch_notify",
+      "message": "有多个任务等待您的确认"
+    },
+    {
+      "condition": "no_user_interaction > 8_hours",
+      "action": "proactive_check",
+      "message": "已8小时无交互，发送状态摘要"
+    }
+  ]
+}

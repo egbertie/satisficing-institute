@@ -1,0 +1,188 @@
+name: Notion Sync - 文档自动同步
+
+on:
+  # 定时触发：每天凌晨 02:00 (UTC+8 = UTC 18:00)
+  schedule:
+    - cron: '0 18 * * *'
+  
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: '每批处理文件数'
+        required: false
+        default: '10'
+        type: string
+      max_retries:
+        description: '最大重试次数'
+        required: false
+        default: '5'
+        type: string
+      reset_progress:
+        description: '重置进度（从0开始）'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+  NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+  WORKSPACE_DIR: ${{ github.workspace }}
+  BATCH_SIZE: ${{ github.event.inputs.batch_size || '10' }}
+  MAX_RETRIES: ${{ github.event.inputs.max_retries || '5' }}
+  FILE_INTERVAL: '2.0'
+  BATCH_INTERVAL: '15.0'
+  CONNECT_TIMEOUT: '45'
+  READ_TIMEOUT: '180'
+  BACKOFF_FACTOR: '2.0'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120  # 2小时超时
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取完整历史，便于发现所有文件
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests urllib3
+          python --version
+          pip list
+      
+      - name: Restore sync progress
+        if: ${{ !github.event.inputs.reset_progress }}
+        uses: actions/download-artifact@v4
+        with:
+          name: notion-sync-progress
+          path: .
+        continue-on-error: true  # 首次运行可能没有进度文件
+      
+      - name: Reset progress (if requested)
+        if: ${{ github.event.inputs.reset_progress }}
+        run: |
+          rm -f .notion_sync_v4_progress.json
+          echo "进度已重置"
+      
+      - name: Pre-sync check
+        run: |
+          echo "=== 同步前检查 ==="
+          echo "工作目录: $WORKSPACE_DIR"
+          echo "批次大小: $BATCH_SIZE"
+          echo "最大重试: $MAX_RETRIES"
+          echo "Notion Token: ${NOTION_TOKEN:0:10}..."
+          echo "Parent Page: $NOTION_PARENT_PAGE_ID"
+          
+          # 统计待同步文件
+          echo ""
+          echo "=== 文件统计 ==="
+          find . -name "*.md" -not -path "./.git/*" -not -path "./logs/*" | wc -l | xargs echo "Markdown文件总数:"
+          
+          # 检查Python脚本
+          echo ""
+          echo "=== 脚本检查 ==="
+          python -m py_compile notion_sync_optimized.py && echo "✓ notion_sync_optimized.py 语法检查通过"
+      
+      - name: Sync to Notion
+        id: sync
+        run: |
+          echo "=== 开始同步 ==="
+          python notion_sync_optimized.py 2>&1 | tee sync_output.log
+          
+          # 提取退出码
+          exit_code=${PIPESTATUS[0]}
+          echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
+          
+          if [ $exit_code -eq 0 ]; then
+            echo "✅ 同步成功完成"
+          else
+            echo "⚠️ 同步完成，但有部分失败"
+          fi
+          
+          exit 0  # 始终成功，让后续步骤执行
+      
+      - name: Post-sync report
+        run: |
+          echo "=== 同步后报告 ==="
+          
+          # 检查报告文件
+          if [ -f "docs/NOTION_SYNC_V4_REPORT.md" ]; then
+            echo "✓ 报告已生成"
+            head -50 docs/NOTION_SYNC_V4_REPORT.md
+          else
+            echo "⚠️ 报告文件未找到"
+          fi
+          
+          # 检查进度文件
+          if [ -f ".notion_sync_v4_progress.json" ]; then
+            echo ""
+            echo "=== 进度统计 ==="
+            python -c "
+import json
+try:
+    with open('.notion_sync_v4_progress.json') as f:
+        p = json.load(f)
+        completed = len([x for x in p.get('completed_files', [])])
+        failed = len(p.get('failed_files', {}))
+        total = p.get('total_files', 0)
+        pct = (completed / total * 100) if total > 0 else 0
+        print(f'总文件: {total}')
+        print(f'已完成: {completed}')
+        print(f'失败: {failed}')
+        print(f'进度: {pct:.1f}%')
+except Exception as e:
+    print(f'读取进度失败: {e}')
+"
+          fi
+      
+      - name: Upload sync report
+        uses: actions/upload-artifact@v4
+        with:
+          name: notion-sync-report
+          path: docs/NOTION_SYNC_V4_REPORT.md
+          retention-days: 30
+      
+      - name: Upload sync progress
+        uses: actions/upload-artifact@v4
+        with:
+          name: notion-sync-progress
+          path: .notion_sync_v4_progress.json
+          retention-days: 90  # 保留3个月
+      
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notion-sync-logs
+          path: |
+            logs/notion_sync_v4.log
+            sync_output.log
+          retention-days: 14
+      
+      - name: Commit progress back to repo (optional)
+        if: false  # 默认禁用，需要时启用
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .notion_sync_v4_progress.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update Notion sync progress [skip ci]"
+          git push
+      
+      - name: Send notification
+        if: always()
+        run: |
+          # 简单的状态通知（可以扩展为钉钉/飞书/Slack）
+          if [ "${{ steps.sync.outputs.exit_code }}" == "0" ]; then
+            echo "✅ Notion同步成功"
+          else
+            echo "⚠️ Notion同步部分失败，请检查日志"
+          fi
