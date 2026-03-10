@@ -1,0 +1,48 @@
+{
+  "task": "Notion完整同步任务",
+  "status": "✅ 已完成",
+  "deadline": "2026-03-11 08:00",
+  "completed_at": "2026-03-10 23:06",
+  "notion_workspace": "满意解研究所",
+  "statistics": {
+    "total_files": 417,
+    "success": 263,
+    "failed": 1,
+    "skipped": 153,
+    "success_rate": "63.1%"
+  },
+  "file_types": {
+    "md": 337,
+    "html": 33,
+    "py": 49,
+    "json": 16,
+    "txt": 6,
+    "yml_yaml": 3
+  },
+  "key_directories": {
+    "docs": 38,
+    "memory": 12,
+    "knowledge_base": 76,
+    "tools": 4,
+    "skills": 14,
+    "scripts": 31
+  },
+  "failed_files": [
+    {
+      "file": "COMPRESSION_EXECUTED_2026-03-10.md",
+      "reason": "读取失败"
+    }
+  ],
+  "notion_url": "https://notion.so/31fa8a0e2bba81fab98ad61da835051e",
+  "duration": {
+    "start": "2026-03-10 22:52:34",
+    "end": "2026-03-10 23:06:05",
+    "total_minutes": 13.5
+  },
+  "notes": [
+    "所有关键目录已同步",
+    "所有文件类型已覆盖",
+    "仅1个文件因读取失败",
+    "153个文件已存在被跳过"
+  ]
+}

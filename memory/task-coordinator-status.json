@@ -1,7 +1,7 @@
 {
-  "last_check": "2026-03-10T20:51:14.204439",
+  "last_check": "2026-03-10T22:51:56.897652",
   "analysis": {
-    "timestamp": "2026-03-10T20:51:14.204453",
+    "timestamp": "2026-03-10T22:51:56.897672",
     "summary": {
       "overdue": 2,
       "blocked": 2,
@@ -27,7 +27,7 @@
     ]
   },
   "plan": {
-    "generated_at": "2026-03-10T20:51:14.204654",
+    "generated_at": "2026-03-10T22:51:56.898077",
     "mode": "sequential",
     "risk_score": 21,
     "reasoning": [
@@ -65,7 +65,7 @@
     }
   ],
   "learning_summary": {
-    "total_decisions": 2,
+    "total_decisions": 4,
     "effectiveness": {},
     "detected_patterns": []
   }

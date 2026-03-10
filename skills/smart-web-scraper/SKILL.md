@@ -1,0 +1,106 @@
+# Smart Web Scraper Skill
+> **智能网页抓取器** - 统一封装所有网页抓取能力
+
+## 核心功能
+
+1. **多方式抓取**
+   - Jina AI API（推荐，快速稳定）
+   - 本地抓取（requests，备用）
+   - 混合模式（自动切换）
+
+2. **智能特性**
+   - 自动重试（最多3次）
+   - 本地缓存（1小时TTL）
+   - 批量抓取
+   - 内容提取
+
+3. **输出格式**
+   - JSON（结构化数据）
+   - Markdown（可读文档）
+
+## 使用方式
+
+### 单URL抓取
+```python
+from smart_web_scraper import SmartWebScraper
+
+scraper = SmartWebScraper()
+
+# 抓取单个网页
+result = scraper.scrape("https://example.com")
+
+print(result['title'])
+print(result['content'])
+```
+
+### 批量抓取
+```python
+urls = [
+    "https://example1.com",
+    "https://example2.com",
+    "https://example3.com"
+]
+
+results = scraper.batch_scrape(urls, delay=1.0)
+
+for result in results:
+    if result['success']:
+        print(f"✅ {result['title']}")
+    else:
+        print(f"❌ {result['url']} - {result['error']}")
+```
+
+### 导出Markdown
+```python
+# 导出为Markdown文件
+scraper.export_to_markdown(result, "output/article.md")
+```
+
+## 配置
+
+配置文件: `config/web_scraper_config.json`
+
+```json
+{
+  "jina_api_key": "your-api-key",
+  "default_method": "jina",
+  "timeout": 30,
+  "max_retries": 3,
+  "cache_enabled": true,
+  "cache_ttl": 3600
+}
+```
+
+## 输出格式
+
+```json
+{
+  "success": true,
+  "url": "https://example.com",
+  "title": "页面标题",
+  "content": "页面内容",
+  "method": "jina",
+  "timestamp": "2026-03-11T00:30:00",
+  "metadata": {
+    "source": "jina.ai",
+    "content_length": 5000
+  }
+}
+```
+
+## 统计信息
+
+```python
+stats = scraper.get_stats()
+# {
+#   "total_requests": 100,
+#   "successful": 95,
+#   "failed": 5,
+#   "cached": 30,
+#   "success_rate": "95.0%"
+# }
+```
+
+---
+
+**这是信息收集体系的基础Skill！**

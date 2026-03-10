@@ -16,21 +16,27 @@
 
 ## 🚀 快速开始
 
-### 方式一：命令行交互版（推荐首次使用）
-
-```bash
-python tools/trl_assessment.py
-```
-
-按提示回答 8 个问题，自动生成详细评估报告。
-
-### 方式二：Web 版本（便于分享和复用）
+### 方式一：Web 版本（推荐，可视化界面）
 
 ```bash
 python tools/trl_api.py
 ```
 
 然后访问 http://localhost:8080
+
+**功能特性：**
+- 可视化问卷界面，8个维度评估
+- 实时计算TRL等级
+- 显示风险等级、融资阶段、合伙人匹配建议
+- 响应式设计，支持移动端
+
+### 方式二：命令行交互版
+
+```bash
+python tools/trl_assessment.py
+```
+
+按提示回答 8 个问题，自动生成详细评估报告。
 
 ### 方式三：API 调用（集成到系统）
 
@@ -154,14 +160,31 @@ Content-Type: application/json
 {
     "trl_level": 5,
     "trl_name": "相关环境组件验证",
-    "average_score": 5.25,
+    "average_score": 5.0,
+    "total_score": 40,
+    "max_score": 72,
     "risk_level": "中",
     "funding_stage": "A+轮",
     "partner_need": "运营合伙人、市场验证专家",
     "dimension_scores": {...},
-    "assessment_date": "2026-03-10 09:30:00"
+    "assessment_date": "2026-03-10 22:52:43"
 }
 ```
+
+### 字段说明
+
+| 字段 | 类型 | 说明 |
+|-----|-----|-----|
+| trl_level | int | TRL等级 1-9 |
+| trl_name | string | 等级名称 |
+| average_score | float | 平均得分 1.0-9.0 |
+| total_score | int | 总分 |
+| max_score | int | 满分（72分） |
+| risk_level | string | 风险等级 |
+| funding_stage | string | 适配融资阶段 |
+| partner_need | string | 合伙人匹配建议 |
+| dimension_scores | object | 各维度得分 |
+| assessment_date | string | 评估时间 |
 
 ---
 
@@ -173,6 +196,32 @@ Content-Type: application/json
 
 ---
 
+## 🛠️ 系统要求
+
+- **Python**: 3.7+
+- **依赖**: 无需额外依赖（仅使用标准库）
+
+## 🔧 故障排除
+
+### 端口被占用
+如果启动时提示端口被占用，可以修改端口号：
+```python
+# 修改 trl_api.py 最后一行
+run_server(port=8081)  # 使用其他端口
+```
+
+### 无法访问Web界面
+1. 检查服务是否启动：`python tools/trl_api.py`
+2. 检查防火墙设置
+3. 使用 `http://127.0.0.1:8080` 替代 `localhost`
+
+### API返回错误
+- 确保Content-Type设置为 `application/json`
+- 确保所有8个维度字段都存在
+- 字段值范围为 1-9 的整数
+
+---
+
 ## 🤝 满意解研究所
 
 > **让技术找到对的人**
@@ -181,6 +230,7 @@ Content-Type: application/json
 
 ---
 
-**版本**: v1.0  
+**版本**: v1.1  
 **更新**: 2026-03-10  
+**状态**: ✅ 测试通过，生产就绪  
 **作者**: 满意解研究所
