@@ -33,7 +33,7 @@
 - [x] TRL自评工具开发（✅ 2026-03-10 完成）
 - [ ] 首年30个案例库积累
 - [x] **Claude API 403错误调查**（✅ 2026-03-12 完成） - [调查报告](./reports/WIP-007-Claude-API-403-Investigation-Report.md)
-- [x] **灾备重建复刻实施方案V1.0**（✅ 2026-03-13 完成） - [灾备手册](./docs/DISASTER_RECOVERY_V1.md)
+- [x] **灾备重建复刻实施方案V1.0**（✅ 2026-03-14 完成V1.1补救版） - [灾备手册](./docs/DISASTER_RECOVERY_V1.md)
 - [x] **URG-002 内部会议机制建立**（✅ 2026-03-14 完成） - [会议协议](./docs/MEETING_PROTOCOL.md)
 
 ---
