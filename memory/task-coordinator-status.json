@@ -1,72 +1,73 @@
 {
-  "last_check": "2026-03-10T22:51:56.897652",
+  "last_check": "2026-03-13T11:50:28.564860",
   "analysis": {
-    "timestamp": "2026-03-10T22:51:56.897672",
+    "timestamp": "2026-03-13T11:50:28.564977",
     "summary": {
-      "overdue": 2,
+      "overdue": 0,
       "blocked": 2,
       "at_risk": 1,
       "pending": 1
     },
-    "risk_score": 21,
-    "recommended_mode": "sequential",
+    "risk_score": 6,
+    "recommended_mode": "notify_user",
     "reasoning": [
-      "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
-      "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
       "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
       "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
     ],
     "actions": [
       {
-        "priority": "P0",
-        "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
-        "mode": "sequential",
-        "parallel_agents": true,
-        "suspend_background": true
+        "priority": "P1",
+        "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+        "mode": "notify_user",
+        "items": [
+          "V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406",
+          "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+        ]
       }
     ]
   },
   "plan": {
-    "generated_at": "2026-03-10T22:51:56.898077",
-    "mode": "sequential",
-    "risk_score": 21,
+    "generated_at": "2026-03-13T11:50:28.566386",
+    "mode": "notify_user",
+    "risk_score": 6,
     "reasoning": [
-      "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
-      "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
       "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
       "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
     ],
     "actions": [
       {
-        "priority": "P0",
-        "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
-        "mode": "sequential",
-        "parallel_agents": true,
-        "suspend_background": true
+        "priority": "P1",
+        "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+        "mode": "notify_user",
+        "items": [
+          "V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406",
+          "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+        ]
       }
     ],
     "resource_allocation": {
-      "user_interaction": 0.9,
+      "user_interaction": 1.0,
       "background_tasks": 0.0,
-      "sub_agents": 2
+      "sub_agents": 0
     }
   },
-  "issues": [
-    {
-      "type": "incomplete_tasks",
-      "count": 4,
-      "items": [
-        "- [ ] \u7b49\u5f85 Notion \u540c\u6b65\u5b8c\u6210",
-        "- [ ] \u9a8c\u8bc1\u77e5\u8bc6\u5e93\u7ed3\u6784",
-        "- [ ] \u8865\u6551\u88ab\u9057\u5fd8\u4efb\u52a1\uff084\u9879\uff09",
-        "- [ ] \u751f\u6210\u660e\u65e5\u6668\u62a5\uff0809:00\uff09"
-      ],
-      "severity": "warning"
-    }
-  ],
+  "issues": [],
   "learning_summary": {
-    "total_decisions": 4,
-    "effectiveness": {},
+    "total_decisions": 35,
+    "effectiveness": {
+      "sequential": {
+        "success_rate": 0.0,
+        "total_uses": 12
+      },
+      "parallel": {
+        "success_rate": 1.0,
+        "total_uses": 20
+      },
+      "notify_user": {
+        "success_rate": 0.0,
+        "total_uses": 2
+      }
+    },
     "detected_patterns": []
   }
 }

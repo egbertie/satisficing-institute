@@ -1,0 +1,302 @@
+{
+  "timestamp": "2026-03-12T22:47:16.323294",
+  "summary": {
+    "total": 25,
+    "passed": 23,
+    "failed": 2,
+    "pass_rate": 92.0,
+    "avg_duration_ms": 0.7467174530029297,
+    "max_memory_mb": 0.0
+  },
+  "category_summary": {
+    "positive": {
+      "passed": 9,
+      "total": 10
+    },
+    "negative": {
+      "passed": 9,
+      "total": 10
+    },
+    "stress": {
+      "passed": 5,
+      "total": 5
+    }
+  },
+  "details": [
+    {
+      "test_id": "P01",
+      "name": "\u4e25\u91cd\u8fc7\u671f\u4efb\u52a1\u5904\u7406",
+      "passed": true,
+      "expected": "sequential",
+      "actual": "sequential",
+      "duration_ms": 0.19168853759765625,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.303084"
+    },
+    {
+      "test_id": "P02",
+      "name": "\u591a\u8fc7\u671f\u4efb\u52a1\u5e76\u884c\u8865\u6551",
+      "passed": true,
+      "expected": "sequential",
+      "actual": "sequential",
+      "duration_ms": 1.0731220245361328,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.304170"
+    },
+    {
+      "test_id": "P03",
+      "name": "\u963b\u585e\u4efb\u52a1\u6279\u91cf\u786e\u8ba4",
+      "passed": true,
+      "expected": "notify_user",
+      "actual": "notify_user",
+      "duration_ms": 0.2605915069580078,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.304445"
+    },
+    {
+      "test_id": "P04",
+      "name": "\u6b63\u5e38\u4efb\u52a1\u5e76\u884c\u6267\u884c",
+      "passed": true,
+      "expected": "parallel",
+      "actual": "parallel",
+      "duration_ms": 0.23102760314941406,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.304688"
+    },
+    {
+      "test_id": "P05",
+      "name": "\u6df7\u5408\u6a21\u5f0f\u8c03\u5ea6",
+      "passed": true,
+      "expected": "hybrid",
+      "actual": "hybrid",
+      "duration_ms": 0.2110004425048828,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.304910"
+    },
+    {
+      "test_id": "P06",
+      "name": "\u4e34\u754c\u98ce\u9669\u5206\u6570\u89e6\u53d1",
+      "passed": true,
+      "expected": "sequential",
+      "actual": "sequential",
+      "duration_ms": 0.2181529998779297,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.305140"
+    },
+    {
+      "test_id": "P07",
+      "name": "\u957f\u671f\u963b\u585e\u68c0\u6d4b",
+      "passed": true,
+      "expected": "detected",
+      "actual": "detected",
+      "duration_ms": 0.18024444580078125,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.305330"
+    },
+    {
+      "test_id": "P08",
+      "name": "\u9ad8\u98ce\u9669\u5373\u5c06\u5230\u671f",
+      "passed": true,
+      "expected": "detected",
+      "actual": "detected",
+      "duration_ms": 0.11444091796875,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.305451"
+    },
+    {
+      "test_id": "P09",
+      "name": "\u5b66\u4e60\u6a21\u5f0f\u8bc6\u522b",
+      "passed": false,
+      "expected": "optimized",
+      "actual": "no_pattern",
+      "duration_ms": 14.047622680664062,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.319506"
+    },
+    {
+      "test_id": "P10",
+      "name": "\u8d44\u6e90\u5206\u914d\u8ba1\u7b97",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.29778480529785156,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.319834"
+    },
+    {
+      "test_id": "N01",
+      "name": "\u7a7a\u4efb\u52a1\u5217\u8868",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.2605915069580078,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.320111"
+    },
+    {
+      "test_id": "N02",
+      "name": "\u8f7b\u5fae\u903e\u671f",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.2593994140625,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.320384"
+    },
+    {
+      "test_id": "N03",
+      "name": "\u77ed\u671f\u963b\u585e",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.2684593200683594,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.320664"
+    },
+    {
+      "test_id": "N04",
+      "name": "\u5145\u8db3\u65f6\u95f4\u4efb\u52a1",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.24127960205078125,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.320916"
+    },
+    {
+      "test_id": "N05",
+      "name": "\u5df2\u5b8c\u6210\u4efb\u52a1\u5e72\u6270",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.20623207092285156,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.321132"
+    },
+    {
+      "test_id": "N06",
+      "name": "\u672a\u6765\u4efb\u52a1\u63d0\u524d",
+      "passed": false,
+      "expected": "correct",
+      "actual": "incorrect",
+      "duration_ms": 0.1366138458251953,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.321276"
+    },
+    {
+      "test_id": "N07",
+      "name": "\u9608\u503c\u8fb9\u754c\u4e0b",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.11992454528808594,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.321401"
+    },
+    {
+      "test_id": "N08",
+      "name": "\u65e0\u963b\u585e\u65f6notify",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.11348724365234375,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.321519"
+    },
+    {
+      "test_id": "N09",
+      "name": "\u6709\u963b\u585e\u65f6parallel",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.12302398681640625,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.321659"
+    },
+    {
+      "test_id": "N10",
+      "name": "\u8fc7\u671f\u65f6hybrid",
+      "passed": true,
+      "expected": "correct",
+      "actual": "correct",
+      "duration_ms": 0.11324882507324219,
+      "memory_mb": 0.0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.321777"
+    },
+    {
+      "test_id": "S01",
+      "name": "\u5927\u89c4\u6a21\u8fc7\u671f\u4efb\u52a1(20+)",
+      "passed": true,
+      "expected": "contains 'passed'",
+      "actual": "passed (0.0ms)",
+      "duration_ms": 0,
+      "memory_mb": 0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.321920"
+    },
+    {
+      "test_id": "S02",
+      "name": "\u6df7\u5408\u9ad8\u5e76\u53d1(50+)",
+      "passed": true,
+      "expected": "contains 'passed'",
+      "actual": "passed",
+      "duration_ms": 0,
+      "memory_mb": 0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.322076"
+    },
+    {
+      "test_id": "S03",
+      "name": "\u5feb\u901f\u8fde\u7eed\u89e6\u53d1(10\u6b21/\u79d2)",
+      "passed": true,
+      "expected": "contains 'passed'",
+      "actual": "passed (0.5ms, 0 errors)",
+      "duration_ms": 0,
+      "memory_mb": 0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.322851"
+    },
+    {
+      "test_id": "S04",
+      "name": "\u6781\u7aef\u963b\u585e\u5806\u79ef(30+)",
+      "passed": true,
+      "expected": "contains 'passed'",
+      "actual": "passed (0.0ms)",
+      "duration_ms": 0,
+      "memory_mb": 0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.323053"
+    },
+    {
+      "test_id": "S05",
+      "name": "\u8d44\u6e90\u8017\u5c3d\u6a21\u62df(100+)",
+      "passed": true,
+      "expected": "contains 'stable'",
+      "actual": "stable (0.0ms, mode=sequential)",
+      "duration_ms": 0,
+      "memory_mb": 0,
+      "notes": "",
+      "timestamp": "2026-03-12T22:47:16.323258"
+    }
+  ]
+}

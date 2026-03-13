@@ -20,6 +20,7 @@ class TaskCoordinator:
     def __init__(self, workspace_path="/root/.openclaw/workspace"):
         self.workspace = Path(workspace_path)
         self.tasks_file = self.workspace / "docs" / "TASK_MASTER.md"
+        self.data_file = self.workspace / "skills" / "task-coordinator" / "data" / "tasks.json"
         self.memory_dir = self.workspace / "memory"
         self.status_file = self.workspace / "memory" / "task-coordinator-status.json"
         self.learning_file = self.workspace / "memory" / "task-coordinator-learning.json"
@@ -82,7 +83,7 @@ class TaskCoordinator:
             json.dump(self.strategy, f, indent=2)
     
     def load_current_tasks(self) -> Dict[str, List]:
-        """加载当前所有任务状态"""
+        """加载当前所有任务状态 - 优先从tasks.json读取"""
         now = datetime.now()
         
         tasks = {
@@ -94,53 +95,97 @@ class TaskCoordinator:
             "completed_today": [] # 今日已完成
         }
         
-        # 从任务清单加载
-        # 从今日日志加载
-        # 从阻塞状态加载
+        # 优先从 data/tasks.json 加载任务数据
+        if self.data_file.exists():
+            try:
+                with open(self.data_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    
+                # 从JSON数据填充任务列表
+                tasks["overdue"] = data.get("tasks", {}).get("overdue", [])
+                tasks["blocked"] = data.get("tasks", {}).get("blocked", [])
+                tasks["at_risk"] = data.get("tasks", {}).get("at_risk", [])
+                tasks["pending"] = data.get("tasks", {}).get("pending", [])
+                tasks["completed_today"] = data.get("tasks", {}).get("completed", [])
+                
+                # 添加in_progress任务（排除已在blocked中的）
+                blocked_ids = {t.get("id") for t in tasks["blocked"]}
+                in_progress = data.get("tasks", {}).get("in_progress", [])
+                for task in in_progress:
+                    if task.get("id") not in blocked_ids:
+                        tasks["scheduled"].append(task)
+                
+                return tasks
+            except (json.JSONDecodeError, KeyError) as e:
+                print(f"⚠️  读取tasks.json失败: {e}, 使用回退方案")
         
-        # 严重遗漏任务（来自TASK_MASTER）
-        overdue_tasks = [
-            {
-                "id": "URG-001",
-                "name": "灾备重建复刻实施方案V1.0",
-                "due": "2026-03-10 18:00",
-                "status": "🔴 已过期",
-                "hours_overdue": 3,
-                "severity": "critical",
-                "remedy_agent": "agent:main:subagent:13906415-d6f2-415e-a722-623dd6c914f8"
-            },
-            {
-                "id": "URG-002",
-                "name": "内部会议机制建立",
-                "due": "2026-03-10 16:00",
-                "status": "🔴 已过期",
-                "hours_overdue": 5,
-                "severity": "critical",
-                "remedy_agent": "agent:main:subagent:2b7c6e1a-386a-4be2-8d8e-3b0fa82e298"
-            },
-        ]
+        # 回退：从TASK_MASTER.md解析（简化版）
+        return self._load_tasks_from_master()
+    
+    def _load_tasks_from_master(self) -> Dict[str, List]:
+        """从TASK_MASTER.md解析任务（回退方案）"""
+        tasks = {
+            "scheduled": [],
+            "ad_hoc": [],
+            "overdue": [],
+            "at_risk": [],
+            "blocked": [],
+            "completed_today": [],
+            "pending": []
+        }
         
-        # 阻塞任务
-        blocked_tasks = [
-            {"id": "WIP-001", "name": "V1.0蓝军意见整理", "status": "等待附件", "blocker": "用户", "days_waiting": 3},
-            {"id": "WIP-002", "name": "专家网络搭建", "status": "等待联系方式", "blocker": "用户", "days_waiting": 3},
-        ]
-        
-        # 有风险任务（快到期）
-        at_risk = [
-            {"id": "WIP-003", "name": "五路图腾信息图", "due": "2026-03-11", "hours_left": 12, "severity": "high"},
-        ]
-        
-        # 待确认
-        pending = [
-            {"id": "NOTION-001", "name": "Notion同步最终确认", "status": "子代理执行中", "note": "已启动，待验证结果"},
-        ]
-        
-        tasks["overdue"] = overdue_tasks
-        tasks["blocked"] = blocked_tasks
-        tasks["at_risk"] = at_risk
-        tasks["pending"] = pending
-        
+        if not self.tasks_file.exists():
+            return tasks
+            
+        try:
+            content = self.tasks_file.read_text(encoding='utf-8')
+            
+            # 简单解析：查找严重遗漏任务部分
+            if '## 🔴 严重遗漏任务' in content:
+                # 检查是否有实际逾期的任务（未完成的）
+                overdue_section = content.split('## 🔴 严重遗漏任务')[1].split('## ')[0]
+                
+                # 解析表格中的任务
+                lines = overdue_section.split('\n')
+                for line in lines:
+                    if line.startswith('|') and 'URG-' in line and '✅' not in line and '🔄' in line:
+                        # 提取未完成的过期任务
+                        parts = [p.strip() for p in line.split('|')]
+                        if len(parts) >= 7:
+                            task_id = parts[1].replace('🔴', '').replace('**', '').strip()
+                            task_name = parts[2].replace('**', '').strip()
+                            due = parts[4].replace('**', '').strip()
+                            status = parts[5].strip()
+                            
+                            if '🔄' in status or '进行中' in status or '0%' in status:
+                                tasks["overdue"].append({
+                                    "id": task_id,
+                                    "name": task_name,
+                                    "due": due,
+                                    "status": "🔴 已过期",
+                                    "hours_overdue": 24,
+                                    "severity": "critical"
+                                })
+            
+            # 解析阻塞任务
+            if '### 2.1 高优先级（P1）' in content:
+                wip_section = content.split('### 2.1 高优先级（P1）')[1].split('###')[0]
+                lines = wip_section.split('\n')
+                for line in lines:
+                    if '|' in line and 'WIP-' in line:
+                        parts = [p.strip() for p in line.split('|')]
+                        if len(parts) >= 8 and ('阻塞' in line or '等待' in line):
+                            tasks["blocked"].append({
+                                "id": parts[1] if len(parts) > 1 else "WIP-XXX",
+                                "name": parts[2] if len(parts) > 2 else "未知任务",
+                                "status": "等待用户",
+                                "blocker": "用户",
+                                "days_waiting": 3
+                            })
+                            
+        except Exception as e:
+            print(f"⚠️  解析TASK_MASTER.md失败: {e}")
+            
         return tasks
     
     def analyze_workload(self) -> Dict:
@@ -194,7 +239,19 @@ class TaskCoordinator:
         analysis["reasoning"] = reasoning
         
         # 决策：选择执行模式
-        if risk_score >= 10 or tasks.get("overdue"):
+        blocked_count = len(tasks.get("blocked", []))
+        
+        # 新增：批量阻塞检测 - 超过10个阻塞任务优先处理
+        if blocked_count > 10 and not tasks.get("overdue"):
+            analysis["recommended_mode"] = "notify_user"
+            analysis["actions"].append({
+                "priority": "P0",
+                "action": f"批量确认大量阻塞项 ({blocked_count}个)",
+                "mode": "notify_user",
+                "items": [t["name"] for t in tasks["blocked"]],
+                "batch_size": blocked_count
+            })
+        elif risk_score >= 10 or tasks.get("overdue"):
             analysis["recommended_mode"] = "sequential"
             analysis["actions"].append({
                 "priority": "P0",
@@ -288,16 +345,28 @@ class TaskCoordinator:
         """识别任务模式"""
         decisions = self.learning.get("decisions", [])
         
-        # 示例：识别"飞书调试陷阱"
+        # 识别"飞书调试陷阱" - 降低阈值
         feishu_incidents = [d for d in decisions 
                           if "飞书" in str(d.get("reasoning", []))
-                          and d.get("context", {}).get("risk_score", 0) > 5]
+                          or any("飞书" in str(r) for r in d.get("reasoning", []))]
         
-        if len(feishu_incidents) >= 2:
+        if len(feishu_incidents) >= 1:  # 降低阈值从2到1
             self.learning["patterns"]["feishu_time_sink"] = {
                 "description": "飞书相关任务容易耗时过长，导致其他任务逾期",
                 "trigger": "任务包含'飞书'或'feishu'",
                 "recommendation": "设置时间限制，超时时自动启动并行检查",
+                "detected_at": datetime.now().isoformat(),
+                "incident_count": len(feishu_incidents)
+            }
+        
+        # 新增：识别批量阻塞模式
+        blocked_incidents = [d for d in decisions
+                           if d.get("context", {}).get("blocked_count", 0) > 5]
+        if len(blocked_incidents) >= 1:
+            self.learning["patterns"]["batch_blocked"] = {
+                "description": "检测到批量阻塞任务，建议批量确认",
+                "trigger": "阻塞任务数量>5",
+                "recommendation": "使用批量通知模式处理",
                 "detected_at": datetime.now().isoformat()
             }
     

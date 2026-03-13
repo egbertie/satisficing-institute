@@ -1,0 +1,20 @@
+graph TD
+    A[用户提出需求] --> B{需求类型判断}
+    B -->|信息查询| C[直接回答]
+    B -->|任务执行| D[启动子代理]
+    B -->|紧急事项| E[立即上报]
+    
+    C --> F[代码块交付Markdown]
+    D --> G[并行处理]
+    G --> H[更新任务状态]
+    
+    E --> I[飞书静默通知]
+    F --> J[入库A满意哥专属文件夹]
+    H --> J
+    
+    J --> K[每日晨报汇总]
+    I --> L[等待用户响应]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#f96,stroke:#333,stroke-width:2px
+    style J fill:#9f9,stroke:#333,stroke-width:2px
