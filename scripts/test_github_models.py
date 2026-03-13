@@ -1,163 +1,116 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 GitHub Models API 测试脚本
-测试 GPT-4o 连接和功能
+用于验证GPT-4o API配置是否正确
+
+使用方法:
+1. 设置环境变量: export GITHUB_TOKEN="your_github_token"
+2. 运行脚本: python3 test_github_models.py
 """
 
-import json
 import os
 import sys
-import time
-from datetime import datetime
+import requests
 
-def test_github_models_api():
-    """测试 GitHub Models API 连接"""
+# API配置
+API_URL = "https://models.inference.ai.azure.com/chat/completions"
+MODEL = "gpt-4o"
+
+def test_github_models():
+    """测试GitHub Models API连接"""
     
-    print("=" * 60)
-    print("🧪 GitHub Models API 测试 (GPT-4o)")
-    print("=" * 60)
-    print(f"⏰ 测试时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print()
+    # 从环境变量获取Token
+    api_key = os.environ.get('GITHUB_TOKEN')
     
-    # 检查依赖
-    try:
-        import requests
-        print("✅ requests 库已安装")
-    except ImportError:
-        print("❌ 缺少 requests 库，正在安装...")
-        os.system(f"{sys.executable} -m pip install requests -q")
-        import requests
-        print("✅ requests 库安装完成")
-    
-    print()
-    
-    # 加载配置
-    config_path = os.path.join(os.path.dirname(__file__), "..", "config", "github_models.json")
-    try:
-        with open(config_path, 'r', encoding='utf-8') as f:
-            config = json.load(f)
-        print(f"✅ 配置加载成功: {config['name']}")
-        print(f"   端点: {config['endpoint']}")
-        print(f"   模型: {config['model']}")
-    except Exception as e:
-        print(f"❌ 配置加载失败: {e}")
+    if not api_key:
+        print("❌ 错误: 未设置GITHUB_TOKEN环境变量")
+        print("请设置环境变量: export GITHUB_TOKEN='your_github_token'")
+        print("\n获取Token步骤:")
+        print("1. 访问 https://github.com/settings/tokens")
+        print("2. 创建Fine-grained token")
+        print("3. 设置环境变量后重新运行脚本")
         return False
-    
-    print()
-    
-    # 准备请求
-    endpoint = config['endpoint']
-    api_key = config['auth']['token']
-    model = config['model']
     
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
     
-    # 测试 1: 简单对话
-    print("📝 测试 1: 简单对话...")
+    # 测试消息
+    data = {
+        "model": MODEL,
+        "messages": [
+            {"role": "system", "content": "你是一个简洁的助手，用一句话回答问题。"},
+            {"role": "user", "content": "你好！请用一句话介绍自己。"}
+        ],
+        "temperature": 0.7,
+        "max_tokens": 100
+    }
+    
+    print("=" * 50)
+    print("🧪 GitHub Models API 测试")
+    print("=" * 50)
+    print(f"模型: {MODEL}")
+    print(f"API URL: {API_URL}")
+    print("-" * 50)
+    
     try:
-        response = requests.post(
-            f"{endpoint}/chat/completions",
-            headers=headers,
-            json={
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": "你是一个有用的助手。"},
-                    {"role": "user", "content": "你好！请简单介绍一下自己。"}
-                ],
-                "temperature": 0.7,
-                "max_tokens": 150
-            },
-            timeout=30
-        )
+        print("📡 发送请求...")
+        response = requests.post(API_URL, headers=headers, json=data, timeout=30)
         
         if response.status_code == 200:
-            data = response.json()
-            content = data['choices'][0]['message']['content']
-            print(f"✅ 连接成功!")
-            print(f"🤖 AI回复: {content[:100]}...")
-            print(f"📊 Token使用: 提示 {data['usage']['prompt_tokens']}, 输出 {data['usage']['completion_tokens']}, 总计 {data['usage']['total_tokens']}")
-        else:
-            print(f"❌ 请求失败: HTTP {response.status_code}")
-            print(f"   响应: {response.text}")
+            result = response.json()
+            reply = result['choices'][0]['message']['content']
+            
+            print("✅ 连接成功!")
+            print("-" * 50)
+            print("🤖 AI回复:")
+            print(f"  {reply}")
+            print("-" * 50)
+            
+            # 显示使用量
+            if 'usage' in result:
+                usage = result['usage']
+                print("📊 Token使用量:")
+                print(f"  输入: {usage.get('prompt_tokens', 'N/A')}")
+                print(f"  输出: {usage.get('completion_tokens', 'N/A')}")
+                print(f"  总计: {usage.get('total_tokens', 'N/A')}")
+            
+            return True
+            
+        elif response.status_code == 401:
+            print("❌ 认证失败: Token无效或已过期")
+            print("请检查GITHUB_TOKEN是否正确设置")
             return False
             
-    except Exception as e:
-        print(f"❌ 连接错误: {e}")
+        elif response.status_code == 403:
+            print("❌ 权限不足: 可能需要申请GitHub Models访问权限")
+            print("请访问 https://github.com/marketplace/models 申请访问")
+            return False
+            
+        elif response.status_code == 429:
+            print("❌ 请求过于频繁: 已达到速率限制")
+            print("GitHub Models限制: GPT-4o ≤50次/天, ≤10次/分钟")
+            return False
+            
+        else:
+            print(f"❌ 请求失败: HTTP {response.status_code}")
+            print(f"响应内容: {response.text}")
+            return False
+            
+    except requests.exceptions.Timeout:
+        print("❌ 请求超时: 请检查网络连接")
+        return False
+        
+    except requests.exceptions.RequestException as e:
+        print(f"❌ 请求异常: {e}")
         return False
     
-    print()
-    
-    # 测试 2: 中文对话
-    print("📝 测试 2: 中文对话能力...")
-    try:
-        response = requests.post(
-            f"{endpoint}/chat/completions",
-            headers=headers,
-            json={
-                "model": model,
-                "messages": [
-                    {"role": "user", "content": "用一句话总结人工智能的重要性。"}
-                ],
-                "temperature": 0.5,
-                "max_tokens": 100
-            },
-            timeout=30
-        )
-        
-        if response.status_code == 200:
-            data = response.json()
-            content = data['choices'][0]['message']['content']
-            print(f"✅ 中文对话成功!")
-            print(f"🤖 AI回复: {content}")
-        else:
-            print(f"❌ 中文对话失败: HTTP {response.status_code}")
-            
     except Exception as e:
-        print(f"❌ 测试错误: {e}")
-    
-    print()
-    
-    # 测试 3: 代码能力
-    print("📝 测试 3: 代码生成能力...")
-    try:
-        response = requests.post(
-            f"{endpoint}/chat/completions",
-            headers=headers,
-            json={
-                "model": model,
-                "messages": [
-                    {"role": "user", "content": "写一个Python函数，计算斐波那契数列的第n项。"}
-                ],
-                "temperature": 0.3,
-                "max_tokens": 200
-            },
-            timeout=30
-        )
-        
-        if response.status_code == 200:
-            data = response.json()
-            content = data['choices'][0]['message']['content']
-            print(f"✅ 代码生成成功!")
-            print(f"🤖 AI回复:")
-            print("-" * 40)
-            print(content)
-            print("-" * 40)
-        else:
-            print(f"❌ 代码生成失败: HTTP {response.status_code}")
-            
-    except Exception as e:
-        print(f"❌ 测试错误: {e}")
-    
-    print()
-    print("=" * 60)
-    print("✅ 所有测试完成!")
-    print("=" * 60)
-    
-    return True
+        print(f"❌ 错误: {e}")
+        return False
 
 if __name__ == "__main__":
-    success = test_github_models_api()
+    success = test_github_models()
     sys.exit(0 if success else 1)

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五路图腾信息图 V2.4 - 预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #D4A84B, #E8E8E8, #2E8B57, #E74C3C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .preview-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .preview-section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #aaa;
+            border-left: 4px solid #D4A84B;
+            padding-left: 15px;
+        }
+        .image-container {
+            text-align: center;
+            background: #0a0a15;
+            border-radius: 12px;
+            padding: 20px;
+            overflow: auto;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .info-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid;
+        }
+        .info-card.earth { border-color: #D4A84B; }
+        .info-card.metal { border-color: #E8E8E8; }
+        .info-card.water { border-color: #2C3E50; }
+        .info-card.wood { border-color: #2E8B57; }
+        .info-card.fire { border-color: #E74C3C; }
+        .info-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .info-card.earth h3 { color: #D4A84B; }
+        .info-card.metal h3 { color: #E8E8E8; }
+        .info-card.water h3 { color: #4a7a9e; }
+        .info-card.wood h3 { color: #2E8B57; }
+        .info-card.fire h3 { color: #E74C3C; }
+        .info-card p {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        .file-list {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .file-list ul {
+            list-style: none;
+        }
+        .file-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .file-name {
+            color: #ddd;
+            font-family: monospace;
+        }
+        .file-type {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #D4A84B, #B8953A);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 168, 75, 0.4);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 五路图腾信息图 V2.4</h1>
+        <p class="subtitle">1920×1080 横版设计 | 五行相生可视化 | 社交媒体专用</p>
+
+        <div class="preview-section">
+            <h2>📐 设计预览</h2>
+            <div class="image-container">
+                <img src="五路图腾信息图_1920x1080.png" alt="五路图腾信息图">
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>🔥 五路图腾核心信息</h2>
+            <div class="info-grid">
+                <div class="info-card earth">
+                    <h3>🟤 LIU 刘禹锡 · 土</h3>
+                    <p><strong>惟吾德馨</strong><br>价值纯度评估 · 反物质主义框架<br>"斯是陋室，惟吾德馨"</p>
+                </div>
+                <div class="info-card metal">
+                    <h3>⚪ SIMON 西蒙 · 金</h3>
+                    <p><strong>满意解</strong><br>有限理性 · 决策工具包<br>"不求最优，只求满意"</p>
+                </div>
+                <div class="info-card water">
+                    <h3>⚫ GUANYIN 观自在 · 水</h3>
+                    <p><strong>自在从容</strong><br>教练状态 · 安全空间设计<br>"在自在中决策"</p>
+                </div>
+                <div class="info-card wood">
+                    <h3>🟢 CONFUCIUS 孔子 · 木</h3>
+                    <p><strong>仁者爱人</strong><br>合伙伦理 · 儒商精神<br>"己欲立而立人"</p>
+                </div>
+                <div class="info-card fire">
+                    <h3>🔴 HUINENG 六祖 · 火</h3>
+                    <p><strong>知行合一</strong><br>顿悟直觉 · 红莲绽放<br>"钻木取火，淤泥红莲"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>📦 交付文件</h2>
+            <div class="file-list">
+                <ul>
+                    <li>
+                        <span class="file-name">五路图腾信息图_1920x1080.svg</span>
+                        <span class="file-type">SVG 源文件</span>
+                    </li>
+                    <li>
+                        <span class="file-name">五路图腾信息图_1920x1080.png</span>
+                        <span class="file-type">PNG 导出</span>
+                    </li>
+                    <li>
+                        <span class="file-name">五路图腾信息图_设计交付文档.md</span>
+                        <span class="file-type">设计规范</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>满意解研究所 · 五路图腾体系 V2.4</p>
+            <p>五行相生：土→金→水→木→火→土 · 生生不息 · 决策闭环</p>
+        </div>
+    </div>
+</body>
+</html>

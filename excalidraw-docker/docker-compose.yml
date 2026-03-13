@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  excalidraw:
+    image: excalidraw/excalidraw:latest
+    container_name: excalidraw-local
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      # 持久化存储场景数据
+      - ./data:/usr/share/nginx/html/data
+    networks:
+      - excalidraw-net
+
+  # 可选：添加存储服务用于后端持久化
+  excalidraw-storage:
+    image: excalidraw/excalidraw-storage-backend:latest
+    container_name: excalidraw-storage
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    environment:
+      - STORAGE_BACKEND=http
+      - HTTP_STORAGE_URL=http://localhost:3001
+    volumes:
+      - ./storage:/storage
+    networks:
+      - excalidraw-net
+
+networks:
+  excalidraw-net:
+    driver: bridge

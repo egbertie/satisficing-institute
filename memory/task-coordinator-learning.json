@@ -993,12 +993,493 @@
       "outcome": {
         "status": "pending"
       }
+    },
+    {
+      "timestamp": "2026-03-13T12:46:30.965015",
+      "decision": {
+        "timestamp": "2026-03-13T12:46:30.965007",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T13:46:32.924175",
+      "decision": {
+        "timestamp": "2026-03-13T13:46:32.924151",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T14:46:44.029924",
+      "decision": {
+        "timestamp": "2026-03-13T14:46:44.029916",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T15:46:33.985131",
+      "decision": {
+        "timestamp": "2026-03-13T15:46:33.985122",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:48:16.854596",
+      "decision": {
+        "timestamp": "2026-03-13T16:48:16.854588",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:49:48.221778",
+      "decision": {
+        "timestamp": "2026-03-13T17:49:48.221769",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:51:37.015673",
+      "decision": {
+        "timestamp": "2026-03-13T18:51:37.015665",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:53:09.059179",
+      "decision": {
+        "timestamp": "2026-03-13T19:53:09.059170",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:46:25.322711",
+      "decision": {
+        "timestamp": "2026-03-13T20:46:25.322703",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:46:29.409771",
+      "decision": {
+        "timestamp": "2026-03-13T21:46:29.409762",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:46:30.804310",
+      "decision": {
+        "timestamp": "2026-03-13T22:46:30.804301",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:46:30.145159",
+      "decision": {
+        "timestamp": "2026-03-13T23:46:30.145146",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T00:46:28.467668",
+      "decision": {
+        "timestamp": "2026-03-14T00:46:28.467659",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
     }
   ],
   "effectiveness": {
     "sequential": {
       "success_rate": 0.0,
-      "total_uses": 12
+      "total_uses": 24
     },
     "parallel": {
       "success_rate": 1.0,
@@ -1006,7 +1487,7 @@
     },
     "notify_user": {
       "success_rate": 0.0,
-      "total_uses": 2
+      "total_uses": 3
     }
   },
   "patterns": {}
