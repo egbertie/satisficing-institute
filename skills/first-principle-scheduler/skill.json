@@ -1,0 +1,50 @@
+{
+  "name": "first-principle-scheduler",
+  "version": "1.0.0",
+  "description": "第一性原则资源调度器 - 防止资源空置的核心机制。规则：1)阻塞任务≠进行中 2)进行中为空时自动补位2+7 3)资源全开=白天人机协作+夜间AI自主",
+  "entry": "scheduler.py",
+  "triggers": [
+    "resource_idle_check",
+    "task_status_misclassification",
+    "2_plus_7_progress"
+  ],
+  "actions": [
+    {
+      "name": "check_idle",
+      "description": "检查资源是否空置",
+      "command": "python3 scheduler.py check"
+    },
+    {
+      "name": "force_activate",
+      "description": "强制激活下一个可执行任务",
+      "command": "python3 scheduler.py activate"
+    },
+    {
+      "name": "status_report",
+      "description": "获取完整状态报告",
+      "command": "python3 scheduler.py report"
+    }
+  ],
+  "rules": [
+    {
+      "id": "RULE-001",
+      "name": "阻塞任务重新分类",
+      "description": "等待外界条件的任务必须标记为'暂停/待补充'，不得占用'进行中'名额"
+    },
+    {
+      "id": "RULE-002", 
+      "name": "自动补位机制",
+      "description": "进行中列表为空时，自动从2+7核心项目队列激活下一个任务"
+    },
+    {
+      "id": "RULE-003",
+      "name": "资源全开执行",
+      "description": "白天人机协作+夜间AI自主推进，零空置原则"
+    }
+  ],
+  "integration": {
+    "cron_check": "每小时检查一次资源利用状态",
+    "heartbeat_check": "每次心跳时验证进行中任务是否真实可推进",
+    "user_alert": "当检测到资源空置超过30分钟时，向用户报告"
+  }
+}
