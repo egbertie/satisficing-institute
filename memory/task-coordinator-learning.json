@@ -1474,12 +1474,1148 @@
       "outcome": {
         "status": "pending"
       }
+    },
+    {
+      "timestamp": "2026-03-14T01:46:27.110335",
+      "decision": {
+        "timestamp": "2026-03-14T01:46:27.110326",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T02:46:27.771251",
+      "decision": {
+        "timestamp": "2026-03-14T02:46:27.771242",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T03:46:27.420284",
+      "decision": {
+        "timestamp": "2026-03-14T03:46:27.420275",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T04:46:37.776929",
+      "decision": {
+        "timestamp": "2026-03-14T04:46:37.776921",
+        "summary": {
+          "overdue": 2,
+          "blocked": 2,
+          "at_risk": 1,
+          "pending": 1
+        },
+        "risk_score": 21,
+        "recommended_mode": "sequential",
+        "reasoning": [
+          "\u8f7b\u5ea6\u903e\u671f: \u707e\u5907\u91cd\u5efa\u590d\u523b\u5b9e\u65bd\u65b9\u6848V1.0 (3\u5c0f\u65f6)",
+          "\u4e25\u91cd\u903e\u671f: \u5185\u90e8\u4f1a\u8bae\u673a\u5236\u5efa\u7acb (5\u5c0f\u65f6)",
+          "\u957f\u671f\u963b\u585e: V1.0\u84dd\u519b\u610f\u89c1\u6574\u7406 (3\u5929)",
+          "\u957f\u671f\u963b\u585e: \u4e13\u5bb6\u7f51\u7edc\u642d\u5efa (3\u5929)"
+        ],
+        "actions": [
+          {
+            "priority": "P0",
+            "action": "\u7acb\u5373\u8865\u6551\u6240\u6709\u8fc7\u671f\u4efb\u52a1",
+            "mode": "sequential",
+            "parallel_agents": true,
+            "suspend_background": true
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 21,
+        "mode": "sequential",
+        "task_count": 6
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T04:47:19.406410",
+      "decision": {
+        "timestamp": "2026-03-14T04:47:19.406403",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T05:46:28.960572",
+      "decision": {
+        "timestamp": "2026-03-14T05:46:28.960565",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T06:46:30.631373",
+      "decision": {
+        "timestamp": "2026-03-14T06:46:30.631366",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T07:46:28.523020",
+      "decision": {
+        "timestamp": "2026-03-14T07:46:28.523013",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T08:46:39.427732",
+      "decision": {
+        "timestamp": "2026-03-14T08:46:39.427725",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T09:46:24.895426",
+      "decision": {
+        "timestamp": "2026-03-14T09:46:24.895419",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T10:46:23.990450",
+      "decision": {
+        "timestamp": "2026-03-14T10:46:23.990444",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T11:46:31.168685",
+      "decision": {
+        "timestamp": "2026-03-14T11:46:31.168678",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T12:46:33.991506",
+      "decision": {
+        "timestamp": "2026-03-14T12:46:33.991499",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T13:46:27.492164",
+      "decision": {
+        "timestamp": "2026-03-14T13:46:27.492159",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T14:46:29.738003",
+      "decision": {
+        "timestamp": "2026-03-14T14:46:29.737996",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T15:46:30.413010",
+      "decision": {
+        "timestamp": "2026-03-14T15:46:30.413004",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T16:46:24.233357",
+      "decision": {
+        "timestamp": "2026-03-14T16:46:24.233350",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T17:46:29.685203",
+      "decision": {
+        "timestamp": "2026-03-14T17:46:29.685196",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T17:46:34.345681",
+      "decision": {
+        "timestamp": "2026-03-14T17:46:34.345675",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T18:46:31.763937",
+      "decision": {
+        "timestamp": "2026-03-14T18:46:31.763927",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T19:46:27.562688",
+      "decision": {
+        "timestamp": "2026-03-14T19:46:27.562681",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T20:46:32.045770",
+      "decision": {
+        "timestamp": "2026-03-14T20:46:32.045763",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T21:46:32.142181",
+      "decision": {
+        "timestamp": "2026-03-14T21:46:32.142174",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T22:46:33.674141",
+      "decision": {
+        "timestamp": "2026-03-14T22:46:33.674134",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-14T23:46:32.472431",
+      "decision": {
+        "timestamp": "2026-03-14T23:46:32.472424",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T00:46:27.228679",
+      "decision": {
+        "timestamp": "2026-03-15T00:46:27.228673",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T01:46:29.546207",
+      "decision": {
+        "timestamp": "2026-03-15T01:46:29.546200",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T02:46:26.429272",
+      "decision": {
+        "timestamp": "2026-03-15T02:46:26.429264",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T03:46:25.734791",
+      "decision": {
+        "timestamp": "2026-03-15T03:46:25.734784",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T03:46:27.468657",
+      "decision": {
+        "timestamp": "2026-03-15T03:46:27.468650",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T04:46:24.737384",
+      "decision": {
+        "timestamp": "2026-03-15T04:46:24.737377",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T05:46:24.436508",
+      "decision": {
+        "timestamp": "2026-03-15T05:46:24.436501",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T06:46:29.042845",
+      "decision": {
+        "timestamp": "2026-03-15T06:46:29.042838",
+        "summary": {
+          "overdue": 0,
+          "blocked": 1,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "notify_user",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P1",
+            "action": "\u6279\u91cf\u786e\u8ba4\u963b\u585e\u9879",
+            "mode": "notify_user",
+            "items": [
+              "\u4e13\u5bb6\u7f51\u7edc\u642d\u5efa"
+            ]
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "notify_user",
+        "task_count": 1
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-15T07:46:30.511172",
+      "decision": {
+        "timestamp": "2026-03-15T07:46:30.511155",
+        "summary": {
+          "overdue": 0,
+          "blocked": 0,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "parallel",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P2",
+            "action": "\u65e0\u7d27\u6025\u4efb\u52a1\uff0c\u8fdb\u5165\u9ad8\u6548\u5e76\u884c\u6a21\u5f0f",
+            "mode": "parallel",
+            "max_parallel": 5
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "parallel",
+        "task_count": 0
+      },
+      "outcome": {
+        "status": "pending"
+      }
     }
   ],
   "effectiveness": {
     "sequential": {
       "success_rate": 0.0,
-      "total_uses": 24
+      "total_uses": 29
     },
     "parallel": {
       "success_rate": 1.0,
@@ -1487,7 +2623,7 @@
     },
     "notify_user": {
       "success_rate": 0.0,
-      "total_uses": 3
+      "total_uses": 32
     }
   },
   "patterns": {}

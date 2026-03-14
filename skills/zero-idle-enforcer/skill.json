@@ -1,0 +1,51 @@
+{
+  "name": "zero-idle-enforcer",
+  "version": "2.0.0",
+  "description": "零空置强制执行引擎 - Zero Idle Protocol。零容忍：进行中全部阻塞=立即补位，资源空置>5分钟=强制告警并激活备用队列。制度即代码，强制执行。",
+  "entry": "enforcer.py",
+  "principles": [
+    "零空置原则：任何时候都必须有真实推进的任务在执行",
+    "自动补位：主任务完成/阻塞时，0延迟自动切换",
+    "多通路并行：学习+研究+迭代+替身+游戏化+优化 六线并行",
+    "制度即代码：规则写入代码强制执行，不是文档"
+  ],
+  "triggers": [
+    {
+      "name": "immediate_check",
+      "description": "立即检查并强制执行",
+      "command": "python3 enforcer.py enforce",
+      "timeout": 30
+    }
+  ],
+  "integration": {
+    "on_task_change": "每次任务状态变更后立即调用 enforce_zero_idle()",
+    "on_heartbeat": "每次心跳检查时强制执行",
+    "on_user_idle": "用户交互间隙>5分钟自动触发",
+    "cron_schedule": "每10分钟强制执行检查"
+  },
+  "auto_fill_queue": {
+    "学习线": ["专家论文研读", "行业报告采集", "方法论萃取", "竞品研究"],
+    "研究线": ["决策模型调优", "评估工具测试", "五路图腾深化", "沙盘推演"],
+    "迭代线": ["案例库扩展", "文档V2优化", "仪表盘增强", "内部管理优化"],
+    "替身线": ["黎红雷训练", "罗汉更新", "谢宝剑政策库", "六祖顿悟优化"],
+    "游戏化线": ["GAME⭐产品化", "版本管理自动化", "迭代记录可视化"],
+    "优化线": ["已完成事项复盘", "内部管理审查", "并行效率分析", "成本效益评估"]
+  },
+  "violation_response": {
+    "ALL_BLOCKED": {
+      "severity": 5,
+      "action": "IMMEDIATE_FILL",
+      "description": "进行中任务全部阻塞，立即激活六线并行补位"
+    },
+    "NO_ACTIVE": {
+      "severity": 4,
+      "action": "IMMEDIATE_FILL",
+      "description": "无真实推进任务，立即补位"
+    },
+    "ZOMBIE_TASK": {
+      "severity": 3,
+      "action": "PARALLEL_FILL",
+      "description": "任务僵死运行，并行启动新任务"
+    }
+  }
+}
