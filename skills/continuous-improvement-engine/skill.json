@@ -1,0 +1,32 @@
+{
+  "name": "continuous-improvement-engine",
+  "version": "1.0.0",
+  "description": "持续复盘优化引擎 - 每天3-5%资源用于复盘优化，每时每刻都在进步。第一性原则五步法：观察→复盘→思考→优化→实施。",
+  "entry": "engine.py",
+  "principles": [
+    "每天3-5%资源用于持续复盘和优化",
+    "第一性原则五步法：观察→复盘→思考→优化→实施",
+    "每时每刻都在进步，成为最好的自己",
+    "制度即代码，强制执行改进",
+    "24小时内验证改进效果"
+  ],
+  "resource_allocation": {
+    "daily_deep_review": {"time": "23:00", "duration_min": 30, "percentage": 2},
+    "hourly_quick_review": {"frequency": "60min", "duration_min": 5, "percentage": 2},
+    "task_instant_review": {"trigger": "task_complete", "duration_min": 2, "percentage": 1},
+    "total_percentage": 5
+  },
+  "first_principles_framework": {
+    "step1_observe": "客观记录当日发生的一切，不带预设",
+    "step2_reflect": "深入分析根因，不只停留在表面",
+    "step3_think": "基于第一性原则，思考理论最优解",
+    "step4_optimize": "将思考转化为可执行的优化方案",
+    "step5_implement": "写入代码，强制执行，验证效果"
+  },
+  "success_metrics": {
+    "efficiency_improvement": "每周效率提升>=5%",
+    "insight_generation": "每周生成>=3条深度洞察",
+    "implementation_rate": "洞察实施率>=80%",
+    "verification_success": "改进验证成功率>=70%"
+  }
+}
