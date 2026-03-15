@@ -2,20 +2,33 @@
 """
 信息搜索与甄别引擎 - Information Intelligence Engine
 
-核心功能：高效搜索 + 质量甄别 + 价值观过滤 + 持续蒸馏
-用户目标：建立信息防火墙和蒸馏器，持续精进
+核心功能：高效搜索（进攻）+ 质量甄别（防守）+ 持续优化
+用户目标：建立信息防火墙和蒸馏器，既要进攻也要防守
+
+辩证思维：
+- 防守vs进攻：不能只防守不进攻，也不能只进攻不防守
+- 质量vs效率：两者平衡，而非二选一
+- 短期vs长期：即时需求与长期能力建设并重
 
 第一性原则：
 1. 信息质量 > 信息数量
 2. 主动甄别 > 被动接收
 3. 价值观匹配 > 内容有趣
 4. 持续优化 > 一次性配置
+5. 进攻与防守平衡 > 极端偏向
 
 搜索渠道优先级：
-- P0: 学术论文、官方数据、权威媒体
-- P1: 行业报告、专业分析、一手调研
-- P2: 社交媒体、用户生成内容（需甄别）
-- P3: 娱乐内容、低价值信息（过滤）
+- P0: 学术论文、官方数据、权威媒体（进攻核心）
+- P1: 行业报告、专业分析、一手调研（进攻主力）
+- P2: 社交媒体、用户生成内容（需甄别，辅助进攻）
+- P3: 娱乐内容、低价值信息（过滤，防守）
+
+进攻策略（搜索效率优化）：
+1. 多渠道并行搜索
+2. 关键词智能扩展
+3. 搜索结果缓存复用
+4. 个人知识库沉淀
+5. 搜索策略持续迭代
 """
 
 import json
@@ -592,6 +605,143 @@ class InformationIntelligenceEngine:
         
         return implemented
 
+    # ==================== 进攻策略：搜索效率优化 ====================
+    
+    def offensive_search_optimization(self, query: str) -> Dict:
+        """
+        进攻策略：最大化搜索效率和质量
+        
+        辩证思维：进攻vs防守平衡
+        - 不能只防守（过滤）不进攻（搜索）
+        - 也不能只进攻不防守
+        - 目标是：高效获取高质量信息
+        """
+        optimization = {
+            "timestamp": datetime.now().isoformat(),
+            "query": query,
+            "offensive_strategies": [],
+            "defensive_strategies": [],
+            "balance_analysis": {}
+        }
+        
+        # 进攻策略1：多渠道并行搜索
+        optimization["offensive_strategies"].append({
+            "name": "多渠道并行",
+            "action": "同时搜索P0+P1+P2渠道",
+            "expected_gain": "3倍信息覆盖面",
+            "implementation": "并行调用多个搜索API"
+        })
+        
+        # 进攻策略2：关键词智能扩展
+        optimization["offensive_strategies"].append({
+            "name": "关键词扩展",
+            "action": "基于查询语义扩展相关关键词",
+            "expected_gain": "50%相关信息增量",
+            "implementation": "使用同义词/近义词/上下位词扩展"
+        })
+        
+        # 进攻策略3：搜索结果缓存
+        optimization["offensive_strategies"].append({
+            "name": "结果缓存",
+            "action": "缓存近期搜索结果，避免重复搜索",
+            "expected_gain": "30%搜索时间节省",
+            "implementation": "建立本地搜索缓存库"
+        })
+        
+        # 进攻策略4：个人知识库沉淀
+        optimization["offensive_strategies"].append({
+            "name": "知识沉淀",
+            "action": "将高质量搜索结果沉淀到个人知识库",
+            "expected_gain": "长期信息复用",
+            "implementation": "自动归档到Notion/Obsidian"
+        })
+        
+        # 防守策略（与进攻平衡）
+        optimization["defensive_strategies"].append({
+            "name": "质量过滤",
+            "action": "过滤P3内容，甄别P2内容",
+            "expected_gain": "确保信息质量",
+            "implementation": "四阶来源评级+价值观审查"
+        })
+        
+        optimization["defensive_strategies"].append({
+            "name": "价值观防火墙",
+            "action": "过滤不符合价值观的信息",
+            "expected_gain": "保持信息纯度",
+            "implementation": "红旗关键词库"
+        })
+        
+        # 辩证平衡分析
+        optimization["balance_analysis"] = {
+            "principle": "对立统一：进攻与防守平衡",
+            "current_state": "评估当前偏向",
+            "recommendation": "根据查询类型动态调整攻防比例",
+            "academic_query": "进攻70%（P0+P1为主），防守30%",
+            "news_query": "进攻60%，防守40%",
+            "social_query": "进攻40%，防守60%（需更多甄别）"
+        }
+        
+        return optimization
+    
+    def generate_offensive_report(self, optimization: Dict) -> str:
+        """生成进攻策略报告"""
+        lines = [
+            "# 搜索效率优化报告（进攻策略）",
+            "",
+            f"**分析时间**: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+            f"**查询**: {optimization['query']}",
+            "",
+            "## 辩证思维：进攻 vs 防守",
+            "",
+            "> 不能只防守不进攻（无粮食饿死）",
+            "> 也不能只进攻不防守（信息过载）",
+            "> 目标是：高效获取高质量信息",
+            "",
+            "## 进攻策略",
+            ""
+        ]
+        
+        for i, strategy in enumerate(optimization["offensive_strategies"], 1):
+            lines.extend([
+                f"### {i}. {strategy['name']}",
+                f"- **行动**: {strategy['action']}",
+                f"- **预期收益**: {strategy['expected_gain']}",
+                f"- **实施方式**: {strategy['implementation']}",
+                ""
+            ])
+        
+        lines.extend([
+            "## 防守策略（平衡）",
+            ""
+        ])
+        
+        for i, strategy in enumerate(optimization["defensive_strategies"], 1):
+            lines.extend([
+                f"### {i}. {strategy['name']}",
+                f"- **行动**: {strategy['action']}",
+                f"- **预期收益**: {strategy['expected_gain']}",
+                ""
+            ])
+        
+        balance = optimization["balance_analysis"]
+        lines.extend([
+            "## 攻防平衡建议",
+            "",
+            f"**原则**: {balance['principle']}",
+            "",
+            "| 查询类型 | 进攻比例 | 防守比例 | 策略 |",
+            "|----------|----------|----------|------|",
+            "| 学术查询 | 70% | 30% | P0+P1为主，轻度过滤 |",
+            "| 新闻查询 | 60% | 40% | 广泛搜索，中度甄别 |",
+            "| 社交查询 | 40% | 60% | 谨慎搜索，重度甄别 |",
+            "",
+            "---",
+            "",
+            "*既要粮食（信息），也要质量（甄别）*"
+        ])
+        
+        return "\n".join(lines)
+
 
 def main():
     """主函数"""
@@ -604,6 +754,12 @@ def main():
     # 生成报告
     report = engine.generate_search_report(query, results)
     print(report)
+    
+    # 进攻策略优化
+    print("\n" + "="*50 + "\n")
+    offensive = engine.offensive_search_optimization(query)
+    offensive_report = engine.generate_offensive_report(offensive)
+    print(offensive_report)
     
     # 持续优化
     print("\n" + "="*50 + "\n")

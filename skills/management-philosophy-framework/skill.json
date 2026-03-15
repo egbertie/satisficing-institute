@@ -1,0 +1,56 @@
+{
+  "name": "management-philosophy-framework",
+  "version": "1.0.0",
+  "description": "管理哲学思维框架 - 辩证思维、系统思维、批判性思维、复杂性思维与第一性原则联动。提到'第一性原则'时自动联动这些管理哲学思维。",
+  "entry": "framework.py",
+  "philosophies": {
+    "dialectical_thinking": {
+      "name": "辩证思维",
+      "core_principles": ["对立统一", "量变质变", "否定之否定"],
+      "key_questions": [
+        "这个决策的对立面是什么？",
+        "如何在矛盾中找到统一？",
+        "当前是量变阶段还是质变阶段？"
+      ]
+    },
+    "systems_thinking": {
+      "name": "系统思维",
+      "core_principles": ["整体大于部分之和", "动态平衡", "反馈回路"],
+      "key_questions": [
+        "这个决策对系统整体有什么影响？",
+        "各个组件如何相互作用？",
+        "如何维持动态平衡？"
+      ]
+    },
+    "critical_thinking": {
+      "name": "批判性思维",
+      "core_principles": ["质疑假设", "证据检验", "逻辑一致性"],
+      "key_questions": [
+        "这个结论的假设是什么？",
+        "有什么证据支撑？",
+        "推理过程是否逻辑一致？"
+      ]
+    },
+    "complexity_thinking": {
+      "name": "复杂性思维",
+      "core_principles": ["非线性", "不确定性", "涌现性"],
+      "key_questions": [
+        "系统的杠杆点在哪里？",
+        "如何应对不确定性？",
+        "简单规则能否产生期望的复杂行为？"
+      ]
+    }
+  },
+  "integration_with_first_principles": {
+    "description": "第一性原则 + 管理哲学 = 全面决策",
+    "process": [
+      "Step 1: 用第一性原则找到本质",
+      "Step 2: 用辩证思维看到两面性",
+      "Step 3: 用系统思维看整体影响",
+      "Step 4: 用批判性思维检验假设",
+      "Step 5: 用复杂性思维找杠杆点"
+    ],
+    "output": "融合后的全面决策框架"
+  },
+  "trigger": "用户说出'启动第一性原则'或'第一性原则'时自动联动"
+}
