@@ -1,0 +1,231 @@
+# Cron规则配置
+# 方案C+ 三层响应架构
+
+crons:
+  # ============================================================
+  # Tier 1: 自动执行（低风险）
+  # ============================================================
+  
+  - id: auto_maintenance
+    name: "自动维护任务"
+    tier: 1
+    schedule: "17 */2 * * *"  # 每2小时17分
+    tasks:
+      - backup_check
+      - disk_monitor
+      - log_archive
+      - token_tracking
+    risk_level: low
+    auto_execute: true
+    enabled: true
+    description: "系统自动维护，无需人工干预"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  - id: economic_daily
+    name: "经济环境监测"
+    tier: 1
+    schedule: "17 9 * * *"  # 每日09:17
+    tasks:
+      - market_monitor
+      - policy_check
+      - news_digest
+    risk_level: low
+    auto_execute: true
+    enabled: true
+    description: "每日经济环境监测"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  # ============================================================
+  # Tier 2: 确认窗口（中风险）
+  # ============================================================
+  
+  - id: daily_report
+    name: "每日报告生成"
+    tier: 2
+    schedule: "17 22 * * *"  # 每日22:17
+    tasks:
+      - progress_report
+      - client_review
+      - behavior_analysis
+    risk_level: medium
+    auto_execute: false
+    confirmation_window: 15  # 15分钟确认窗口
+    default_action: execute
+    enabled: true
+    description: "每日运营报告生成，15分钟确认窗口"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  - id: weekly_report
+    name: "周报生成"
+    tier: 2
+    schedule: "17 18 * * 5"  # 周五18:17
+    tasks:
+      - weekly_summary
+      - efficiency_report
+      - client_value_review
+    risk_level: medium
+    auto_execute: false
+    confirmation_window: 30  # 30分钟确认窗口
+    default_action: execute
+    enabled: true
+    description: "每周效率报告"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  - id: economic_weekly
+    name: "环境周报"
+    tier: 2
+    schedule: "17 17 * * 5"  # 周五17:17
+    tasks:
+      - weekly_env_summary
+      - trend_analysis
+      - risk_alert
+    risk_level: medium
+    auto_execute: false
+    confirmation_window: 15
+    default_action: execute
+    enabled: true
+    description: "每周经济环境周报"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  - id: monthly_report
+    name: "月度报告"
+    tier: 2
+    schedule: "17 9 3 * *"  # 每月3日09:17
+    tasks:
+      - monthly_summary
+      - optimization_suggestions
+      - budget_review
+    risk_level: medium
+    auto_execute: false
+    confirmation_window: 30
+    default_action: execute
+    enabled: true
+    description: "每月深度分析报告"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  # ============================================================
+  # Tier 3: 强制阻断（高风险）
+  # ============================================================
+  
+  - id: security_check
+    name: "安全检查"
+    tier: 3
+    schedule: "17 9 * * *"  # 每日09:17
+    tasks:
+      - external_send_check
+      - skill_install_check
+      - cost_operation_check
+    risk_level: high
+    auto_execute: false
+    confirmation_required: true
+    enabled: true
+    description: "敏感操作检查，必须手动确认"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  - id: quarterly_audit
+    name: "季度审计"
+    tier: 3
+    schedule: "17 9 25 3,6,9,12 *"  # 每季度25日
+    tasks:
+      - full_cron_audit
+      - policy_review
+      - access_check
+    risk_level: high
+    auto_execute: false
+    confirmation_required: true
+    enabled: true
+    description: "季度全面Cron审计"
+    created_at: "2026-03-15T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.0
+
+  # ============================================================
+  # 已废弃（已禁用）
+  # ============================================================
+  
+  - id: zero_vacancy_check
+    name: "零空置检查"
+    tier: 1
+    schedule: "*/15 * * * *"
+    tasks:
+      - idle_detection
+      - resource_check
+    risk_level: low
+    auto_execute: true
+    enabled: false
+    description: "【已废弃】高频空转，改为零空置V3.0"
+    created_at: "2026-03-10T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.95
+
+  - id: resource_scheduler
+    name: "资源调度"
+    tier: 1
+    schedule: "*/30 * * * *"
+    tasks:
+      - resource_check
+      - load_balancing
+    risk_level: low
+    auto_execute: true
+    enabled: false
+    description: "【已废弃】改为事件驱动"
+    created_at: "2026-03-10T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.88
+
+  - id: review_checker
+    name: "复盘检查"
+    tier: 2
+    schedule: "0 * * * *"
+    tasks:
+      - review_reminder
+      - task_check
+    risk_level: medium
+    auto_execute: false
+    confirmation_window: 10
+    enabled: false
+    description: "【已废弃】合并到报告生成任务"
+    created_at: "2026-03-10T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.82
+
+  - id: executor_checker
+    name: "执行器检查"
+    tier: 1
+    schedule: "0 */2 * * *"
+    tasks:
+      - executor_status
+      - queue_check
+    risk_level: low
+    auto_execute: true
+    enabled: false
+    description: "【已废弃】已集成到心跳协议"
+    created_at: "2026-03-10T00:00:00"
+    execution_count: 0
+    token_consumption: 0
+    empty_rate: 0.91

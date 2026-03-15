@@ -1,0 +1,104 @@
+# 优化策略配置
+
+# 阈值设置
+thresholds:
+  # 空转率警告阈值（超过此值建议禁用）
+  empty_rate_warning: 0.8
+  
+  # Token预算警告阈值（占预算比例）
+  token_budget_warning: 0.1
+  
+  # 未执行天数警告（超过此值建议归档）
+  inactive_days_warning: 30
+  
+  # 成功率警告阈值
+  success_rate_warning: 0.5
+  
+  # 高频检查阈值（分钟）
+  high_frequency_threshold: 60
+
+# 自动优化设置
+auto_optimize:
+  # Tier 1 Cron是否允许自动优化
+  tier_1: true
+  
+  # Tier 2 Cron是否允许自动优化
+  tier_2: false
+  
+  # Tier 3 Cron是否允许自动优化
+  tier_3: false
+  
+  # 自动优化的最大变更数（防止过度优化）
+  max_changes_per_run: 3
+
+# 通知配置
+notification:
+  channels:
+    - kimi
+    - feishu
+  
+  # 渐进提醒时间线（分钟）
+  progressive_timeline:
+    - delay: 0
+      channel: kimi
+      message: "任务即将执行，请确认"
+    - delay: 5
+      channel: feishu
+      message: "二次提醒：任务即将执行"
+    - delay: 15
+      action: execute  # Tier 2默认执行
+      message: "无响应，按默认行为执行"
+    - delay: 30
+      action: pending
+      message: "已加入待处理队列"
+
+# 报告配置
+reporting:
+  daily:
+    enabled: true
+    time: "00:00"
+    distribution: archive_only
+    
+  weekly:
+    enabled: true
+    time: "18:17"
+    day: friday
+    distribution: push_notification
+    
+  monthly:
+    enabled: true
+    time: "09:17"
+    day: 3
+    distribution: push_notification
+
+# 资源预算
+budget:
+  # 日均Token预算
+  daily_token_budget: 18000
+  
+  # 单次执行Token上限
+  max_tokens_per_execution: 5000
+  
+  # 月Token预算
+  monthly_token_budget: 540000
+
+# 数据保留
+retention:
+  execution_log: 90  # 天
+  efficiency_stats: 365  # 天
+  backup_snapshots: 30  # 版本数
+  optimization_history: 0  # 永久
+
+# 错峰配置
+scheduling:
+  # 推荐的分钟偏移量
+  preferred_minutes:
+    - 17
+    - 37
+    - 47
+  
+  # 避免整点
+  avoid_on_hour: true
+  
+  # 避免半点
+  avoid_half_hour: true

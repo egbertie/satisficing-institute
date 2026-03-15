@@ -1,0 +1,30 @@
+{
+  "P0": {
+    "name": "紧急",
+    "description": "安全漏洞、数据风险、系统故障",
+    "response_time": "24小时内",
+    "notification": ["Kimi", "飞书", "邮件"],
+    "queue_limit": 5
+  },
+  "P1": {
+    "name": "重要",
+    "description": "性能优化、流程改进、Skill整合",
+    "response_time": "周报汇总",
+    "notification": ["周报"],
+    "queue_limit": 20
+  },
+  "P2": {
+    "name": "一般",
+    "description": "小优化、格式统一、代码重构",
+    "response_time": "月报汇总",
+    "notification": ["月报"],
+    "queue_limit": 50
+  },
+  "P3": {
+    "name": "建议",
+    "description": "长期规划、探索想法",
+    "response_time": "随时查阅",
+    "notification": [],
+    "queue_limit": null
+  }
+}

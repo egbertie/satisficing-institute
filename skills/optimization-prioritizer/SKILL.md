@@ -1,0 +1,47 @@
+# Optimization Prioritizer Skill
+
+## 功能概述
+对优化建议进行智能分级（P0-P3），管理优化队列，生成分级报告并追踪处理进度。
+
+## 优先级体系
+- **P0-紧急** - 安全漏洞、数据风险、系统故障（24小时决策）
+- **P1-重要** - 性能优化、流程改进、Skill整合（周报汇总）
+- **P2-一般** - 小优化、格式统一、代码重构（月报汇总）
+- **P3-建议** - 长期规划、探索想法（静默记录）
+
+## 使用方法
+
+### 命令
+```bash
+# 处理队列
+openclaw agent --skill optimization-prioritizer --task process-queue
+
+# 添加建议
+openclaw agent --skill optimization-prioritizer --task add-suggestion --file suggestion.md
+
+# 生成周报
+openclaw agent --skill optimization-prioritizer --task weekly-summary
+```
+
+### Python调用
+```python
+from skills.optimization_prioritizer import PriorityCalculator
+
+calculator = PriorityCalculator()
+priority = calculator.calculate(suggestion)
+print(f"优先级: {priority}")  # P0/P1/P2/P3
+```
+
+## 输出格式
+- 建议分级: P0/P1/P2/P3
+- 队列状态: 各优先级数量
+- 周报/月报: 汇总报告
+
+## 数据存储
+见 `data/suggestion-queue.json`
+
+## 作者
+满意解研究所 - 持续优化系统
+
+## 版本
+v1.0.0 - 2026-03-15

@@ -90,16 +90,43 @@
   "algorithm": {
     "type": "weighted_scoring",
     "weights": {
-      "urgency": 0.4,
-      "importance": 0.3,
+      "urgency": 0.35,
+      "importance": 0.25,
       "dependency": 0.2,
-      "resource_match": 0.1
+      "resource_match": 0.1,
+      "external_dependency_risk": 0.1
     },
     "thresholds": {
       "P0": 85,
       "P1": 70,
       "P2": 50,
       "P3": 0
+    },
+    "external_dependency_rules": {
+      "description": "外部依赖处理规则（第一性原则：内部优先，外部补充）",
+      "rules": [
+        {
+          "id": "RULE-EXT-001",
+          "name": "72小时切换规则",
+          "condition": "外部依赖等待时间 > 72小时",
+          "action": "强制切换至内部替代方案",
+          "priority_boost": "+15分"
+        },
+        {
+          "id": "RULE-EXT-002", 
+          "name": "70%可完成度规则",
+          "condition": "内部资源可完成任务 ≥ 70%",
+          "action": "立即启动内部版本，标记'待优化'",
+          "priority_boost": "+10分"
+        },
+        {
+          "id": "RULE-EXT-003",
+          "name": "禁止无限等待规则",
+          "condition": "任务状态为'等待外部输入' > 3天",
+          "action": "升级至P0，强制内部执行或人工决策",
+          "escalation": true
+        }
+      ]
     }
   },
   "tags": ["task", "priority", "scheduling", "intelligence"],

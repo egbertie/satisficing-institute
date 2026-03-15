@@ -1,0 +1,54 @@
+# Cron任务配置 - 第一性原理升级方案 V1.1
+# 满意解研究所自动化运营体系
+
+# ============================================================
+# 经济环境研究体系
+# ============================================================
+
+# 每日经济环境监测（错峰09:17，幸运数字17）
+# 任务：生成环境日报、监测政策/融资/供应链动态
+0 9 * * * openclaw agent --skill economic-intelligence --task daily-report --target isolated
+
+# 每周环境周报（周五17:17）
+# 任务：汇总本周环境动态、生成周报、识别风险与机会
+0 17 * * 5 openclaw agent --skill economic-intelligence --task weekly-report --target isolated
+
+# 每月环境月报（次月3日09:17）
+# 任务：深度分析、趋势研判、策略建议
+0 9 3 * * openclaw agent --skill economic-intelligence --task monthly-report --target isolated
+
+# ============================================================
+# 客户价值体系
+# ============================================================
+
+# 每周客户价值复盘（周五17:37，错峰）
+# 任务：客户旅程分析、转化漏斗检查、流失预警
+0 17 * * 5 openclaw agent --skill client-value-system --task weekly-review --target isolated
+
+# 每月客户健康度检查（每月1日09:17）
+# 任务：客户满意度分析、续约预测、LTV计算
+0 9 1 * * openclaw agent --skill client-value-system --task health-check --target isolated
+
+# ============================================================
+# 行为设计体系
+# ============================================================
+
+# 每月行为效果分析（每月28日09:17）
+# 任务：触点转化分析、话术效果评估、优化建议
+0 9 28 * * openclaw agent --skill behavioral-design --task monthly-analyze --target isolated
+
+# 每季度话术更新检查（每季度最后一个月25日09:17）
+# 任务：话术库更新、新异议处理补充、案例库更新
+0 9 25 3,6,9,12 * openclaw agent --skill behavioral-design --task quarterly-update --target isolated
+
+# ============================================================
+# 综合任务
+# ============================================================
+
+# 每周一早会准备（周一08:47）
+# 任务：生成本周工作重点、客户跟进提醒、会议准备
+0 8 * * 1 openclaw agent --task weekly-briefing --target isolated
+
+# 每月运营总结（每月最后一个工作日17:17）
+# 任务：汇总全月运营数据、生成总结报告
+0 17 * * * [ $(date +\%m) -ne $(date -d '+1 day' +\%m) ] openclaw agent --task monthly-summary --target isolated

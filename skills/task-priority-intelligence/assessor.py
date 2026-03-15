@@ -46,12 +46,13 @@ class TaskPriorityIntelligence:
         "P3": 0    # 低优先级
     }
     
-    # 权重配置
+    # 权重配置（更新：增加外部依赖风险权重）
     WEIGHTS = {
-        "urgency": 0.4,
-        "importance": 0.3,
+        "urgency": 0.35,
+        "importance": 0.25,
         "dependency": 0.2,
-        "resource": 0.1
+        "resource": 0.1,
+        "external_dependency_risk": 0.1  # 新增：外部依赖风险
     }
     
     # 关键词库
@@ -59,7 +60,9 @@ class TaskPriorityIntelligence:
         "high_urgency": ["立即", "马上", "紧急", "严重", "阻塞", "故障", "崩溃", "泄露", "安全"],
         "high_importance": ["官宣", "发布", "里程碑", "客户", "签约", "收入", "战略", "核心"],
         "medium": ["优化", "改进", "完善", "补充", "更新", "维护"],
-        "low": ["研究", "调研", "探索", "尝试", "可选", "未来"]
+        "low": ["研究", "调研", "探索", "尝试", "可选", "未来"],
+        # 新增：外部依赖相关关键词
+        "external_dependency": ["等待", "依赖", "附件", "外部", "对方", "第三方", "待确认"]
     }
     
     def assess_priority(self, task: TaskInput) -> PriorityResult:
@@ -77,14 +80,24 @@ class TaskPriorityIntelligence:
         importance_score = self._calculate_importance(task)
         dependency_score = self._calculate_dependency(task)
         resource_score = self._calculate_resource_match(task)
+        external_risk_score, suggested_action = self._calculate_external_dependency_risk(task)
         
         # 加权总分
         total_score = (
             urgency_score * self.WEIGHTS["urgency"] +
             importance_score * self.WEIGHTS["importance"] +
             dependency_score * self.WEIGHTS["dependency"] +
-            resource_score * self.WEIGHTS["resource"]
+            resource_score * self.WEIGHTS["resource"] +
+            external_risk_score * self.WEIGHTS["external_dependency_risk"]
         )
+        
+        # 外部依赖风险加分（提升优先级以触发处理）
+        if external_risk_score > 30:
+            total_score += 15  # 强制提升优先级
+        if external_risk_score > 50:
+            total_score += 10  # 严重风险，再提升
+        
+        total_score = min(100, total_score)
         
         # 确定优先级
         priority = self._score_to_priority(total_score)
@@ -92,7 +105,8 @@ class TaskPriorityIntelligence:
         # 生成判定理由
         reasoning = self._generate_reasoning(
             task, urgency_score, importance_score, 
-            dependency_score, resource_score, priority
+            dependency_score, resource_score, priority,
+            external_risk_score, suggested_action
         )
         
         return PriorityResult(
@@ -193,6 +207,45 @@ class TaskPriorityIntelligence:
         
         return max(0, min(100, score))
     
+    def _calculate_external_dependency_risk(self, task: TaskInput) -> tuple[float, str]:
+        """
+        计算外部依赖风险分数 (0-100) 和建议动作
+        
+        返回: (分数, 建议动作)
+        分数越高表示风险越大，需要提升优先级处理
+        """
+        score = 0  # 基础分（无风险）
+        action = "正常推进"
+        
+        desc_lower = task.description.lower()
+        
+        # 检测外部依赖关键词
+        has_external_dep = any(
+            keyword in desc_lower 
+            for keyword in self.KEYWORDS["external_dependency"]
+        )
+        
+        if has_external_dep:
+            # 第一性原则：内部优先，外部补充
+            
+            # 规则1：检测"等待附件"类描述
+            if "等待" in desc_lower and ("附件" in desc_lower or "下载" in desc_lower):
+                score += 40  # 高风险：被动等待
+                action = "立即评估内部替代方案（70%规则）"
+            
+            # 规则2：检测"外部输入"类描述  
+            if "外部" in desc_lower or "第三方" in desc_lower:
+                score += 30
+                action = "启动内部版本，标记'待优化'"
+            
+            # 规则3：检测"待确认"类描述
+            if "待确认" in desc_lower or "待核实" in desc_lower:
+                score += 25
+                action = "72小时内无反馈则切换内部方案"
+        
+        # 返回风险分数和建议动作
+        return min(100, score), action
+    
     def _score_to_priority(self, score: float) -> str:
         """分数转换为优先级"""
         if score >= self.PRIORITY_THRESHOLDS["P0"]:
@@ -206,7 +259,8 @@ class TaskPriorityIntelligence:
     
     def _generate_reasoning(self, task: TaskInput, urgency: float, 
                            importance: float, dependency: float, 
-                           resource: float, priority: str) -> str:
+                           resource: float, priority: str,
+                           external_risk: float = 0, action: str = "") -> str:
         """生成判定理由"""
         reasons = []
         
@@ -218,6 +272,10 @@ class TaskPriorityIntelligence:
             reasons.append(f"依赖度高({dependency:.0f})")
         if resource < 60:
             reasons.append(f"资源需求大({resource:.0f})")
+        
+        # 新增：外部依赖风险说明
+        if external_risk > 30:
+            reasons.append(f"⚠️ 外部依赖风险({external_risk:.0f})-{action}")
         
         if not reasons:
             reasons.append("常规任务")
@@ -262,10 +320,11 @@ class TaskPriorityIntelligence:
             "",
             "| 维度 | 权重 | 分数 | 说明 |",
             "|------|------|------|------|",
-            f"| 紧急度 | 40% | {result.urgency_score} | 基于截止时间和关键词 |",
-            f"| 重要度 | 30% | {result.importance_score} | 基于任务性质 |",
+            f"| 紧急度 | 35% | {result.urgency_score} | 基于截止时间和关键词 |",
+            f"| 重要度 | 25% | {result.importance_score} | 基于任务性质 |",
             f"| 依赖度 | 20% | {result.dependency_score} | 基于依赖任务数量 |",
             f"| 资源匹配 | 10% | {result.resource_score} | 基于资源需求 |",
+            f"| 外部依赖风险 | 10% | {result.external_risk_score if hasattr(result, 'external_risk_score') else 'N/A'} | 基于第一性原则评估 |",
             "",
             "## 判定理由",
             "",
@@ -273,7 +332,10 @@ class TaskPriorityIntelligence:
             "",
             "---",
             "",
-            "*算法：紧急度×0.4 + 重要度×0.3 + 依赖度×0.2 + 资源匹配度×0.1*"
+            "*算法：紧急度×0.35 + 重要度×0.25 + 依赖度×0.2 + 资源匹配度×0.1 + 外部依赖风险×0.1*",
+            "",
+            "**第一性原则**：外部依赖任务优先评估内部可完成度，70%可完成则立即启动，72小时无输入强制切换。"
+        ]
         ]
         
         return "\n".join(lines)
