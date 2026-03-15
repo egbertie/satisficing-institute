@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="guanyinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495E"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    <filter id="guanyinShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="waterRipple">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="400" height="400" fill="#FAFAFA"/>
+  
+  <!-- 外圆环 -->
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#E8E8E8" stroke-width="2"/>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#F0F0F0" stroke-width="1"/>
+  
+  <!-- 主圆形 - 墨黑色 -->
+  <circle cx="200" cy="180" r="100" fill="url(#guanyinGradient)" filter="url(#guanyinShadow)"/>
+  
+  <!-- 内部装饰 - 水波纹/流动感 -->
+  <ellipse cx="200" cy="160" rx="60" ry="20" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+  <ellipse cx="200" cy="180" rx="50" ry="15" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.25"/>
+  <ellipse cx="200" cy="200" rx="40" ry="10" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.2"/>
+  
+  <!-- 水字 -->
+  <text x="200" y="195" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="48" fill="#FFFFFF" font-weight="bold">水</text>
+  
+  <!-- GUANYIN 标识 -->
+  <text x="200" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#2C3E50" font-weight="bold" letter-spacing="2">GUANYIN</text>
+  
+  <!-- 核心精神 -->
+  <text x="200" y="355" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#666666">自在从容</text>
+  
+  <!-- 五行标识 -->
+  <circle cx="340" cy="60" r="25" fill="#2C3E50" opacity="0.9"/>
+  <text x="340" y="67" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">水</text>
+</svg>

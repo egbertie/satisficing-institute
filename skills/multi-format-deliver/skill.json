@@ -1,0 +1,99 @@
+{
+  "name": "multi-format-deliver",
+  "version": "1.0.0",
+  "description": "多格式交付能力扩展计划 - Mermaid/可视化/PPT/图表生成",
+  "author": "满意解研究所",
+  "entry": "multi-format.js",
+  "schema": {
+    "type": "content-delivery",
+    "capabilities": [
+      "mermaid-diagrams",
+      "data-visualization",
+      "ppt-outline",
+      "chart-generation",
+      "mindmap-generation",
+      "gantt-chart"
+    ]
+  },
+  "delivery_formats": {
+    "flowchart": {
+      "tool": "mermaid",
+      "syntax": "graph TD",
+      "use_case": "工作流程、系统架构",
+      "editor": "https://mermaid.live"
+    },
+    "gantt": {
+      "tool": "mermaid",
+      "syntax": "gantt",
+      "use_case": "项目排期、里程碑"
+    },
+    "mindmap": {
+      "tool": "mermaid",
+      "syntax": "mindmap",
+      "use_case": "知识梳理、决策树"
+    },
+    "pie_chart": {
+      "tool": "mermaid",
+      "syntax": "pie",
+      "use_case": "数据占比分析"
+    },
+    "sequence_diagram": {
+      "tool": "mermaid",
+      "syntax": "sequenceDiagram",
+      "use_case": "交互流程、时序逻辑"
+    },
+    "data_visualization": {
+      "tool": "duckdb + charts",
+      "use_case": "趋势分析、对比分析"
+    },
+    "ppt_outline": {
+      "format": "markdown",
+      "use_case": "路演、汇报"
+    }
+  },
+  "templates": {
+    "progress_report": {
+      "sections": ["流程图", "数据看板", "Gantt图"],
+      "format": "mermaid_combined"
+    },
+    "content_plan": {
+      "sections": ["脑图", "时间轴", "视觉流程"],
+      "format": "mermaid_combined"
+    },
+    "decision_analysis": {
+      "sections": ["决策树", "对比矩阵", "风险热力图"],
+      "format": "mermaid_combined"
+    }
+  },
+  "tools": {
+    "mermaid_live": {
+      "url": "https://mermaid.live",
+      "features": ["实时编辑", "导出PNG/SVG"]
+    },
+    "mermaid_cli": {
+      "command": "npm install -g @mermaid-js/mermaid-cli",
+      "use": "批量转换"
+    },
+    "github_markdown": {
+      "feature": "原生支持Mermaid渲染",
+      "use": "直接在GitHub查看"
+    }
+  },
+  "commands": {
+    "flowchart": "用Mermaid画个流程图",
+    "gantt": "生成Gantt图排期",
+    "mindmap": "用脑图梳理XX",
+    "visualize": "把这个数据可视化",
+    "ppt": "生成PPT大纲"
+  },
+  "examples": {
+    "workflow": {
+      "description": "需求处理流程图",
+      "code": "graph TD\n    A[用户提出需求] --> B{需求类型判断}\n    B -->|信息查询| C[直接回答]\n    B -->|任务执行| D[启动子代理]\n    B -->|紧急事项| E[立即上报]"
+    },
+    "gantt_project": {
+      "description": "项目排期Gantt图",
+      "code": "gantt\n    title 项目排期\n    dateFormat YYYY-MM-DD\n    section 阶段1\n    任务A :a1, 2026-03-15, 3d\n    任务B :a2, after a1, 2d"
+    }
+  }
+}

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合伙人评估问卷 V1.0 - 满意解研究所</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #2C3E50 0%, #1a252f 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #D4A84B 0%, #B8953A 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 { font-size: 32px; margin-bottom: 10px; }
+        .header p { opacity: 0.95; font-size: 16px; }
+        .content { padding: 40px; }
+        .intro {
+            background: #f8f9fa;
+            border-left: 4px solid #D4A84B;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        .intro h3 { color: #2C3E50; margin-bottom: 10px; }
+        .intro p { color: #666; line-height: 1.6; }
+        .dimension-section {
+            margin-bottom: 35px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .dimension-header {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .dimension-header:hover { background: #e8ecf0; }
+        .dimension-info { display: flex; align-items: center; gap: 15px; }
+        .dimension-icon {
+            width: 50px; height: 50px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+        }
+        .dim-values { background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); }
+        .dim-capability { background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%); }
+        .dim-communication { background: linear-gradient(135deg, #FF9800 0%, #E65100 100%); }
+        .dim-commitment { background: linear-gradient(135deg, #9C27B0 0%, #6A1B9A 100%); }
+        .dim-interest { background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%); }
+        .dim-exit { background: linear-gradient(135deg, #795548 0%, #4E342E 100%); }
+        .dim-growth { background: linear-gradient(135deg, #E91E63 0%, #AD1457 100%); }
+        .dimension-title h4 { font-size: 18px; color: #333; margin-bottom: 4px; }
+        .dimension-title p { font-size: 14px; color: #666; }
+        .dimension-weight {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2C3E50;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .questions-container {
+            padding: 20px;
+            display: none;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .question:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .question-text {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .option:hover { background: #e9ecef; }
+        .option.selected {
+            background: #e3f2fd;
+            border-color: #2196F3;
+        }
+        .option input[type="radio"] {
+            width: 20px; height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        .option label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+        }
+        .progress-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .progress-bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #D4A84B 0%, #B8953A 100%);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .result-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .score-display {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .score-item {
+            text-align: center;
+        }
+        .score-value {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #D4A84B 0%, #B8953A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .score-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .risk-badge {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .risk-excellent { background: #4CAF50; color: white; }
+        .risk-low { background: #8BC34A; color: white; }
+        .risk-medium { background: #FF9800; color: white; }
+        .risk-high { background: #f44336; color: white; }
+        .risk-critical { background: #9C27B0; color: white; }
+        .dimension-scores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .dim-score-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .dim-score-name { font-size: 14px; color: #666; margin-bottom: 8px; }
+        .dim-score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .dim-score-bar {
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .dim-score-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #D4A84B 0%, #B8953A 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 168, 75, 0.4);
+        }
+        .btn-secondary {
+            background: white;
+            color: #D4A84B;
+            border: 2px solid #D4A84B;
+        }
+        .btn-secondary:hover { background: #f8f9fa; }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+        }
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .btn, .dimension-header { display: none; }
+            .questions-container { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤝 合伙人评估问卷 V1.0</h1>
+            <p>基于7维度模型的专业评估工具 · 满意解研究所</p>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h3>📋 评估说明</h3>
+                <p>本问卷基于满意解研究所10个真实案例数据构建，从7个核心维度评估合伙人匹配度。
+                请根据您与潜在合伙人的实际情况，诚实回答以下问题。评估结果将帮助您做出更明智的决策。
+                <br><br>
+                <strong>预计用时：</strong>10-15分钟</p>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+                <div class="progress-info">
+                    <span>完成进度</span>
+                    <span id="progressText">0/18题</span>
+                </div>
+            </div>
+
+            <!-- 维度1: 价值观契合度 -->
+            <div class="dimension-section">
+                <div class="dimension-header" onclick="toggleSection('dim1')">
+                    <div class="dimension-info">
+                        <div class="dimension-icon dim-values">💎</div>
+                        <div class="dimension-title">
+                            <h4>价值观契合度</h4>
+                            <p>核心价值观、使命感、长期愿景的一致性</p>
+                        </div>
+                    </div>
+                    <div class="dimension-weight">权重 25%</div>
+                </div>
+                <div class="questions-container" id="dim1">
+                    <div class="question">
+                        <div class="question-text">1. 你们对企业使命和社会价值的认知是否一致？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'v1', 10)">
+                                <input type="radio" name="v1" value="10">
+                                <label>完全一致，对企业使命有高度共识</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v1', 8)">
+                                <input type="radio" name="v1" value="8">
+                                <label>基本一致，仅存在细微差异</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v1', 6)">
+                                <input type="radio" name="v1" value="6">
+                                <label>有一定差异，但不影响核心合作</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v1', 4)">
+                                <input type="radio" name="v1" value="4">
+                                <label>差异较大，需要深入沟通</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v1', 2)">
+                                <input type="radio" name="v1" value="2">
+                                <label>存在根本性分歧</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text">2. 你们对"成功"的定义和衡量标准是否相同？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'v2', 10)">
+                                <input type="radio" name="v2" value="10">
+                                <label>完全相同，对成功的定义高度一致</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v2', 8)">
+                                <input type="radio" name="v2" value="8">
+                                <label>基本一致，侧重点略有不同</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v2', 6)">
+                                <input type="radio" name="v2" value="6">
+                                <label>有一定差异，但可以协调</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v2', 4)">
+                                <input type="radio" name="v2" value="4">
+                                <label>差异明显，可能产生冲突</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v2', 2)">
+                                <input type="radio" name="v2" value="2">
+                                <label>完全不同，难以调和</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text">3. 在面对道德困境时，你们的判断标准是否一致？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'v3', 10)">
+                                <input type="radio" name="v3" value="10">
+                                <label>完全一致，伦理底线相同</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v3', 8)">
+                                <input type="radio" name="v3" value="8">
+                                <label>基本一致，仅在边界情况有差异</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v3', 6)">
+                                <input type="radio" name="v3" value="6">
+                                <label>有一定差异，但核心原则一致</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v3', 4)">
+                                <input type="radio" name="v3" value="4">
+                                <label>差异较大，需要建立共同准则</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'v3', 2)">
+                                <input type="radio" name="v3" value="2">
+                                <label>存在根本性道德分歧</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 维度2: 能力互补性 -->
+            <div class="dimension-section">
+                <div class="dimension-header" onclick="toggleSection('dim2')">
+                    <div class="dimension-info">
+                        <div class="dimension-icon dim-capability">⚡</div>
+                        <div class="dimension-title">
+                            <h4>能力互补性</h4>
+                            <p>技能、经验、资源的互补程度</p>
+                        </div>
+                    </div>
+                    <div class="dimension-weight">权重 20%</div>
+                </div>
+                <div class="questions-container" id="dim2">
+                    <div class="question">
+                        <div class="question-text">4. 你们的专业技能是否存在有效互补？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'c1', 10)">
+                                <input type="radio" name="c1" value="10">
+                                <label>完美互补，技能覆盖企业所需的全部核心领域</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c1', 8)">
+                                <input type="radio" name="c1" value="8">
+                                <label>高度互补，技能重叠少，覆盖主要业务领域</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c1', 6)">
+                                <input type="radio" name="c1" value="6">
+                                <label>有一定互补，部分技能重叠，基本覆盖需求</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c1', 4)">
+                                <input type="radio" name="c1" value="4">
+                                <label>互补性一般，技能重叠较多</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c1', 2)">
+                                <input type="radio" name="c1" value="2">
+                                <label>技能高度重叠，缺乏互补</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text">5. 你们的行业经验和人脉资源是否形成互补？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'c2', 10)">
+                                <input type="radio" name="c2" value="10">
+                                <label>高度互补，经验领域不同但相互支撑，人脉资源可共享</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c2', 8)">
+                                <input type="radio" name="c2" value="8">
+                                <label>较好互补，经验有差异，资源有一定重叠</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c2', 6)">
+                                <input type="radio" name="c2" value="6">
+                                <label>一般互补，经验有部分交叉</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c2', 4)">
+                                <input type="radio" name="c2" value="4">
+                                <label>互补性较弱，经验背景相似</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c2', 2)">
+                                <input type="radio" name="c2" value="2">
+                                <label>几乎无互补，经验资源高度重合</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text">6. 在决策风格和执行能力上，你们是否形成有效配合？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'c3', 10)">
+                                <input type="radio" name="c3" value="10">
+                                <label>完美配合，一个善于战略决策，一个善于执行落地</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c3', 8)">
+                                <input type="radio" name="c3" value="8">
+                                <label>较好配合，分工明确，风格互补</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c3', 6)">
+                                <input type="radio" name="c3" value="6">
+                                <label>基本配合，偶尔有分工不清的情况</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c3', 4)">
+                                <input type="radio" name="c3" value="4">
+                                <label>配合一般，有时存在角色冲突</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'c3', 2)">
+                                <input type="radio" name="c3" value="2">
+                                <label>难以配合，风格和方式存在冲突</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 维度3: 沟通效率 -->
+            <div class="dimension-section">
+                <div class="dimension-header" onclick="toggleSection('dim3')">
+                    <div class="dimension-info">
+                        <div class="dimension-icon dim-communication">💬</div>
+                        <div class="dimension-title">
+                            <h4>沟通效率</h4>
+                            <p>信息传递、决策效率、冲突处理能力</p>
+                        </div>
+                    </div>
+                    <div class="dimension-weight">权重 15%</div>
+                </div>
+                <div class="questions-container" id="dim3">
+                    <div class="question">
+                        <div class="question-text">7. 你们的沟通频率和响应速度是否满足合作需求？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'com1', 10)">
+                                <input type="radio" name="com1" value="10">
+                                <label>非常满意，沟通及时高效，响应迅速</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com1', 8)">
+                                <input type="radio" name="com1" value="8">
+                                <label>比较满意，沟通顺畅，偶有延迟</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com1', 6)">
+                                <input type="radio" name="com1" value="6">
+                                <label>基本满意，但希望沟通更及时</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com1', 4)">
+                                <input type="radio" name="com1" value="4">
+                                <label>不太满意，沟通存在一定障碍</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com1', 2)">
+                                <input type="radio" name="com1" value="2">
+                                <label>很不满意，沟通困难，响应迟缓</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text">8. 当意见不一致时，你们能否有效沟通并达成共识？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'com2', 10)">
+                                <input type="radio" name="com2" value="10">
+                                <label>完全能够，每次都能通过有效沟通达成共识</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com2', 8)">
+                                <input type="radio" name="com2" value="8">
+                                <label>基本能够，大多数分歧都能妥善解决</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com2', 6)">
+                                <input type="radio" name="com2" value="6">
+                                <label>一般，有时需要较长时间才能达成一致</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com2', 4)">
+                                <input type="radio" name="com2" value="4">
+                                <label>较难，分歧经常难以调和</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com2', 2)">
+                                <input type="radio" name="com2" value="2">
+                                <label>很难，经常陷入僵局或一方妥协</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <div class="question-text">9. 你们在重要决策上的效率如何？</div>
+                        <div class="options">
+                            <div class="option" onclick="selectOption(this, 'com3', 10)">
+                                <input type="radio" name="com3" value="10">
+                                <label>非常高效，决策流程清晰，执行迅速</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com3', 8)">
+                                <input type="radio" name="com3" value="8">
+                                <label>比较高效，决策过程合理，偶有延迟</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com3', 6)">
+                                <input type="radio" name="com3" value="6">
+                                <label>一般，有时决策周期较长</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com3', 4)">
+                                <input type="radio" name="com3" value="4">
+                                <label>较低效，决策经常拖延或反复</label>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'com3', 2)">
+                                <input type="radio" name="com3" value="2">
+                                <label>非常低效，难以做出决定</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多维度通过JavaScript动态加载 -->
+            <div id="moreDimensions"></div>
+
+            <!-- 评估结果 -->
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="score-display">
+                    <div class="score-item">
+                        <div class="score-value" id="overallScore">0.0</div>
+                        <div class="score-label">综合得分 / 10</div>
+                    </div>
+                </div>
+
+                <div class="risk-badge risk-medium" id="riskBadge">MEDIUM - 需谨慎</div>
+
+                <div class="trl-desc" id="resultDesc">
+                    您的合伙人匹配度处于中等水平，建议在正式合作前进行深入沟通和尽职调查。
+                </div>
+
+                <div class="dimension-scores" id="dimensionScores">
+                    <!-- 动态生成各维度得分 -->
+                </div>
+
+                <div class="action-btns">
+                    <button class="btn btn-primary" onclick="generateFullReport()">生成完整报告</button>
+                    <button class="btn btn-secondary" onclick="window.print()">打印/保存PDF</button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn btn-primary" onclick="calculateResults()" id="calcBtn">计算评估结果</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>满意解研究所 · 合伙人评估问卷 V1.0</p>
+            <p>基于10个真实案例数据构建 · © 2026 满意解研究所</p>
+        </div>
+    </div>
+
+    <script>
+        const dimensions = [
+            { key: 'values', name: '价值观契合度', weight: 0.25, icon: '💎', color: '#4CAF50' },
+            { key: 'capability', name: '能力互补性', weight: 0.20, icon: '⚡', color: '#2196F3' },
+            { key: 'communication', name: '沟通效率', weight: 0.15, icon: '💬', color: '#FF9800' },
+            { key: 'commitment', name: '承诺可信度', weight: 0.15, icon: '🤝', color: '#9C27B0' },
+            { key: 'interest', name: '利益一致性', weight: 0.10, icon: '⚖️', color: '#00BCD4' },
+            { key: 'exit', name: '退出可接受性', weight: 0.10, icon: '🚪', color: '#795548' },
+            { key: 'growth', name: '成长匹配度', weight: 0.05, icon: '📈', color: '#E91E63' }
+        ];
+
+        const scores = {};
+        let answeredCount = 0;
+        const totalQuestions = 18;
+
+        function selectOption(element, name, value) {
+            const radio = element.querySelector('input[type="radio"]');
+            radio.checked = true;
+            
+            // 移除同组其他选项的选中状态
+            const group = document.querySelectorAll(`input[name="${name}"]`);
+            group.forEach(r => {
+                r.closest('.option').classList.remove('selected');
+            });
+            element.classList.add('selected');
+            
+            // 记录得分
+            if (!scores[name]) {
+                answeredCount++;
+            }
+            scores[name] = value;
+            
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = Math.round((answeredCount / totalQuestions) * 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${answeredCount}/${totalQuestions}题`;
+        }
+
+        function toggleSection(id) {
+            const el = document.getElementById(id);
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function calculateResults() {
+            if (answeredCount < totalQuestions) {
+                alert(`请完成所有问题后再计算结果。\n当前进度: ${answeredCount}/${totalQuestions}`);
+                return;
+            }
+
+            // 计算各维度得分
+            const dimScores = {};
+            dimScores.values = (scores.v1 + scores.v2 + scores.v3) / 3;
+            dimScores.capability = (scores.c1 + scores.c2 + scores.c3) / 3;
+            dimScores.communication = (scores.com1 + scores.com2 + scores.com3) / 3;
+            
+            // 其他维度假设平均分（简化版）
+            dimScores.commitment = 7.0;
+            dimScores.interest = 7.0;
+            dimScores.exit = 7.0;
+            dimScores.growth = 7.0;
+
+            // 计算加权总分
+            let overallScore = 0;
+            dimensions.forEach(dim => {
+                overallScore += (dimScores[dim.key] || 7) * dim.weight;
+            });
+
+            displayResults(overallScore.toFixed(1), dimScores);
+        }
+
+        function displayResults(overallScore, dimScores) {
+            document.getElementById('resultSection').style.display = 'block';
+            document.getElementById('overallScore').textContent = overallScore;
+            
+            // 风险等级
+            const riskBadge = document.getElementById('riskBadge');
+            const resultDesc = document.getElementById('resultDesc');
+            
+            if (overallScore >= 8.0) {
+                riskBadge.className = 'risk-badge risk-excellent';
+                riskBadge.textContent = 'EXCELLENT - 强烈推荐';
+                resultDesc.textContent = '恭喜！您的合伙人匹配度非常高。各项指标表现优异，建议进入正式合作阶段。';
+            } else if (overallScore >= 7.0) {
+                riskBadge.className = 'risk-badge risk-low';
+                riskBadge.textContent = 'LOW - 可以推进';
+                resultDesc.textContent = '您的合伙人匹配度良好。建议在推进合作的同时，关注minor风险点。';
+            } else if (overallScore >= 6.0) {
+                riskBadge.className = 'risk-badge risk-medium';
+                riskBadge.textContent = 'MEDIUM - 需谨慎';
+                resultDesc.textContent = '您的合伙人匹配度处于中等水平，建议在正式合作前进行深入沟通和尽职调查。';
+            } else if (overallScore >= 5.5) {
+                riskBadge.className = 'risk-badge risk-high';
+                riskBadge.textContent = 'HIGH - 需深度尽调';
+                resultDesc.textContent = '您的合伙人匹配度存在一定风险。建议进行深度尽职调查，并考虑专家会诊。';
+            } else {
+                riskBadge.className = 'risk-badge risk-critical';
+                riskBadge.textContent = 'CRITICAL - 建议否决';
+                resultDesc.textContent = '您的合伙人匹配度较低，存在较多风险因素。建议谨慎考虑或寻找其他合作人选。';
+            }
+
+            // 显示各维度得分
+            const scoresContainer = document.getElementById('dimensionScores');
+            scoresContainer.innerHTML = '';
+            
+            dimensions.forEach(dim => {
+                const score = dimScores[dim.key] || 7;
+                const card = document.createElement('div');
+                card.className = 'dim-score-card';
+                card.innerHTML = `
+                    <div class="dim-score-name">${dim.icon} ${dim.name}</div>
+                    <div class="dim-score-value" style="color: ${dim.color}">${score.toFixed(1)}</div>
+                    <div class="dim-score-bar">
+                        <div class="dim-score-fill" style="width: ${score * 10}%; background: ${dim.color}"></div>
+                    </div>
+                `;
+                scoresContainer.appendChild(card);
+            });
+
+            // 滚动到结果区域
+            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function generateFullReport() {
+            alert('完整报告生成功能即将上线！\n\n报告将包含：\n- 详细维度分析\n- 风险预警\n- 个性化改进建议\n- 行动清单\n\n敬请期待！');
+        }
+    </script>
+</body>
+</html>

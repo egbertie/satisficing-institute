@@ -1,0 +1,14 @@
+{
+  "name": "unified-search",
+  "version": "1.0.0",
+  "description": "统一搜索套件 - 替代brave-search/tavily/firecrawl/multi-search-engine，整合所有搜索能力",
+  "entry": "search.py",
+  "replaces": ["brave-search", "tavily", "firecrawl-search", "openclaw-tavily-search"],
+  "engines": {
+    "brave": {"enabled": true, "priority": 1},
+    "tavily": {"enabled": true, "priority": 2},
+    "kimi": {"enabled": true, "priority": 3},
+    "web_fetch": {"enabled": true, "priority": 4}
+  },
+  "capabilities": ["web_search", "content_extract", "deep_research", "multi_engine"]
+}

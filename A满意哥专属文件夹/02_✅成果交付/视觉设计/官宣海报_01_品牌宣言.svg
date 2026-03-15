@@ -1,0 +1,26 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f3460"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#e94560;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  <circle cx="350" cy="50" r="80" fill="url(#glow)"/>
+  
+  <text x="40" y="60" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#e94560" opacity="0.3">01</text>
+  
+  <text x="40" y="140" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">让每一次合伙决策</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">都有据可依</text>
+  
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0">硬科技创业者的决策伙伴</text>
+  <text x="40" y="245" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0">五路图腾 · 知行合一</text>
+  
+  <line x1="40" y1="270" x2="360" y2="270" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="40" y="290" font-family="Arial, sans-serif" font-size="14" fill="#e94560">2026.03.25 官宣</text>
+</svg>

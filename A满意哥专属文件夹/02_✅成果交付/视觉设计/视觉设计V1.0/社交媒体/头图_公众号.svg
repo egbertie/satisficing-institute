@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="50%" style="stop-color:#2C3E50"/>
+      <stop offset="100%" style="stop-color:#1A1A2E"/>
+    </linearGradient>
+    
+    <filter id="headerShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1500" height="500" fill="url(#headerGradient)"/>
+  
+  <!-- 左侧装饰 -->
+  <circle cx="100" cy="250" r="200" fill="none" stroke="#D4A84B" stroke-width="1" opacity="0.2"/>
+  <circle cx="100" cy="250" r="150" fill="none" stroke="#D4A84B" stroke-width="1" opacity="0.1"/>
+  
+  <!-- 右侧装饰 -->
+  <circle cx="1400" cy="250" r="180" fill="none" stroke="#2E8B57" stroke-width="1" opacity="0.2"/>
+  <circle cx="1400" cy="250" r="130" fill="none" stroke="#2E8B57" stroke-width="1" opacity="0.1"/>
+  
+  <!-- 中央Logo区域 -->
+  <g transform="translate(200, 250)">
+    <!-- 五行图标 -->
+    <circle cx="0" cy="0" r="20" fill="#D4A84B" filter="url(#headerShadow)"/>
+    <text x="0" y="7" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <circle cx="35" cy="-20" r="15" fill="#C0C0C0"/>
+    <text x="35" y="-14" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#333333" font-weight="bold">金</text>
+    
+    <circle cx="28" cy="28" r="15" fill="#2C3E50"/>
+    <text x="28" y="34" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <circle cx="-28" cy="28" r="15" fill="#2E8B57"/>
+    <text x="-28" y="34" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <circle cx="-35" cy="-20" r="15" fill="#E74C3C"/>
+    <text x="-35" y="-14" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#FFFFFF" font-weight="bold">火</text>
+  </g>
+  
+  <!-- 品牌名称 -->
+  <text x="750" y="220" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="64" fill="#FFFFFF" font-weight="bold" letter-spacing="8">满意解研究所</text>
+  
+  <text x="750" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#AAAAAA" letter-spacing="4">SATISFICING INSTITUTE · 硬科技合伙人决策教练</text>
+  
+  <!-- 底部装饰线 -->
+  <line x1="550" y1="320" x2="950" y2="320" stroke="#D4A84B" stroke-width="2"/>
+  
+  <!-- 右侧标语 -->
+  <text x="1200" y="240" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#D4A84B">左脑逻辑</text>
+  
+  <text x="1200" y="280" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#2E8B57">右脑直觉</text>
+</svg>

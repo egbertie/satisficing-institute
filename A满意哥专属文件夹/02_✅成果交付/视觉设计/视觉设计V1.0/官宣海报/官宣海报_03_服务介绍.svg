@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bgGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="50%" style="stop-color:#2E8B57"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <linearGradient id="overlayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000" stop-opacity="0.3"/>
+      <stop offset="100%" style="stop-color:#000000" stop-opacity="0.6"/>
+    </linearGradient>
+    
+    <filter id="btnShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1080" height="1920" fill="url(#bgGradient3)"/>
+  
+  <!-- 装饰圆 -->
+  <circle cx="200" cy="200" r="300" fill="#FFFFFF" opacity="0.05"/>
+  <circle cx="900" cy="1600" r="400" fill="#FFFFFF" opacity="0.05"/>
+  
+  <!-- 顶部留白 -->
+  
+  <!-- 标题区域 -->
+  <text x="540" y="250" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="56" fill="#FFFFFF" font-weight="bold">你正在为合伙人选择而焦虑吗？</text>
+  
+  <!-- 问题列表 -->
+  <g transform="translate(140, 380)">
+    <text x="0" y="0" font-family="Noto Sans SC, sans-serif" font-size="32" fill="#FFFFFF" opacity="0.95">• 技术互补还是性格契合？</text>
+    
+    <text x="0" y="60" font-family="Noto Sans SC, sans-serif" font-size="32" fill="#FFFFFF" opacity="0.95">• 股权比例怎么定才公平？</text>
+    
+    <text x="0" y="120" font-family="Noto Sans SC, sans-serif" font-size="32" fill="#FFFFFF" opacity="0.95">• 如何判断对方是否靠谱？</text>
+    
+    <text x="0" y="180" font-family="Noto Sans SC, sans-serif" font-size="32" fill="#FFFFFF" opacity="0.95">• 签了协议还是担心分歧？</text>
+  </g>
+  
+  <!-- 分隔线 -->
+  <line x1="140" y1="620" x2="940" y2="620" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+  
+  <!-- 解决方案 -->
+  <text x="540" y="720" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="40" fill="#FFFFFF" font-weight="bold">满意解研究所</text>
+  
+  <text x="540" y="790" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="28" fill="#FFFFFF" opacity="0.9">专注硬科技转化的合伙人匹配决策教练</text>
+  
+  <!-- 服务特色 -->
+  <g transform="translate(140, 900)">
+    <!-- 特色1 -->
+    <rect x="0" y="0" width="280" height="200" rx="12" fill="#FFFFFF" opacity="0.15"/>
+    <text x="140" y="70" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="48" fill="#FFFFFF">左脑</text>
+    <text x="140" y="120" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF">逻辑分析</text>
+    <text x="140" y="160" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#FFFFFF" opacity="0.8">量化评估 · 框架工具</text>
+    
+    <!-- 特色2 -->
+    <rect x="320" y="0" width="280" height="200" rx="12" fill="#FFFFFF" opacity="0.15"/>
+    <text x="460" y="70" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="48" fill="#FFFFFF">右脑</text>
+    <text x="460" y="120" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF">直觉感知</text>
+    <text x="460" y="160" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#FFFFFF" opacity="0.8">压力测试 · 顿悟触发</text>
+    
+    <!-- 特色3 -->
+    <rect x="640" y="0" width="280" height="200" rx="12" fill="#FFFFFF" opacity="0.15"/>
+    <text x="780" y="70" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="48" fill="#FFFFFF">东方</text>
+    <text x="780" y="120" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF">儒商智慧</text>
+    <text x="780" y="160" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#FFFFFF" opacity="0.8">伦理框架 · 关系哲学</text>
+  </g>
+  
+  <!-- 方法论 -->
+  <text x="540" y="1220" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="32" fill="#FFFFFF" font-weight="bold">基于诺贝尔经济学奖「满意解」理论</text>
+  
+  <text x="540" y="1280" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF" opacity="0.9">不求最优，只求满意</text>
+  
+  <!-- 行动号召按钮 -->
+  <rect x="290" y="1380" width="500" height="100" rx="50" fill="#FFFFFF" filter="url(#btnShadow)"/>
+  <text x="540" y="1445" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="36" fill="#1A1A2E" font-weight="bold">预约免费诊断</text>
+  
+  <!-- 信任背书 -->
+  <text x="540" y="1600" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="20" fill="#FFFFFF" opacity="0.8">11年银行风控经验 + 11年创业体感</text>
+  
+  <!-- 联系方式 -->
+  <g transform="translate(540, 1700)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF">扫码关注公众号</text>
+    
+    <text x="0" y="50" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#FFFFFF" font-weight="bold">满意解研究所</text>
+  </g>
+  
+  <!-- 二维码占位 -->
+  <rect x="440" y="1750" width="200" height="200" fill="#FFFFFF" rx="8"/>
+  
+  <text x="540" y="1850" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#1A1A2E">[二维码]</text>
+  
+  <!-- 底部版权 -->
+  <text x="540" y="2000" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#FFFFFF" opacity="0.5">© 2026 满意解研究所 · SATISFICING INSTITUTE</text>
+  </svg>

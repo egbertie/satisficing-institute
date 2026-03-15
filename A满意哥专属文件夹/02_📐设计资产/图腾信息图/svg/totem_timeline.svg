@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="100%" style="stop-color:#A67C00"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0EB"/>
+      <stop offset="100%" style="stop-color:#C0C0C0"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2E3A59"/>
+      <stop offset="100%" style="stop-color:#0F1F3D"/>
+    </linearGradient>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A7C59"/>
+      <stop offset="100%" style="stop-color:#2E5C45"/>
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E63946"/>
+      <stop offset="100%" style="stop-color:#B22222"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="400" fill="#FAFAFA"/>
+  
+  <!-- 标题 -->
+  <g transform="translate(600, 35)">
+    <text text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="28" font-weight="bold" fill="#1a1a1a">五路图腾体系</text>
+    <text text-anchor="middle" y="25" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="14" fill="#666">Five Totem System V2.4 · 五行相生循环</text>
+  </g>
+  
+  <!-- 连接箭头线 -->
+  <g stroke-width="3" fill="none" stroke-linecap="round">
+    <!-- 土→金 -->
+    <path d="M 200 200 Q 260 200 280 200" stroke="#C9A227" marker-end="url(#arrowEarth)"/>
+    <!-- 金→水 -->
+    <path d="M 420 200 Q 480 200 500 200" stroke="#C0C0C0" marker-end="url(#arrowMetal)"/>
+    <!-- 水→木 -->
+    <path d="M 640 200 Q 700 200 720 200" stroke="#16213E" marker-end="url(#arrowWater)"/>
+    <!-- 木→火 -->
+    <path d="M 860 200 Q 920 200 940 200" stroke="#2E5C45" marker-end="url(#arrowWood)"/>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowEarth" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#C9A227"/>
+    </marker>
+    <marker id="arrowMetal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#C0C0C0"/>
+    </marker>
+    <marker id="arrowWater" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#16213E"/>
+    </marker>
+    <marker id="arrowWood" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2E5C45"/>
+    </marker>
+  </defs>
+  
+  <!-- 火→土（循环回连） -->
+  <path d="M 1060 200 Q 1150 200 1150 280 Q 1150 360 600 360 Q 50 360 50 280 Q 50 200 120 200" stroke="#DC143C" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#arrowFire)"/>
+  <defs>
+    <marker id="arrowFire" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#DC143C"/>
+    </marker>
+  </defs>
+  
+  <!-- 图腾卡片 -->
+  
+  <!-- LIU 土 -->
+  <g transform="translate(100, 130)" filter="url(#shadow)">
+    <rect width="120" height="140" rx="8" fill="url(#earthGrad)"/>
+    <text x="60" y="30" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="20" font-weight="bold" fill="#fff">LIU</text>
+    <text x="60" y="55" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="12" fill="#fff" opacity="0.9">刘禹锡</text>
+    <text x="60" y="75" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="11" fill="#fff" opacity="0.8">土 · EARTH</text>
+    <line x1="30" y1="85" x2="90" y2="85" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <text x="60" y="105" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="14" fill="#fff">惟吾德馨</text>
+    <text x="60" y="122" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#fff" opacity="0.8">Virtue</text>
+  </g>
+  
+  <!-- SIMON 金 -->
+  <g transform="translate(320, 130)" filter="url(#shadow)">
+    <rect width="120" height="140" rx="8" fill="url(#metalGrad)"/>
+    <text x="60" y="30" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="20" font-weight="bold" fill="#333">SIMON</text>
+    <text x="60" y="55" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="12" fill="#333" opacity="0.9">司马贺</text>
+    <text x="60" y="75" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="11" fill="#333" opacity="0.8">金 · METAL</text>
+    <line x1="30" y1="85" x2="90" y2="85" stroke="#333" stroke-width="1" opacity="0.2"/>
+    <text x="60" y="105" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="14" fill="#333">满意解</text>
+    <text x="60" y="122" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#333" opacity="0.8">Satisficing</text>
+  </g>
+  
+  <!-- GUANYIN 水 -->
+  <g transform="translate(540, 130)" filter="url(#shadow)">
+    <rect width="120" height="140" rx="8" fill="url(#waterGrad)"/>
+    <text x="60" y="30" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="18" font-weight="bold" fill="#fff">GUANYIN</text>
+    <text x="60" y="55" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="12" fill="#fff" opacity="0.9">观自在</text>
+    <text x="60" y="75" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="11" fill="#fff" opacity="0.8">水 · WATER</text>
+    <line x1="30" y1="85" x2="90" y2="85" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <text x="60" y="105" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="14" fill="#fff">自在从容</text>
+    <text x="60" y="122" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#fff" opacity="0.8">At ease and unhurried</text>
+  </g>
+  
+  <!-- CONFUCIUS 木 -->
+  <g transform="translate(760, 130)" filter="url(#shadow)">
+    <rect width="120" height="140" rx="8" fill="url(#woodGrad)"/>
+    <text x="60" y="30" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="16" font-weight="bold" fill="#fff">CONFUCIUS</text>
+    <text x="60" y="55" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="12" fill="#fff" opacity="0.9">孔子</text>
+    <text x="60" y="75" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="11" fill="#fff" opacity="0.8">木 · WOOD</text>
+    <line x1="30" y1="85" x2="90" y2="85" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <text x="60" y="105" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="14" fill="#fff">仁者爱人</text>
+    <text x="60" y="122" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#fff" opacity="0.8">Benevolence</text>
+  </g>
+  
+  <!-- HUINENG 火 -->
+  <g transform="translate(980, 130)" filter="url(#shadow)">
+    <rect width="120" height="140" rx="8" fill="url(#fireGrad)"/>
+    <text x="60" y="30" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="16" font-weight="bold" fill="#fff">HUINENG</text>
+    <text x="60" y="55" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="12" fill="#fff" opacity="0.9">六祖</text>
+    <text x="60" y="75" text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="11" fill="#fff" opacity="0.8">火 · FIRE</text>
+    <line x1="30" y1="85" x2="90" y2="85" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <text x="60" y="105" text-anchor="middle" font-family="Source Han Serif CN, Noto Serif SC, serif" font-size="14" fill="#fff">顿悟</text>
+    <text x="60" y="122" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#fff" opacity="0.8">Enlightenment</text>
+  </g>
+  
+  <!-- 底部说明 -->
+  <g transform="translate(600, 385)">
+    <text text-anchor="middle" font-family="Source Han Sans CN, Noto Sans SC, sans-serif" font-size="11" fill="#999">满意解研究所 · Satisficing Institute · 东方智慧 × 现代决策科学</text>
+  </g>
+</svg>

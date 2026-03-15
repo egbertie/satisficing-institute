@@ -81,6 +81,108 @@ class TaskCoordinator:
         with open(self.strategy_file, 'w') as f:
             json.dump(self.strategy, f, indent=2)
     
+    def _parse_task_master(self) -> Dict[str, List]:
+        """解析 TASK_MASTER.md，提取真实任务状态
+        
+        返回:
+            Dict with keys: overdue, blocked, at_risk, pending
+        """
+        result = {
+            "overdue": [],
+            "blocked": [],
+            "at_risk": [],
+            "pending": []
+        }
+        
+        if not self.tasks_file.exists():
+            return result
+        
+        try:
+            content = self.tasks_file.read_text(encoding='utf-8')
+            lines = content.split('\n')
+            
+            current_section = None
+            current_task = None
+            
+            for line in lines:
+                # 检测区块标题
+                if '## 一、已完成任务' in line or '## 已完成任务' in line:
+                    current_section = 'completed'
+                    continue
+                elif '## 二、进行中任务' in line or '## 进行中任务' in line:
+                    current_section = 'in_progress'
+                    continue
+                elif '## 三、待启动任务' in line or '## 待启动任务' in line:
+                    current_section = 'pending'
+                    continue
+                elif '##' in line and current_section:
+                    # 新的大区块，重置
+                    current_section = None
+                    continue
+                
+                # 解析任务行 (Markdown表格行)
+                if current_section and line.startswith('|') and 'WIP-' in line:
+                    parts = [p.strip() for p in line.split('|')]
+                    parts = [p for p in parts if p]  # 移除空元素
+                    
+                    if len(parts) >= 3:
+                        task_id = parts[0] if parts[0].startswith(('WIP-', 'URG-', 'TODO-')) else None
+                        task_name = parts[1] if len(parts) > 1 else ""
+                        
+                        if task_id:
+                            current_task = {
+                                "id": task_id,
+                                "name": task_name,
+                                "status": "",
+                                "blocker": "",
+                                "days_waiting": 0,
+                                "note": ""
+                            }
+                            
+                            # 检查是否为阻塞状态
+                            status_lower = line.lower()
+                            
+                            # 检查是否已完成（在行中或备注中）
+                            if '✅' in line or '已完成' in line or '100%' in line:
+                                # 已完成，不加入阻塞列表
+                                current_task = None
+                                continue
+                            
+                            # 检查用户自行处理
+                            if '用户自行' in line or '用户处理' in line:
+                                # 用户自行处理，不加入阻塞列表
+                                current_task = None
+                                continue
+                            
+                            # 检查阻塞关键词
+                            if '等待' in line or '阻塞' in line or 'block' in status_lower:
+                                result["blocked"].append(current_task)
+                            elif '有风险' in line or 'at_risk' in status_lower:
+                                result["at_risk"].append(current_task)
+                            elif '过期' in line or '逾期' in line or 'overdue' in status_lower:
+                                result["overdue"].append(current_task)
+                            
+                            current_task = None
+            
+            # 二次验证：读取最新的 memory 文件确认状态
+            today = datetime.now().strftime('%Y-%m-%d')
+            memory_file = self.memory_dir / f"{today}.md"
+            if memory_file.exists():
+                mem_content = memory_file.read_text(encoding='utf-8')
+                # 如果 memory 中明确说 WIP-001 已完成，则从阻塞列表移除
+                if 'WIP-001' in mem_content and ('已完成' in mem_content or '100%' in mem_content):
+                    result["blocked"] = [t for t in result["blocked"] if t.get("id") != "WIP-001"]
+                # 如果 memory 中明确说 WIP-002 用户自行处理，则移除
+                if 'WIP-002' in mem_content and ('用户自行' in mem_content or '用户处理' in mem_content):
+                    result["blocked"] = [t for t in result["blocked"] if t.get("id") != "WIP-002"]
+                    
+        except Exception as e:
+            # 解析失败返回空列表，避免误报
+            print(f"解析 TASK_MASTER.md 失败: {e}")
+            pass
+        
+        return result
+    
     def load_current_tasks(self) -> Dict[str, List]:
         """加载当前所有任务状态"""
         now = datetime.now()
@@ -98,43 +200,13 @@ class TaskCoordinator:
         # 从今日日志加载
         # 从阻塞状态加载
         
-        # 严重遗漏任务（来自TASK_MASTER）
-        overdue_tasks = [
-            {
-                "id": "URG-001",
-                "name": "灾备重建复刻实施方案V1.0",
-                "due": "2026-03-10 18:00",
-                "status": "🔴 已过期",
-                "hours_overdue": 3,
-                "severity": "critical",
-                "remedy_agent": "agent:main:subagent:13906415-d6f2-415e-a722-623dd6c914f8"
-            },
-            {
-                "id": "URG-002",
-                "name": "内部会议机制建立",
-                "due": "2026-03-10 16:00",
-                "status": "🔴 已过期",
-                "hours_overdue": 5,
-                "severity": "critical",
-                "remedy_agent": "agent:main:subagent:2b7c6e1a-386a-4be2-8d8e-3b0fa82e298"
-            },
-        ]
+        # 从TASK_MASTER.md动态加载任务状态
+        task_status = self._parse_task_master()
         
-        # 阻塞任务
-        blocked_tasks = [
-            {"id": "WIP-001", "name": "V1.0蓝军意见整理", "status": "等待附件", "blocker": "用户", "days_waiting": 3},
-            {"id": "WIP-002", "name": "专家网络搭建", "status": "等待联系方式", "blocker": "用户", "days_waiting": 3},
-        ]
-        
-        # 有风险任务（快到期）
-        at_risk = [
-            {"id": "WIP-003", "name": "五路图腾信息图", "due": "2026-03-11", "hours_left": 12, "severity": "high"},
-        ]
-        
-        # 待确认
-        pending = [
-            {"id": "NOTION-001", "name": "Notion同步最终确认", "status": "子代理执行中", "note": "已启动，待验证结果"},
-        ]
+        overdue_tasks = task_status.get("overdue", [])
+        blocked_tasks = task_status.get("blocked", [])
+        at_risk = task_status.get("at_risk", [])
+        pending = task_status.get("pending", [])
         
         tasks["overdue"] = overdue_tasks
         tasks["blocked"] = blocked_tasks

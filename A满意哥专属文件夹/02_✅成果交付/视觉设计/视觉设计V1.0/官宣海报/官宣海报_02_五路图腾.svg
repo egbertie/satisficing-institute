@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAFAFA"/>
+      <stop offset="100%" style="stop-color:#F0F0F0"/>
+    </linearGradient>
+    
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1080" height="1920" fill="url(#bgGradient2)"/>
+  
+  <!-- 顶部装饰条 -->
+  <rect x="0" y="0" width="1080" height="8" fill="#1A1A2E"/>
+  
+  <!-- 标题 -->
+  <text x="540" y="120" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="48" fill="#1A1A2E" font-weight="bold">五路图腾体系</text>
+  
+  <text x="540" y="170" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#666666">五行相生 · 决策智慧</text>
+  
+  <!-- 五路图腾卡片 -->
+  
+  <!-- 1. LIU 土 -->
+  <g transform="translate(140, 250)">
+    <rect x="0" y="0" width="800" height="280" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    <circle cx="80" cy="80" r="50" fill="#D4A84B"/>
+    <text x="80" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <text x="160" y="60" font-family="Inter, sans-serif" font-size="24" fill="#D4A84B" font-weight="bold">LIU · 刘禹锡</text>
+    
+    <text x="160" y="100" font-family="Noto Serif SC, serif" font-size="20" fill="#1A1A2E">惟吾德馨</text>
+    
+    <text x="160" y="150" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#666666">价值纯度评估 · 反物质主义框架</text>
+    
+    <text x="160" y="180" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#888888">"斯是陋室，惟吾德馨——在朴素中找到真正的价值"</text>
+    
+    <rect x="160" y="220" width="100" height="30" rx="15" fill="#D4A84B" opacity="0.1"/>
+    <text x="210" y="242" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#D4A84B">土生金</text>
+  </g>
+  
+  <!-- 2. SIMON 金 -->
+  <g transform="translate(140, 560)">
+    <rect x="0" y="0" width="800" height="280" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    
+    <circle cx="80" cy="80" r="50" fill="#C0C0C0"/>
+    <text x="80" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#333333" font-weight="bold">金</text>
+    
+    <text x="160" y="60" font-family="Inter, sans-serif" font-size="24" fill="#888888" font-weight="bold">SIMON · 司马贺</text>
+    
+    <text x="160" y="100" font-family="Noto Serif SC, serif" font-size="20" fill="#1A1A2E">满意解</text>
+    
+    <text x="160" y="150" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#666666">决策工具包 · 有限理性框架</text>
+    
+    <text x="160" y="180" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#888888">"不求最优，只求满意——在有限信息中做最好决定"</text>
+    
+    <rect x="160" y="220" width="100" height="30" rx="15" fill="#C0C0C0" opacity="0.2"/>
+    <text x="210" y="242" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#666666">金生水</text>
+  </g>
+  
+  <!-- 3. GUANYIN 水 -->
+  <g transform="translate(140, 870)">
+    <rect x="0" y="0" width="800" height="280" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    
+    <circle cx="80" cy="80" r="50" fill="#2C3E50"/>
+    <text x="80" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <text x="160" y="60" font-family="Inter, sans-serif" font-size="24" fill="#2C3E50" font-weight="bold">GUANYIN · 观自在</text>
+    
+    <text x="160" y="100" font-family="Noto Serif SC, serif" font-size="20" fill="#1A1A2E">自在从容</text>
+    
+    <text x="160" y="150" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#666666">教练状态指南 · 安全空间设计</text>
+    
+    <text x="160" y="180" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#888888">"在自在中决策，不在焦虑中选择"</text>
+    
+    <rect x="160" y="220" width="100" height="30" rx="15" fill="#2C3E50" opacity="0.1"/>
+    <text x="210" y="242" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#2C3E50">水生木</text>
+  </g>
+  
+  <!-- 4. CONFUCIUS 木 -->
+  <g transform="translate(140, 1180)">
+    <rect x="0" y="0" width="800" height="280" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    
+    <circle cx="80" cy="80" r="50" fill="#2E8B57"/>
+    <text x="80" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <text x="160" y="60" font-family="Inter, sans-serif" font-size="24" fill="#2E8B57" font-weight="bold">CONFUCIUS · 孔子</text>
+    
+    <text x="160" y="100" font-family="Noto Serif SC, serif" font-size="20" fill="#1A1A2E">仁者爱人</text>
+    
+    <text x="160" y="150" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#666666">合伙伦理框架 · 儒商关系模型</text>
+    
+    <text x="160" y="180" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#888888">"己欲立而立人，己欲达而达人——在共赢中成就合伙"</text>
+    
+    <rect x="160" y="220" width="100" height="30" rx="15" fill="#2E8B57" opacity="0.1"/>
+    <text x="210" y="242" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#2E8B57">木生火</text>
+  </g>
+  
+  <!-- 5. HUINENG 火 -->
+  <g transform="translate(140, 1490)">
+    <rect x="0" y="0" width="800" height="280" rx="16" fill="#FFFFFF" filter="url(#cardShadow)"/>
+    
+    <circle cx="80" cy="80" r="50" fill="#E74C3C"/>
+    <text x="80" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#FFFFFF" font-weight="bold">火</text>
+    
+    <text x="160" y="60" font-family="Inter, sans-serif" font-size="24" fill="#E74C3C" font-weight="bold">HUINENG · 六祖慧能</text>
+    
+    <text x="160" y="100" font-family="Noto Serif SC, serif" font-size="20" fill="#1A1A2E">知行合一</text>
+    
+    <text x="160" y="150" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#666666">直觉决策法 · 压力测试模型</text>
+    
+    <text x="160" y="180" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#888888">"若能钻木取火，淤泥定生红莲——在极限中顿悟直觉"</text>
+    
+    <rect x="160" y="220" width="100" height="30" rx="15" fill="#E74C3C" opacity="0.1"/>
+    <text x="210" y="242" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#E74C3C">火生土</text>
+  </g>
+  
+  <!-- 底部品牌 -->
+  <text x="540" y="1850" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#1A1A2E">满意解研究所 · SATISFICING INSTITUTE</text>
+  
+  <text x="540" y="1880" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#888888">硬科技合伙人决策教练</text>
+</svg>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAFAFA"/>
+      <stop offset="100%" style="stop-color:#F0F0F0"/>
+    </linearGradient>
+    
+    <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="100%" style="stop-color:#B8953A"/>
+    </linearGradient>
+    
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8E8E8"/>
+      <stop offset="100%" style="stop-color:#C0C0C0"/>
+    </linearGradient>
+    
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34495E"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3D9970"/>
+      <stop offset="100%" style="stop-color:#2E8B57"/>
+    </linearGradient>
+    
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C"/>
+      <stop offset="100%" style="stop-color:#C0392B"/>
+    </linearGradient>
+    
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="arithmetic" k2="-1" k3="1"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- 标题 -->
+  <g transform="translate(600, 60)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="42" fill="#1A1A2E" font-weight="bold" letter-spacing="8">五路图腾</text>
+    <text x="0" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#666666">五行相生 · 生生不息 · 决策智慧体系</text>
+    <line x1="-100" y1="60" x2="100" y2="60" stroke="#D4A84B" stroke-width="2"/>
+  </g>
+  
+  <!-- ===== 图腾卡片 - 横向排列 ===== -->
+  
+  <!-- 1. LIU 土 - 刘禹锡 -->
+  <g transform="translate(130, 200)" filter="url(#cardShadow)">
+    <!-- 卡片背景 -->
+    <rect x="-100" y="0" width="200" height="320" rx="16" fill="#FFFFFF"/>
+    <!-- 顶部色块 -->
+    <rect x="-100" y="0" width="200" height="100" rx="16 16 0 0" fill="url(#earthGrad)"/>
+    <rect x="-100" y="80" width="200" height="40" fill="url(#earthGrad)"/>
+    
+    <!-- 五行标识 -->
+    <circle cx="0" cy="50" r="35" fill="#FFFFFF" opacity="0.2"/>
+    <text x="0" y="62" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="36" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <!-- 图腾名称 -->
+    <text x="0" y="140" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#1A1A2E" font-weight="bold">LIU</text>
+    <text x="0" y="165" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#666666">刘禹锡</text>
+    
+    <!-- 分隔线 -->
+    <line x1="-60" y1="185" x2="60" y2="185" stroke="#E0E0E0" stroke-width="1"/>
+    
+    <!-- 核心精神 -->
+    <text x="0" y="215" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#D4A84B" font-weight="bold">惟吾德馨</text>
+    
+    <!-- 关键词 -->
+    <text x="0" y="245" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">价值纯度 · 反物质主义</text>
+    
+    <text x="0" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">逆境坚守 · 圈层严选</text>
+    
+    <!-- 底部装饰 -->
+    <rect x="-100" y="300" width="200" height="20" rx="0 0 16 16" fill="#B8953A" opacity="0.3"/>
+  </g>
+  
+  <!-- 2. SIMON 金 - 西蒙 -->
+  <g transform="translate(350, 200)" filter="url(#cardShadow)">
+    <rect x="-100" y="0" width="200" height="320" rx="16" fill="#FFFFFF"/>
+    <rect x="-100" y="0" width="200" height="100" rx="16 16 0 0" fill="url(#metalGrad)"/>
+    <rect x="-100" y="80" width="200" height="40" fill="url(#metalGrad)"/>
+    
+    <circle cx="0" cy="50" r="35" fill="#333333" opacity="0.1"/>
+    <text x="0" y="62" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="36" fill="#333333" font-weight="bold">金</text>
+    
+    <text x="0" y="140" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#1A1A2E" font-weight="bold">SIMON</text>
+    
+    <text x="0" y="165" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#666666">司马贺</text>
+    
+    <line x1="-60" y1="185" x2="60" y2="185" stroke="#E0E0E0" stroke-width="1"/>
+    
+    <text x="0" y="215" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#666666" font-weight="bold">满意解</text>
+    
+    <text x="0" y="245" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">有限理性 · 决策工具</text>
+    
+    <text x="0" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">数学严谨 · 量化评估</text>
+    
+    <rect x="-100" y="300" width="200" height="20" rx="0 0 16 16" fill="#C0C0C0" opacity="0.5"/>
+  </g>
+  
+  <!-- 3. GUANYIN 水 - 观音 -->
+  <g transform="translate(570, 200)" filter="url(#cardShadow)">
+    <rect x="-100" y="0" width="200" height="320" rx="16" fill="#FFFFFF"/>
+    <rect x="-100" y="0" width="200" height="100" rx="16 16 0 0" fill="url(#waterGrad)"/>
+    <rect x="-100" y="80" width="200" height="40" fill="url(#waterGrad)"/>
+    
+    <circle cx="0" cy="50" r="35" fill="#FFFFFF" opacity="0.15"/>
+    <text x="0" y="62" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="36" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <text x="0" y="140" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="22" fill="#1A1A2E" font-weight="bold">GUANYIN</text>
+    
+    <text x="0" y="165" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#666666">观自在</text>
+    
+    <line x1="-60" y1="185" x2="60" y2="185" stroke="#E0E0E0" stroke-width="1"/>
+    
+    <text x="0" y="215" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#2C3E50" font-weight="bold">自在从容</text>
+    
+    <text x="0" y="245" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">教练状态 · 安全空间</text>
+    
+    <text x="0" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">地理自在 · 心态从容</text>
+    
+    <rect x="-100" y="300" width="200" height="20" rx="0 0 16 16" fill="#2C3E50" opacity="0.3"/>
+  </g>
+  
+  <!-- 4. CONFUCIUS 木 - 孔子 -->
+  <g transform="translate(790, 200)" filter="url(#cardShadow)">
+    <rect x="-100" y="0" width="200" height="320" rx="16" fill="#FFFFFF"/>
+    <rect x="-100" y="0" width="200" height="100" rx="16 16 0 0" fill="url(#woodGrad)"/>
+    <rect x="-100" y="80" width="200" height="40" fill="url(#woodGrad)"/>
+    
+    <circle cx="0" cy="50" r="35" fill="#FFFFFF" opacity="0.2"/>
+    <text x="0" y="62" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="36" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <text x="0" y="140" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#1A1A2E" font-weight="bold">CONFUCIUS</text>
+    
+    <text x="0" y="165" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#666666">孔子</text>
+    
+    <line x1="-60" y1="185" x2="60" y2="185" stroke="#E0E0E0" stroke-width="1"/>
+    
+    <text x="0" y="215" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#2E8B57" font-weight="bold">仁者爱人</text>
+    
+    <text x="0" y="245" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">合伙伦理 · 儒商精神</text>
+    
+    <text x="0" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">和为贵 · 义利合一</text>
+    
+    <rect x="-100" y="300" width="200" height="20" rx="0 0 16 16" fill="#2E8B57" opacity="0.3"/>
+  </g>
+  
+  <!-- 5. HUINENG 火 - 六祖 -->
+  <g transform="translate(1010, 200)" filter="url(#cardShadow)">
+    <rect x="-100" y="0" width="200" height="320" rx="16" fill="#FFFFFF"/>
+    <rect x="-100" y="0" width="200" height="100" rx="16 16 0 0" fill="url(#fireGrad)"/>
+    <rect x="-100" y="80" width="200" height="40" fill="url(#fireGrad)"/>
+    
+    <circle cx="0" cy="50" r="35" fill="#FFFFFF" opacity="0.25"/>
+    <text x="0" y="62" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="36" fill="#FFFFFF" font-weight="bold">火</text>
+    
+    <text x="0" y="140" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="20" fill="#1A1A2E" font-weight="bold">HUINENG</text>
+    
+    <text x="0" y="165" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#666666">六祖慧能</text>
+    
+    <line x1="-60" y1="185" x2="60" y2="185" stroke="#E0E0E0" stroke-width="1"/>
+    
+    <text x="0" y="215" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#E74C3C" font-weight="bold">知行合一</text>
+    
+    <text x="0" y="245" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">顿悟直觉 · 红莲绽放</text>
+    
+    <text x="0" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#888888">极限压力 · 状态触发</text>
+    
+    <rect x="-100" y="300" width="200" height="20" rx="0 0 16 16" fill="#C0392B" opacity="0.3"/>
+  </g>
+  
+  <!-- ===== 相生关系箭头 ===== -->
+  <g transform="translate(0, 580)">
+    <!-- 土生金 -->
+    <g transform="translate(240, 0)">
+      <circle cx="0" cy="0" r="40" fill="#D4A84B"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">土生金</text>
+    </g>
+    
+    <!-- 金生水 -->
+    <g transform="translate(460, 0)">
+      <circle cx="0" cy="0" r="40" fill="#C0C0C0"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#333333" font-weight="bold">金生水</text>
+    </g>
+    
+    <!-- 水生木 -->
+    <g transform="translate(680, 0)">
+      <circle cx="0" cy="0" r="40" fill="#2C3E50"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">水生木</text>
+    </g>
+    
+    <!-- 木生火 -->
+    <g transform="translate(900, 0)">
+      <circle cx="0" cy="0" r="40" fill="#2E8B57"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">木生火</text>
+    </g>
+    
+    <!-- 火生土 -->
+    <g transform="translate(1120, 0)">
+      <circle cx="0" cy="0" r="40" fill="#E74C3C"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">火生土</text>
+    </g>
+    
+    <!-- 连接箭头 -->
+    <path d="M 280 0 L 420 0" fill="none" stroke="#D4A84B" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 500 0 L 640 0" fill="none" stroke="#C0C0C0" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 720 0 L 860 0" fill="none" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 940 0 L 1080 0" fill="none" stroke="#2E8B57" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- 底部联读 -->
+  <g transform="translate(600, 700)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#888888" font-style="italic">"惟吾德馨——满意解——自在中决策——仁者爱人——红莲绽放"</text>
+    
+    <text x="0" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="12" fill="#AAAAAA">满意解研究所 · 五路图腾体系 V2.4</text>
+  </g>
+  
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
+    </marker>
+  </defs>
+</svg>

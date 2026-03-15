@@ -1,0 +1,8 @@
+{
+  "name": "data-processor-suite",
+  "version": "1.0.0",
+  "description": "数据处理套件 - 替代automate-excel/csvtoexcel/duckdb-cli，统一数据处理入口",
+  "entry": "processor.py",
+  "replaces": ["automate-excel", "csvtoexcel", "duckdb-cli-ai-skills"],
+  "capabilities": ["excel_process", "csv_convert", "sql_query", "data_analysis"]
+}

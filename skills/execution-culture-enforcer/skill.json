@@ -1,0 +1,80 @@
+{
+  "name": "execution-culture-enforcer",
+  "version": "1.0.0",
+  "description": "团队执行文化V1.0 - 向前赶，永不止步",
+  "author": "满意解研究所",
+  "entry": "culture-enforcer.js",
+  "schema": {
+    "type": "culture-framework",
+    "capabilities": [
+      "time-estimation",
+      "potential-unlocking",
+      "continuous-execution",
+      "task-optimization",
+      "quality-speed-balance"
+    ]
+  },
+  "core_principles": {
+    "principle_1": {
+      "name": "激进时间预估",
+      "old_mindset": ["明天下午应该可以", "这周之内完成", "等等看情况再说"],
+      "new_mindset": ["明天上午必须完成", "今天下午就交付", "现在就启动，马上出结果"],
+      "rule": "原计划的50%时间 = 新截止时间"
+    },
+    "principle_2": {
+      "name": "相信极限潜能",
+      "old_mindset": ["可能来不及", "这个有难度", "保守一点比较好"],
+      "new_mindset": ["一定能完成", "我可以更快", "潜力还没发挥出来"],
+      "rule": "不接受'做不到'的预设，用结果证明"
+    },
+    "principle_3": {
+      "name": "完成即启动",
+      "old_mindset": ["这个做完了休息一下", "等反馈了再说"],
+      "new_mindset": ["完成这个，立即干下一个！", "不等反馈，预判问题提前做"],
+      "rule": "任务A完成 → 0延迟 → 立即启动任务B"
+    }
+  },
+  "aggressive_planning": {
+    "material_collection": {"conservative": "2天", "aggressive": "1天", "actual": "6小时"},
+    "profile_writing": {"conservative": "1天", "aggressive": "半天", "actual": "4小时"},
+    "research_task": {"conservative": "3天", "aggressive": "1天", "actual": "8小时"},
+    "integration_optimization": {"conservative": "1天", "aggressive": "2小时", "actual": "1小时"}
+  },
+  "quality_baseline": {
+    "non_negotiable": [
+      "核心观点必须准确",
+      "关键出处必须标注",
+      "用户契合点必须挖掘"
+    ],
+    "flexible": [
+      "案例数量（3个够就别做5个）",
+      "话术数量（30条够就别做50条）",
+      "排版细节（能读就行，美化延后）"
+    ]
+  },
+  "communication_protocols": {
+    "receiving_task": {
+      "wrong": "收到，我尽量完成。",
+      "correct": "收到，下午3点交付，我会提前。"
+    },
+    "progress_report": {
+      "wrong": "完成了50%，可能还需要一点时间。",
+      "correct": "已完成50%，预计提前2小时交付，同时我已启动下一项准备工作。"
+    },
+    "facing_difficulty": {
+      "wrong": "这个有难度，可能需要延期。",
+      "correct": "遇到挑战，我正在尝试X/Y/Z三种加速方案，预计仍能按时甚至提前完成。"
+    },
+    "task_complete": {
+      "wrong": "任务完成，请查收。",
+      "correct": "任务完成！已交付+立即启动下一项+预判了3个优化点准备实施。"
+    }
+  },
+  "daily_checklist": [
+    "今天的任务是否设定了激进目标？",
+    "是否相信并能提前完成？",
+    "完成任务后是否立即启动下一项？",
+    "今天是否发挥了最大潜能？"
+  ],
+  "effective_date": "2026-03-13"
+}

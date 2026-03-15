@@ -1,0 +1,56 @@
+---
+name: unified-dashboard-suite
+description: Unified dashboard and analytics suite. Replaces dashboard, data-analyst, system-dashboard, skill-dev-dashboard with single integrated interface. Use for: dashboard creation, data visualization, analytics reporting, system monitoring, skill metrics.
+triggers: ["dashboard", "analytics", "metrics", "visualization", "report", "仪表板", "数据"]
+---
+
+# Unified Dashboard Suite
+
+**统一仪表板与分析套件** - 整合仪表板、数据分析、系统监控。
+
+> 🎯 替代: dashboard + data-analyst + system-dashboard + skill-dev-dashboard
+
+---
+
+## 核心能力
+
+| 功能模块 | 覆盖场景 |
+|---------|---------|
+| **仪表板构建** | 可视化设计、组件库、布局管理 |
+| **数据分析** | 统计分析、趋势预测、异常检测 |
+| **系统监控** | 性能指标、健康检查、告警 |
+| **Skill指标** | 使用率、成功率、性能统计 |
+| **报告生成** | 自动化报告、定时发送、多格式导出 |
+
+---
+
+## 快速开始
+
+```bash
+# 创建仪表板
+dashboard-suite create --name "运营看板" --widgets traffic,conversion,revenue
+
+# 数据分析
+dashboard-suite analyze --data sales.csv --query "月度趋势" --chart line
+
+# 系统监控
+dashboard-suite monitor --metrics cpu,memory,response_time --alert threshold
+
+# Skill指标
+dashboard-suite skill-metrics --period daily --export pdf
+```
+
+---
+
+## 替代关系
+
+| 原Skill | 新命令 |
+|---------|--------|
+| dashboard | `dashboard-suite create` |
+| data-analyst | `dashboard-suite analyze` |
+| system-dashboard | `dashboard-suite monitor` |
+| skill-dev-dashboard | `dashboard-suite skill-metrics` |
+
+---
+
+**自建替代计数**: +4

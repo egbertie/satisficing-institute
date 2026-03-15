@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="100%" style="stop-color:#B8953A"/>
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="500" height="500" fill="url(#bgGradient)"/>
+  
+  <!-- 装饰性背景 -->
+  <g opacity="0.05">
+    <circle cx="250" cy="250" r="180" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+    <circle cx="250" cy="250" r="140" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+    <circle cx="250" cy="250" r="100" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  
+  <!-- 中心五行图标 -->
+  <g transform="translate(250, 220)">
+    <!-- 外圆环 -->
+    <circle cx="0" cy="0" r="90" fill="none" stroke="#D4A84B" stroke-width="2" opacity="0.5"/>
+    
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.2"/>
+    
+    <!-- 中心土 -->
+    <circle cx="0" cy="0" r="20" fill="#D4A84B" filter="url(#glow)"/>
+    
+    <text x="0" y="6" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="18" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <!-- 金 - 右上 -->
+    <circle cx="50" cy="-30" r="16" fill="#C0C0C0"/>
+    
+    <text x="50" y="-24" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#333333" font-weight="bold">金</text>
+    
+    <!-- 水 - 右下 -->
+    <circle cx="40" cy="40" r="16" fill="#2C3E50"/>
+    
+    <text x="40" y="46" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <!-- 木 - 左下 -->
+    <circle cx="-40" cy="40" r="16" fill="#2E8B57"/>
+    
+    <text x="-40" y="46" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <!-- 火 - 左上 -->
+    <circle cx="-50" cy="-30" r="16" fill="#E74C3C"/>
+    
+    <text x="-50" y="-24" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#FFFFFF" font-weight="bold">火</text>
+    
+    <!-- 相生连接线 -->
+    <path d="M 0,-20 Q 28,-45 45,-45" fill="none" stroke="#D4A84B" stroke-width="1.5" opacity="0.6"/>
+    
+    <path d="M 60,-18 Q 65,8 52,30" fill="none" stroke="#C0C0C0" stroke-width="1.5" opacity="0.6"/>
+    
+    <path d="M 28,55 Q 0,65 -28,55" fill="none" stroke="#2C3E50" stroke-width="1.5" opacity="0.6"/>
+    <path d="M -52,30 Q -65,8 -60,-18" fill="none" stroke="#2E8B57" stroke-width="1.5" opacity="0.6"/>
+    
+    <path d="M -45,-45 Q -28,-45 0,-20" fill="none" stroke="#E74C3C" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- 品牌名称 -->
+  <g transform="translate(250, 380)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#FFFFFF" font-weight="bold" letter-spacing="6">满意解研究所</text>
+    
+    <text x="0" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#D4A84B" letter-spacing="3">SATISFICING INSTITUTE</text>
+  </g>
+  
+  <!-- 底部装饰线 -->
+  <rect x="150" y="440" width="200" height="2" fill="#D4A84B"/>
+  
+  <!-- 角落版本标记 -->
+  <text x="470" y="480" text-anchor="end" font-family="Inter, sans-serif" font-size="10" fill="#444444">V1.0</text>
+</svg>

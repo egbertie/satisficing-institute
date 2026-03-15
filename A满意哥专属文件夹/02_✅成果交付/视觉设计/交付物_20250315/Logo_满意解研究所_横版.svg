@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="50%" style="stop-color:#2E8B57"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="800" height="300" fill="#FAFAFA"/>
+  
+  <!-- Logo图标 - 五行相生螺旋 -->
+  <g transform="translate(120, 150)" filter="url(#logoShadow)">
+    <!-- 外圆环 -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#E0E0E0" stroke-width="2"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#F0F0F0" stroke-width="1"/>
+    
+    <!-- 五行符号 - 螺旋排列 -->
+    <!-- 土 - 中心 -->
+    <circle cx="0" cy="0" r="15" fill="#D4A84B"/>
+    <text x="0" y="5" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <!-- 金 - 右上 -->
+    <circle cx="45" cy="-25" r="12" fill="#C0C0C0"/>
+    <text x="45" y="-20" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="11" fill="#333333" font-weight="bold">金</text>
+    
+    <!-- 水 - 右下 -->
+    <circle cx="35" cy="35" r="12" fill="#2C3E50"/>
+    <text x="35" y="40" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="11" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <!-- 木 - 左下 -->
+    <circle cx="-35" cy="35" r="12" fill="#2E8B57"/>
+    <text x="-35" y="40" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="11" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <!-- 火 - 左上 -->
+    <circle cx="-45" cy="-25" r="12" fill="#E74C3C"/>
+    <text x="-45" y="-20" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="11" fill="#FFFFFF" font-weight="bold">火</text>
+    
+    <!-- 相生连接线 -->
+    <path d="M 0,-15 Q 25,-30 40,-30" fill="none" stroke="#D4A84B" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 50,-15 Q 55,5 45,23" fill="none" stroke="#C0C0C0" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 23,42 Q 0,50 -23,42" fill="none" stroke="#2C3E50" stroke-width="1.5" opacity="0.6"/>
+    <path d="M -45,23 Q -55,5 -50,-15" fill="none" stroke="#2E8B57" stroke-width="1.5" opacity="0.6"/>
+    <path d="M -40,-30 Q -25,-30 0,-15" fill="none" stroke="#E74C3C" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  
+  <!-- 品牌名称 -->
+  <g transform="translate(240, 150)">
+    <!-- 中文名称 -->
+    <text x="0" y="-10" font-family="Noto Serif SC, Source Han Serif SC, serif" font-size="48" fill="url(#mainGradient)" font-weight="bold" letter-spacing="8">满意解研究所</text>
+    
+    <!-- 英文名称 -->
+    <text x="0" y="35" font-family="Inter, Roboto, sans-serif" font-size="18" fill="#666666" letter-spacing="4">SATISFICING INSTITUTE</text>
+    
+    <!-- 副标题 -->
+    <text x="0" y="65" font-family="Noto Sans SC, Source Han Sans SC, sans-serif" font-size="14" fill="#888888">硬科技合伙人决策教练</text>
+    
+    <!-- 装饰线 -->
+    <line x1="0" y1="80" x2="280" y2="80" stroke="#D4A84B" stroke-width="2"/>
+  </g>
+  
+  <!-- 右下角版本标记 -->
+  <text x="780" y="280" text-anchor="end" font-family="Inter, sans-serif" font-size="10" fill="#CCCCCC">V1.0</text>
+</svg>

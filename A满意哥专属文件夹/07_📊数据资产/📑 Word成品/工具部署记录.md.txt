@@ -1,0 +1,83 @@
+# 工具部署记录
+
+> 本地工具部署清单及访问信息
+
+---
+
+## Excalidraw 本地部署
+
+### 基本信息
+
+| 项目 | 值 |
+|------|-----|
+| **工具名称** | Excalidraw 白板工具 |
+| **部署方式** | CDN轻量模式 + Python HTTP服务器 |
+| **部署日期** | 2026-03-13 |
+| **版本** | v0.17.6 |
+| **访问地址** | http://localhost:3000 |
+
+### 访问信息
+
+```
+🌐 本地访问地址: http://localhost:3000
+📂 部署路径: /root/.openclaw/workspace/excalidraw-docker/
+🔧 服务进程: Python3 http.server
+📋 日志文件: /root/.openclaw/workspace/excalidraw-docker/server.log
+```
+
+### 持久化配置
+
+| 存储方式 | 说明 |
+|---------|------|
+| **LocalStorage** | 绘图数据自动保存至浏览器本地存储 |
+| **文件导出** | 支持导出.excalidraw文件到本地磁盘 |
+| **文件导入** | 支持从.excalidraw文件恢复数据 |
+
+### 功能特性
+
+- ✅ 完整Excalidraw白板功能
+- ✅ 手绘风格图形绘制
+- ✅ 多种图形工具（矩形、圆形、箭头、自由绘制等）
+- ✅ 文本编辑与样式设置
+- ✅ 画布缩放与平移
+- ✅ 导出PNG/SVG格式
+- ✅ 主题切换（亮色/暗色）
+- ✅ 数据自动保存（LocalStorage）
+- ✅ 文件导入/导出备份
+
+### 使用说明
+
+#### 访问服务
+```bash
+# 浏览器打开
+http://localhost:3000
+```
+
+#### 管理命令
+```bash
+# 查看服务状态
+ss -tlnp | grep 3000
+
+# 查看日志
+cd /root/.openclaw/workspace/excalidraw-docker
+tail -f server.log
+
+# 重启服务
+pkill -f "http.server 3000"
+cd /root/.openclaw/workspace/excalidraw-docker
+nohup python3 -m http.server 3000 > server.log 2>&1 &
+```
+
+#### 数据备份
+1. 点击界面顶部「💾 导出文件」按钮
+2. 数据将保存为 `.excalidraw` 格式文件
+3. 备份文件包含完整场景数据
+
+#### 数据恢复
+1. 点击界面顶部「📂 导入文件」按钮
+2. 选择之前导出的 `.excalidraw` 文件
+3. 页面将自动刷新并恢复数据
+
+---
+
+*最后更新: 2026-03-13 16:30*

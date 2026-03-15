@@ -1,0 +1,132 @@
+{
+  "version": "2026.03.15",
+  "last_updated": "2026-03-15T11:00:00+08:00",
+  "total_skills": 14,
+  "new_skills_today": 14,
+  "categories": {
+    "automation": ["autonomous-execution-system"],
+    "visualization": ["multi-format-delivery"],
+    "decision_support": ["quick-reference-card"],
+    "execution": ["team-execution-culture"],
+    "framework": ["system-integration-framework"],
+    "organization": ["organization-building"],
+    "operations": ["sop-standard-operations", "management-rules"],
+    "methodology": ["first-principles-work"],
+    "quality": ["info-collection-quality", "skill-quality-assessment"],
+    "knowledge": ["knowledge-collection-iteration"],
+    "tools": ["kimi-membership-features"]
+  },
+  "skills": {
+    "autonomous-execution-system": {
+      "name": "7×24小时自主推进体系",
+      "version": "1.0.0",
+      "path": "skills/autonomous-execution-system",
+      "priority": "P0",
+      "status": "active",
+      "description": "每日晨报、小时协调、安全检查、周复盘、空闲学习"
+    },
+    "multi-format-delivery": {
+      "name": "多格式交付能力扩展计划",
+      "version": "1.0.0",
+      "path": "skills/multi-format-delivery",
+      "priority": "P0",
+      "status": "active",
+      "description": "Mermaid图表、数据可视化、PPT大纲生成"
+    },
+    "quick-reference-card": {
+      "name": "快速参考卡",
+      "version": "1.0.0",
+      "path": "skills/quick-reference-card",
+      "priority": "P0",
+      "status": "active",
+      "description": "7维度评估体系、风险等级判定、决策流程速查"
+    },
+    "team-execution-culture": {
+      "name": "团队执行文化",
+      "version": "1.0.0",
+      "path": "skills/team-execution-culture",
+      "priority": "P1",
+      "status": "active",
+      "description": "三条铁律：激进时间预估、相信极限潜能、完成即启动"
+    },
+    "system-integration-framework": {
+      "name": "完整体系整合框架",
+      "version": "1.0.0",
+      "path": "skills/system-integration-framework",
+      "priority": "P1",
+      "status": "active",
+      "description": "体系架构可视化、核心资产管理、整合检查清单"
+    },
+    "organization-building": {
+      "name": "组织建设计划",
+      "version": "1.0.0",
+      "path": "skills/organization-building",
+      "priority": "P1",
+      "status": "active",
+      "description": "33人成长体系、五级成长路径、蓝军机制"
+    },
+    "sop-standard-operations": {
+      "name": "SOP标准作业程序",
+      "version": "1.0.0",
+      "path": "skills/sop-standard-operations",
+      "priority": "P2",
+      "status": "active",
+      "description": "文档创建、任务管理、会议召开、备份恢复SOP"
+    },
+    "management-rules": {
+      "name": "管理规则手册",
+      "version": "1.0.0",
+      "path": "skills/management-rules",
+      "priority": "P2",
+      "status": "active",
+      "description": "沟通规则、任务管理、报告机制、记忆更新"
+    },
+    "first-principles-work": {
+      "name": "第一性原理工作法",
+      "version": "1.0.0",
+      "path": "skills/first-principles-work",
+      "priority": "P2",
+      "status": "active",
+      "description": "本质拆解、原理重构、底层逻辑思考"
+    },
+    "info-collection-quality": {
+      "name": "信息采集与质量控制",
+      "version": "1.0.0",
+      "path": "skills/info-collection-quality",
+      "priority": "P2",
+      "status": "active",
+      "description": "信息采集流程、质量控制检查点、验证机制"
+    },
+    "skill-quality-assessment": {
+      "name": "Skill质量评估体系",
+      "version": "1.0.0",
+      "path": "skills/skill-quality-assessment",
+      "priority": "P2",
+      "status": "active",
+      "description": "Skill质量检查、评估标准执行、质量报告生成"
+    },
+    "knowledge-collection-iteration": {
+      "name": "知识采集与迭代体系",
+      "version": "1.0.0",
+      "path": "skills/knowledge-collection-iteration",
+      "priority": "P2",
+      "status": "active",
+      "description": "知识采集流程、迭代更新机制、知识沉淀"
+    },
+    "kimi-membership-features": {
+      "name": "Kimi会员功能使用计划",
+      "version": "1.0.0",
+      "path": "skills/kimi-membership-features",
+      "priority": "P2",
+      "status": "active",
+      "description": "会员功能指南、使用最佳实践、功能速查"
+    }
+  },
+  "conversion_rate": {
+    "before": "35%",
+    "after": "100%",
+    "improvement": "+65%",
+    "total_documents": 14,
+    "converted_today": 14
+  }
+}

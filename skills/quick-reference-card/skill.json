@@ -1,0 +1,61 @@
+{
+  "name": "quick-reference-card",
+  "version": "1.0.0",
+  "description": "快速参考卡 - 合伙人评估决策速查",
+  "author": "满意解研究所",
+  "entry": "reference-card.js",
+  "schema": {
+    "type": "decision-support",
+    "capabilities": [
+      "quick-assessment",
+      "risk-evaluation",
+      "decision-guidance",
+      "case-lookup"
+    ]
+  },
+  "positioning": "专注硬科技转化的合伙人匹配决策教练",
+  "methodology": {
+    "core": "满意解 = 西蒙满意解理论 + 五路图腾决策法 + 儒商合伙伦理",
+    "dimensions": [
+      {"name": "价值观契合度", "weight": "25%", "threshold": "<5致命风险"},
+      {"name": "能力互补性", "weight": "20%", "threshold": "<7需补强"},
+      {"name": "沟通效率", "weight": "15%", "threshold": "<5中风险"},
+      {"name": "承诺可信度", "weight": "15%", "threshold": "<6高风险"},
+      {"name": "利益一致性", "weight": "10%", "threshold": "需机制保障"},
+      {"name": "退出可接受性", "weight": "10%", "threshold": "需预设"},
+      {"name": "成长匹配度", "weight": "5%", "threshold": "长期观察"}
+    ]
+  },
+  "decision_process": ["初筛", "深度评估", "风险预警", "专家会诊", "决策建议"],
+  "key_metrics": {
+    "case_library": "15个（10已验证+5扩展中）",
+    "success_rate": "50%（5成功/3失败/2进行中/5扩展）",
+    "accuracy": "85%+",
+    "assessment_time": "8-10分钟"
+  },
+  "risk_levels": {
+    "excellent": {"score": "≥8.0", "advice": "强烈推荐"},
+    "low": {"score": "7.0-7.9", "advice": "可以推进"},
+    "medium": {"score": "6.0-6.9", "advice": "需谨慎"},
+    "high": {"score": "5.5-5.9", "advice": "需深度尽调"},
+    "critical": {"score": "<5.5", "advice": "建议否决"}
+  },
+  "failure_reasons": [
+    {"reason": "价值观冲突", "percentage": "67%", "severity": "⚠️"},
+    {"reason": "承诺不足", "note": "资源投入不对等"},
+    {"reason": "沟通障碍", "note": "磨合期放大"}
+  ],
+  "success_patterns": [
+    "技术+商业互补最稳定",
+    "价值观契合度≥7",
+    "全职承诺是硬科技前提"
+  ],
+  "products": {
+    "v2_0": "Python交互式工具 ✅",
+    "v2_1": "Web应用 ⏳"
+  },
+  "contact": {
+    "organization": "满意解研究所",
+    "service": "硬科技企业合伙人匹配决策"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ownerId": "satisficing-institute",
+  "slug": "workspace-integrity-guardian",
+  "version": "1.0.0",
+  "publishedAt": 1767553800000,
+  "type": "custom",
+  "source": "internal",
+  "principle": "first-principles",
+  "inspection_dimensions": ["structure", "timeliness", "reference", "security"],
+  "frequency": {
+    "auto": "daily_0900",
+    "manual": "saturday_1000"
+  }
+}

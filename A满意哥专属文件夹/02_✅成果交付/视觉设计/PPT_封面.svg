@@ -1,0 +1,25 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="450" fill="url(#pptGrad)"/>
+  
+  <!-- Logo -->
+  <g transform="translate(400,150)">
+    <circle cx="0" cy="-30" r="15" fill="#ffffff" opacity="0.9"/>
+    <circle cx="28" cy="-9" r="15" fill="#ffffff" opacity="0.8"/>
+    <circle cx="17" cy="24" r="15" fill="#ffffff" opacity="0.7"/>
+    <circle cx="-17" cy="24" r="15" fill="#ffffff" opacity="0.7"/>
+    <circle cx="-28" cy="-9" r="15" fill="#ffffff" opacity="0.8"/>
+  </g>
+  
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#ffffff" text-anchor="middle">满意解研究所</text>
+  
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" opacity="0.9">硬科技创业者的决策伙伴</text>
+  
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" opacity="0.7">2026.03.25 官宣</text>
+</svg>

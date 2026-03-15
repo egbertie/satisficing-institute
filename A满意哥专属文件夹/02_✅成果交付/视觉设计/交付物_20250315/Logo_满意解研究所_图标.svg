@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <filter id="logoShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 - 透明 -->
+  <rect width="200" height="200" fill="none"/>
+  
+  <!-- Logo图标 - 五行相生螺旋 -->
+  <g transform="translate(100, 100)" filter="url(#logoShadow)">
+    <!-- 外圆环 -->
+    <circle cx="0" cy="0" r="90" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="2"/>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#F0F0F0" stroke-width="1"/>
+    
+    <!-- 五行符号 - 螺旋排列 -->
+    <!-- 土 - 中心 -->
+    <circle cx="0" cy="0" r="18" fill="#D4A84B"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <!-- 金 - 右上 -->
+    <circle cx="50" cy="-30" r="14" fill="#C0C0C0"/>
+    <text x="50" y="-24" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#333333" font-weight="bold">金</text>
+    
+    <!-- 水 - 右下 -->
+    <circle cx="40" cy="40" r="14" fill="#2C3E50"/>
+    <text x="40" y="46" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <!-- 木 - 左下 -->
+    <circle cx="-40" cy="40" r="14" fill="#2E8B57"/>
+    <text x="-40" y="46" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <!-- 火 - 左上 -->
+    <circle cx="-50" cy="-30" r="14" fill="#E74C3C"/>
+    <text x="-50" y="-24" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="12" fill="#FFFFFF" font-weight="bold">火</text>
+    
+    <!-- 相生连接线 -->
+    <path d="M 0,-18 Q 28,-40 45,-40" fill="none" stroke="#D4A84B" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 60,-18 Q 65,8 52,28" fill="none" stroke="#C0C0C0" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 28,50 Q 0,58 -28,50" fill="none" stroke="#2C3E50" stroke-width="1.5" opacity="0.6"/>
+    <path d="M -52,28 Q -65,8 -60,-18" fill="none" stroke="#2E8B57" stroke-width="1.5" opacity="0.6"/>
+    <path d="M -45,-40 Q -28,-40 0,-18" fill="none" stroke="#E74C3C" stroke-width="1.5" opacity="0.6"/>
+  </g>
+</svg>

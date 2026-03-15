@@ -1,12 +1,15 @@
 {
   "name": "first-principle-scheduler",
-  "version": "1.0.0",
-  "description": "第一性原则资源调度器 - 防止资源空置的核心机制。规则：1)阻塞任务≠进行中 2)进行中为空时自动补位2+7 3)资源全开=白天人机协作+夜间AI自主",
+  "version": "2.0.0",
+  "description": "第一性原则资源调度器V2.0 - 新增五大图腾审核+管理哲学审核。核心规则：1)阻塞任务≠进行中 2)进行中为空时自动补位2+7 3)资源全开=白天人机协作+夜间AI自主 4)五大图腾强制校验 5)管理哲学强制审核",
   "entry": "scheduler.py",
   "triggers": [
     "resource_idle_check",
     "task_status_misclassification",
-    "2_plus_7_progress"
+    "2_plus_7_progress",
+    "first_principle_activation",
+    "totem_audit_required",
+    "management_philosophy_audit"
   ],
   "actions": [
     {
@@ -23,6 +26,26 @@
       "name": "status_report",
       "description": "获取完整状态报告",
       "command": "python3 scheduler.py report"
+    },
+    {
+      "name": "print_prompt",
+      "description": "打印第一性原则启动口令（含五大图腾+管理哲学审核）",
+      "command": "python3 scheduler.py prompt"
+    },
+    {
+      "name": "full_audit",
+      "description": "执行完整审核（五大图腾+管理哲学+资源检查）",
+      "command": "python3 scheduler.py audit [task_desc] [task_id] [task_type]"
+    },
+    {
+      "name": "totem_audit",
+      "description": "执行五大图腾审核",
+      "command": "python3 scheduler.py totem [task_description]"
+    },
+    {
+      "name": "philosophy_audit",
+      "description": "执行管理哲学审核",
+      "command": "python3 scheduler.py philosophy [task_id] [task_type]"
     }
   ],
   "rules": [
@@ -40,11 +63,41 @@
       "id": "RULE-003",
       "name": "资源全开执行",
       "description": "白天人机协作+夜间AI自主推进，零空置原则"
+    },
+    {
+      "id": "RULE-004",
+      "name": "五大图腾强制校验",
+      "description": "每个重要决策必须通过LIU(土)/SIMON(金)/GUANYIN(水)/CONFUCIUS(木)/HUINENG(火)五大图腾审核"
+    },
+    {
+      "id": "RULE-005",
+      "name": "管理哲学强制审核",
+      "description": "制度即代码/零空置执行/持续改进/自主决策/安全红线五大管理哲学必须审核通过"
     }
   ],
+  "five_totems": {
+    "LIU": {"name": "刘禹锡", "element": "土", "spirit": "惟吾德馨", "question": "此决策是否基于真实品德？"},
+    "SIMON": {"name": "司马贺", "element": "金", "spirit": "满意解", "question": "是否找到足够好的解，而非追求最优？"},
+    "GUANYIN": {"name": "观音", "element": "水", "spirit": "自在从容", "question": "是否有退路，心态是否松弛？"},
+    "CONFUCIUS": {"name": "孔子", "element": "木", "spirit": "仁者爱人", "question": "是否体现合伙伦理的仁者精神？"},
+    "HUINENG": {"name": "六祖", "element": "火", "spirit": "顿悟知行", "question": "是否知行合一，立即行动？"}
+  },
+  "management_philosophy": {
+    "制度即代码": {"question": "此规则是否已写入可执行Skill？如否，立即转化"},
+    "零空置执行": {"question": "当前是否有资源空置？如有，立即补位六线并行"},
+    "持续改进": {"question": "此任务完成后是否立即复盘？必须记录3条改进点"},
+    "自主决策": {"question": "是否在授权范围内？如是，立即执行不问"},
+    "安全第一": {"question": "是否触碰决策安全红线？如触碰，立即上报"}
+  },
   "integration": {
     "cron_check": "每小时检查一次资源利用状态",
     "heartbeat_check": "每次心跳时验证进行中任务是否真实可推进",
-    "user_alert": "当检测到资源空置超过30分钟时，向用户报告"
+    "user_alert": "当检测到资源空置超过30分钟时，向用户报告",
+    "task_start": "启动重要任务前自动执行五大图腾+管理哲学审核",
+    "first_principle_activation": "收到'启动第一性原则'指令时打印完整口令"
+  },
+  "changelog": {
+    "v1.0.0": "初始版本：零空置强制执行+2+7项目补位",
+    "v2.0.0": "新增：五大图腾审核+管理哲学审核+完整审核流程"
   }
 }

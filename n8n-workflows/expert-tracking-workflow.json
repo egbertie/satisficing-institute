@@ -1,0 +1,155 @@
+{
+  "name": "专家动态跟踪工作流",
+  "nodes": [
+    {
+      "id": "trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [250, 300],
+      "parameters": {
+        "rule": {
+          "interval": [{
+            "field": "weeks",
+            "expression": "1"
+          }],
+          "timezone": "Asia/Shanghai"
+        }
+      }
+    },
+    {
+      "id": "expert_list",
+      "type": "n8n-nodes-base.set",
+      "position": [450, 300],
+      "parameters": {
+        "values": {
+          "string": [
+            {"name": "experts", "value": "[\"黎红雷\",\"罗汉\",\"谢宝剑\",\"大疆AI蓝军首席\"]"}
+          ]
+        }
+      }
+    },
+    {
+      "id": "split_experts",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [650, 300],
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      }
+    },
+    {
+      "id": "tavily_search",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [850, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "api_key": "={{ $env.TAVILY_API_KEY }}",
+          "query": "={{ $json.expert }} 最新 论文 演讲 新闻",
+          "search_depth": "advanced",
+          "include_answer": true,
+          "max_results": 10
+        }
+      }
+    },
+    {
+      "id": "format_results",
+      "type": "n8n-nodes-base.code",
+      "position": [1050, 300],
+      "parameters": {
+        "jsCode": "// 格式化搜索结果\nconst expert = items[0].json.expert;\nconst searchResults = items[0].json.results || [];\n\nconst formatted = {\n  expert: expert,\n  searchDate: new Date().toISOString(),\n  results: searchResults.map(r => ({\n    title: r.title,\n    url: r.url,\n    content: r.content?.substring(0, 500),\n    score: r.score\n  })),\n  summary: items[0].json.answer || '无摘要'\n};\n\nreturn [formatted];"
+      }
+    },
+    {
+      "id": "save_to_duckdb",
+      "type": "n8n-nodes-base.postgres",
+      "position": [1250, 300],
+      "parameters": {
+        "operation": "insert",
+        "table": "expert_tracking",
+        "columns": "expert_name,search_date,results_json,summary",
+        "data": "={{ JSON.stringify({expert: $json.expert, date: $json.searchDate, results: $json.results, summary: $json.summary}) }}"
+      }
+    },
+    {
+      "id": "aggregate_report",
+      "type": "n8n-nodes-base.merge",
+      "position": [1450, 300],
+      "parameters": {
+        "mode": "waitForAll"
+      }
+    },
+    {
+      "id": "generate_report",
+      "type": "n8n-nodes-base.code",
+      "position": [1650, 300],
+      "parameters": {
+        "jsCode": "// 生成周度专家动态报告\nconst allResults = items.map(i => i.json);\n\nlet report = `# 专家动态周报\n\n生成时间: ${new Date().toLocaleString('zh-CN')}\n\n`;\n\nallResults.forEach(r => {\n  report += `## ${r.expert}\n\n`;\n  report += `**摘要**: ${r.summary}\n\n`;\n  report += `**发现内容**:\n`;\n  r.results?.slice(0, 5).forEach((item, idx) => {\n    report += `${idx + 1}. [${item.title}](${item.url})\n`;\n  });\n  report += `\n---\n\n`;\n});\n\nreturn [{ json: { report: report, timestamp: new Date().toISOString() } }];"
+      }
+    },
+    {
+      "id": "save_report",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "position": [1850, 300],
+      "parameters": {
+        "fileName": "={{ 'expert_report_' + new Date().toISOString().split('T')[0] + '.md' }}",
+        "dataPropertyName": "report",
+        "destinationPath": "/root/.openclaw/workspace/reports/"
+      }
+    },
+    {
+      "id": "notify_feishu",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1850, 500],
+      "parameters": {
+        "method": "POST",
+        "url": "https://open.feishu.cn/open-apis/bot/v2/hook/YOUR_WEBHOOK",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "msg_type": "text",
+          "content": {
+            "text": "={{ '专家动态周报已生成，时间：' + new Date().toLocaleString('zh-CN') }}"
+          }
+        }
+      }
+    }
+  ],
+  "connections": {
+    "trigger": {
+      "main": [[{"node": "expert_list", "type": "main", "index": 0}]]
+    },
+    "expert_list": {
+      "main": [[{"node": "split_experts", "type": "main", "index": 0}]]
+    },
+    "split_experts": {
+      "main": [[{"node": "tavily_search", "type": "main", "index": 0}]]
+    },
+    "tavily_search": {
+      "main": [[{"node": "format_results", "type": "main", "index": 0}]]
+    },
+    "format_results": {
+      "main": [[{"node": "save_to_duckdb", "type": "main", "index": 0}]]
+    },
+    "save_to_duckdb": {
+      "main": [[{"node": "aggregate_report", "type": "main", "index": 0}]]
+    },
+    "aggregate_report": {
+      "main": [[{"node": "generate_report", "type": "main", "index": 0}]]
+    },
+    "generate_report": {
+      "main": [
+        [{"node": "save_report", "type": "main", "index": 0}],
+        [{"node": "notify_feishu", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Shanghai"
+  }
+}

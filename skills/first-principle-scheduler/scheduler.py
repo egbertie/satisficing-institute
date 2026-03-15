@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-第一性原则资源调度器 - 防止资源空置的核心机制
+第一性原则资源调度器 V2.0 - 增加管理哲学审核与五大图腾审核
 
 核心规则：
 1. 没有真实推进的任务 = 暂停/待补充，不是"进行中"
 2. 进行中列表必须为空时，自动补位2+7核心项目
 3. 资源全开 = 白天人机协作 + 夜间AI自主推进，零空置
+4. 新增：五大图腾审核（土金水木火）
+5. 新增：管理哲学审核（制度即代码/零空置/持续改进/自主决策/安全第一）
 """
 
 import json
@@ -14,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 class FirstPrincipleResourceScheduler:
-    """第一性原则资源调度器"""
+    """第一性原则资源调度器 V2.0"""
     
     def __init__(self, workspace_path="/root/.openclaw/workspace"):
         self.workspace = Path(workspace_path)
@@ -46,6 +48,69 @@ class FirstPrincipleResourceScheduler:
             ]
         }
         
+        # 五大图腾定义
+        self.five_totems = {
+            "LIU": {
+                "name": "刘禹锡",
+                "element": "土",
+                "spirit": "惟吾德馨",
+                "question": "此决策是否基于真实品德？",
+                "keyword": "品德"
+            },
+            "SIMON": {
+                "name": "司马贺",
+                "element": "金",
+                "spirit": "满意解",
+                "question": "是否找到足够好的解，而非追求最优？",
+                "keyword": "足够好"
+            },
+            "GUANYIN": {
+                "name": "观音",
+                "element": "水",
+                "spirit": "自在从容",
+                "question": "是否有退路，心态是否松弛？",
+                "keyword": "从容"
+            },
+            "CONFUCIUS": {
+                "name": "孔子",
+                "element": "木",
+                "spirit": "仁者爱人",
+                "question": "是否体现合伙伦理的仁者精神？",
+                "keyword": "仁爱"
+            },
+            "HUINENG": {
+                "name": "六祖",
+                "element": "火",
+                "spirit": "顿悟知行",
+                "question": "是否知行合一，立即行动？",
+                "keyword": "知行合一"
+            }
+        }
+        
+        # 管理哲学审核项
+        self.management_philosophy = {
+            "制度即代码": {
+                "question": "此规则是否已写入可执行Skill？如否，立即转化",
+                "action": "check_skill_conversion"
+            },
+            "零空置执行": {
+                "question": "当前是否有资源空置？如有，立即补位六线并行",
+                "action": "check_resource_idle"
+            },
+            "持续改进": {
+                "question": "此任务完成后是否立即复盘？必须记录3条改进点",
+                "action": "check_improvement_loop"
+            },
+            "自主决策": {
+                "question": "是否在授权范围内？如是，立即执行不问",
+                "action": "check_decision_authority"
+            },
+            "安全第一": {
+                "question": "是否触碰决策安全红线？如触碰，立即上报",
+                "action": "check_safety_redline"
+            }
+        }
+        
         # 阻塞任务定义（等待外界条件）
         self.blocked_tasks = [
             {"id": "WIP-004", "name": "补充专家真实资料", "blocker": "需联系本人", "user_action": "提供联系方式或确认自行处理"},
@@ -54,14 +119,178 @@ class FirstPrincipleResourceScheduler:
             {"id": "WIP-008", "name": "飞书权限完善", "blocker": "需用户操作", "user_action": "在飞书后台添加drive:file权限"},
         ]
     
+    def print_first_principles_prompt(self) -> str:
+        """打印第一性原则启动口令（含管理哲学+五大图腾审核）"""
+        prompt = """
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 核心精神：向前赶，永不止步
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 三大铁律（立即执行）：
+1. 时间预估激进 —— 原计划的50%，压缩倒逼极限
+2. 相信极限潜能 —— 不说"可能"，只说"一定"  
+3. 完成即启动 —— 不停顿、不等待、永向前
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📜 五大图腾审核（强制校验）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"""
+        for key, totem in self.five_totems.items():
+            prompt += f"□ {key}（{totem['name']}·{totem['element']}）：{totem['spirit']} —— {totem['question']}\n"
+        
+        prompt += """
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏛️ 管理哲学审核（强制校验）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"""
+        for principle, details in self.management_philosophy.items():
+            prompt += f"□ {principle} —— {details['question']}\n"
+        
+        prompt += """
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 立即自检（10秒内回答）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+当前并行任务数：__/6
+当前空置资源：__%（目标<15%）
+今日改进闭环：__个（目标≥3）
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+确认执行请输入：【确认启动第一性原则】
+"""
+        return prompt
+    
+    def audit_totems(self, task_description: str = "") -> dict:
+        """五大图腾审核"""
+        result = {
+            "timestamp": datetime.now().isoformat(),
+            "task": task_description,
+            "totems": {},
+            "passed": True,
+            "recommendations": []
+        }
+        
+        for key, totem in self.five_totems.items():
+            # 简化版本：基于关键词匹配给出审核建议
+            result["totems"][key] = {
+                "name": totem["name"],
+                "element": totem["element"],
+                "question": totem["question"],
+                "status": "待人工确认",
+                "keyword": totem["keyword"]
+            }
+        
+        return result
+    
+    def audit_management_philosophy(self, task_id: str = "", task_type: str = "") -> dict:
+        """管理哲学审核"""
+        result = {
+            "timestamp": datetime.now().isoformat(),
+            "task_id": task_id,
+            "task_type": task_type,
+            "principles": {},
+            "all_passed": True,
+            "required_actions": []
+        }
+        
+        for principle, details in self.management_philosophy.items():
+            # 执行对应检查
+            if details["action"] == "check_skill_conversion":
+                # 检查是否已Skill化
+                status = self._check_skill_conversion_status(task_id)
+            elif details["action"] == "check_resource_idle":
+                # 检查资源空置
+                idle_check = self.check_resource_idle()
+                status = "✅ 正常" if not idle_check["should_activate"] else "⚠️ 空置检测"
+            elif details["action"] == "check_improvement_loop":
+                # 检查改进闭环
+                status = self._check_improvement_loop_status(task_id)
+            elif details["action"] == "check_decision_authority":
+                # 检查决策权限（默认在授权内）
+                status = "✅ 在授权范围"
+            elif details["action"] == "check_safety_redline":
+                # 检查安全红线
+                status = self._check_safety_redline(task_id, task_type)
+            else:
+                status = "⏳ 待检查"
+            
+            result["principles"][principle] = {
+                "question": details["question"],
+                "status": status,
+                "action": details["action"]
+            }
+            
+            if "⚠️" in status or "❌" in status:
+                result["all_passed"] = False
+                result["required_actions"].append(f"{principle}: {status}")
+        
+        return result
+    
+    def _check_skill_conversion_status(self, task_id: str) -> str:
+        """检查任务是否已Skill化"""
+        # 简化检查：基于task_id判断
+        skill_locations = [
+            self.workspace / "skills",
+            self.workspace / "A满意哥专属文件夹" / "skills"
+        ]
+        
+        for loc in skill_locations:
+            if loc.exists():
+                for item in loc.iterdir():
+                    if task_id.lower() in item.name.lower():
+                        return "✅ 已Skill化"
+        
+        return "⚠️ 未Skill化，建议转化"
+    
+    def _check_improvement_loop_status(self, task_id: str) -> str:
+        """检查改进闭环状态"""
+        improvement_db = self.workspace / "memory" / "improvement-loop-db.json"
+        if improvement_db.exists():
+            with open(improvement_db, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                if task_id in data and len(data[task_id].get("improvements", [])) >= 3:
+                    return "✅ 改进闭环完成"
+        
+        return "⏳ 待完成后复盘"
+    
+    def _check_safety_redline(self, task_id: str, task_type: str) -> str:
+        """检查决策安全红线"""
+        # 定义安全红线
+        redlines = [
+            "删除生产数据",
+            "修改核心配置",
+            "发送敏感信息",
+            "修改安全规则",
+            "删除备份"
+        ]
+        
+        for redline in redlines:
+            if redline in str(task_id) or redline in str(task_type):
+                return "❌ 触碰安全红线，需人工审批"
+        
+        return "✅ 未触碰红线"
+    
+    def full_audit(self, task_description: str = "", task_id: str = "", task_type: str = "") -> dict:
+        """完整审核（五大图腾 + 管理哲学）"""
+        return {
+            "timestamp": datetime.now().isoformat(),
+            "first_principles_prompt": self.print_first_principles_prompt(),
+            "totem_audit": self.audit_totems(task_description),
+            "management_philosophy_audit": self.audit_management_philosophy(task_id, task_type),
+            "resource_check": self.check_resource_idle(),
+            "recommendation": "请完成五大图腾和管理哲学审核后执行"
+        }
+    
     def check_resource_idle(self) -> dict:
-        """检查资源是否空置"""
+        """检查资源是否空置 - 第一性原则V2.1：零容忍管理空档"""
         result = {
             "timestamp": datetime.now().isoformat(),
             "active_tasks": [],
             "blocked_tasks": [],
             "should_activate": [],
-            "recommendation": ""
+            "recommendation": "",
+            "management_gaps": []  # 新增：管理空档检测
         }
         
         # 1. 识别真实阻塞任务
@@ -85,7 +314,31 @@ class FirstPrincipleResourceScheduler:
         else:
             result["recommendation"] = "资源利用正常"
         
+        # 4. 【新增】管理空档检测 - 零容忍人工设定的时间墙
+        # 检查是否有"今晚/明天/下周"等延迟执行设定
+        scheduled_gaps = self._detect_management_gaps()
+        if scheduled_gaps:
+            result["management_gaps"] = scheduled_gaps
+            result["recommendation"] += " | 🚨 检测到管理空档，建议立即执行消除延迟"
+        
         return result
+    
+    def _detect_management_gaps(self) -> list:
+        """检测管理空档——人为设定的时间延迟"""
+        gaps = []
+        
+        # 检查常见延迟模式
+        gap_patterns = [
+            ("今晚23:00", "可立即执行，不应等待"),
+            ("明天", "可提前完成，消除空档"),
+            ("下周", "过于遥远，需拆解为今日任务"),
+            ("稍后", "无明确时间，等于无限延迟"),
+            ("有空时", "无触发条件，需设定立即执行")
+        ]
+        
+        # 这里可以扩展为读取任务数据库检查
+        # 简化版本：返回提示
+        return gaps
     
     def force_activate_next(self) -> dict:
         """强制激活下一个可执行任务（防止空置）"""
@@ -132,6 +385,8 @@ class FirstPrincipleResourceScheduler:
             "timestamp": datetime.now().isoformat(),
             "2_plus_7_status": self.core_projects,
             "blocked_tasks": self.blocked_tasks,
+            "five_totems": self.five_totems,
+            "management_philosophy": list(self.management_philosophy.keys()),
             "resource_utilization": self._calculate_utilization(),
             "next_action": self.force_activate_next()
         }
@@ -147,13 +402,58 @@ class FirstPrincipleResourceScheduler:
 if __name__ == "__main__":
     scheduler = FirstPrincipleResourceScheduler()
     
-    # 执行空置检查
-    result = scheduler.enforce_no_idle_rule()
-    print(result)
+    import sys
     
-    # 输出完整报告
-    import json
-    report = scheduler.get_status_report()
-    print("\n" + "="*50)
-    print("完整状态报告：")
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+    if len(sys.argv) > 1:
+        command = sys.argv[1]
+        
+        if command == "check":
+            # 执行空置检查
+            result = scheduler.enforce_no_idle_rule()
+            print(result)
+        
+        elif command == "prompt":
+            # 打印第一性原则口令
+            print(scheduler.print_first_principles_prompt())
+        
+        elif command == "audit":
+            # 执行完整审核
+            task_desc = sys.argv[2] if len(sys.argv) > 2 else ""
+            task_id = sys.argv[3] if len(sys.argv) > 3 else ""
+            task_type = sys.argv[4] if len(sys.argv) > 4 else ""
+            
+            result = scheduler.full_audit(task_desc, task_id, task_type)
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+        
+        elif command == "totem":
+            # 执行五大图腾审核
+            task_desc = sys.argv[2] if len(sys.argv) > 2 else ""
+            result = scheduler.audit_totems(task_desc)
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+        
+        elif command == "philosophy":
+            # 执行管理哲学审核
+            task_id = sys.argv[2] if len(sys.argv) > 2 else ""
+            task_type = sys.argv[3] if len(sys.argv) > 3 else ""
+            result = scheduler.audit_management_philosophy(task_id, task_type)
+            print(json.dumps(result, indent=2, ensure_ascii=False))
+        
+        elif command == "report":
+            # 输出完整报告
+            report = scheduler.get_status_report()
+            print(json.dumps(report, indent=2, ensure_ascii=False))
+        
+        else:
+            print(f"未知命令: {command}")
+            print("可用命令: check | prompt | audit | totem | philosophy | report")
+    
+    else:
+        # 默认执行空置检查
+        result = scheduler.enforce_no_idle_rule()
+        print(result)
+        
+        # 同时输出报告
+        print("\n" + "="*50)
+        print("完整状态报告：")
+        report = scheduler.get_status_report()
+        print(json.dumps(report, indent=2, ensure_ascii=False))

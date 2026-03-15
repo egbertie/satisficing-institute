@@ -1,0 +1,52 @@
+%% 五路图腾体系 - 五边形星形布局
+%% 展示五行相生相克体系结构
+
+graph TB
+    %% 定义样式类
+    classDef earth fill:#C9A227,stroke:#8B6914,stroke-width:4px,color:#fff
+    classDef metal fill:#E8E4E1,stroke:#C0C0C0,stroke-width:4px,color:#333
+    classDef water fill:#1A1A2E,stroke:#0F3460,stroke-width:4px,color:#fff
+    classDef wood fill:#2E5C45,stroke:#4A7C59,stroke-width:4px,color:#fff
+    classDef fire fill:#DC143C,stroke:#B22222,stroke-width:4px,color:#fff
+    classDef center fill:#f8f8f8,stroke:#333,stroke-width:2px,color:#333
+
+    %% 中心节点
+    CENTER(("满意解研究所<br/>Satisficing Institute")):::center
+
+    %% 五个图腾节点 - 围绕中心
+    LIU["🟫<br/>LIU<br/>刘禹锡<br/>土<br/>惟吾德馨"]:::earth
+    SIMON["⬜<br/>SIMON<br/>司马贺<br/>金<br/>满意解"]:::metal
+    GUANYIN["🟦<br/>GUANYIN<br/>观自在<br/>水<br/>自在从容"]:::water
+    CONFUCIUS["🟩<br/>CONFUCIUS<br/>孔子<br/>木<br/>仁者爱人"]:::wood
+    HUINENG["🟥<br/>HUINENG<br/>六祖<br/>火<br/>顿悟/知行合一"]:::fire
+
+    %% 连接到中心
+    LIU -.->|核心精神| CENTER
+    SIMON -.->|核心精神| CENTER
+    GUANYIN -.->|核心精神| CENTER
+    CONFUCIUS -.->|核心精神| CENTER
+    HUINENG -.->|核心精神| CENTER
+
+    %% 五行相生关系（外圈顺时针）
+    LIU -->|土生金| SIMON
+    SIMON -->|金生水| GUANYIN
+    GUANYIN -->|水生木| CONFUCIUS
+    CONFUCIUS -->|木生火| HUINENG
+    HUINENG -->|火生土| LIU
+
+    %% 添加标题注释
+    subgraph LEGEND["五行相生循环 | Five Elements Cycle"]
+        direction LR
+        L1["土 EARTH"]:::earth
+        L2["金 METAL"]:::metal
+        L3["水 WATER"]:::water
+        L4["木 WOOD"]:::wood
+        L5["火 FIRE"]:::fire
+    end
+
+    %% 链接样式
+    linkStyle 0 stroke:#C9A227,stroke-width:2px
+    linkStyle 1 stroke:#C0C0C0,stroke-width:2px
+    linkStyle 2 stroke:#16213E,stroke-width:2px
+    linkStyle 3 stroke:#4A7C59,stroke-width:2px
+    linkStyle 4 stroke:#B22222,stroke-width:2px

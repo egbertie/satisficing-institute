@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="50%" style="stop-color:#2C3E50"/>
+      <stop offset="100%" style="stop-color:#1A1A2E"/>
+    </linearGradient>
+    
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="100%" style="stop-color:#B8953A"/>
+    </linearGradient>
+    
+    <filter id="textShadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1500" height="500" fill="url(#bgGradient)"/>
+  
+  <!-- 装饰性背景 -->
+  <g opacity="0.03">
+    <circle cx="750" cy="250" r="200" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+    <circle cx="750" cy="250" r="150" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  
+  <!-- 左侧Logo区域 -->
+  <g transform="translate(200, 250)">
+    <!-- 五行图标 -->
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#D4A84B" stroke-width="2" opacity="0.5"/>
+    
+    <circle cx="0" cy="0" r="12" fill="#D4A84B"/>
+    
+    <text x="0" y="4" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="10" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <circle cx="30" cy="-15" r="10" fill="#C0C0C0"/>
+    
+    <text x="30" y="-11" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="8" fill="#333333" font-weight="bold">金</text>
+    
+    <circle cx="24" cy="24" r="10" fill="#2C3E50"/>
+    
+    <text x="24" y="28" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="8" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <circle cx="-24" cy="24" r="10" fill="#2E8B57"/>
+    
+    <text x="-24" y="28" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="8" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <circle cx="-30" cy="-15" r="10" fill="#E74C3C"/>
+    
+    <text x="-30" y="-11" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="8" fill="#FFFFFF" font-weight="bold">火</text>
+  </g>
+  
+  <!-- 中间品牌名称 -->
+  <g transform="translate(750, 250)" filter="url(#textShadow)">
+    <text x="0" y="-20" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="56" fill="#FFFFFF" font-weight="bold" letter-spacing="12">满意解研究所</text>
+    
+    <text x="0" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#D4A84B" letter-spacing="6">SATISFICING INSTITUTE</text>
+    
+    <line x1="-100" y1="60" x2="100" y2="60" stroke="#D4A84B" stroke-width="2"/>
+    
+    <text x="0" y="100" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="20" fill="#AAAAAA">硬科技合伙人决策教练</text>
+  </g>
+  
+  <!-- 右侧装饰文字 -->
+  <g transform="translate(1300, 250)">
+    <text x="0" y="-60" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#888888">五路图腾</text>
+    
+    <text x="0" y="-30" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#D4A84B">土</text>
+    
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#C0C0C0">金</text>
+    
+    <text x="0" y="30" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#5B9BD5">水</text>
+    
+    <text x="0" y="60" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#2E8B57">木</text>
+    
+    <text x="0" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="16" fill="#E74C3C">火</text>
+  </g
+
+
+  
+  <!-- 底部装饰线 -->
+  <rect x="0" y="495" width="1500" height="5" fill="#D4A84B"/>
+  
+  <!-- 角落文字 -->
+  <text x="30" y="470" font-family="Inter, sans-serif" font-size="12" fill="#444444">五行相生 · 生生不息</text>
+  
+  <text x="1470" y="470" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#444444">2026.03.25 官宣</text>
+</svg>

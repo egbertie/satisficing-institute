@@ -1,0 +1,37 @@
+%% 五路图腾体系 - 横向时间线流程图
+%% 展示五行相生关系：土→金→水→木→火→土
+
+flowchart LR
+    %% 定义样式类
+    classDef earth fill:#C9A227,stroke:#8B6914,stroke-width:3px,color:#fff
+    classDef metal fill:#E8E4E1,stroke:#C0C0C0,stroke-width:3px,color:#333
+    classDef water fill:#1A1A2E,stroke:#0F3460,stroke-width:3px,color:#fff
+    classDef wood fill:#2E5C45,stroke:#4A7C59,stroke-width:3px,color:#fff
+    classDef fire fill:#DC143C,stroke:#B22222,stroke-width:3px,color:#fff
+    classDef cycle fill:none,stroke:#666,stroke-width:2px,stroke-dasharray: 5 5
+
+    %% 定义节点
+    LIU["🟫 LIU·刘禹锡<br/>土·EARTH<br/>惟吾德馨<br/>Virtue is the true fragrance"]:::earth
+    SIMON["⬜ SIMON·司马贺<br/>金·METAL<br/>满意解<br/>Satisficing"]:::metal
+    GUANYIN["🟦 GUANYIN·观自在<br/>水·WATER<br/>自在从容<br/>At ease and unhurried"]:::water
+    CONFUCIUS["🟩 CONFUCIUS·孔子<br/>木·WOOD<br/>仁者爱人<br/>Benevolence"]:::wood
+    HUINENG["🟥 HUINENG·六祖<br/>火·FIRE<br/>顿悟/知行合一<br/>Sudden Enlightenment"]:::fire
+
+    %% 定义连接 - 相生关系
+    LIU ==>|"土生金<br/>Earth births Metal"| SIMON
+    SIMON ==>|"金生水<br/>Metal births Water"| GUANYIN
+    GUANYIN ==>|"水生木<br/>Water births Wood"| CONFUCIUS
+    CONFUCIUS ==>|"木生火<br/>Wood births Fire"| HUINENG
+    HUINENG ==>|"火生土<br/>Fire births Earth"| LIU
+
+    %% 添加标题
+    subgraph TITLE["五路图腾体系 V2.4 | Five Totem System"]
+        direction LR
+    end
+
+    %% 样式调整
+    linkStyle 0 stroke:#C9A227,stroke-width:3px
+    linkStyle 1 stroke:#E8E4E1,stroke-width:3px
+    linkStyle 2 stroke:#1A1A2E,stroke-width:3px
+    linkStyle 3 stroke:#2E5C45,stroke-width:3px
+    linkStyle 4 stroke:#DC143C,stroke-width:3px

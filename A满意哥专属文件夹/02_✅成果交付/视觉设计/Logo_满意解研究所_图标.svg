@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#feca57"/>
+    </linearGradient>
+  </defs>
+  
+  <g transform="translate(100,100)">
+    <circle cx="0" cy="-50" r="25" fill="#e94560" opacity="0.9"/>
+    <circle cx="47" cy="-15" r="25" fill="#feca57" opacity="0.9"/>
+    <circle cx="29" cy="40" r="25" fill="#7cb342" opacity="0.9"/>
+    <circle cx="-29" cy="40" r="25" fill="#4a90e2" opacity="0.9"/>
+    <circle cx="-47" cy="-15" r="25" fill="#c0c0c0" opacity="0.9"/>
+    <path d="M0,-50 Q25,-30 47,-15" stroke="url(#iconGrad)" stroke-width="4" fill="none" opacity="0.7"/>
+    <path d="M47,-15 Q38,13 29,40" stroke="url(#iconGrad)" stroke-width="4" fill="none" opacity="0.7"/>
+    <path d="M29,40 Q0,50 -29,40" stroke="url(#iconGrad)" stroke-width="4" fill="none" opacity="0.7"/>
+    <path d="M-29,40 Q-38,13 -47,-15" stroke="url(#iconGrad)" stroke-width="4" fill="none" opacity="0.7"/>
+    <path d="M-47,-15 Q-25,-30 0,-50" stroke="url(#iconGrad)" stroke-width="4" fill="none" opacity="0.7"/>
+  </g>
+</svg>

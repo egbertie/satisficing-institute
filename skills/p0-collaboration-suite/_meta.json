@@ -1,0 +1,58 @@
+{
+  "name": "p0-collaboration-suite",
+  "version": "1.0.0",
+  "description": "P0协作套件 - 决策权限矩阵 + 系统仪表盘 + 分级通知 + 记忆审计",
+  "components": [
+    {
+      "name": "decision-governance",
+      "file": "config/decision-permission-matrix.md",
+      "purpose": "决策权限管理",
+      "status": "✅ 完成"
+    },
+    {
+      "name": "system-dashboard",
+      "file": "skills/system-dashboard/dashboard.py",
+      "purpose": "实时系统状态看板",
+      "status": "✅ 完成"
+    },
+    {
+      "name": "notification-router",
+      "file": "skills/notification-router/router.py",
+      "purpose": "分级通知路由",
+      "status": "✅ 完成"
+    },
+    {
+      "name": "memory-auditor",
+      "file": "skills/memory-auditor/auditor.py",
+      "purpose": "记忆自动审计",
+      "status": "✅ 完成"
+    }
+  ],
+  "configuration": {
+    "decision_matrix": {
+      "low_risk_autonomous": ["search", "analyze", "draft"],
+      "medium_risk_notify": ["generate_report", "modify_internal", "schedule_task"],
+      "high_risk_confirm": ["send_external", "delete_critical", "api_operation"]
+    },
+    "dashboard": {
+      "refresh_interval": 300,
+      "show_projects": true,
+      "show_tasks": true,
+      "show_experts": true,
+      "show_api_usage": true
+    },
+    "notification": {
+      "emergency_channels": ["feishu", "sms", "call"],
+      "important_channels": ["feishu"],
+      "normal_channels": ["notion"],
+      "daily_time": "09:00",
+      "weekly_time": "20:00_sunday"
+    }
+  },
+  "next_steps": [
+    "配置飞书Webhook",
+    "运行记忆审计",
+    "启动仪表盘服务",
+    "测试通知路由"
+  ]
+}

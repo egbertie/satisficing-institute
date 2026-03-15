@@ -1,0 +1,34 @@
+{"id": "KN-20260315104858-000", "content": "---", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485851", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-001", "content": "## 【全面补位完成】2026-03-15 08:45", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485885", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-002", "content": "> \"把应该补位的都全部补位完成，看看还有哪些工作连1.0版本都没有的（应该有而没有的）完成全面性补位\"", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485911", "tags": [], "confidence": 0.8}
+{"id": "KN-20260315104858-003", "content": "### 识别缺失的1.0基础组件（7个）", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485926", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-004", "content": "|------|------|------|", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485944", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-005", "content": "| 任务优先级智能判定器 | 自动判定P0/P1/P2/P3 | ✅ 已部署 |", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485959", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-006", "content": "| 专家数字替身训练器 | 训练黎红雷/罗汉/谢宝剑替身 | ✅ 已部署 |", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485972", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-007", "content": "| 决策质量评估器 | 决策→结果→复盘→改进闭环 | ✅ 已部署 |", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485985", "tags": ["决策"], "confidence": 0.7}
+{"id": "KN-20260315104858-008", "content": "| 知识蒸馏沉淀器 | 自动分类沉淀知识 | ✅ 已部署 |", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.485998", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-009", "content": "| 技能进化追踪器 | 追踪Skill使用频率和效果 | ✅ 已部署 |", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486012", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-010", "content": "| 意图识别增强器 | 简化指令映射+模糊意图澄清 | ✅ 已部署 |", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486025", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-011", "content": "| 跨Skill协调器 | 多Skill顺序/并行执行 | ✅ 已部署 |", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486038", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-012", "content": "**自建核心Skill（19个）**：", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486057", "tags": [], "confidence": 0.65}
+{"id": "KN-20260315104858-013", "content": "1. zero-idle-enforcer - 零空置强制执行", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486071", "tags": ["零空置"], "confidence": 0.7}
+{"id": "KN-20260315104858-014", "content": "2. self-assessment-calibrator - 自我评估校准", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486085", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-015", "content": "3. daily-reminder-auditor - 每日提醒审计", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486108", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-016", "content": "4. continuous-improvement-engine - 持续改进引擎", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486122", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-017", "content": "5. resource-utilization-analyzer - 资源利用分析", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486138", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-018", "content": "6. information-intelligence - 信息智能（防火墙+进攻）", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486151", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-021", "content": "9. workspace-integrity-guardian - 工作空间守护", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486191", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-022", "content": "10. task-priority-intelligence - 任务优先级判定 ⭐新", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486205", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-023", "content": "11. expert-digital-twin-trainer - 专家替身训练 ⭐新", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486218", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-024", "content": "12. decision-quality-assessor - 决策质量评估 ⭐新", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486231", "tags": ["决策"], "confidence": 0.7}
+{"id": "KN-20260315104858-025", "content": "13. knowledge-distiller - 知识蒸馏沉淀 ⭐新", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486243", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-026", "content": "14. skill-evolution-tracker - 技能进化追踪 ⭐新", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486256", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-027", "content": "15. intent-recognition-enhancer - 意图识别增强 ⭐新", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486270", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-028", "content": "16. cross-skill-orchestrator - 跨Skill协调 ⭐新", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486284", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-029", "content": "**外部Skill（100+个）**：已审计部署", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486296", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-030", "content": "**定时任务（27个）**：覆盖每日/每小时/每周", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486309", "tags": [], "confidence": 0.6}
+{"id": "KN-20260315104858-031", "content": "1. **专家数字替身训练** - 基于真实论文深化黎红雷/罗汉/谢宝剑替身", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486329", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-032", "content": "2. **知识蒸馏自动化** - 对话自动提取知识，无需人工触发", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486342", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-033", "content": "3. **意图识别优化** - 基于使用数据持续优化识别准确率", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486355", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-034", "content": "4. **跨Skill协调智能化** - 自动识别任务需要的Skill组合", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486368", "tags": [], "confidence": 0.7}
+{"id": "KN-20260315104858-035", "content": "---", "source": "memory/2026-03-15.md", "timestamp": "2026-03-15T10:48:58.486380", "tags": [], "confidence": 0.6}

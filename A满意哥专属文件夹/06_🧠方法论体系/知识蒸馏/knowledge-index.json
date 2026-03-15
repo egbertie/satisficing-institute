@@ -1,0 +1,221 @@
+{
+  "items": [
+    {
+      "id": "KN-20260315104858-000",
+      "category": "insight",
+      "preview": "---",
+      "timestamp": "2026-03-15T10:48:58.485851"
+    },
+    {
+      "id": "KN-20260315104858-001",
+      "category": "insight",
+      "preview": "## 【全面补位完成】2026-03-15 08:45",
+      "timestamp": "2026-03-15T10:48:58.485885"
+    },
+    {
+      "id": "KN-20260315104858-002",
+      "category": "insight",
+      "preview": "> \"把应该补位的都全部补位完成，看看还有哪些工作连1.0版本都没有的（应该有而没有的）完成全面性补位\"",
+      "timestamp": "2026-03-15T10:48:58.485911"
+    },
+    {
+      "id": "KN-20260315104858-003",
+      "category": "insight",
+      "preview": "### 识别缺失的1.0基础组件（7个）",
+      "timestamp": "2026-03-15T10:48:58.485926"
+    },
+    {
+      "id": "KN-20260315104858-004",
+      "category": "insight",
+      "preview": "|------|------|------|",
+      "timestamp": "2026-03-15T10:48:58.485944"
+    },
+    {
+      "id": "KN-20260315104858-005",
+      "category": "insight",
+      "preview": "| 任务优先级智能判定器 | 自动判定P0/P1/P2/P3 | ✅ 已部署 |",
+      "timestamp": "2026-03-15T10:48:58.485959"
+    },
+    {
+      "id": "KN-20260315104858-006",
+      "category": "insight",
+      "preview": "| 专家数字替身训练器 | 训练黎红雷/罗汉/谢宝剑替身 | ✅ 已部署 |",
+      "timestamp": "2026-03-15T10:48:58.485972"
+    },
+    {
+      "id": "KN-20260315104858-007",
+      "category": "insight",
+      "preview": "| 决策质量评估器 | 决策→结果→复盘→改进闭环 | ✅ 已部署 |",
+      "timestamp": "2026-03-15T10:48:58.485985"
+    },
+    {
+      "id": "KN-20260315104858-008",
+      "category": "insight",
+      "preview": "| 知识蒸馏沉淀器 | 自动分类沉淀知识 | ✅ 已部署 |",
+      "timestamp": "2026-03-15T10:48:58.485998"
+    },
+    {
+      "id": "KN-20260315104858-009",
+      "category": "insight",
+      "preview": "| 技能进化追踪器 | 追踪Skill使用频率和效果 | ✅ 已部署 |",
+      "timestamp": "2026-03-15T10:48:58.486012"
+    },
+    {
+      "id": "KN-20260315104858-010",
+      "category": "insight",
+      "preview": "| 意图识别增强器 | 简化指令映射+模糊意图澄清 | ✅ 已部署 |",
+      "timestamp": "2026-03-15T10:48:58.486025"
+    },
+    {
+      "id": "KN-20260315104858-011",
+      "category": "insight",
+      "preview": "| 跨Skill协调器 | 多Skill顺序/并行执行 | ✅ 已部署 |",
+      "timestamp": "2026-03-15T10:48:58.486038"
+    },
+    {
+      "id": "KN-20260315104858-012",
+      "category": "insight",
+      "preview": "**自建核心Skill（19个）**：",
+      "timestamp": "2026-03-15T10:48:58.486057"
+    },
+    {
+      "id": "KN-20260315104858-013",
+      "category": "insight",
+      "preview": "1. zero-idle-enforcer - 零空置强制执行",
+      "timestamp": "2026-03-15T10:48:58.486071"
+    },
+    {
+      "id": "KN-20260315104858-014",
+      "category": "insight",
+      "preview": "2. self-assessment-calibrator - 自我评估校准",
+      "timestamp": "2026-03-15T10:48:58.486085"
+    },
+    {
+      "id": "KN-20260315104858-015",
+      "category": "insight",
+      "preview": "3. daily-reminder-auditor - 每日提醒审计",
+      "timestamp": "2026-03-15T10:48:58.486108"
+    },
+    {
+      "id": "KN-20260315104858-016",
+      "category": "insight",
+      "preview": "4. continuous-improvement-engine - 持续改进引擎",
+      "timestamp": "2026-03-15T10:48:58.486122"
+    },
+    {
+      "id": "KN-20260315104858-017",
+      "category": "insight",
+      "preview": "5. resource-utilization-analyzer - 资源利用分析",
+      "timestamp": "2026-03-15T10:48:58.486138"
+    },
+    {
+      "id": "KN-20260315104858-018",
+      "category": "insight",
+      "preview": "6. information-intelligence - 信息智能（防火墙+进攻）",
+      "timestamp": "2026-03-15T10:48:58.486151"
+    },
+    {
+      "id": "KN-20260315104858-019",
+      "category": "methodology",
+      "preview": "7. management-philosophy-framework - 管理哲学框架",
+      "timestamp": "2026-03-15T10:48:58.486164"
+    },
+    {
+      "id": "KN-20260315104858-020",
+      "category": "methodology",
+      "preview": "8. first-principle-scheduler - 第一性原则调度",
+      "timestamp": "2026-03-15T10:48:58.486178"
+    },
+    {
+      "id": "KN-20260315104858-021",
+      "category": "insight",
+      "preview": "9. workspace-integrity-guardian - 工作空间守护",
+      "timestamp": "2026-03-15T10:48:58.486191"
+    },
+    {
+      "id": "KN-20260315104858-022",
+      "category": "insight",
+      "preview": "10. task-priority-intelligence - 任务优先级判定 ⭐新",
+      "timestamp": "2026-03-15T10:48:58.486205"
+    },
+    {
+      "id": "KN-20260315104858-023",
+      "category": "insight",
+      "preview": "11. expert-digital-twin-trainer - 专家替身训练 ⭐新",
+      "timestamp": "2026-03-15T10:48:58.486218"
+    },
+    {
+      "id": "KN-20260315104858-024",
+      "category": "insight",
+      "preview": "12. decision-quality-assessor - 决策质量评估 ⭐新",
+      "timestamp": "2026-03-15T10:48:58.486231"
+    },
+    {
+      "id": "KN-20260315104858-025",
+      "category": "insight",
+      "preview": "13. knowledge-distiller - 知识蒸馏沉淀 ⭐新",
+      "timestamp": "2026-03-15T10:48:58.486243"
+    },
+    {
+      "id": "KN-20260315104858-026",
+      "category": "insight",
+      "preview": "14. skill-evolution-tracker - 技能进化追踪 ⭐新",
+      "timestamp": "2026-03-15T10:48:58.486256"
+    },
+    {
+      "id": "KN-20260315104858-027",
+      "category": "insight",
+      "preview": "15. intent-recognition-enhancer - 意图识别增强 ⭐新",
+      "timestamp": "2026-03-15T10:48:58.486270"
+    },
+    {
+      "id": "KN-20260315104858-028",
+      "category": "insight",
+      "preview": "16. cross-skill-orchestrator - 跨Skill协调 ⭐新",
+      "timestamp": "2026-03-15T10:48:58.486284"
+    },
+    {
+      "id": "KN-20260315104858-029",
+      "category": "insight",
+      "preview": "**外部Skill（100+个）**：已审计部署",
+      "timestamp": "2026-03-15T10:48:58.486296"
+    },
+    {
+      "id": "KN-20260315104858-030",
+      "category": "insight",
+      "preview": "**定时任务（27个）**：覆盖每日/每小时/每周",
+      "timestamp": "2026-03-15T10:48:58.486309"
+    },
+    {
+      "id": "KN-20260315104858-031",
+      "category": "insight",
+      "preview": "1. **专家数字替身训练** - 基于真实论文深化黎红雷/罗汉/谢宝剑替身",
+      "timestamp": "2026-03-15T10:48:58.486329"
+    },
+    {
+      "id": "KN-20260315104858-032",
+      "category": "insight",
+      "preview": "2. **知识蒸馏自动化** - 对话自动提取知识，无需人工触发",
+      "timestamp": "2026-03-15T10:48:58.486342"
+    },
+    {
+      "id": "KN-20260315104858-033",
+      "category": "insight",
+      "preview": "3. **意图识别优化** - 基于使用数据持续优化识别准确率",
+      "timestamp": "2026-03-15T10:48:58.486355"
+    },
+    {
+      "id": "KN-20260315104858-034",
+      "category": "insight",
+      "preview": "4. **跨Skill协调智能化** - 自动识别任务需要的Skill组合",
+      "timestamp": "2026-03-15T10:48:58.486368"
+    },
+    {
+      "id": "KN-20260315104858-035",
+      "category": "insight",
+      "preview": "---",
+      "timestamp": "2026-03-15T10:48:58.486380"
+    }
+  ],
+  "version": "1.0.0"
+}

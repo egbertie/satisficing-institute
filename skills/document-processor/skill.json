@@ -1,0 +1,8 @@
+{
+  "name": "document-processor",
+  "version": "1.0.0",
+  "description": "文档处理套件 - 替代markdown-converter/markdown-exporter/mineru，统一文档处理",
+  "entry": "processor.py",
+  "replaces": ["markdown-converter", "markdown-exporter", "mineru"],
+  "capabilities": ["markdown_convert", "doc_export", "pdf_parse", "content_extract"]
+}

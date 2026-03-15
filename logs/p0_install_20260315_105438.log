@@ -1,0 +1,32 @@
+===============================================
+    P0批次Skill立即安装
+    执行时间: Sun Mar 15 10:54:38 AM CST 2026
+===============================================
+
+Installing: brave-search ...
+scripts/install_p0_batch_now.sh: line 32: 305670 Killed                  git clone --depth 1 "$REPO_BASE/$skill.git" "$skill" 2> /dev/null
+  ✗ brave-search 安装失败
+Installing: automate-excel ...
+  ✗ automate-excel 安装失败
+Installing: csvtoexcel ...
+  ✗ csvtoexcel 安装失败
+Installing: copywriting ...
+  ✗ copywriting 安装失败
+Installing: duckdb-cli-ai-skills ...
+  ✗ duckdb-cli-ai-skills 安装失败
+Installing: cron-scheduling ...
+  ✗ cron-scheduling 安装失败
+Installing: markdown-converter ...
+  ✗ markdown-converter 安装失败
+Installing: markdown-exporter ...
+  ✗ markdown-exporter 安装失败
+Installing: mermaid-diagrams ...
+  ✗ mermaid-diagrams 安装失败
+
+===============================================
+    安装完成统计
+===============================================
+成功: 0 / 9
+失败: 9 / 9
+完成时间: Sun Mar 15 11:07:18 AM CST 2026
+===============================================

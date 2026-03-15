@@ -1,0 +1,74 @@
+%% 五路图腾体系 - 极简风卡片布局
+%% 适合演示文稿和印刷品
+
+flowchart TB
+    subgraph HEADER[" "]
+        TITLE[五路图腾体系 V2.4]
+        SUBTITLE[满意解研究所 · 东方智慧 × 现代决策科学]
+    end
+
+    subgraph TOTEMS[" "]
+        direction LR
+        
+        subgraph LIU_CARD["LIU · 刘禹锡"]
+            LIU_ICON["🟫"]
+            LIU_ELEMENT["土 · EARTH"]
+            LIU_SPIRIT["惟吾德馨"]
+            LIU_EN["Virtue is the true fragrance"]
+            LIU_COLOR["#C9A227 · 赭石"]
+        end
+
+        subgraph SIMON_CARD["SIMON · 司马贺"]
+            SIMON_ICON["⬜"]
+            SIMON_ELEMENT["金 · METAL"]
+            SIMON_SPIRIT["满意解"]
+            SIMON_EN["Satisficing"]
+            SIMON_COLOR["#E8E4E1 · 白金"]
+        end
+
+        subgraph GUANYIN_CARD["GUANYIN · 观自在"]
+            GUANYIN_ICON["🟦"]
+            GUANYIN_ELEMENT["水 · WATER"]
+            GUANYIN_SPIRIT["自在从容"]
+            GUANYIN_EN["At ease and unhurried"]
+            GUANYIN_COLOR["#1A1A2E · 墨蓝"]
+        end
+
+        subgraph CONFUCIUS_CARD["CONFUCIUS · 孔子"]
+            CONFUCIUS_ICON["🟩"]
+            CONFUCIUS_ELEMENT["木 · WOOD"]
+            CONFUCIUS_SPIRIT["仁者爱人"]
+            CONFUCIUS_EN["Benevolence"]
+            CONFUCIUS_COLOR["#2E5C45 · 苍绿"]
+        end
+
+        subgraph HUINENG_CARD["HUINENG · 六祖"]
+            HUINENG_ICON["🟥"]
+            HUINENG_ELEMENT["火 · FIRE"]
+            HUINENG_SPIRIT["顿悟/知行合一"]
+            HUINENG_EN["Sudden Enlightenment"]
+            HUINENG_COLOR["#DC143C · 朱红"]
+        end
+    end
+
+    subgraph CYCLE["五行相生循环"]
+        direction LR
+        C1["土"] --> C2["金"]
+        C2 --> C3["水"]
+        C3 --> C4["木"]
+        C4 --> C5["火"]
+        C5 --> C1
+    end
+
+    %% 样式定义
+    classDef card fill:#f9f9f9,stroke:#ddd,stroke-width:1px
+    classDef header fill:none,stroke:none
+    classDef title fill:none,stroke:none,font-size:24px,font-weight:bold
+    classDef subtitle fill:none,stroke:none,font-size:14px,color:#666
+    classDef cycle fill:none,stroke:#999,stroke-width:1px
+
+    class LIU_CARD,SIMON_CARD,GUANYIN_CARD,CONFUCIUS_CARD,HUINENG_CARD card
+    class HEADER,TOTEMS,CYCLE header
+    class TITLE title
+    class SUBTITLE subtitle
+    class C1,C2,C3,C4,C5 cycle

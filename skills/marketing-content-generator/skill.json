@@ -1,0 +1,47 @@
+{
+  "name": "marketing-content-generator",
+  "version": "2.0.0",
+  "description": "统一营销内容生成套件 - 完全替代adwords/copywriting/copywriting-zh-pro，覆盖100个标题公式、AIDA/PAS/FAB框架、中文社媒文案、跨境营销",
+  "entry": "scripts/mcg",
+  "replaces": ["adwords", "copywriting", "copywriting-zh-pro"],
+  "capabilities": [
+    "100_headline_formulas",
+    "aida_framework", 
+    "pas_framework",
+    "fab_framework",
+    "4p_framework",
+    "bab_framework",
+    "ad_copy_generation",
+    "landing_page_copy",
+    "xiaohongshu_content",
+    "wechat_content",
+    "douyin_scripts",
+    "moments_copy",
+    "amazon_listing",
+    "shopify_product_page",
+    "chinese_detail_page",
+    "meta_ads",
+    "google_ads",
+    "tiktok_ads",
+    "cross_border_marketing"
+  ],
+  "commands": {
+    "mcg ad": "生成广告文案",
+    "mcg headline": "100个标题公式",
+    "mcg landing": "落地页文案",
+    "mcg social": "社媒内容(小红书/公众号/抖音/朋友圈)",
+    "mcg ecommerce": "电商文案(亚马逊/独立站/详情页)",
+    "mcg framework": "文案框架(AIDA/PAS/FAB/4P/BAB)",
+    "mcg crossborder": "跨境营销文案"
+  },
+  "templates": {
+    "headlines": "100个营销标题公式",
+    "frameworks": "5大经典文案框架",
+    "social": "4大中文社媒平台模板",
+    "ecommerce": "3种电商平台文案",
+    "crossborder": "3大跨境广告渠道"
+  },
+  "status": "生产就绪",
+  "created": "2026-03-15",
+  "integration_level": "full_replacement"
+}

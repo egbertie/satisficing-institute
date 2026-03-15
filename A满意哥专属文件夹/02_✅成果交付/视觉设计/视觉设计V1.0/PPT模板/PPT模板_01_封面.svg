@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="pptBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <filter id="pptShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="4" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1920" height="1080" fill="url(#pptBg)"/>
+  
+  <!-- 左侧装饰区 -->
+  <rect x="0" y="0" width="600" height="1080" fill="#FFFFFF" opacity="0.03"/>
+  
+  <!-- 装饰圆 -->
+  <circle cx="300" cy="540" r="250" fill="none" stroke="#D4A84B" stroke-width="1" opacity="0.2"/>
+  <circle cx="300" cy="540" r="200" fill="none" stroke="#D4A84B" stroke-width="1" opacity="0.1"/>
+  
+  <!-- Logo -->
+  <g transform="translate(300, 400)">
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
+    
+    <circle cx="0" cy="0" r="25" fill="#D4A84B"/>
+    <text x="0" y="8" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="20" fill="#FFFFFF" font-weight="bold">土</text>
+    
+    <circle cx="55" cy="-30" r="18" fill="#C0C0C0"/>
+    <text x="55" y="-24" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#333333" font-weight="bold">金</text>
+    
+    <circle cx="42" cy="45" r="18" fill="#2C3E50"/>
+    <text x="42" y="51" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#FFFFFF" font-weight="bold">水</text>
+    
+    <circle cx="-42" cy="45" r="18" fill="#2E8B57"/>
+    <text x="-42" y="51" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#FFFFFF" font-weight="bold">木</text>
+    
+    <circle cx="-55" cy="-30" r="18" fill="#E74C3C"/>
+    <text x="-55" y="-24" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#FFFFFF" font-weight="bold">火</text>
+  </g>
+  
+  <!-- 主标题 -->
+  <text x="1100" y="400" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="80" fill="#FFFFFF" font-weight="bold" letter-spacing="12">[标题]</text>
+  
+  <!-- 副标题 -->
+  <text x="1100" y="500" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="32" fill="#AAAAAA">[副标题]</text>
+  
+  <!-- 分隔线 -->
+  <line x1="850" y1="560" x2="1350" y2="560" stroke="#D4A84B" stroke-width="3"/>
+  
+  <!-- 底部信息 -->
+  <text x="1100" y="750" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#888888">满意解研究所 · SATISFICING INSTITUTE</text>
+  
+  <text x="1100" y="800" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="20" fill="#666666">硬科技合伙人决策教练</text>
+  
+  <!-- 右下角页码 -->
+  <text x="1800" y="1020" text-anchor="end" font-family="Inter, sans-serif" font-size="18" fill="#555555">1</text>
+  
+  <!-- 右下角Logo -->
+  <text x="1800" y="1050" text-anchor="end" font-family="Inter, sans-serif" font-size="14" fill="#444444">满意解研究所</text>
+</svg>

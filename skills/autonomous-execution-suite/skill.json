@@ -1,0 +1,73 @@
+{
+  "name": "autonomous-execution-suite",
+  "version": "1.0.0",
+  "description": "持续自主执行体系 - 六通道永不停歇，无需用户提醒",
+  "type": "autonomous",
+  "author": "满意解研究所",
+  "created": "2026-03-15",
+  "principles": [
+    "无明确任务 ≠ 无任务",
+    "资源全开 = 持续迭代 + 持续研究 + 持续学习进化",
+    "99%的工作静默执行，1%的精华呈现给用户",
+    "不再需要用户提醒，自主永续运行"
+  ],
+  "channels": [
+    {
+      "id": "info",
+      "name": "信息采集",
+      "frequency": "每小时",
+      "cron": "0 * * * *",
+      "description": "硬科技政策/行业动态/竞品监测信息采集"
+    },
+    {
+      "id": "learning",
+      "name": "学习进化",
+      "frequency": "每日3次(09/14/20)",
+      "cron": "0 9,14,20 * * *",
+      "description": "专家论文/决策科学/行业最佳实践学习"
+    },
+    {
+      "id": "training",
+      "name": "持续训练",
+      "frequency": "每日2次(10/16)",
+      "cron": "0 10,16 * * *",
+      "description": "数字替身后训练+评估工具压力测试"
+    },
+    {
+      "id": "sandbox",
+      "name": "沙盘推演",
+      "frequency": "每日1次(15:00)",
+      "cron": "0 15 * * *",
+      "description": "商业模式沙盘+定价策略压力测试"
+    },
+    {
+      "id": "drill",
+      "name": "模拟演练",
+      "frequency": "每日2次(11/17)",
+      "cron": "0 11,17 * * *",
+      "description": "客户咨询模拟+异议处理演练"
+    },
+    {
+      "id": "iteration",
+      "name": "持续迭代",
+      "frequency": "实时(任务完成触发)",
+      "cron": "on-task-complete",
+      "description": "自动复盘+改进点记录+明日任务生成"
+    }
+  ],
+  "cron_jobs": [
+    "autonomous-executor-check (every minute)",
+    "info-collection-hourly",
+    "learning-morning",
+    "training-morning", 
+    "drill-morning",
+    "learning-afternoon",
+    "sandbox-daily",
+    "training-afternoon",
+    "drill-afternoon",
+    "learning-evening",
+    "daily-autonomous-summary"
+  ],
+  "entry": "autonomous-executor.py",
+  "docs": "持续自主执行体系_V1.0.md"
+}

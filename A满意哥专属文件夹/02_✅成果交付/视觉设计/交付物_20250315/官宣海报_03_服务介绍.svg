@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="100%" style="stop-color:#2C3E50"/>
+    </linearGradient>
+    
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A84B"/>
+      <stop offset="100%" style="stop-color:#B8953A"/>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1080" height="1920" fill="url(#bgGradient)"/>
+  
+  <!-- 装饰性背景 -->
+  <g opacity="0.02">
+    <circle cx="540" cy="300" r="250" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+    <circle cx="540" cy="300" r="200" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+    <circle cx="540" cy="300" r="150" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  
+  <!-- 顶部标题 -->
+  <g transform="translate(540, 100)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#D4A84B">满意解研究所</text>
+    
+    <text x="0" y="50" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="52" fill="#FFFFFF" font-weight="bold" letter-spacing="8">核心服务</text>
+    
+    <line x1="-60" y1="80" x2="60" y2="80" stroke="#D4A84B" stroke-width="2"/>
+  </g>
+  
+  <!-- 主标语 -->
+  <g transform="translate(540, 280)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="28" fill="#FFFFFF">为硬科技企业家解决最艰难的决策</text>
+  </g>
+  
+  <!-- ===== 核心痛点 ===== -->
+  <g transform="translate(540, 380)">
+    <rect x="-400" y="0" width="800" height="180" rx="16" fill="#FFFFFF" opacity="0.05" filter="url(#cardShadow)"/>
+    
+    <text x="0" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#D4A84B">核心痛点</text>
+    
+    <text x="0" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="36" fill="#FFFFFF" font-weight="bold">合伙人选择</text>
+    
+    <text x="0" y="140" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#AAAAAA">选错合伙人，是初创企业最大的隐性风险</text>
+  </g>
+  
+  <!-- ===== 三大核心服务 ===== -->
+  <g transform="translate(540, 640)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="20" fill="#888888">三大核心服务</text>
+  </g>
+  
+  <!-- 服务1：决策评估 -->
+  <g transform="translate(100, 720)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="280" height="320" rx="16" fill="#FFFFFF" opacity="0.08"/>
+    
+    <circle cx="140" cy="60" r="40" fill="url(#goldGradient)"/>
+    
+    <text x="140" y="70" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF" font-weight="bold">01</text>
+    
+    <text x="140" y="140" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#FFFFFF" font-weight="bold">合伙人</text>
+    
+    <text x="140" y="170" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#FFFFFF" font-weight="bold">决策评估</text>
+    
+    <line x1="80" y1="200" x2="200" y2="200" stroke="#D4A84B" stroke-width="1"/>
+    
+    <text x="140" y="240" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">五路图腾方法论</text>
+    
+    <text x="140" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">量化+直觉综合评估</text>
+    
+    <text x="140" y="290" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">儒商伦理审查</text>
+  </g>
+  
+  <!-- 服务2：压力测试 -->
+  <g transform="translate(400, 720)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="280" height="320" rx="16" fill="#FFFFFF" opacity="0.08"/>
+    
+    <circle cx="140" cy="60" r="40" fill="#E74C3C"/>
+    
+    <text x="140" y="70" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF" font-weight="bold">02</text>
+    
+    <text x="140" y="140" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#FFFFFF" font-weight="bold">极限72小时</text>
+    
+    <text x="140" y="170" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#FFFFFF" font-weight="bold">压力测试</text>
+    
+    <line x1="80" y1="200" x2="200" y2="200" stroke="#E74C3C" stroke-width="1"/>
+    
+    <text x="140" y="240" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">模拟真实创业压力</text>
+    
+    <text x="140" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">触发直觉洞见</text>
+    
+    <text x="140" y="290" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">暴露真实反应模式</text>
+  </g>
+  
+  <!-- 服务3：决策教练 -->
+  <g transform="translate(700, 720)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="280" height="320" rx="16" fill="#FFFFFF" opacity="0.08"/>
+    
+    <circle cx="140" cy="60" r="40" fill="#2C3E50"/>
+    
+    <text x="140" y="70" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF" font-weight="bold">03</text>
+    
+    <text x="140" y="140" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#FFFFFF" font-weight="bold">决策教练</text>
+    
+    <text x="140" y="170" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#FFFFFF" font-weight="bold">全程陪伴</text>
+    
+    <line x1="80" y1="200" x2="200" y2="200" stroke="#2C3E50" stroke-width="1"/>
+    
+    <text x="140" y="240" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">1v1深度对话</text>
+    
+    <text x="140" y="265" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">关键节点决策支持</text>
+    
+    <text x="140" y="290" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#AAAAAA">PEO+EEO双角色</text>
+  </g>
+  
+  <!-- ===== 目标客户 ===== -->
+  <g transform="translate(540, 1120)">
+    <rect x="-400" y="0" width="800" height="160" rx="16" fill="#FFFFFF" opacity="0.03"/>
+    
+    <text x="0" y="40" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#888888">目标客户</text>
+    
+    <text x="0" y="90" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="32" fill="#FFFFFF" font-weight="bold">获得政府补贴的初创期硬件企业家</text>
+    
+    <text x="0" y="130" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="16" fill="#AAAAAA">硬科技转化 · 初创期 · 有融资需求 · 面临合伙人选择困境</text>
+  </g>
+  
+  <!-- ===== 独特价值 ===== -->
+  <g transform="translate(540, 1340)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#D4A84B">独特价值主张</text>
+    
+    <text x="0" y="50" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="28" fill="#FFFFFF" font-weight="bold">左脑逻辑 + 右脑直觉</text>
+    
+    <text x="0" y="90" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="18" fill="#AAAAAA">不仅给分析框架，更帮你听见内心的声音</text>
+  </g>
+  
+  <!-- ===== CTA区域 ===== -->
+  <g transform="translate(540, 1550)">
+    <rect x="-200" y="0" width="400" height="80" rx="40" fill="url(#goldGradient)" filter="url(#glow)"/>
+    
+    <text x="0" y="48" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="24" fill="#FFFFFF" font-weight="bold">2026年3月25日 正式官宣</text>
+  </g>
+  
+  <!-- 底部信息 -->
+  <g transform="translate(540, 1720)">
+    <text x="0" y="0" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="24" fill="#FFFFFF">满意解研究所</text>
+    
+    <text x="0" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#888888">SATISFICING INSTITUTE</text>
+    
+    <text x="0" y="80" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="14" fill="#666666">硬科技合伙人决策教练</text>
+  </g>
+  
+  <!-- 角落装饰 -->
+  <text x="50" y="1870" font-family="Inter, sans-serif" font-size="12" fill="#444444">服务介绍</text>
+  
+  <text x="1030" y="1870" text-anchor="end" font-family="Inter, sans-serif" font-size="12" fill="#444444">V1.0 2026.03.25</text>
+</svg>

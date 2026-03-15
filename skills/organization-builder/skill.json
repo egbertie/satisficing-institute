@@ -1,0 +1,127 @@
+{
+  "name": "organization-builder",
+  "version": "1.0.0",
+  "description": "组织建设计划 - 永不停歇进化体系 (组织建设=永不停歇进化体系)",
+  "author": "满意解研究所",
+  "entry": "org-builder.js",
+  "schema": {
+    "type": "evolution-system",
+    "capabilities": [
+      "business-plan-iteration",
+      "product-development",
+      "methodology-evolution",
+      "digital-twin-improvement",
+      "skill-iteration",
+      "toolkit-development"
+    ]
+  },
+  "six_engines": {
+    "business_iteration": {
+      "name": "商业计划迭代",
+      "layer": "战略层",
+      "aspects": ["商业模式", "市场定位", "增长策略", "财务预测"],
+      "frequency": "每周复盘",
+      "triggers": ["周复盘评估", "新模式发现", "数据变化"]
+    },
+    "product_development": {
+      "name": "产品研发与开发",
+      "layer": "产品层",
+      "products": [
+        {"name": "合伙人评估工具", "version": "V2.0", "goal": "在线化部署", "priority": "P1"},
+        {"name": "决策计算器", "stage": "概念", "goal": "Excel/在线工具", "priority": "P2"},
+        {"name": "专家会诊系统", "stage": "流程", "goal": "飞书/Calendly集成", "priority": "P2"},
+        {"name": "游戏化产品", "stage": "概念", "goal": "桌游设计", "priority": "P1"}
+      ]
+    },
+    "methodology_evolution": {
+      "name": "方法论迭代",
+      "layer": "知识层",
+      "modules": [
+        {"name": "满意解理论应用", "version": "V1.0", "goal": "白皮书深化"},
+        {"name": "五路图腾模型", "version": "V2.4", "goal": "学术化阐述"},
+        {"name": "感知力决策", "stage": "框架", "goal": "理论体系完善"},
+        {"name": "合伙人匹配算法", "stage": "概念", "goal": "权重优化"}
+      ]
+    },
+    "digital_twin_improvement": {
+      "name": "数字替身完善",
+      "layer": "角色层",
+      "roles": [
+        {"name": "PEO（项目进化官）", "status": "运行中", "improvement": "版本管理、战略校准"},
+        {"name": "EEO（经验萃取官）", "status": "运行中", "improvement": "方法论提炼、案例库"},
+        {"name": "CONTENT（内容总监）", "status": "运行中", "improvement": "文案质量、多格式产出"},
+        {"name": "虚拟专家团", "status": "AI暂代", "improvement": "逐步真人化"}
+      ]
+    },
+    "skill_iteration": {
+      "name": "学习进化与Skill迭代",
+      "layer": "能力层",
+      "dimensions": [
+        {"focus": "AI工具链", "current": "Kimi深度使用", "evolution": "GPT-4o、Claude、多模态"},
+        {"focus": "决策科学", "current": "西蒙理论", "evolution": "行为经济学、认知科学"},
+        {"focus": "硬科技行业", "current": "半导体/新能源", "evolution": "行业洞察、政策动态"},
+        {"focus": "产品方法论", "current": "复杂系统演化", "evolution": "分层解耦、反馈回路"}
+      ]
+    },
+    "toolkit_development": {
+      "name": "工具包与游戏开发",
+      "layer": "交付层",
+      "products": [
+        {"name": "评估工具包", "progress": "70%", "goal": "问卷优化、报告模板"},
+        {"name": "决策工具包", "progress": "40%", "goal": "TRL自评、计算工具"},
+        {"name": "桌游大富翁", "progress": "0%", "goal": "规则设计、卡牌制作"},
+        {"name": "互动测试", "progress": "0%", "goal": "决策风格测试H5"},
+        {"name": "沙盘模拟", "progress": "30%", "goal": "场景扩展、分支结局"}
+      ]
+    }
+  },
+  "support_systems": {
+    "data_assets": {
+      "name": "数据资产积累",
+      "assets": [
+        {"type": "案例库", "current": "3个沙盘", "goal": "真实案例积累"},
+        {"type": "行业数据库", "current": "初建", "goal": "硬科技企业数据"},
+        {"type": "知识图谱", "current": "概念", "goal": "方法论关联"},
+        {"type": "用户反馈库", "current": "0", "goal": "咨询记录"}
+      ]
+    },
+    "operations": {
+      "name": "运营体系优化",
+      "modules": [
+        {"name": "7×24自主推进", "status": "已建立", "goal": "无人值守率>90%"},
+        {"name": "内容生产流水线", "status": "初建", "goal": "产出效率+50%"},
+        {"name": "交付标准化", "status": "50%", "goal": "交付质量>95%"},
+        {"name": "复刻包自动化", "status": "手动", "goal": "灾备RTO<1h"}
+      ]
+    },
+    "ecosystem": {
+      "name": "生态建设",
+      "modules": [
+        {"name": "专家网络", "current": "4位档案", "goal": "真人专家合作"},
+        {"name": "合作伙伴", "current": "0", "goal": "孵化器、投资机构"},
+        {"name": "社群运营", "current": "0", "goal": "创始人社群"},
+        {"name": "内容IP", "current": "初建", "goal": "公众号、播客、视频"}
+      ]
+    }
+  },
+  "resource_schedule": {
+    "daytime": {"primary": "商业迭代+产品开发", "secondary": "方法论迭代", "allocation": "60%"},
+    "evening": {"primary": "用户交互+紧急任务", "secondary": "工具开发", "allocation": "30%"},
+    "night": {"primary": "学习进化+Skill迭代", "secondary": "数据积累", "allocation": "10%"},
+    "weekend": {"primary": "游戏开发+生态建设", "secondary": "复盘规划", "allocation": "40%"}
+  },
+  "metrics": {
+    "growth": {
+      "methodology_docs": {"current": 35, "m3": 50, "m6": 100},
+      "skill_count": {"current": 5, "m3": 8, "m6": 15},
+      "knowledge_size": {"current": "100MB", "m3": "200MB", "m6": "500MB"},
+      "case_count": {"current": 3, "m3": 10, "m6": 30}
+    },
+    "outcomes": {
+      "deliverables": {"current": 3, "m3": 8, "m6": 15},
+      "content_weekly": {"current": 5, "m3": 10, "m6": 20},
+      "tool_downloads": {"current": 0, "m3": 100, "m6": 1000},
+      "consultations": {"current": 0, "m3": 5, "m6": 30}
+    }
+  }
+}
