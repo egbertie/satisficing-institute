@@ -2,7 +2,134 @@
   "name": "cross-skill-orchestrator",
   "version": "1.0.0",
   "description": "跨Skill协调器 - 协调多个Skill的顺序/并行执行，优化最小执行时间、最大资源利用、依赖自动处理",
-  "entry": "orchestrator.py",
-  "features": ["topological_sort", "parallel_execution", "dependency_management"],
-  "usage": "python3 orchestrator.py"
+  "author": "OpenClaw",
+  "entry_point": "main.py",
+  "main_function": "main",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "task_description": {
+        "type": "string",
+        "description": "任务描述"
+      },
+      "skills": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Skill名称"
+            },
+            "parameters": {
+              "type": "object",
+              "description": "执行参数"
+            },
+            "dependencies": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "依赖的任务ID"
+            },
+            "estimated_time": {
+              "type": "number",
+              "description": "预估执行时间(秒)"
+            },
+            "priority": {
+              "type": "integer",
+              "description": "优先级"
+            }
+          },
+          "required": ["name"]
+        },
+        "description": "涉及的Skill列表"
+      },
+      "max_workers": {
+        "type": "integer",
+        "default": 5,
+        "description": "最大并行工作线程"
+      }
+    },
+    "required": ["task_description", "skills"]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "plan_id": {
+        "type": "string",
+        "description": "执行计划ID"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["completed", "partial_failed", "failed"],
+        "description": "执行状态"
+      },
+      "results": {
+        "type": "array",
+        "description": "各任务执行结果"
+      },
+      "summary": {
+        "type": "object",
+        "description": "执行摘要统计"
+      },
+      "execution_log": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "执行日志"
+      }
+    }
+  },
+  "execution_modes": [
+    {
+      "name": "SEQUENTIAL",
+      "label": "顺序执行",
+      "description": "任务按依赖顺序依次执行"
+    },
+    {
+      "name": "PARALLEL",
+      "label": "并行执行",
+      "description": "无依赖的任务同时执行"
+    },
+    {
+      "name": "MIXED",
+      "label": "混合执行",
+      "description": "根据依赖关系自动分层并行执行"
+    }
+  ],
+  "examples": [
+    {
+      "input": {
+        "task_description": "新产品上线准备",
+        "skills": [
+          {
+            "name": "market-analyzer",
+            "parameters": {"product": "新产品A"},
+            "dependencies": [],
+            "estimated_time": 3.0
+          },
+          {
+            "name": "risk-assessor",
+            "parameters": {"product": "新产品A"},
+            "dependencies": ["T001"],
+            "estimated_time": 2.0
+          }
+        ]
+      },
+      "output": {
+        "plan_id": "PLAN-20250315120000",
+        "status": "completed",
+        "summary": {
+          "total_tasks": 2,
+          "success_count": 2,
+          "success_rate": "100%"
+        }
+      }
+    }
+  ],
+  "tags": ["orchestration", "workflow", "coordination", "execution", "parallel"],
+  "created_at": "2025-03-15",
+  "updated_at": "2025-03-15"
 }

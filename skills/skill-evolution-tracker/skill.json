@@ -1,8 +1,92 @@
 {
   "name": "skill-evolution-tracker",
   "version": "1.0.0",
-  "description": "技能进化追踪器 - 追踪每个Skill的使用频率和效果",
-  "entry": "tracker.py",
-  "metrics": ["call_count", "success_rate", "user_satisfaction", "avg_duration_ms", "iteration_count"],
-  "usage": "python3 tracker.py"
+  "description": "技能进化追踪器 - 追踪每个Skill的使用频率和效果，包括调用次数、成功率、用户满意度、迭代次数",
+  "author": "OpenClaw",
+  "entry_point": "main.py",
+  "main_function": "main",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "skill_name": {
+        "type": "string",
+        "description": "Skill名称（可选，为空则扫描全部）"
+      },
+      "skills_dir": {
+        "type": "string",
+        "default": "./skills",
+        "description": "Skill目录路径"
+      }
+    },
+    "required": []
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "scan_time": {
+        "type": "string",
+        "description": "扫描时间"
+      },
+      "total_skills": {
+        "type": "integer",
+        "description": "Skill总数"
+      },
+      "active_skills": {
+        "type": "integer",
+        "description": "活跃Skill数"
+      },
+      "evaluations": {
+        "type": "array",
+        "description": "评估结果列表"
+      },
+      "summary": {
+        "type": "object",
+        "description": "统计摘要"
+      }
+    }
+  },
+  "metrics": {
+    "usage_levels": {
+      "high": "100+次/月",
+      "medium": "20-99次/月",
+      "low": "1-19次/月",
+      "unused": "0次"
+    },
+    "quality_levels": {
+      "excellent": "90+",
+      "good": "75-89",
+      "average": "60-74",
+      "needs_improvement": "<60"
+    },
+    "evolution_status": {
+      "mature": "成熟 - 稳定运行，质量优秀",
+      "growing": "成长 - 使用增加，持续优化",
+      "declining": "衰退 - 使用下降，需要干预",
+      "new": "新建 - 尚未投入使用"
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "skill_name": "task-priority-intelligence"
+      },
+      "output": {
+        "scan_time": "2025-03-15T10:00:00",
+        "total_skills": 1,
+        "active_skills": 1,
+        "evaluations": [
+          {
+            "skill_name": "task-priority-intelligence",
+            "health_score": 85.5,
+            "usage_level": "高",
+            "quality_level": "良好",
+            "evolution_status": "成熟"
+          }
+        ]
+      }
+    }
+  ],
+  "tags": ["skill", "tracking", "evolution", "metrics", "evaluation"],
+  "created_at": "2025-03-15",
+  "updated_at": "2025-03-15"
 }

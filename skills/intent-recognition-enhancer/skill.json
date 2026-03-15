@@ -2,7 +2,94 @@
   "name": "intent-recognition-enhancer",
   "version": "1.0.0",
   "description": "意图识别增强器 - 精准识别用户真实意图，支持简化指令映射、模糊意图澄清、多意图分解",
-  "entry": "enhancer.py",
-  "simplified_commands": ["启动第一性原则", "零空置", "自我评估", "信息防火墙", "每日审计", "深度复盘"],
-  "usage": "python3 enhancer.py"
+  "author": "OpenClaw",
+  "entry_point": "main.py",
+  "main_function": "main",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string",
+        "description": "用户原始消息"
+      },
+      "enable_clarification": {
+        "type": "boolean",
+        "default": true,
+        "description": "是否启用意图澄清"
+      }
+    },
+    "required": ["message"]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "primary_intent": {
+        "type": "string",
+        "description": "识别到的主要意图"
+      },
+      "confidence": {
+        "type": "number",
+        "description": "置信度(0-100)"
+      },
+      "secondary_intents": {
+        "type": "array",
+        "description": "次要意图列表"
+      },
+      "suggested_response": {
+        "type": "string",
+        "description": "建议响应"
+      },
+      "clarification_needed": {
+        "type": "boolean",
+        "description": "是否需要澄清"
+      },
+      "extracted_entities": {
+        "type": "object",
+        "description": "提取的实体"
+      },
+      "simplified_mapping": {
+        "type": "string",
+        "description": "简化指令映射"
+      }
+    }
+  },
+  "intent_types": [
+    "创建任务",
+    "查询任务",
+    "更新任务",
+    "信息请求",
+    "分析请求",
+    "决策支持",
+    "问候",
+    "未知"
+  ],
+  "simplified_commands": {
+    "查任务": "查看我的任务列表",
+    "新任务": "创建新任务",
+    "完成任务": "标记任务为完成",
+    "分析报告": "生成分析报告",
+    "帮决策": "提供决策建议",
+    "问专家": "咨询专家意见",
+    "存知识": "保存到知识库"
+  },
+  "examples": [
+    {
+      "input": {
+        "message": "帮我创建一个明天截止的高优先级任务"
+      },
+      "output": {
+        "primary_intent": "创建任务",
+        "confidence": 92.5,
+        "suggested_response": "我将为您创建任务。请确认任务详情。",
+        "clarification_needed": false,
+        "extracted_entities": {
+          "date": "明天",
+          "priority": "高优"
+        }
+      }
+    }
+  ],
+  "tags": ["intent", "recognition", "nlp", "understanding", "classification"],
+  "created_at": "2025-03-15",
+  "updated_at": "2025-03-15"
 }

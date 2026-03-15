@@ -1,9 +1,106 @@
 {
   "name": "knowledge-distiller",
   "version": "1.0.0",
-  "description": "知识蒸馏沉淀器 - 从对话中提取知识并沉淀到知识库，自动分类：方法论、案例、洞察、金句",
-  "entry": "distiller.py",
-  "categories": ["methodology", "case", "insight", "quote"],
-  "output_dir": "A满意哥专属文件夹/06_🧠方法论体系/知识蒸馏",
-  "usage": "python3 distiller.py"
+  "description": "知识蒸馏沉淀器 - 从对话中提取知识并沉淀到知识库，自动分类为方法论、案例、洞察、金句",
+  "author": "OpenClaw",
+  "entry_point": "main.py",
+  "main_function": "main",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "source": {
+        "type": "string",
+        "description": "对话记录内容或文件路径"
+      },
+      "output_dir": {
+        "type": "string",
+        "default": "./knowledge_base",
+        "description": "知识库存储目录"
+      }
+    },
+    "required": ["source"]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "source": {
+        "type": "string",
+        "description": "来源标识"
+      },
+      "total_items": {
+        "type": "integer",
+        "description": "提取的知识条目总数"
+      },
+      "by_category": {
+        "type": "object",
+        "description": "分类统计"
+      },
+      "items": {
+        "type": "array",
+        "description": "知识条目列表"
+      },
+      "archive_location": {
+        "type": "string",
+        "description": "归档位置"
+      },
+      "processing_time": {
+        "type": "string",
+        "description": "处理耗时"
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "source": "产品经理老王分享增长经验：增长的本质是创造价值..."
+      },
+      "output": {
+        "total_items": 8,
+        "by_category": {
+          "金句": 2,
+          "方法论": 1,
+          "案例": 1,
+          "洞察": 2,
+          "工具": 1,
+          "问答": 1
+        },
+        "processing_time": "0.35s"
+      }
+    }
+  ],
+  "knowledge_categories": [
+    {
+      "name": "METHODOLOGY",
+      "label": "方法论",
+      "description": "方法论、框架、流程、步骤"
+    },
+    {
+      "name": "CASE",
+      "label": "案例",
+      "description": "具体案例、实战经验、项目复盘"
+    },
+    {
+      "name": "INSIGHT",
+      "label": "洞察",
+      "description": "深度洞察、观点、本质思考"
+    },
+    {
+      "name": "QUOTE",
+      "label": "金句",
+      "description": "精炼语句、名言、总结"
+    },
+    {
+      "name": "TOOL",
+      "label": "工具",
+      "description": "工具、资源、模板"
+    },
+    {
+      "name": "FAQ",
+      "label": "问答",
+      "description": "常见问题与解答"
+    }
+  ],
+  "tags": ["knowledge", "distillation", "extraction", "classification", "archive"],
+  "created_at": "2025-03-15",
+  "updated_at": "2025-03-15"
 }

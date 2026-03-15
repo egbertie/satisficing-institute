@@ -1,8 +1,154 @@
 {
   "name": "decision-quality-assessor",
   "version": "1.0.0",
-  "description": "决策质量评估器 - 评估已做决策的质量和后续结果，追踪决策→结果→复盘→改进的完整闭环",
-  "entry": "assessor.py",
-  "metrics": ["quality_score", "deviation_score", "timeliness_score", "stakeholder_satisfaction"],
-  "usage": "python3 assessor.py"
+  "description": "决策质量评估器 - 评估已做决策的质量和后续结果，实现决策→结果→复盘→改进的完整闭环",
+  "author": "OpenClaw",
+  "entry_point": "main.py",
+  "main_function": "main",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "decision": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "决策描述"
+          },
+          "decision_type": {
+            "type": "string",
+            "enum": ["STRATEGIC", "TACTICAL", "OPERATIONAL", "PERSONNEL", "FINANCIAL"],
+            "description": "决策类型"
+          },
+          "decision_date": {
+            "type": "string",
+            "description": "决策日期，格式：YYYY-MM-DD"
+          },
+          "expected_result": {
+            "type": "string",
+            "description": "预期结果描述"
+          },
+          "expected_metrics": {
+            "type": "object",
+            "description": "预期指标，如{\"revenue\": 1000000, \"users\": 10000}"
+          }
+        },
+        "required": ["description", "decision_type", "decision_date", "expected_result"]
+      },
+      "outcome": {
+        "type": "object",
+        "properties": {
+          "actual_result": {
+            "type": "string",
+            "description": "实际结果描述"
+          },
+          "actual_metrics": {
+            "type": "object",
+            "description": "实际指标"
+          },
+          "outcome_date": {
+            "type": "string",
+            "description": "结果产出日期，格式：YYYY-MM-DD"
+          },
+          "lessons_learned": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "经验教训"
+          }
+        },
+        "required": ["actual_result", "actual_metrics", "outcome_date"]
+      }
+    },
+    "required": ["decision", "outcome"]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "decision_id": {
+        "type": "string",
+        "description": "决策ID"
+      },
+      "overall_score": {
+        "type": "number",
+        "description": "综合质量评分(0-100)"
+      },
+      "outcome_status": {
+        "type": "string",
+        "enum": ["超预期", "达成目标", "部分达成", "未达成", "待观察"],
+        "description": "结果状态"
+      },
+      "deviation_analysis": {
+        "type": "object",
+        "description": "偏差分析"
+      },
+      "quality_breakdown": {
+        "type": "object",
+        "description": "质量评分明细"
+      },
+      "improvement_suggestions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "改进建议"
+      },
+      "learning_points": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "学习要点"
+      },
+      "next_actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "后续行动建议"
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "decision": {
+          "description": "Q1战略：进军华东市场",
+          "decision_type": "STRATEGIC",
+          "decision_date": "2024-01-15",
+          "expected_result": "获取首批100家企业客户",
+          "expected_metrics": {"新客户": 100, "营收增长": 5000000}
+        },
+        "outcome": {
+          "actual_result": "成功开设3个办事处",
+          "actual_metrics": {"新客户": 85, "营收增长": 4200000},
+          "outcome_date": "2024-03-31",
+          "lessons_learned": ["本地化团队建设需要更长时间"]
+        }
+      },
+      "output": {
+        "decision_id": "DEC-20240315-0001",
+        "overall_score": 78.5,
+        "outcome_status": "部分达成",
+        "quality_breakdown": {
+          "outcome_achievement": 82,
+          "process_quality": 85,
+          "learning_value": 75,
+          "timeliness": 80,
+          "stakeholder_satisfaction": 70
+        }
+      }
+    }
+  ],
+  "evaluation_weights": {
+    "outcome_achievement": 0.35,
+    "process_quality": 0.25,
+    "learning_value": 0.20,
+    "timeliness": 0.10,
+    "stakeholder_satisfaction": 0.10
+  },
+  "tags": ["decision", "assessment", "quality", "review", "improvement"],
+  "created_at": "2025-03-15",
+  "updated_at": "2025-03-15"
 }
