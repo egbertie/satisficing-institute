@@ -1,0 +1,52 @@
+{
+  "name": "information-intelligence",
+  "version": "1.0.0",
+  "description": "信息搜索与甄别引擎 - 智能搜索 + 质量甄别 + 价值观过滤 + 持续蒸馏。建立信息防火墙和蒸馏器，确保信息质量和价值观匹配。",
+  "entry": "engine.py",
+  "principles": [
+    "信息质量 > 信息数量",
+    "主动甄别 > 被动接收",
+    "价值观匹配 > 内容有趣",
+    "持续优化 > 一次性配置"
+  ],
+  "source_tiers": {
+    "P0": {
+      "description": "最高可信度 - 学术、官方、权威",
+      "sources": ["arxiv.org", "nature.com", "ieee.org", "gov.cn", "xinhuanet.com"],
+      "reliability": "95-98%",
+      "auto_accept": true
+    },
+    "P1": {
+      "description": "高可信度 - 行业报告、专业分析",
+      "sources": ["36kr.com", "huxiu.com", "iheima.com", "cbnweek.com", "tmtpost.com"],
+      "reliability": "75-82%",
+      "verification": "recommended"
+    },
+    "P2": {
+      "description": "中等可信度 - 社交媒体（需甄别）",
+      "sources": ["zhihu.com", "weibo.com", "xiaohongshu.com", "bilibili.com", "mp.weixin.qq.com"],
+      "reliability": "45-65%",
+      "verification": "required"
+    },
+    "P3": {
+      "description": "低可信度 - 娱乐、低价值（过滤）",
+      "sources": ["entertainment", "rumor"],
+      "reliability": "10-30%",
+      "action": "filter"
+    }
+  },
+  "value_keywords": {
+    "positive": ["创新", "诚信", "长期主义", "用户第一", "合作共赢", "可持续发展", "知行合一", "第一性原理"],
+    "red_flags": ["虚假宣传", "抄袭", "欺诈", "割韭菜", "一夜暴富", "不劳而获", "数据造假"],
+    "satisficing": ["满意解", "知行合一", "持续精进", "资源全开", "零空置", "成为最好的自己"]
+  },
+  "quality_thresholds": {
+    "high": 80,
+    "medium": 70,
+    "low": 60
+  },
+  "continuous_optimization": {
+    "review_frequency": "weekly",
+    "metrics": ["filter_rate", "quality_score", "value_alignment", "search_efficiency"]
+  }
+}
