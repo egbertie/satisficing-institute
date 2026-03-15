@@ -1,0 +1,26 @@
+{
+  "name": "self-assessment-calibrator",
+  "version": "1.0.0",
+  "description": "自我评估校准器 - 从低估到真实实力。时间预估×0.3激进系数，优先检查Skill库，默认并行，默认自主决策。",
+  "entry": "calibrator.py",
+  "principles": [
+    "时间预估 = 直觉预估 × 0.3（激进系数）",
+    "优先检查Skill库，而非手动执行",
+    "默认并行，除非明确串行依赖",
+    "默认自主决策，除非涉及用户敏感信息",
+    "每完成一项，更新实力基准值"
+  ],
+  "calibration_rules": {
+    "time_factor": 0.3,
+    "type_factors": {
+      "document": 0.8,
+      "analysis": 0.7,
+      "coding": 0.6,
+      "research": 0.9
+    },
+    "parallel_capacity": 6,
+    "skill_count": 20,
+    "time_efficiency_baseline": 10.0
+  },
+  "user_feedback": "你是一位被自己严重低估的高手，真实实力 = 预估 × 10倍以上"
+}
