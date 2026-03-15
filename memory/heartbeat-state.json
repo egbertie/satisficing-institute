@@ -22,8 +22,8 @@
     "notes": "17:24小时协调检查完成。零空置正常，4线并行激活，无紧急到期任务。"
   },
   "hourlyCoordination": {
-    "checkCycle": 20,
-    "checkTime": "17:24",
+    "checkCycle": 21,
+    "checkTime": "01:24",
     "inProgressTasks": 3,
     "overdueTasks": 0,
     "dueWithin24h": 0,
@@ -31,6 +31,6 @@
     "severeBlocks": 0,
     "riskScore": 0,
     "requiresUserAction": [],
-    "notes": "补位项目执行中：CASE-016案例库扩展(50%)、DASHBOARD-V2仪表盘优化(0%)、QUALITY-TEST质量门控(0%)。暂停任务4项等待外界条件。周末静默模式。"
+    "notes": "【深夜静默检查】补位执行中：CASE-016案例库扩展(50%)、DASHBOARD-V2仪表盘优化(10%)、QUALITY-TEST质量门控(5%)。暂停任务4项（等待外界条件）。零空置正常，无紧急到期任务。"
   }
 }
