@@ -1,0 +1,102 @@
+{
+  "name": "expert-digital-twin-trainer",
+  "version": "1.0.0",
+  "description": "专家数字替身训练器 - 基于专家论文/著作训练数字替身，支持黎红雷、罗汉、谢宝剑三位专家",
+  "author": "OpenClaw",
+  "entry_point": "main.py",
+  "main_function": "main",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "expert_name": {
+        "type": "string",
+        "enum": ["黎红雷", "罗汉", "谢宝剑"],
+        "description": "专家姓名"
+      },
+      "document_paths": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "论文/著作文件路径列表"
+      }
+    },
+    "required": ["expert_name"]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "expert_name": {
+        "type": "string",
+        "description": "专家姓名"
+      },
+      "config_path": {
+        "type": "string",
+        "description": "替身配置文件路径"
+      },
+      "model_version": {
+        "type": "string",
+        "description": "模型版本"
+      },
+      "training_status": {
+        "type": "string",
+        "description": "训练状态"
+      },
+      "knowledge_coverage": {
+        "type": "object",
+        "description": "知识覆盖率统计"
+      },
+      "test_report": {
+        "type": "object",
+        "description": "对话测试报告"
+      },
+      "created_at": {
+        "type": "string",
+        "description": "创建时间"
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "expert_name": "黎红雷",
+        "document_paths": ["./papers/li_honglei_1.pdf", "./papers/li_honglei_2.pdf"]
+      },
+      "output": {
+        "expert_name": "黎红雷",
+        "config_path": "./expert_twins/黎红雷_digital_twin.json",
+        "model_version": "1.0.0",
+        "training_status": "completed",
+        "knowledge_coverage": {
+          "basic_profile": 100,
+          "research_areas": 95,
+          "thinking_style": 90
+        },
+        "test_report": {
+          "overall_score": 88.75
+        },
+        "created_at": "2025-03-15T10:00:00"
+      }
+    }
+  ],
+  "supported_experts": [
+    {
+      "name": "黎红雷",
+      "field": "管理哲学/儒家管理",
+      "title": "中山大学管理学院教授"
+    },
+    {
+      "name": "罗汉",
+      "field": "创新创业/商业模式",
+      "title": "创业导师/商业模式专家"
+    },
+    {
+      "name": "谢宝剑",
+      "field": "战略管理/组织发展",
+      "title": "战略管理专家"
+    }
+  ],
+  "tags": ["expert", "digital-twin", "training", "ai-persona"],
+  "created_at": "2025-03-15",
+  "updated_at": "2025-03-15"
+}

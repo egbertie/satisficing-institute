@@ -1,0 +1,108 @@
+{
+  "name": "task-priority-intelligence",
+  "version": "1.0.0",
+  "description": "任务优先级智能判定器 - 基于多因子评分算法自动判定任务优先级（P0/P1/P2/P3）",
+  "author": "OpenClaw",
+  "entry_point": "main.py",
+  "main_function": "main",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "任务描述"
+      },
+      "deadline": {
+        "type": "string",
+        "description": "截止时间，格式：YYYY-MM-DD HH:MM"
+      },
+      "dependencies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "依赖的其他任务ID或描述"
+      },
+      "resource_requirements": {
+        "type": "object",
+        "description": "资源需求，如{\"人力\": 2, \"预算\": 1000}"
+      }
+    },
+    "required": ["description"]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "task_id": {
+        "type": "string",
+        "description": "生成的任务ID"
+      },
+      "priority": {
+        "type": "string",
+        "enum": ["P0", "P1", "P2", "P3"],
+        "description": "优先级等级"
+      },
+      "score": {
+        "type": "number",
+        "description": "综合评分(0-100)"
+      },
+      "reasoning": {
+        "type": "string",
+        "description": "判定理由"
+      },
+      "suggested_order": {
+        "type": "integer",
+        "description": "建议执行顺序"
+      },
+      "factors": {
+        "type": "object",
+        "description": "各因子得分明细"
+      },
+      "estimated_duration": {
+        "type": "string",
+        "description": "预计处理时长"
+      },
+      "risk_level": {
+        "type": "string",
+        "description": "风险等级"
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "description": "修复生产环境核心服务崩溃问题",
+        "deadline": "2024-03-15 12:00",
+        "dependencies": ["TASK-001"],
+        "resource_requirements": {"人力": 3}
+      },
+      "output": {
+        "task_id": "TASK-20240315-0001",
+        "priority": "P0",
+        "score": 92.5,
+        "reasoning": "已逾期或即将到期；涉及核心业务/关键客户；阻塞1个下游任务",
+        "suggested_order": 1,
+        "estimated_duration": "立即-4小时",
+        "risk_level": "高风险"
+      }
+    }
+  ],
+  "algorithm": {
+    "type": "weighted_scoring",
+    "weights": {
+      "urgency": 0.4,
+      "importance": 0.3,
+      "dependency": 0.2,
+      "resource_match": 0.1
+    },
+    "thresholds": {
+      "P0": 85,
+      "P1": 70,
+      "P2": 50,
+      "P3": 0
+    }
+  },
+  "tags": ["task", "priority", "scheduling", "intelligence"],
+  "created_at": "2025-03-15",
+  "updated_at": "2025-03-15"
+}

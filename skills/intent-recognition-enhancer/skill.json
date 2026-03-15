@@ -1,0 +1,8 @@
+{
+  "name": "intent-recognition-enhancer",
+  "version": "1.0.0",
+  "description": "意图识别增强器 - 精准识别用户真实意图，支持简化指令映射、模糊意图澄清、多意图分解",
+  "entry": "enhancer.py",
+  "simplified_commands": ["启动第一性原则", "零空置", "自我评估", "信息防火墙", "每日审计", "深度复盘"],
+  "usage": "python3 enhancer.py"
+}

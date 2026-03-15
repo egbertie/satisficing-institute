@@ -1,0 +1,8 @@
+{
+  "name": "decision-quality-assessor",
+  "version": "1.0.0",
+  "description": "决策质量评估器 - 评估已做决策的质量和后续结果，追踪决策→结果→复盘→改进的完整闭环",
+  "entry": "assessor.py",
+  "metrics": ["quality_score", "deviation_score", "timeliness_score", "stakeholder_satisfaction"],
+  "usage": "python3 assessor.py"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "cross-skill-orchestrator",
+  "version": "1.0.0",
+  "description": "跨Skill协调器 - 协调多个Skill的顺序/并行执行，优化最小执行时间、最大资源利用、依赖自动处理",
+  "entry": "orchestrator.py",
+  "features": ["topological_sort", "parallel_execution", "dependency_management"],
+  "usage": "python3 orchestrator.py"
+}

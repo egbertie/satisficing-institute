@@ -1,0 +1,8 @@
+{
+  "name": "skill-evolution-tracker",
+  "version": "1.0.0",
+  "description": "技能进化追踪器 - 追踪每个Skill的使用频率和效果",
+  "entry": "tracker.py",
+  "metrics": ["call_count", "success_rate", "user_satisfaction", "avg_duration_ms", "iteration_count"],
+  "usage": "python3 tracker.py"
+}

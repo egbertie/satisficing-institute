@@ -1,0 +1,9 @@
+{
+  "name": "knowledge-distiller",
+  "version": "1.0.0",
+  "description": "知识蒸馏沉淀器 - 从对话中提取知识并沉淀到知识库，自动分类：方法论、案例、洞察、金句",
+  "entry": "distiller.py",
+  "categories": ["methodology", "case", "insight", "quote"],
+  "output_dir": "A满意哥专属文件夹/06_🧠方法论体系/知识蒸馏",
+  "usage": "python3 distiller.py"
+}
