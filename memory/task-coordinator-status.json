@@ -1,7 +1,7 @@
 {
-  "last_check": "2026-03-16T10:46:25.411793",
+  "last_check": "2026-03-16T11:46:36.204199",
   "analysis": {
-    "timestamp": "2026-03-16T10:46:25.412169",
+    "timestamp": "2026-03-16T11:46:36.204540",
     "summary": {
       "overdue": 0,
       "blocked": 0,
@@ -21,7 +21,7 @@
     ]
   },
   "plan": {
-    "generated_at": "2026-03-16T10:46:25.416731",
+    "generated_at": "2026-03-16T11:46:36.209332",
     "mode": "parallel",
     "risk_score": 0,
     "reasoning": [],
@@ -39,17 +39,30 @@
       "sub_agents": 5
     }
   },
-  "issues": [],
+  "issues": [
+    {
+      "type": "incomplete_tasks",
+      "count": 5,
+      "items": [
+        "- [ ] GitHub secrets\u6e05\u7406",
+        "- [ ] 3\u670811\u65e5\u8d85\u671f\u627f\u8bfa\u8865\u6551\uff08\u5df2\u81ea\u52a8\u5ef6\u671f48\u5c0f\u65f6\uff09",
+        "- [ ] \u5b9a\u4ef7\u5e02\u573a\u8c03\u7814",
+        "- [ ] \u804c\u4e1a\u8d23\u4efb\u9669\u8d2d\u4e70",
+        "- [ ] \u9996\u5355\u5ba2\u6237\u89e6\u8fbe"
+      ],
+      "severity": "warning"
+    }
+  ],
   "learning_summary": {
     "total_decisions": 100,
     "effectiveness": {
       "sequential": {
         "success_rate": 0.0,
-        "total_uses": 25
+        "total_uses": 24
       },
       "parallel": {
-        "success_rate": 0.46511627906976744,
-        "total_uses": 43
+        "success_rate": 0.45454545454545453,
+        "total_uses": 44
       },
       "notify_user": {
         "success_rate": 0.0,
