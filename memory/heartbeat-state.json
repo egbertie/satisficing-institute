@@ -1,1 +1,36 @@
-{\n  \"protocolVersion\": \"V1.0\",\n  \"lastChecks\": {\n    \"email\": 1742066760,\n    \"calendar\": 1742066760,\n    \"mentions\": 1742012640,\n    \"weather\": 1741920000,\n    \"forgottenTasks\": 1742066760,\n    \"memoryMaintenance\": 1741872000,\n    \"projectStatus\": 1742085840,\n    \"backupStatus\": 1742066760\n  },\n  \"nextScheduled\": {\n    \"weatherCheckMorning\": \"08:00\",\n    \"weatherCheckEvening\": \"20:00\",\n    \"memoryMaintenance\": \"2026-03-16\",\n    \"projectReview\": \"18:00\"\n  },\n  \"currentStatus\": {\n    \"pendingReports\": [],\n    \"delayedChecks\": [],\n    \"notes\": \"11:24任务协调检查V2.0完成。周一上午，系统运行平稳。无过期/阻塞/风险任务。3项进行中，4项暂停等待用户决策。\"\n  },\n  \"hourlyCoordination\": {\n    \"checkCycle\": 26,\n    \"checkTime\": \"11:24\",\n    \"inProgressTasks\": 3,\n    \"overdueTasks\": 0,\n    \"dueWithin24h\": 0,\n    \"subAgentsLaunched\": 0,\n    \"severeBlocks\": 0,\n    \"riskScore\": 0,\n    \"requiresUserAction\": [],\n    \"notes\": \"【任务协调V2.0】周一上午状态良好。CASE-016(50%)、DASHBOARD-V2(0%)、QUALITY-TEST(0%)并行中。4项暂停任务均等待用户决策或外界条件，无强制补位触发条件。\"\n  }\n}\n","file_path":"memory/heartbeat-state.json"}...
+{
+  "protocolVersion": "V1.0",
+  "lastChecks": {
+    "email": 1742066760,
+    "calendar": 1742066760,
+    "mentions": 1742012640,
+    "weather": 1741920000,
+    "forgottenTasks": 1742066760,
+    "memoryMaintenance": 1741872000,
+    "projectStatus": 1742085840,
+    "backupStatus": 1742066760
+  },
+  "nextScheduled": {
+    "weatherCheckMorning": "08:00",
+    "weatherCheckEvening": "20:00",
+    "memoryMaintenance": "2026-03-16",
+    "projectReview": "18:00"
+  },
+  "currentStatus": {
+    "pendingReports": [],
+    "delayedChecks": [],
+    "notes": "13:47任务协调检查V2.0完成。周一下午，系统运行平稳。风险分数0/100，无过期/阻塞/风险任务。历史决策100次。"
+  },
+  "hourlyCoordination": {
+    "checkCycle": 27,
+    "checkTime": "13:47",
+    "inProgressTasks": 3,
+    "overdueTasks": 0,
+    "dueWithin24h": 0,
+    "subAgentsLaunched": 0,
+    "severeBlocks": 0,
+    "riskScore": 0,
+    "requiresUserAction": [],
+    "notes": "【任务协调V2.0】周一下午系统平稳。风险分数0/100，无过期/阻塞/风险任务。执行模式：并行(效率最大)。历史决策100次，parallel成功率43.5%。"
+  }
+}
