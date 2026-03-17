@@ -2,72 +2,6 @@
   "version": "1.0",
   "decisions": [
     {
-      "timestamp": "2026-03-12T22:44:10.468146",
-      "decision": {
-        "risk_score": 5,
-        "recommended_mode": "parallel",
-        "summary": {
-          "overdue": 0,
-          "blocked": 0
-        },
-        "reasoning": [
-          "\u98de\u4e66\u8c03\u8bd5\u4efb\u52a1"
-        ]
-      },
-      "context": {
-        "risk_score": 5,
-        "mode": "parallel",
-        "task_count": 0
-      },
-      "outcome": {
-        "status": "success"
-      }
-    },
-    {
-      "timestamp": "2026-03-12T22:44:10.469001",
-      "decision": {
-        "risk_score": 5,
-        "recommended_mode": "parallel",
-        "summary": {
-          "overdue": 0,
-          "blocked": 0
-        },
-        "reasoning": [
-          "\u98de\u4e66\u8c03\u8bd5\u4efb\u52a1"
-        ]
-      },
-      "context": {
-        "risk_score": 5,
-        "mode": "parallel",
-        "task_count": 0
-      },
-      "outcome": {
-        "status": "success"
-      }
-    },
-    {
-      "timestamp": "2026-03-12T22:44:10.470021",
-      "decision": {
-        "risk_score": 5,
-        "recommended_mode": "parallel",
-        "summary": {
-          "overdue": 0,
-          "blocked": 0
-        },
-        "reasoning": [
-          "\u98de\u4e66\u8c03\u8bd5\u4efb\u52a1"
-        ]
-      },
-      "context": {
-        "risk_score": 5,
-        "mode": "parallel",
-        "task_count": 0
-      },
-      "outcome": {
-        "status": "success"
-      }
-    },
-    {
       "timestamp": "2026-03-12T22:44:10.471480",
       "decision": {
         "risk_score": 5,
@@ -3152,6 +3086,99 @@
       "outcome": {
         "status": "pending"
       }
+    },
+    {
+      "timestamp": "2026-03-16T19:46:38.676817",
+      "decision": {
+        "timestamp": "2026-03-16T19:46:38.676808",
+        "summary": {
+          "overdue": 0,
+          "blocked": 0,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "parallel",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P2",
+            "action": "\u65e0\u7d27\u6025\u4efb\u52a1\uff0c\u8fdb\u5165\u9ad8\u6548\u5e76\u884c\u6a21\u5f0f",
+            "mode": "parallel",
+            "max_parallel": 5
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "parallel",
+        "task_count": 0
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-16T20:46:25.001380",
+      "decision": {
+        "timestamp": "2026-03-16T20:46:25.001370",
+        "summary": {
+          "overdue": 0,
+          "blocked": 0,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "parallel",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P2",
+            "action": "\u65e0\u7d27\u6025\u4efb\u52a1\uff0c\u8fdb\u5165\u9ad8\u6548\u5e76\u884c\u6a21\u5f0f",
+            "mode": "parallel",
+            "max_parallel": 5
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "parallel",
+        "task_count": 0
+      },
+      "outcome": {
+        "status": "pending"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T21:46:24.942116",
+      "decision": {
+        "timestamp": "2026-03-17T21:46:24.942106",
+        "summary": {
+          "overdue": 0,
+          "blocked": 0,
+          "at_risk": 0,
+          "pending": 0
+        },
+        "risk_score": 0,
+        "recommended_mode": "parallel",
+        "reasoning": [],
+        "actions": [
+          {
+            "priority": "P2",
+            "action": "\u65e0\u7d27\u6025\u4efb\u52a1\uff0c\u8fdb\u5165\u9ad8\u6548\u5e76\u884c\u6a21\u5f0f",
+            "mode": "parallel",
+            "max_parallel": 5
+          }
+        ]
+      },
+      "context": {
+        "risk_score": 0,
+        "mode": "parallel",
+        "task_count": 0
+      },
+      "outcome": {
+        "status": "pending"
+      }
     }
   ],
   "effectiveness": {
@@ -3160,7 +3187,7 @@
       "total_uses": 20
     },
     "parallel": {
-      "success_rate": 0.3541666666666667,
+      "success_rate": 0.2916666666666667,
       "total_uses": 48
     },
     "notify_user": {
