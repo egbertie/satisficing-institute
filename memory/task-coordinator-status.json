@@ -1,7 +1,7 @@
 {
-  "last_check": "2026-03-17T22:46:33.482357",
+  "last_check": "2026-03-18T00:46:29.801901",
   "analysis": {
-    "timestamp": "2026-03-17T22:46:33.482709",
+    "timestamp": "2026-03-18T00:46:29.802203",
     "summary": {
       "overdue": 0,
       "blocked": 0,
@@ -21,7 +21,7 @@
     ]
   },
   "plan": {
-    "generated_at": "2026-03-17T22:46:33.486509",
+    "generated_at": "2026-03-18T00:46:29.807049",
     "mode": "parallel",
     "risk_score": 0,
     "reasoning": [],
@@ -39,16 +39,7 @@
       "sub_agents": 5
     }
   },
-  "issues": [
-    {
-      "type": "incomplete_tasks",
-      "count": 1,
-      "items": [
-        "- [ ] \u7b49\u5f85\u7528\u6237\u65b0\u6307\u4ee4\u6216\u4efb\u52a1\u5206\u914d"
-      ],
-      "severity": "warning"
-    }
-  ],
+  "issues": [],
   "learning_summary": {
     "total_decisions": 100,
     "effectiveness": {
@@ -57,7 +48,7 @@
         "total_uses": 20
       },
       "parallel": {
-        "success_rate": 0.2708333333333333,
+        "success_rate": 0.22916666666666666,
         "total_uses": 48
       },
       "notify_user": {
