@@ -1,7 +1,7 @@
 {
-  "last_check": "2026-03-18T02:46:25.799434",
+  "last_check": "2026-03-18T04:46:47.933408",
   "analysis": {
-    "timestamp": "2026-03-18T02:46:25.799753",
+    "timestamp": "2026-03-18T04:46:47.933735",
     "summary": {
       "overdue": 0,
       "blocked": 0,
@@ -21,7 +21,7 @@
     ]
   },
   "plan": {
-    "generated_at": "2026-03-18T02:46:25.803817",
+    "generated_at": "2026-03-18T04:46:47.937570",
     "mode": "parallel",
     "risk_score": 0,
     "reasoning": [],
@@ -48,7 +48,7 @@
         "total_uses": 19
       },
       "parallel": {
-        "success_rate": 0.20408163265306123,
+        "success_rate": 0.16326530612244897,
         "total_uses": 49
       },
       "notify_user": {
