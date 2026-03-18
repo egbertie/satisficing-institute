@@ -1,8 +1,8 @@
 {
   "version": "2026.03.18",
   "last_updated": "2026-03-18T11:00:00+08:00",
-  "total_skills": 15,
-  "new_skills_today": 1,
+  "total_skills": 16,
+  "new_skills_today": 2,
   "categories": {
     "development": ["satisficing-dev-workflow"],
     "automation": ["autonomous-execution-system"],
@@ -15,9 +15,18 @@
     "methodology": ["first-principles-work"],
     "quality": ["info-collection-quality", "skill-quality-assessment"],
     "knowledge": ["knowledge-collection-iteration"],
+    "research": ["academic-deep-research"],
     "tools": ["kimi-membership-features"]
   },
   "skills": {
+    "academic-deep-research": {
+      "name": "学术级深度研究协作",
+      "version": "1.0.0",
+      "path": "skills/academic-deep-research",
+      "priority": "P0",
+      "status": "active",
+      "description": "Kimi深度研究生成论文 → OpenClaw验证/标注/优化为2.0学术严谨版"
+    },
     "satisficing-dev-workflow": {
       "name": "满意解开发流程",
       "version": "1.0.0",
