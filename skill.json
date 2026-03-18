@@ -1,9 +1,10 @@
 {
-  "version": "2026.03.15",
-  "last_updated": "2026-03-15T11:00:00+08:00",
-  "total_skills": 14,
-  "new_skills_today": 14,
+  "version": "2026.03.18",
+  "last_updated": "2026-03-18T11:00:00+08:00",
+  "total_skills": 15,
+  "new_skills_today": 1,
   "categories": {
+    "development": ["satisficing-dev-workflow"],
     "automation": ["autonomous-execution-system"],
     "visualization": ["multi-format-delivery"],
     "decision_support": ["quick-reference-card"],
@@ -17,6 +18,14 @@
     "tools": ["kimi-membership-features"]
   },
   "skills": {
+    "satisficing-dev-workflow": {
+      "name": "满意解开发流程",
+      "version": "1.0.0",
+      "path": "skills/satisficing-dev-workflow",
+      "priority": "P0",
+      "status": "active",
+      "description": "标准化软件开发流程：头脑风暴→写作计划→子代理构建(TDD)→代码审查→完成分支"
+    },
     "autonomous-execution-system": {
       "name": "7×24小时自主推进体系",
       "version": "1.0.0",

@@ -1,5 +1,5 @@
 {
-  "last_check": "2026-03-15T10:40:06.143186",
+  "last_check": "2026-03-18T10:40:06.778542",
   "vendors": {
     "钉钉": {
       "api_doc_url": "https://open.dingtalk.com/document/isv/app-dev",
@@ -42,5 +42,5 @@
       "priority": "备用方案"
     }
   },
-  "next_check": "2026-03-16 08:00"
+  "next_check": "2026-03-19 08:00"
 }
