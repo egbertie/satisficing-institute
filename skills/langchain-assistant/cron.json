@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "langchain-assistant-check",
+      "schedule": "13 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/langchain-assistant && python3 scripts/langchain-assistant-runner.py status",
+      "description": "langchain-assistant status check"
+    }
+  ]
+}

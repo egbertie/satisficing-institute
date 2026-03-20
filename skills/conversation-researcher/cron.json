@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "conversation-research-daily",
+      "schedule": "0 23 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/conversation-researcher && python3 scripts/conversation-researcher-runner.py",
+      "description": "每日对话研究，提炼管理哲学"
+    }
+  ]
+}

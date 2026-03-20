@@ -1,0 +1,1 @@
+{"jobs": [{"name": "satisficing-web-fetcher-check", "schedule": "25 10 * * *", "command": "cd /root/.openclaw/workspace/skills/satisficing-web-fetcher && python3 scripts/satisficing-web-fetcher-runner.py status"}]}

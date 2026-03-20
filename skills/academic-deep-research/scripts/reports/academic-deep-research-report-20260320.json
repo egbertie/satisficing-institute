@@ -1,0 +1,18 @@
+{
+  "skill_name": "academic-deep-research",
+  "generated_at": "2026-03-20T14:37:47.541357",
+  "status": "completed",
+  "results": {
+    "status": {
+      "skill_name": "academic-deep-research",
+      "timestamp": "2026-03-20T14:37:47.541357",
+      "working_directory": "/root/.openclaw/workspace/skills/academic-deep-research/scripts",
+      "python_version": "3.12.3 (main, Jun 18 2025, 17:59:45) [GCC 13.3.0]",
+      "dependencies": {},
+      "environment": {
+        "path_exists": true
+      },
+      "skill_md_exists": false
+    }
+  }
+}

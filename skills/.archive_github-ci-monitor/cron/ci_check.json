@@ -1,0 +1,12 @@
+{
+  "id": "github-ci-monitor",
+  "schedule": "*/15 * * * 1-5",
+  "timezone": "Asia/Shanghai",
+  "enabled": true,
+  "command": "cd ~/.openclaw/workspace/skills/github-ci-monitor && ./scripts/ci_check.sh owner/repo",
+  "timeout": 60,
+  "logging": {
+    "enabled": true,
+    "path": "./logs/ci_monitor.log"
+  }
+}

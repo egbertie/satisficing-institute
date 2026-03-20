@@ -1,0 +1,1 @@
+{"jobs": [{"name": "copywriting-zh-pro-check", "schedule": "18 10 * * *", "command": "cd /root/.openclaw/workspace/skills/copywriting-zh-pro && python3 scripts/copywriting-zh-pro-runner.py status"}]}

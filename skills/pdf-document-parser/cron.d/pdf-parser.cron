@@ -1,0 +1,11 @@
+# PDF文档解析定时任务配置
+# 复制到 crontab: crontab -e
+
+# 批量解析队列处理（每5分钟检查一次）
+*/5 * * * * cd /root/.openclaw/workspace/skills/pdf-document-parser && ./scripts/process_queue.sh >> logs/queue.log 2>&1
+
+# 失败任务重试（每小时）
+0 * * * * cd /root/.openclaw/workspace/skills/pdf-document-parser && ./scripts/retry_failed.sh >> logs/retry.log 2>&1
+
+# 清理过期临时文件（每天凌晨）
+0 2 * * * find /root/.openclaw/workspace/skills/pdf-document-parser/temp -type f -mtime +7 -delete

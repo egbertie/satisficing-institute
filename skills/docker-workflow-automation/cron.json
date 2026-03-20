@@ -1,0 +1,1 @@
+{"jobs": [{"name": "docker-workflow-automation-auto", "schedule": "22 12 * * *", "command": "python3 scripts/docker-workflow-automation-runner.py check"}]}

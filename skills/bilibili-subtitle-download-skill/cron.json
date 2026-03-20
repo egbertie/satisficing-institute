@@ -1,0 +1,1 @@
+{"jobs": [{"name": "bilibili-subtitle-download-skill-daily", "schedule": "2 11 * * *", "command": "cd /root/.openclaw/workspace/skills/bilibili-subtitle-download-skill && python3 scripts/bilibili-subtitle-download-skill-runner.py status"}]}

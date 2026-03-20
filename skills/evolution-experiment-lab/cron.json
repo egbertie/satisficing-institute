@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "evolution-experiment-lab-check",
+      "schedule": "26 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/evolution-experiment-lab && python3 scripts/evolution-experiment-lab-runner.py status",
+      "description": "evolution-experiment-lab status check"
+    }
+  ]
+}

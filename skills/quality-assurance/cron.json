@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "skill_name": "quality-assurance",
+  "description": "质量保证协议 - 定时统计+周报",
+  "jobs": [
+    {
+      "name": "quality-stats-update",
+      "schedule": "0 */6 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/quality-assurance/scripts/confidence-stats.sh",
+      "timeout": 60,
+      "description": "每6小时更新质量统计数据"
+    },
+    {
+      "name": "weekly-quality-report",
+      "schedule": "0 20 * * 0",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/quality-assurance/scripts/quality-report.sh weekly",
+      "timeout": 120,
+      "description": "每周日20:00生成质量周报"
+    }
+  ]
+}

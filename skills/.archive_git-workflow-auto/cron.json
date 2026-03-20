@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "skill_name": "git-workflow-auto",
+  "description": "Git工作流自动化 - 每日清理+每周同步",
+  "jobs": [
+    {
+      "name": "daily-cleanup",
+      "schedule": "0 2 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/git-workflow-auto/scripts/cleanup.sh",
+      "timeout": 180,
+      "description": "每日凌晨2点清理已合并分支"
+    },
+    {
+      "name": "weekly-sync",
+      "schedule": "0 9 * * 1",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/git-workflow-auto/scripts/feature_workflow.sh sync",
+      "timeout": 300,
+      "description": "每周一09:00同步上游仓库"
+    }
+  ]
+}

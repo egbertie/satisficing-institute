@@ -1,0 +1,12 @@
+{
+  "id": "kimi-cli-task-manager",
+  "schedule": "0 * * * *",
+  "timezone": "Asia/Shanghai",
+  "enabled": true,
+  "command": "cd ~/.openclaw/workspace/skills/kimi-cli-task-manager && python3 scripts/task_queue.py status",
+  "timeout": 60,
+  "logging": {
+    "enabled": true,
+    "path": "./logs/task_manager.log"
+  }
+}

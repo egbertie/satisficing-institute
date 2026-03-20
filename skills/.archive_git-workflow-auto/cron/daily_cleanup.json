@@ -1,0 +1,12 @@
+{
+  "id": "git-workflow-cleanup",
+  "schedule": "0 2 * * *",
+  "timezone": "Asia/Shanghai",
+  "enabled": true,
+  "command": "cd ~/.openclaw/workspace && find . -name '.git' -type d -exec dirname {} \\; | head -5 | while read repo; do cd \"$repo\" && ~/.openclaw/workspace/skills/git-workflow-auto/scripts/cleanup.sh; done",
+  "timeout": 300,
+  "logging": {
+    "enabled": true,
+    "path": "./logs/git_cleanup.log"
+  }
+}

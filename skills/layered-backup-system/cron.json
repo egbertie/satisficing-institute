@@ -1,0 +1,1 @@
+{"jobs": [{"name": "layered-backup-system-daily", "schedule": "22 11 * * *", "command": "cd /root/.openclaw/workspace/skills/layered-backup-system && python3 scripts/layered-backup-system-runner.py status"}]}

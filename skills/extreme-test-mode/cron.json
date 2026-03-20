@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "extreme-test-mode",
+  "description": "极限测试模式 - 每月最后一天执行",
+  "jobs": [
+    {
+      "name": "monthly-extreme-test",
+      "schedule": "0 0 28-31 * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/extreme-test-mode/scripts/extreme-test.py",
+      "timeout": 7200,
+      "description": "每月最后一天执行极限测试"
+    }
+  ]
+}

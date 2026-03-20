@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "skill_name": "7x24-autonomous-system",
+  "description": "7×24小时自主推进体系 - 多任务定时调度",
+  "jobs": [
+    {
+      "name": "morning-report",
+      "schedule": "0 9 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/7x24-autonomous-system/scripts/autonomous-runner.py --task morning-report",
+      "timeout": 180,
+      "description": "每日晨报生成"
+    },
+    {
+      "name": "hourly-coordination",
+      "schedule": "0 * * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/7x24-autonomous-system/scripts/autonomous-runner.py --task coordination",
+      "timeout": 120,
+      "description": "每小时任务协调检查"
+    },
+    {
+      "name": "night-learning",
+      "schedule": "0 23 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/7x24-autonomous-system/scripts/autonomous-runner.py --task learning",
+      "timeout": 7200,
+      "description": "夜间深度学习"
+    },
+    {
+      "name": "weekly-retrospective",
+      "schedule": "0 10 * * 6",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/7x24-autonomous-system/scripts/autonomous-runner.py --task weekly",
+      "timeout": 600,
+      "description": "每周复盘"
+    },
+    {
+      "name": "security-check",
+      "schedule": "0 14 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/7x24-autonomous-system/scripts/autonomous-runner.py --task security",
+      "timeout": 180,
+      "description": "每日安全检查"
+    }
+  ]
+}

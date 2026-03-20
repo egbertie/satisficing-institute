@@ -1,0 +1,1 @@
+{"jobs": [{"name": "feishu-file-handler-auto", "schedule": "44 12 * * *", "command": "python3 scripts/feishu-file-handler-runner.py check"}]}

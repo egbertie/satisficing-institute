@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "overdue-daily-scan",
+      "schedule": "13 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/overdue-task-rescuer && python3 scripts/overdue-task-rescuer.py scan",
+      "description": "每日扫描逾期任务"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "skill_name": "github",
+  "generated_at": "2026-03-20T14:41:17.470131",
+  "status": "status_checked",
+  "results": {
+    "status": {
+      "skill_name": "github",
+      "timestamp": "2026-03-20T14:41:17.470131",
+      "working_directory": "/root/.openclaw/workspace/skills/github/scripts",
+      "python_version": "3.12.3 (main, Jun 18 2025, 17:59:45) [GCC 13.3.0]",
+      "dependencies": {},
+      "environment": {
+        "path_exists": true
+      },
+      "skill_md_exists": false
+    }
+  }
+}

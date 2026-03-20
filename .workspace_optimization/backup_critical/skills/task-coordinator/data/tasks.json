@@ -1,0 +1,98 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-13T11:47:00",
+  "source": "docs/TASK_MASTER.md",
+  "tasks": {
+    "overdue": [],
+    "completed": [
+      {
+        "id": "URG-001",
+        "name": "灾备重建复刻实施方案V1.0",
+        "due": "2026-03-12T17:50:00",
+        "completed_at": "2026-03-12T17:50:00",
+        "status": "completed",
+        "deliverables": [
+          "docs/DISASTER_RECOVERY_V1.md",
+          "docs/DISASTER_RECOVERY_PLAN_V1.0.md",
+          "disaster_recovery/"
+        ]
+      },
+      {
+        "id": "URG-002",
+        "name": "内部会议机制建立",
+        "due": "2026-03-12T17:50:00",
+        "completed_at": "2026-03-12T17:50:00",
+        "status": "completed",
+        "deliverables": [
+          "docs/INTERNAL_MEETING_PROTOCOL_V1.md"
+        ]
+      }
+    ],
+    "in_progress": [
+      {
+        "id": "WIP-001",
+        "name": "V1.0蓝军意见整理",
+        "due": "2026-03-10",
+        "progress": "80%",
+        "status": "blocked",
+        "blocker": "等待附件确认"
+      },
+      {
+        "id": "WIP-002",
+        "name": "专家网络搭建",
+        "due": "待确认",
+        "progress": "40%",
+        "status": "blocked",
+        "blocker": "等待真人联系方式"
+      },
+      {
+        "id": "WIP-003",
+        "name": "五路图腾信息图制作",
+        "due": "2026-03-11",
+        "progress": "30%",
+        "status": "in_progress"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "WIP-001",
+        "name": "V1.0蓝军意见整理",
+        "status": "等待附件",
+        "blocker": "用户",
+        "days_waiting": 3
+      },
+      {
+        "id": "WIP-002",
+        "name": "专家网络搭建",
+        "status": "等待联系方式",
+        "blocker": "用户",
+        "days_waiting": 3
+      }
+    ],
+    "at_risk": [
+      {
+        "id": "WIP-003",
+        "name": "五路图腾信息图",
+        "due": "2026-03-11",
+        "hours_left": 12,
+        "severity": "high"
+      }
+    ],
+    "pending": [
+      {
+        "id": "NOTION-001",
+        "name": "Notion同步最终确认",
+        "status": "子代理执行中",
+        "note": "已启动，待验证结果"
+      }
+    ]
+  },
+  "summary": {
+    "total": 41,
+    "completed": 24,
+    "in_progress": 9,
+    "pending": 7,
+    "overdue": 0,
+    "blocked": 2
+  }
+}

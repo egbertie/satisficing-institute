@@ -1,0 +1,1 @@
+{"jobs": [{"name": "unified-framework-suite-daily", "schedule": "52 11 * * *", "command": "cd /root/.openclaw/workspace/skills/unified-framework-suite && python3 scripts/unified-framework-suite-runner.py status"}]}

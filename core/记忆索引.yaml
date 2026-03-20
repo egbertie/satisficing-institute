@@ -1,0 +1,192 @@
+# 满意解记忆索引 - Core定义
+# 
+# 用途: 历史记忆文件的归档索引
+# 影响: 记忆检索、历史追踪、知识复用
+
+metadata:
+  version: "1.0"
+  last_updated: "2026-03-20"
+  total_archived_files: 15+
+  archive_location: "memory/archive/"
+  logs_location: "memory/archive/logs/"
+
+memory_index:
+  # ===== 核心档案 =====
+  core_archives:
+    - file: "egbertie_full_profile.md"
+      path: "memory/archive/egbertie_full_profile.md"
+      type: "人物档案"
+      description: "Egbertie完整履历（22年）"
+      size_kb: 3
+      last_updated: "2026-03-18"
+      
+    - file: "project_history_2026-03.md"
+      path: "memory/archive/project_history_2026-03.md"
+      type: "项目历史"
+      description: "2026年3月项目里程碑"
+      size_kb: 3
+      last_updated: "2026-03-18"
+      
+    - file: "skill_system.md"
+      path: "memory/archive/skill_system.md"
+      type: "技能档案"
+      description: "技能体系完整档案"
+      size_kb: 3
+      last_updated: "2026-03-18"
+      
+    - file: "strategy_evolution.md"
+      path: "memory/archive/strategy_evolution.md"
+      type: "战略档案"
+      description: "战略定位演进历程"
+      size_kb: 3
+      last_updated: "2026-03-18"
+      
+    - file: "working_principles.md"
+      path: "memory/archive/working_principles.md"
+      type: "工作原则"
+      description: "工作模式准则"
+      size_kb: 2
+      last_updated: "2026-03-18"
+      
+    - file: "wulu_totem_system.md"
+      path: "memory/archive/wulu_totem_system.md"
+      type: "方法论"
+      description: "五路图腾体系"
+      size_kb: 1
+      last_updated: "2026-03-18"
+      
+    - file: "sandbox_system.md"
+      path: "memory/archive/sandbox_system.md"
+      type: "方法论"
+      description: "沙盘模拟系统"
+      size_kb: 2
+      last_updated: "2026-03-18"
+      
+    - file: "expert_digital_twins.md"
+      path: "memory/archive/expert_digital_twins.md"
+      type: "专家档案"
+      description: "专家数字替身档案"
+      size_kb: 3
+      last_updated: "2026-03-19"
+
+  # ===== 每日日志（待迁移） =====
+  daily_logs:
+    - file: "2026-03-06.md"
+      date: "2026-03-06"
+      status: "待归档"
+      key_events: ["项目启动"]
+      
+    - file: "2026-03-07.md"
+      date: "2026-03-07"
+      status: "待归档"
+      key_events: ["V1.0资料库建立"]
+      
+    - file: "2026-03-08.md"
+      date: "2026-03-08"
+      status: "待归档"
+      key_events: ["6位核心专家建档"]
+      
+    - file: "2026-03-09.md"
+      date: "2026-03-09"
+      status: "待归档"
+      key_events: ["通宵部署基础设施"]
+      
+    - file: "2026-03-10.md"
+      date: "2026-03-10"
+      status: "待归档"
+      key_events: ["TRL自评工具交付", "7×24小时体系建立"]
+      
+    - file: "2026-03-12.md"
+      date: "2026-03-12"
+      status: "待归档"
+      key_events: ["4个定时任务启动"]
+      
+    - file: "2026-03-14.md"
+      date: "2026-03-14"
+      status: "待归档"
+      key_events: ["4大Skill建立"]
+      
+    - file: "2026-03-15.md"
+      date: "2026-03-15"
+      status: "待归档"
+      key_events: ["数字资产战略", "14个新Skill部署"]
+      
+    - file: "2026-03-18.md"
+      date: "2026-03-18"
+      status: "待归档"
+      key_events: ["记忆系统重构V3.0", "V1.2增强版交付"]
+      
+    - file: "2026-03-19.md"
+      date: "2026-03-19"
+      status: "活跃"
+      key_events: ["技术大跃升完成", "知识管理V1.0部署"]
+      
+    - file: "2026-03-20.md"
+      date: "2026-03-20"
+      status: "活跃"
+      key_events: ["知识管理V2.0部署"]
+
+  # ===== 恢复包 =====
+  recovery_packages:
+    - name: "RECOVERY_PACKAGE_V1"
+      path: "memory/RECOVERY_PACKAGE_V1/"
+      created: "2026-03-15"
+      description: "灾难恢复V1包"
+      files:
+        - "DISASTER_RECOVERY_V1.md"
+        - "MEMORY.md"
+        - "USER.md"
+
+  # ===== 工作状态文件 =====
+  working_files:
+    - file: "night_research_expert_enhancement.md"
+      path: "memory/working/night_research_expert_enhancement.md"
+      type: "研究计划"
+      description: "专家能力提升计划"
+      status: "执行中"
+      
+    - file: "academic_deep_research_architecture.md"
+      path: "memory/working/academic_deep_research_architecture.md"
+      type: "研究框架"
+      description: "学术深度研究架构"
+      status: "已完成"
+
+  # ===== 心跳状态文件 =====
+  heartbeat_files:
+    - file: "heartbeat-state.json"
+      path: "memory/heartbeat-state.json"
+      type: "状态追踪"
+      description: "心跳检查状态"
+      
+    - file: "hourly-check-*.md"
+      pattern: "memory/hourly-check-*.md"
+      type: "小时检查"
+      description: "小时级任务协调记录"
+      count: "多个"
+
+# 迁移状态
+migration_status:
+  total_files: 15
+  migrated: 8
+  pending: 7
+  migration_script: "scripts/migrate_memory.py"
+  last_migration: null
+  next_migration: "2026-03-20"
+
+# 索引统计
+statistics:
+  by_type:
+    person_profile: 1
+    project_history: 1
+    skill_system: 1
+    strategy: 1
+    working_principles: 1
+    methodology: 2
+    expert_profile: 1
+    daily_log: 11
+    recovery_package: 1
+    working_file: 2
+    heartbeat: 2
+    
+  total_size_kb: 50
+  archive_coverage: "60%"

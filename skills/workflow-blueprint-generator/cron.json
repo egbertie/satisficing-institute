@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "workflow-blueprint-generator-check",
+      "schedule": "10 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/workflow-blueprint-generator && python3 scripts/workflow-blueprint-generator-runner.py status",
+      "description": "workflow-blueprint-generator status check"
+    }
+  ]
+}

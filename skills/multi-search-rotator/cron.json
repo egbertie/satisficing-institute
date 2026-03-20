@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "multi-search-rotator",
+  "description": "多搜索轮询器 - 每30分钟执行",
+  "jobs": [
+    {
+      "name": "search-rotation",
+      "schedule": "*/30 * * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/multi-search-rotator/scripts/rotator.py",
+      "timeout": 120,
+      "description": "每30分钟执行搜索轮询"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "name": "maintenance-daily-scan",
+      "schedule": "23 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/maintenance-scheduler && python3 scripts/maintenance-scheduler.py schedule",
+      "description": "每日扫描维护任务"
+    },
+    {
+      "name": "policy-quarterly-check",
+      "schedule": "0 10 1 */3 *",
+      "command": "cd /root/.openclaw/workspace/skills/maintenance-scheduler && python3 scripts/maintenance-scheduler.py execute policy",
+      "description": "每季度检查政策更新"
+    }
+  ]
+}

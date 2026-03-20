@@ -1,0 +1,1 @@
+{"jobs": [{"name": "subagent-dual-review-auto", "schedule": "24 12 * * *", "command": "python3 scripts/subagent-dual-review-runner.py check"}]}

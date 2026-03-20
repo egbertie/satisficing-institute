@@ -1,0 +1,18 @@
+{
+  "name": "questionnaire-auto-gen",
+  "version": "1.0.0",
+  "description": "评估问卷自动生成",
+  "author": "OpenClaw",
+  "tags": [
+    "questionnaire",
+    "generator",
+    "assessment"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3"
+    ],
+    "cron": false
+  }
+}

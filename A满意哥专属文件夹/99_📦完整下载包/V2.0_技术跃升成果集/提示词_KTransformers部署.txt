@@ -1,0 +1,311 @@
+# KTransformers部署 - AI执行提示词
+
+## 🎯 任务目标
+在AMD EPYC 9Y24服务器上部署KTransformers，使用AVX-512引擎实现2.22×推理加速。
+
+## 📋 前置要求
+- AMD EPYC处理器（支持AVX-512，已验证）
+- Python 3.8+
+- 至少32GB内存
+- CUDA可选（CPU推理为主）
+
+## 🔍 硬件验证
+
+首先确认CPU支持AVX-512：
+```bash
+grep -o 'avx512' /proc/cpuinfo | head -1
+# 应输出: avx512
+```
+
+确认CPU型号：
+```bash
+cat /proc/cpuinfo | grep "model name" | head -1
+# 应为: AMD EPYC 9Y24 或类似支持AVX-512的型号
+```
+
+## 🚀 执行步骤
+
+### 步骤1: 环境准备
+```bash
+# 创建虚拟环境（推荐）
+python3 -m venv ~/venv_ktransformers
+source ~/venv_ktransformers/bin/activate
+
+# 升级pip
+pip install --upgrade pip
+```
+
+### 步骤2: 安装KTransformers（简化方案）
+
+**方案A: 预编译Wheel（推荐，避免源码编译）**
+```bash
+# 先尝试预编译版本
+pip install ktransformers --no-cache-dir 2>&1 | tee install_log.txt
+
+# 验证安装
+python3 -c "import ktransformers; print(ktransformers.__version__)"
+```
+
+**方案B: 如果方案A失败，使用稳定版本**
+```bash
+# 安装最新稳定版
+pip install ktransformers==0.1.4 --no-cache-dir 2>&1 | tee install_log.txt
+```
+
+**方案C: 如果以上都失败，源码编译（需充足资源）**
+```bash
+# 克隆仓库
+git clone --depth 1 https://github.com/kvcache-ai/ktransformers.git
+cd ktransformers
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 编译安装
+pip install . --no-cache-dir 2>&1 | tee install_log.txt
+```
+
+### 步骤3: 配置AVX-512引擎
+
+创建配置文件：
+```bash
+cat > ~/ktransformers_config.env << 'EOF'
+# KTransformers配置
+export KTRANSFORMERS_PREFILL_ENGINE=avx512
+export KTRANSFORMERS_DECODE_ENGINE=avx512
+export KTRANSFORMERS_USE_CUDA=false
+export OMP_NUM_THREADS=96
+EOF
+
+source ~/ktransformers_config.env
+```
+
+### 步骤4: 下载测试模型
+
+使用轻量级模型测试（避免大模型下载时间过长）：
+```bash
+# 创建模型目录
+mkdir -p ~/models
+cd ~/models
+
+# 下载TinyLlama（用于快速测试）
+pip install huggingface-hub
+huggingface-cli download TinyLlama/TinyLlama-1.1B-Chat-v1.0 \
+    --local-dir ~/models/TinyLlama-1.1B \
+    --local-dir-use-symlinks False
+```
+
+### 步骤5: 运行基准测试
+
+创建测试脚本：
+```bash
+cat > ~/benchmark_ktransformers.py << 'EOF'
+import time
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+# 配置
+model_path = "~/models/TinyLlama-1.1B"
+device = "cpu"
+
+print("="*60)
+print("KTransformers基准测试")
+print("="*60)
+
+# 加载模型
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModelForCausalLM.from_pretrained(
+    model_path,
+    torch_dtype=torch.float32,
+    device_map="cpu"
+)
+
+# 测试输入
+test_prompt = "人工智能在合伙人决策中的作用是"
+inputs = tokenizer(test_prompt, return_tensors="pt")
+
+# 预热
+print("\n预热中...")
+for _ in range(3):
+    _ = model.generate(**inputs, max_new_tokens=10)
+
+# 基准测试
+print("\n开始基准测试...")
+num_runs = 10
+times = []
+
+for i in range(num_runs):
+    start = time.time()
+    outputs = model.generate(
+        **inputs,
+        max_new_tokens=50,
+        do_sample=False
+    )
+    elapsed = time.time() - start
+    times.append(elapsed)
+    print(f"Run {i+1}: {elapsed:.2f}s")
+
+avg_time = sum(times) / len(times)
+tokens_per_sec = 50 / avg_time
+
+print("\n" + "="*60)
+print(f"平均时间: {avg_time:.2f}s")
+print(f"生成速度: {tokens_per_sec:.2f} tokens/s")
+print(f"AVX-512: 已启用")
+print("="*60)
+
+# 保存结果
+with open("~/ktransformers_baseline_result.txt", "w") as f:
+    f.write(f"Model: TinyLlama-1.1B\n")
+    f.write(f"Engine: AVX-512\n")
+    f.write(f"Avg Time: {avg_time:.2f}s\n")
+    f.write(f"Tokens/s: {tokens_per_sec:.2f}\n")
+
+print("\n✅ 基准测试完成，结果保存至 ~/ktransformers_baseline_result.txt")
+EOF
+
+python3 ~/benchmark_ktransformers.py 2>&1 | tee benchmark_log.txt
+```
+
+### 步骤6: 对比测试（如果可能）
+
+如果有其他推理引擎可用，进行对比：
+```bash
+# 安装llama.cpp用于对比
+pip install llama-cpp-python
+
+# 转换模型并测试（可选，如果时间长可跳过）
+```
+
+## ✅ 成功标准
+
+| 指标 | 基线 | KTransformers | 加速比 |
+|------|------|---------------|--------|
+| 推理速度 | X tokens/s | >2.22×基线 | ≥2.22× |
+| CPU利用率 | - | >80% | 高效利用 |
+| 内存使用 | - | <32GB | 不OOM |
+
+**验证命令**:
+```bash
+cat ~/ktransformers_baseline_result.txt
+# 应显示: Tokens/s: XX.XX
+```
+
+## 📤 输出要求
+
+完成后向我（Kimi Claw）提供以下信息：
+
+```markdown
+## KTransformers部署完成报告
+
+### 执行摘要
+- **执行时间**: YYYY-MM-DD HH:MM
+- **CPU型号**: AMD EPYC XXXX
+- **AVX-512支持**: 是/否
+- **安装方案**: A/B/C（预编译/稳定版/源码）
+- **安装耗时**: XX分钟
+
+### 性能测试结果
+| 引擎 | 模型 | 推理速度 | 备注 |
+|------|------|----------|------|
+| 基线 | TinyLlama-1.1B | X.XX tokens/s | transformers |
+| KTransformers | TinyLlama-1.1B | X.XX tokens/s | AVX-512 |
+| **加速比** | - | **X.XX×** | 目标≥2.22× |
+
+### 配置详情
+```bash
+# 环境变量
+export KTRANSFORMERS_PREFILL_ENGINE=avx512
+export KTRANSFORMERS_DECODE_ENGINE=avx512
+export OMP_NUM_THREADS=96
+```
+
+### 验证结论
+- [ ] 安装成功: 是/否
+- [ ] AVX-512生效: 是/否
+- [ ] 加速比≥2.22×: 是/否
+- [ ] 可以生产部署: 是/否
+
+### 关键日志
+附上 `install_log.txt` 和 `benchmark_log.txt` 的关键片段
+
+### 后续建议
+基于结果给出是否投入生产使用的建议，包括：
+- 推荐使用的模型规模
+- 推荐的并发配置
+- 潜在问题和注意事项
+```
+
+## ❌ 失败处理
+
+### 场景1: AVX-512不支持
+```bash
+# 检查CPU标志
+cat /proc/cpuinfo | grep flags | head -1
+# 如果没有avx512f，则无法使用KTransformers AVX-512加速
+```
+
+**输出要求**:
+```markdown
+## KTransformers部署失败报告
+
+### 失败原因
+CPU不支持AVX-512指令集
+
+### 硬件信息
+- CPU型号: [输出]
+- 支持指令集: [输出flags]
+
+### 结论
+当前硬件无法运行KTransformers AVX-512加速，需要Intel AMX或支持AVX-512的CPU
+```
+
+### 场景2: 编译内存不足
+```bash
+# 尝试减少并行度
+MAKEFLAGS="-j4" pip install . --no-cache-dir
+
+# 或使用swap
+sudo fallocate -l 16G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
+
+### 场景3: 安装成功但测试失败
+```bash
+# 检查KTransformers是否正确加载
+python3 -c "
+import ktransformers
+print('Version:', ktransformers.__version__)
+print('Available engines:', dir(ktransformers))
+"
+
+# 尝试简单推理测试
+python3 -c "
+from transformers import pipeline
+p = pipeline('text-generation', model='gpt2', device='cpu')
+print(p('Hello', max_length=10))
+"
+```
+
+## ⚠️ 重要提醒
+
+1. **资源使用**: 编译过程可能消耗大量内存（>16GB），建议使用swap
+2. **模型选择**: 测试时使用小模型（TinyLlama-1.1B），避免下载时间过长
+3. **OMP线程**: 根据实际CPU核心数调整 `OMP_NUM_THREADS`，EPYC 9Y24为96核
+4. **生产建议**: 通过测试后再尝试更大模型（Llama2-7B/13B）
+
+## 📁 交付物位置
+
+执行完成后，以下文件需要在报告中引用：
+- `install_log.txt` - 安装日志
+- `benchmark_log.txt` - 基准测试日志
+- `~/ktransformers_baseline_result.txt` - 性能结果
+- `~/ktransformers_config.env` - 配置文件
+
+---
+
+*此提示词用于协助满意解研究所V2.0架构KTransformers组件部署*  
+*目标验证者: Kimi Claw*  
+*成功标准: AVX-512加速≥2.22×*

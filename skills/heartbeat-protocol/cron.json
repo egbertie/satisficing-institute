@@ -1,0 +1,1 @@
+{"jobs": [{"name": "heartbeat-protocol-check", "schedule": "22 10 * * *", "command": "cd /root/.openclaw/workspace/skills/heartbeat-protocol && python3 scripts/heartbeat-protocol-runner.py status"}]}

@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "invitation-followup",
+      "schedule": "23 10 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/invitation-sender && python3 scripts/invitation-sender.py followup",
+      "description": "每日检查待跟进邀请函"
+    }
+  ]
+}

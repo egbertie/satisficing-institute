@@ -1,0 +1,1 @@
+{"jobs": [{"name": "docker-essentials-daily", "schedule": "0 11 * * *", "command": "cd /root/.openclaw/workspace/skills/docker-essentials && python3 scripts/docker-essentials-runner.py status"}]}

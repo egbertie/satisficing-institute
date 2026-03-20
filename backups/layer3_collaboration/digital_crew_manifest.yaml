@@ -1,0 +1,103 @@
+# 数字小伙伴协作网络配置
+# Layer 3: Collaboration Mesh
+
+swarm_config:
+  version: "1.0"
+  generated_at: "2026-03-21"
+  
+  roles:
+    Captain:
+      name: "协调官"
+      agent: "满意妞"
+      responsibilities:
+        - "任务分配"
+        - "资源调度"
+        - "冲突仲裁"
+      status: "active"
+      
+    Researcher:
+      name: "研究员"
+      agent: "待分配"
+      responsibilities:
+        - "信息收集"
+        - "深度研究"
+        - "数据分析"
+      status: "standby"
+      
+    Writer:
+      name: "撰写员"
+      agent: "待分配"
+      responsibilities:
+        - "文档撰写"
+        - "内容创作"
+        - "格式优化"
+      status: "standby"
+      
+    Analyst:
+      name: "分析师"
+      agent: "待分配"
+      responsibilities:
+        - "逻辑分析"
+        - "方案评估"
+        - "风险评估"
+      status: "standby"
+      
+    Auditor:
+      name: "审计官"
+      agent: "满意妞（兼任）"
+      responsibilities:
+        - "质量检查"
+        - "合规审计"
+        - "否决权行使"
+      status: "active"
+      
+    Messenger:
+      name: "通信官"
+      agent: "满意妞（兼任）"
+      responsibilities:
+        - "对外接口"
+        - "信息聚合"
+        - "状态同步"
+      status: "active"
+
+trust_matrix:
+  满意妞:
+    self_trust: 1.0
+    user_trust: 0.95
+    
+  待分配角色:
+    default_trust: 0.0
+    activation_threshold: 0.7
+
+communication_protocols:
+  rfp_mode:
+    description: "任务请求提案模式"
+    steps:
+      - "Captain发布任务描述"
+      - "Specialists投标（成本/质量/置信度）"
+      - "Captain基于三维权衡选择"
+      - "落选者进入STANDBY"
+      
+  broadcast:
+    description: "广播模式"
+    use_case: "紧急通知、全局变更"
+    
+  direct_message:
+    description: "直连模式"
+    use_case: "私密沟通、敏感信息"
+
+active_projects:
+  - id: "disaster_recovery"
+    name: "灾备系统重构"
+    status: "进行中"
+    priority: "P0"
+    
+  - id: "seven_standard_audit"
+    name: "7标准元检验"
+    status: "已完成"
+    priority: "P1"
+    
+  - id: "p0_fix"
+    name: "P0修复"
+    status: "已完成"
+    priority: "P0"

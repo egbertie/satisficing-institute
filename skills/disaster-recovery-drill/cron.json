@@ -1,0 +1,1 @@
+{"jobs": [{"name": "disaster-recovery-drill-check", "schedule": "11 10 * * *", "command": "cd /root/.openclaw/workspace/skills/disaster-recovery-drill && python3 scripts/disaster-recovery-drill-runner.py status"}]}

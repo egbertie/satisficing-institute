@@ -1,0 +1,1 @@
+{"jobs": [{"name": "workspace-optimizer-daily", "schedule": "12 11 * * *", "command": "cd /root/.openclaw/workspace/skills/workspace-optimizer && python3 scripts/workspace-optimizer-runner.py status"}]}

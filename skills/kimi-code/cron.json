@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "kimi-code-check",
+      "schedule": "7 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/kimi-code && python3 scripts/kimi-code-runner.py status",
+      "description": "kimi-code status check"
+    }
+  ]
+}

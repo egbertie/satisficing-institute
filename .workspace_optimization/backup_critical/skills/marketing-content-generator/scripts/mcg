@@ -1,0 +1,240 @@
+#!/usr/bin/env bash
+# mcg — Marketing Content Generator 统一入口
+# 替代: adwords, copywriting, copywriting-zh-pro
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SKILL_DIR="$(dirname "$SCRIPT_DIR")"
+
+cmd_help() {
+  cat <<'EOF'
+╔══════════════════════════════════════════════════════════════╗
+║     Marketing Content Generator - 营销内容生成套件            ║
+╚══════════════════════════════════════════════════════════════╝
+
+📌 统一入口: mcg <command> [options]
+
+【广告文案】
+  mcg ad --product "产品名" --platform google --variants 5
+  mcg headline --type digital --count 10          # 100个标题公式
+  
+【落地页】
+  mcg landing --product "产品名" --full           # 完整落地页
+  mcg landing --product "产品名" --minimal        # 简化版
+
+【社媒内容】
+  mcg social xiaohongshu --topic "话题"           # 小红书
+  mcg social wechat --topic "话题"                # 公众号
+  mcg social douyin --product "产品"              # 抖音脚本
+  mcg social moments --content "内容"             # 朋友圈
+
+【电商文案】
+  mcg ecommerce amazon --product "产品"           # 亚马逊
+  mcg ecommerce shopify --product "产品"          # 独立站
+  mcg ecommerce detail --product "产品"           # 详情页
+
+【跨境营销】
+  mcg crossborder meta_ads                        # Meta广告
+  mcg crossborder google_ads                      # Google广告  
+  mcg crossborder tiktok_ads                      # TikTok广告
+
+【文案框架】
+  mcg framework aida --product "产品"             # AIDA框架
+  mcg framework pas --problem "痛点"              # PAS框架
+  mcg framework fab --feature "特性"              # FAB框架
+
+【优化工具】
+  mcg improve --input file.txt                    # 改进文案
+  mcg localize --from en --to zh                  # 本地化
+
+📚 帮助:
+  mcg help ad         # 广告文案详细帮助
+  mcg help social     # 社媒内容详细帮助
+  mcg help ecommerce  # 电商文案详细帮助
+  mcg help framework  # 文案框架详细帮助
+  mcg help crossborder # 跨境营销详细帮助
+
+EOF
+}
+
+cmd_ad() {
+  python3 "$SCRIPT_DIR/mcg_core.py" ad "$@"
+}
+
+cmd_headline() {
+  python3 "$SCRIPT_DIR/mcg_core.py" headline "$@"
+}
+
+cmd_landing() {
+  python3 "$SCRIPT_DIR/mcg_core.py" landing "$@"
+}
+
+cmd_social() {
+  python3 "$SCRIPT_DIR/mcg_core.py" social "$@"
+}
+
+cmd_ecommerce() {
+  python3 "$SCRIPT_DIR/mcg_core.py" ecommerce "$@"
+}
+
+cmd_framework() {
+  python3 "$SCRIPT_DIR/mcg_core.py" framework "$@"
+}
+
+cmd_improve() {
+  python3 "$SCRIPT_DIR/mcg_core.py" improve "$@"
+}
+
+cmd_localize() {
+  python3 "$SCRIPT_DIR/mcg_core.py" localize "$@"
+}
+
+cmd_crossborder() {
+  python3 "$SCRIPT_DIR/mcg_core.py" crossborder "$@"
+}
+
+cmd_help_detail() {
+  local topic="${1:-general}"
+  case "$topic" in
+    ad)
+      cat <<'EOF'
+【广告文案命令详解】
+
+mcg ad [options]
+
+Options:
+  --product <name>      产品/服务名称 (必需)
+  --platform <name>     平台: google, facebook, tiktok, baidu, universal
+  --audience <desc>     目标受众描述
+  --goal <action>       目标: click, signup, purchase, download
+  --angle <type>        角度: benefit, pain, curiosity, authority
+  --cta <text>          行动号召文案
+  --variants <n>        生成变体数量 (默认3)
+  --tone <style>        语调: professional, casual, urgent, friendly
+  --language <lang>     语言: zh, en, bilingual
+
+示例:
+  mcg ad --product "AI写作工具" --platform google --variants 5
+  mcg ad --product "瑜伽课程" --platform facebook --angle pain --audience "职场女性"
+  mcg ad --product "SaaS工具" --platform universal --variants 10 --language bilingual
+
+标题公式库:
+  mcg headline --type digital      # 数字型(1-15)
+  mcg headline --type question     # 问题型(16-30)
+  mcg headline --type benefit      # 好处型(31-45)
+  mcg headline --type urgent       # 紧迫型(46-60)
+  mcg headline --type story        # 故事型(61-75)
+  mcg headline --type authority    # 权威型(76-90)
+  mcg headline --type unique       # 独特型(91-100)
+  mcg headline --all               # 全部100个公式
+EOF
+      ;;
+    social)
+      cat <<'EOF'
+【社媒内容命令详解】
+
+mcg social <platform> [options]
+
+Platforms:
+  xiaohongshu    小红书种草文
+  wechat         公众号文章
+  douyin         抖音短视频脚本
+  moments        朋友圈文案
+  weibo          微博文案
+  bilibili       B站视频脚本
+
+Options:
+  --topic <subject>     内容主题
+  --product <name>      产品名称
+  --style <type>        风格: 种草,干货,故事,测评,盘点
+  --tone <style>        语调: 亲切,专业,幽默,正式
+  --length <size>       长度: short, medium, long
+  --cta <action>        行动号召: 收藏,评论,私信,关注
+  --hook <type>         钩子: 悬念,数字,痛点,反差
+  --hashtags <n>        生成标签数量
+
+示例:
+  mcg social xiaohongshu --topic "早八妆容" --style "种草" --cta "收藏"
+  mcg social wechat --topic "AI趋势" --length long --tone professional
+  mcg social douyin --product "洗面奶" --hook "震惊体" --duration 60
+  mcg social moments --content "产品上新" --tone soft
+EOF
+      ;;
+    ecommerce)
+      cat <<'EOF'
+【电商文案命令详解】
+
+mcg ecommerce <platform> [options]
+
+Platforms:
+  amazon         亚马逊Listing
+  shopify        独立站产品页
+  taobao         淘宝详情页
+  jd             京东详情页
+  pdd            拼多多
+  universal      通用模板
+
+Options:
+  --product <name>      产品名称 (必需)
+  --category <type>     产品类别
+  --keywords <list>     关键词列表
+  --features <list>     产品卖点
+  --audience <desc>     目标人群
+  --price <amount>      价格
+  --objections <list>   需解决的顾虑
+  --language <lang>     语言: zh, en, bilingual
+
+示例:
+  mcg ecommerce amazon --product "蓝牙耳机" --keywords "降噪,蓝牙5.3"
+  mcg ecommerce shopify --product "手工皮具" --story brand --language bilingual
+  mcg ecommerce detail --product "扫地机器人" --features "激光导航,自动集尘"
+EOF
+      ;;
+    framework)
+      cat <<'EOF'
+【文案框架命令详解】
+
+mcg framework <type> [options]
+
+Types:
+  aida           AIDA框架 (注意-兴趣-欲望-行动)
+  pas            PAS框架 (问题-激化-解决)
+  fab            FAB框架 (特性-优势-收益)
+  bab            BAB框架 (之前-之后-桥梁)
+  4p             4P框架 (画面-承诺-证明-推动)
+
+AIDA示例:
+  mcg framework aida --product "CRM系统" --audience "销售团队"
+
+PAS示例:
+  mcg framework pas --problem "低转化率" --agitate "每月损失客户" --solution "A/B测试工具"
+
+FAB示例:
+  mcg framework fab --feature "AI自动化" --advantage "节省时间" --benefit "专注核心业务"
+
+中文框架:
+  mcg framework 痛点方案 --痛点 "加班做报表" --方案 "自动化工具" --收益 "每天节省2小时"
+  mcg framework 场景冲突 --场景 "周末带娃" --冲突 "工作消息不断" --解决 "自动回复助手"
+EOF
+      ;;
+    *)
+      cmd_help
+      ;;
+  esac
+}
+
+# Main
+case "${1:-help}" in
+  ad) shift; cmd_ad "$@" ;;
+  headline) shift; cmd_headline "$@" ;;
+  landing) shift; cmd_landing "$@" ;;
+  social) shift; cmd_social "$@" ;;
+  ecommerce) shift; cmd_ecommerce "$@" ;;
+  framework) shift; cmd_framework "$@" ;;
+  improve) shift; cmd_improve "$@" ;;
+  localize) shift; cmd_localize "$@" ;;
+  crossborder) shift; cmd_crossborder "$@" ;;
+  help) shift; cmd_help_detail "$@" ;;
+  *) cmd_help ;;
+esac

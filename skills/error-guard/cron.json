@@ -1,0 +1,1 @@
+{"jobs": [{"name": "error-guard-check", "schedule": "29 10 * * *", "command": "cd /root/.openclaw/workspace/skills/error-guard && python3 scripts/error-guard-runner.py status"}]}

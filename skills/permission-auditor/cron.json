@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "permission-weekly-audit",
+      "schedule": "47 9 * * 1",
+      "command": "cd /root/.openclaw/workspace/skills/permission-auditor && python3 scripts/permission-auditor.py audit",
+      "description": "每周一审计权限状态"
+    }
+  ]
+}

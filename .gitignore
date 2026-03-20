@@ -1,0 +1,22 @@
+# Dependency directories
+node_modules/
+.openclaw/
+
+# Notion sync artifacts
+.notion_*
+
+# Temporary files
+*.tmp
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Git submodules not managed
+BitNet/
+ktransformers/
+
+# OS files
+.DS_Store
+Thumbs.db

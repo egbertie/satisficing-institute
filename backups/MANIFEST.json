@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-03-21T00:37:08.271638",
+  "version": "1.0",
+  "layers": {
+    "layer1_meta": {
+      "file_count": 1,
+      "files": [
+        {
+          "path": "layer1_meta/REINCARNATION_PLAYBOOK.md",
+          "size": 5626,
+          "hash": "9f25eebd574e2a14"
+        }
+      ]
+    },
+    "layer2_automation": {
+      "file_count": 2,
+      "files": [
+        {
+          "path": "layer2_automation/immortality_protocol.py",
+          "size": 6852,
+          "hash": "a4890aecbbe6baeb"
+        },
+        {
+          "path": "layer2_automation/cron.json",
+          "size": 827,
+          "hash": "2f8a9be849b692fa"
+        }
+      ]
+    },
+    "layer3_collaboration": {
+      "file_count": 1,
+      "files": [
+        {
+          "path": "layer3_collaboration/digital_crew_manifest.yaml",
+          "size": 2228,
+          "hash": "113a836ee52fa9ec"
+        }
+      ]
+    },
+    "layer4_identity": {
+      "file_count": 2,
+      "files": [
+        {
+          "path": "layer4_identity/persona_master_v1.yaml",
+          "size": 3004,
+          "hash": "43c3adec7dae3028"
+        },
+        {
+          "path": "layer4_identity/cognitive_architecture_v1.md",
+          "size": 4138,
+          "hash": "2e9fae094d1c7d13"
+        }
+      ]
+    },
+    "layer5_knowledge": {
+      "file_count": 1,
+      "files": [
+        {
+          "path": "layer5_knowledge/kg_snapshot_v1.json",
+          "size": 3126,
+          "hash": "7b6817b0509119fe"
+        }
+      ]
+    },
+    "layer6_memory": {
+      "file_count": 2,
+      "files": [
+        {
+          "path": "layer6_memory/MEMORY.md",
+          "size": 4809,
+          "hash": "cccae4c226377cba"
+        },
+        {
+          "path": "layer6_memory/2026-03-21.md",
+          "size": 1413,
+          "hash": "02feb7a96340e413"
+        }
+      ]
+    },
+    "layer7_runtime": {
+      "file_count": 1,
+      "files": [
+        {
+          "path": "layer7_runtime/session_checkpoint_v1.json",
+          "size": 910,
+          "hash": "bb5433cd361ce258"
+        }
+      ]
+    }
+  }
+}

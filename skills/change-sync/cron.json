@@ -1,0 +1,28 @@
+{
+  "name": "change-sync",
+  "description": "变更同步机制 - 变更检测→同步通知",
+  "version": "1.0",
+  "jobs": [
+    {
+      "name": "change-detection",
+      "schedule": "*/5 * * * *",
+      "command": "bash /root/.openclaw/workspace/skills/change-sync/scripts/change-sync-check.sh",
+      "enabled": true,
+      "description": "每5分钟检测变更"
+    },
+    {
+      "name": "change-sync-processor",
+      "schedule": "*/2 * * * *",
+      "command": "echo '处理同步队列: $(date)' >> /root/.openclaw/workspace/skills/change-sync/logs/queue-processor.log",
+      "enabled": true,
+      "description": "每2分钟处理同步队列"
+    },
+    {
+      "name": "change-sync-daily-report",
+      "schedule": "0 9 * * *",
+      "command": "echo '同步日报: $(date)' >> /root/.openclaw/workspace/skills/change-sync/logs/daily-report.log",
+      "enabled": true,
+      "description": "每日9点生成同步报告"
+    }
+  ]
+}

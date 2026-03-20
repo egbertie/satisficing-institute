@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "auto-cleanup-system",
+  "description": "自动清理系统 - 每日凌晨执行",
+  "jobs": [
+    {
+      "name": "daily-cleanup",
+      "schedule": "0 3 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/auto-cleanup-system/scripts/cleanup-runner.py",
+      "timeout": 600,
+      "description": "每日凌晨3点执行自动清理"
+    }
+  ]
+}

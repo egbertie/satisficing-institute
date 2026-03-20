@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "git-essentials-check",
+      "schedule": "3 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/git-essentials && python3 scripts/git-essentials-runner.py status",
+      "description": "git-essentials status check"
+    }
+  ]
+}

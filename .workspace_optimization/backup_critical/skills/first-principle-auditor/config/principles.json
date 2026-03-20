@@ -1,0 +1,46 @@
+{
+  "principles": [
+    {
+      "id": "system_first",
+      "name": "系统层优先",
+      "description": "新增能力必须嵌入系统，不可游离",
+      "weight": 1.0,
+      "threshold": 90
+    },
+    {
+      "id": "evaluation_first",
+      "name": "评测先行",
+      "description": "新增工作项必须有评测指标",
+      "weight": 1.0,
+      "threshold": 80
+    },
+    {
+      "id": "feedback_loop",
+      "name": "反馈飞轮",
+      "description": "任务必须走完完整闭环",
+      "weight": 1.0,
+      "threshold": 85
+    },
+    {
+      "id": "explicit_process",
+      "name": "流程显式",
+      "description": "流程必须有SOP文档",
+      "weight": 1.0,
+      "threshold": 75
+    },
+    {
+      "id": "negative_samples",
+      "name": "负样宝贵",
+      "description": "失败必须记录入库",
+      "weight": 1.0,
+      "threshold": 90
+    },
+    {
+      "id": "embedded_governance",
+      "name": "治理嵌入",
+      "description": "关键变更必须有日志审计",
+      "weight": 1.0,
+      "threshold": 95
+    }
+  ]
+}

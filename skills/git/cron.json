@@ -1,0 +1,1 @@
+{"jobs": [{"name": "git-auto", "schedule": "37 12 * * *", "command": "python3 scripts/git-runner.py check"}]}

@@ -1,0 +1,1 @@
+{"jobs": [{"name": "three-tier-response-auto", "schedule": "33 12 * * *", "command": "python3 scripts/three-tier-response-runner.py check"}]}

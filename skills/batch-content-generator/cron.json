@@ -1,0 +1,1 @@
+{"jobs": [{"name": "batch-content-generator-auto", "schedule": "25 12 * * *", "command": "python3 scripts/batch-content-generator-runner.py check"}]}

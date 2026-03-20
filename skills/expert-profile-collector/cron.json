@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "profile-completeness-check",
+      "schedule": "37 9 * * 1",
+      "command": "cd /root/.openclaw/workspace/skills/expert-profile-collector && python3 scripts/expert-profile-collector.py identify",
+      "description": "每周一检查专家资料完整度"
+    }
+  ]
+}

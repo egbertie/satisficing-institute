@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "closure-rate-tracker",
+  "description": "闭环率追踪器 - 每日23:00统计",
+  "jobs": [
+    {
+      "name": "daily-closure-stats",
+      "schedule": "0 23 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/closure-rate-tracker/scripts/closure-tracker.py",
+      "timeout": 180,
+      "description": "每日23:00统计闭环率"
+    }
+  ]
+}

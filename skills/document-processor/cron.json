@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "document-processor",
+  "description": "文档处理器 - 每日凌晨批处理",
+  "jobs": [
+    {
+      "name": "daily-doc-processing",
+      "schedule": "0 2 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/document-processor/scripts/processor.py --batch",
+      "timeout": 3600,
+      "description": "每日凌晨2点执行文档批处理"
+    }
+  ]
+}

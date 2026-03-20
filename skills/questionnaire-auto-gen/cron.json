@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "questionnaire-auto-gen-check",
+      "schedule": "2 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/questionnaire-auto-gen && python3 scripts/questionnaire-auto-gen-runner.py status",
+      "description": "questionnaire-auto-gen status check"
+    }
+  ]
+}

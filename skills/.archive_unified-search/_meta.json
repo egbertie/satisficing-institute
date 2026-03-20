@@ -1,0 +1,29 @@
+{
+  "name": "unified-search",
+  "slug": "unified-search",
+  "description": "统一搜索套件 - 一个接口，多引擎支持，智能路由。整合Tavily、Brave、Exa、Firecrawl等搜索引擎。",
+  "version": "1.0.0",
+  "author": "Satisficing Institute",
+  "type": "skill",
+  "category": "search",
+  "tags": [
+    "search",
+    "tavily",
+    "brave",
+    "exa",
+    "firecrawl",
+    "unified"
+  ],
+  "requirements": {
+    "env": [
+      "TAVILY_API_KEY"
+    ],
+    "optional_env": [
+      "BRAVE_API_KEY",
+      "EXA_API_KEY",
+      "FIRECRAWL_API_KEY"
+    ]
+  },
+  "entry": "search.js",
+  "status": "development"
+}

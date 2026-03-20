@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "unified-workflow-suite-check",
+      "schedule": "5 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/unified-workflow-suite && python3 scripts/unified-workflow-suite-runner.py status",
+      "description": "unified-workflow-suite status check"
+    }
+  ]
+}

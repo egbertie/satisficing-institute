@@ -1,0 +1,19 @@
+{
+  "name": "partner-assessment",
+  "version": "1.0.0",
+  "description": "合伙人匹配评估机制",
+  "author": "OpenClaw",
+  "tags": [
+    "partner",
+    "assessment",
+    "decision"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3",
+      "duckdb"
+    ],
+    "cron": false
+  }
+}

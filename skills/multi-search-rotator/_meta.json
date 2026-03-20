@@ -1,0 +1,19 @@
+{
+  "name": "multi-search-rotator",
+  "version": "1.0.0",
+  "description": "多搜索引擎轮询机制",
+  "author": "OpenClaw",
+  "tags": [
+    "search",
+    "rotation",
+    "crawler"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "curl",
+      "python3"
+    ],
+    "cron": true
+  }
+}

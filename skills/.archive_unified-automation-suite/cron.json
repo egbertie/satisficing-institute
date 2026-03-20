@@ -1,0 +1,1 @@
+{"jobs": [{"name": "unified-automation-suite-check", "schedule": "10 10 * * *", "command": "cd /root/.openclaw/workspace/skills/unified-automation-suite && python3 scripts/unified-automation-suite-runner.py status"}]}

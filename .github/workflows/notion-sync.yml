@@ -1,11 +1,11 @@
 name: Notion Sync - 文档自动同步
 
 on:
-  # 定时触发：每天凌晨 02:00 (UTC+8 = UTC 18:00)
-  schedule:
-    - cron: '0 18 * * *'
+  # 定时触发：已暂停以节省Token消耗（2026-03-18）
+  # schedule:
+  #   - cron: '0 18 * * *'
   
-  # 手动触发
+  # 手动触发（保持联通，按需执行）
   workflow_dispatch:
     inputs:
       batch_size:

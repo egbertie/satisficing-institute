@@ -1,0 +1,1 @@
+{"jobs": [{"name": "build-vs-buy-analyzer-auto", "schedule": "9 12 * * *", "command": "python3 scripts/build-vs-buy-analyzer-runner.py check"}]}

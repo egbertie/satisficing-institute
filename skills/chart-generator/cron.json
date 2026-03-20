@@ -1,0 +1,1 @@
+{"jobs": [{"name": "chart-generator-auto", "schedule": "1 12 * * *", "command": "python3 scripts/chart-generator-runner.py check"}]}

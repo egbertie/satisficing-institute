@@ -1,0 +1,1 @@
+{"jobs": [{"name": "global-file-governance-auto", "schedule": "21 12 * * *", "command": "python3 scripts/global-file-governance-runner.py check"}]}

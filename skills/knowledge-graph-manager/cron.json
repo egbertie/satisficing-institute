@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "name": "knowledge-graph-auto-update",
+      "schedule": "17 */6 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/knowledge-graph-manager && python3 scripts/kg_updater.py",
+      "description": "每6小时自动更新知识图谱(准点错开: 00:17/06:17/12:17/18:17)"
+    },
+    {
+      "name": "knowledge-graph-daily-snapshot",
+      "schedule": "37 2 * * *",
+      "command": "cd /root/.openclaw/workspace/backups/layer5_knowledge && cp kg_snapshot_v1.json kg_snapshot_$(date +%Y%m%d).json",
+      "description": "每日02:37生成知识图谱快照备份"
+    }
+  ]
+}

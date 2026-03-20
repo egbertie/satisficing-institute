@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "touchpoint-designer-check",
+      "schedule": "21 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/touchpoint-designer && python3 scripts/touchpoint-designer-runner.py status",
+      "description": "touchpoint-designer status check"
+    }
+  ]
+}

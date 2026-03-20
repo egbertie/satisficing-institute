@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "skill_name": "file-integrity-checker",
+  "description": "文件完整性检查 - 四维检查定时执行",
+  "jobs": [
+    {
+      "name": "structure-check",
+      "schedule": "7 9 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/file-integrity-checker/scripts/integrity-checker.py --dimension structure",
+      "timeout": 180,
+      "description": "每日09:07执行结构完整性检查"
+    },
+    {
+      "name": "freshness-check",
+      "schedule": "17 9 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/file-integrity-checker/scripts/integrity-checker.py --dimension freshness",
+      "timeout": 180,
+      "description": "每日09:17执行内容时效性检查"
+    },
+    {
+      "name": "reference-check",
+      "schedule": "7 10 * * 6",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/file-integrity-checker/scripts/integrity-checker.py --dimension references",
+      "timeout": 600,
+      "description": "每周六10:07执行引用一致性检查"
+    },
+    {
+      "name": "security-check",
+      "schedule": "0 14 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/file-integrity-checker/scripts/integrity-checker.py --dimension security",
+      "timeout": 180,
+      "description": "每日14:00执行安全合规性检查"
+    },
+    {
+      "name": "forgotten-scan",
+      "schedule": "0 22 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/file-integrity-checker/scripts/integrity-checker.py --dimension forgotten",
+      "timeout": 300,
+      "description": "每日22:00执行遗忘任务扫描"
+    }
+  ]
+}

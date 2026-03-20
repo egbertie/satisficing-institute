@@ -1,0 +1,19 @@
+{
+  "name": "growth-path-monitor",
+  "version": "1.0.0",
+  "description": "组织成长路径监控",
+  "author": "OpenClaw",
+  "tags": [
+    "growth",
+    "path",
+    "monitor"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3",
+      "duckdb"
+    ],
+    "cron": true
+  }
+}

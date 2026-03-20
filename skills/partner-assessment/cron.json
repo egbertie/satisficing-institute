@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "skill_name": "partner-assessment",
+  "description": "合伙人评估 - 按需执行，无定时任务",
+  "jobs": [],
+  "note": "本Skill为按需执行，通过手动触发或外部调用启动"
+}

@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "v2-architecture-executor",
+  "description": "V2架构执行器 - 每日08:00检查",
+  "jobs": [
+    {
+      "name": "daily-arch-check",
+      "schedule": "0 8 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/v2-architecture-executor/scripts/check_status.py",
+      "timeout": 300,
+      "description": "每日08:00检查V2架构执行状态"
+    }
+  ]
+}

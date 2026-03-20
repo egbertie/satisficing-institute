@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "pdf-document-parser",
+  "description": "PDF文档解析 - 每6小时批处理",
+  "jobs": [
+    {
+      "name": "batch-pdf-parse",
+      "schedule": "0 */6 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/pdf-document-parser/scripts/parse_batch.sh",
+      "timeout": 3600,
+      "description": "每6小时执行PDF批量解析"
+    }
+  ]
+}

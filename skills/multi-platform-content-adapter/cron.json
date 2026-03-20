@@ -1,0 +1,1 @@
+{"jobs": [{"name": "multi-platform-content-adapter-auto", "schedule": "56 12 * * *", "command": "python3 scripts/multi-platform-content-adapter-runner.py check"}]}

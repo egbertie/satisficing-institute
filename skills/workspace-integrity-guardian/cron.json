@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "workspace-integrity-guardian-check",
+      "schedule": "22 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/workspace-integrity-guardian && python3 scripts/workspace-integrity-guardian-runner.py status",
+      "description": "workspace-integrity-guardian status check"
+    }
+  ]
+}

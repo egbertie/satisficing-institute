@@ -1,0 +1,1 @@
+{"jobs": [{"name": "slack-auto", "schedule": "34 12 * * *", "command": "python3 scripts/slack-runner.py check"}]}

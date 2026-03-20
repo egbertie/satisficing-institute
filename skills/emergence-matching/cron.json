@@ -1,0 +1,1 @@
+{"jobs": [{"name": "emergence-matching-auto", "schedule": "51 12 * * *", "command": "python3 scripts/emergence-matching-runner.py check"}]}

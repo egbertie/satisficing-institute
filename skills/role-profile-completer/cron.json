@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "role-profile-completeness-check",
+      "schedule": "47 10 * * 2",
+      "command": "cd /root/.openclaw/workspace/skills/role-profile-completer && python3 scripts/role-profile-completer.py inventory",
+      "description": "每周二检查角色档案完整度"
+    }
+  ]
+}

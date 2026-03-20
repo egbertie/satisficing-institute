@@ -1,0 +1,1 @@
+{"jobs": [{"name": "security-continuous-improvement-check", "schedule": "12 10 * * *", "command": "cd /root/.openclaw/workspace/skills/security-continuous-improvement && python3 scripts/security-continuous-improvement-runner.py status"}]}

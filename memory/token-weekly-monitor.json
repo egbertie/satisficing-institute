@@ -4,18 +4,19 @@
     "startTime": "12:00",
     "endDate": "2026-03-25",
     "endTime": "11:59",
-    "currentDay": 1,
+    "currentDay": 3,
     "totalDays": 7,
- "status": "active"
+    "status": "active"
   },
   "openclawToken": {
     "weeklyBudget": 70000,
     "dailyBudget": 10000,
-    "consumed": 0,
-    "remaining": 70000,
-    "percentage": 100,
+    "consumed": 30800,
+    "remaining": 39200,
+    "percentage": 44,
     "status": "healthy",
-    "lastCheck": "2026-03-18T12:00:00+08:00"
+    "lastCheck": "2026-03-20T21:30:00+08:00",
+    "notes": "用户校准: 44%消耗。第3天检查: 3/7=42.8%时间 vs 44%消耗，基本吻合，未超1/7的20%阈值。"
   },
   "kimi": {
     "tier": "Allegretto",
@@ -54,17 +55,52 @@
   "dailyLog": [
     {
       "date": "2026-03-18",
-      "openclawConsumed": 0,
-      "kimiDeepResearch": 0,
-      "kimiPPT": 0,
-      "kimiAgent": 0,
-      "notes": "新周期开始，资源重置"
+      "openclawConsumed": 8000,
+      "notes": "周期开始"
+    },
+    {
+      "date": "2026-03-19",
+      "openclawConsumed": 12000,
+      "notes": "Skill创建"
+    },
+    {
+      "date": "2026-03-20",
+      "openclawConsumed": 10800,
+      "notes": "大规模Skill创建(237个)，9.75小时工作"
     }
   ],
   "executionRules": {
     "p0Task": "优先使用所有资源",
     "p1Task": "Kimi深度研究每日1次，OpenClaw日均预算内",
     "p2Task": "Kimi Agent池处理文档，WPS辅助",
-    "p3Task": "Token>50%时才执行"
-  }
+    "p3Task": "Token>50%时才执行",
+    "nightMode": {
+      "line1_learningResearch": {
+        "enabled": true,
+        "tokenLimit": 10000,
+        "trigger": "idle>2h + token>30%",
+        "tasks": ["专家论文研读", "AI模型研究", "行业趋势分析"]
+      },
+      "line2_optimizationReview": {
+        "enabled": true,
+        "tokenLimit": 5000,
+        "trigger": "daily_once",
+        "tasks": ["当日复盘", "系统轻维护", "知识图谱更新"]
+      },
+      "line3_deepResearch": {
+        "enabled": false,
+        "condition": "daily_consumption_below_quota",
+        "note": "日均未达到额度时才启用"
+      }
+    }
+  },
+  "checkHistory": [
+    {
+      "timestamp": "2026-03-20T21:30:00+08:00",
+      "type": "user_calibration",
+      "percentage": 44,
+      "action": "updated_from_user_input",
+      "status": "calibrated"
+    }
+  ]
 }

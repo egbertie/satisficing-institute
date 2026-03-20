@@ -1,0 +1,19 @@
+{
+  "name": "patent-filing-generator",
+  "version": "1.0.0",
+  "description": "专利交底书自动生成",
+  "author": "OpenClaw",
+  "tags": [
+    "patent",
+    "filing",
+    "ip"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3",
+      "curl"
+    ],
+    "cron": false
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "last_check": "2026-03-18T10:46:27.393868",
+  "last_check": "2026-03-20T22:46:53.521786",
   "analysis": {
-    "timestamp": "2026-03-18T10:46:27.394218",
+    "timestamp": "2026-03-20T22:46:53.522102",
     "summary": {
       "overdue": 0,
       "blocked": 0,
@@ -21,7 +21,7 @@
     ]
   },
   "plan": {
-    "generated_at": "2026-03-18T10:46:27.398131",
+    "generated_at": "2026-03-20T22:46:53.526029",
     "mode": "parallel",
     "risk_score": 0,
     "reasoning": [],
@@ -39,7 +39,20 @@
       "sub_agents": 5
     }
   },
-  "issues": [],
+  "issues": [
+    {
+      "type": "incomplete_tasks",
+      "count": 5,
+      "items": [
+        "- [ ] \u884c\u52a8\uff1a{\u5177\u4f53\u884c\u52a8}",
+        "- [ ] \u4ea7\u51fa\uff1a{\u9884\u671f\u4ea7\u51fa}",
+        "- [ ] \u622a\u6b62\u65f6\u95f4\uff1a{\u65f6\u95f4}",
+        "- [ ] \u662f\uff0cSkill\u540d\u79f0\uff1a",
+        "- [ ] \u5426\uff0c\u539f\u56e0\uff1a"
+      ],
+      "severity": "warning"
+    }
+  ],
   "learning_summary": {
     "total_decisions": 100,
     "effectiveness": {
@@ -48,7 +61,7 @@
         "total_uses": 19
       },
       "parallel": {
-        "success_rate": 0.04081632653061224,
+        "success_rate": 0.0,
         "total_uses": 49
       },
       "notify_user": {

@@ -1,0 +1,1 @@
+{"jobs": [{"name": "multi-agent-debater-check", "schedule": "13 10 * * *", "command": "cd /root/.openclaw/workspace/skills/multi-agent-debater && python3 scripts/multi-agent-debater-runner.py status"}]}

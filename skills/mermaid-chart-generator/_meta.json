@@ -1,0 +1,19 @@
+{
+  "name": "mermaid-chart-generator",
+  "version": "1.0.0",
+  "description": "Mermaid图表自动生成机制",
+  "author": "OpenClaw",
+  "tags": [
+    "mermaid",
+    "visualization",
+    "chart",
+    "diagram"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3"
+    ],
+    "cron": false
+  }
+}

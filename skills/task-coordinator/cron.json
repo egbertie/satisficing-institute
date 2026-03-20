@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "skill": "task-coordinator",
+  "description": "任务协调管理",
+  "timezone": "Asia/Shanghai",
+  "jobs": [
+    {
+      "name": "hourly-task-check",
+      "schedule": "0 * * * *",
+      "enabled": true,
+      "command": "/bin/bash /root/.openclaw/workspace/skills/task-coordinator/check.sh",
+      "timeout": 60,
+      "description": "每小时检查任务状态并生成协调报告",
+      "log_file": "/root/.openclaw/workspace/logs/task-coordinator.log"
+    }
+  ]
+}

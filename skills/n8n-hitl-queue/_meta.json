@@ -1,0 +1,18 @@
+{
+  "name": "n8n-hitl-queue",
+  "version": "1.0.0",
+  "description": "n8n人工审查队列",
+  "author": "OpenClaw",
+  "tags": [
+    "n8n",
+    "hitl",
+    "queue"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3"
+    ],
+    "cron": true
+  }
+}

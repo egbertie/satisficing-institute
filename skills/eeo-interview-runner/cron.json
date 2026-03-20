@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "eeo-daily-check",
+      "schedule": "0 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/eeo-interview-runner && python3 scripts/eeo-interview-runner.py check",
+      "description": "每日检查EEO访谈状态"
+    }
+  ]
+}

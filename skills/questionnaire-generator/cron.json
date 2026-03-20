@@ -1,0 +1,1 @@
+{"jobs": [{"name": "questionnaire-generator-auto", "schedule": "13 12 * * *", "command": "python3 scripts/questionnaire-generator-runner.py check"}]}

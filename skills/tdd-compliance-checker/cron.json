@@ -1,0 +1,1 @@
+{"jobs": [{"name": "tdd-compliance-checker-check", "schedule": "14 10 * * *", "command": "cd /root/.openclaw/workspace/skills/tdd-compliance-checker && python3 scripts/tdd-compliance-checker-runner.py status"}]}

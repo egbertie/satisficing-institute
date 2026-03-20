@@ -1,0 +1,1 @@
+{"jobs": [{"name": "smart-web-scraper-check", "schedule": "30 10 * * *", "command": "cd /root/.openclaw/workspace/skills/smart-web-scraper && python3 scripts/smart-web-scraper-runner.py status"}]}

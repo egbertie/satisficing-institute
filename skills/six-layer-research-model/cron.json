@@ -1,0 +1,1 @@
+{"jobs": [{"name": "six-layer-research-model-auto", "schedule": "15 12 * * *", "command": "python3 scripts/six-layer-research-model-runner.py check"}]}

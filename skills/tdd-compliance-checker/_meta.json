@@ -1,0 +1,19 @@
+{
+  "name": "tdd-compliance-checker",
+  "version": "1.0.0",
+  "description": "TDD合规性检查机制",
+  "author": "OpenClaw",
+  "tags": [
+    "tdd",
+    "compliance",
+    "quality"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3",
+      "git"
+    ],
+    "cron": true
+  }
+}

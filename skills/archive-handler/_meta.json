@@ -4,5 +4,6 @@
   "version": "1.0.0",
   "publishedAt": 1767546000000,
   "type": "custom",
-  "source": "internal"
+  "source": "internal",
+  "name": "archive-handler"
 }

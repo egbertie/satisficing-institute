@@ -1,0 +1,1 @@
+{"jobs": [{"name": "optimization-rollback-guard-auto", "schedule": "11 12 * * *", "command": "python3 scripts/optimization-rollback-guard-runner.py check"}]}

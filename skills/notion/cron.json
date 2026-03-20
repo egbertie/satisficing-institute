@@ -1,0 +1,1 @@
+{"jobs": [{"name": "notion-auto", "schedule": "36 12 * * *", "command": "python3 scripts/notion-runner.py check"}]}

@@ -6,5 +6,9 @@
   "type": "custom",
   "source": "internal",
   "cost_optimized": true,
-  "priority_models": ["kimi-coding/k2p5", "moonshot-v1-32k"]
+  "priority_models": [
+    "kimi-coding/k2p5",
+    "moonshot-v1-32k"
+  ],
+  "name": "satisficing-partner-decision"
 }

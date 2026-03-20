@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "skill": "data-analyst",
+  "description": "数据分析与报告生成",
+  "timezone": "Asia/Shanghai",
+  "jobs": [
+    {
+      "name": "weekly-data-report",
+      "schedule": "0 9 * * 1",
+      "enabled": true,
+      "command": "/bin/bash /root/.openclaw/workspace/skills/data-analyst/scripts/data-init.sh --weekly",
+      "timeout": 120,
+      "description": "每周一上午9点生成数据分析周报",
+      "log_file": "/root/.openclaw/workspace/logs/data-analyst-weekly.log"
+    }
+  ]
+}

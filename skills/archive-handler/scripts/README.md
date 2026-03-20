@@ -1,0 +1,26 @@
+# 归档处理器 Scripts
+
+## 脚本说明
+
+### archive-handler-runner.py
+归档处理器主执行脚本。
+
+## 功能
+
+- archive
+- compress
+- extract
+- clean
+
+## 使用方法
+
+```bash
+# 执行功能
+python3 archive-handler-runner.py run --feature archive
+
+# 查看状态
+python3 archive-handler-runner.py status
+
+# 生成报告
+python3 archive-handler-runner.py report
+```

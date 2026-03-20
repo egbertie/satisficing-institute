@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "ai-social-media-content-check",
+      "schedule": "4 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/ai-social-media-content && python3 scripts/ai-social-media-content-runner.py status",
+      "description": "ai-social-media-content status check"
+    }
+  ]
+}

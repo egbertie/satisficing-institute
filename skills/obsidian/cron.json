@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "obsidian-check",
+      "schedule": "14 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/obsidian && python3 scripts/obsidian-runner.py status",
+      "description": "obsidian status check"
+    }
+  ]
+}

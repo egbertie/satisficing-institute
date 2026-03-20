@@ -1,0 +1,1 @@
+{"jobs": [{"name": "workspace-health-scanner-auto", "schedule": "58 12 * * *", "command": "python3 scripts/workspace-health-scanner-runner.py check"}]}

@@ -1,0 +1,19 @@
+{
+  "name": "rss-news-fetcher",
+  "version": "1.0.0",
+  "description": "RSS新闻自动抓取与摘要",
+  "author": "OpenClaw",
+  "tags": [
+    "rss",
+    "news",
+    "aggregator"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "curl",
+      "grep"
+    ],
+    "cron": true
+  }
+}

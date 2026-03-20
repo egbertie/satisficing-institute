@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "worry_list_manager_cron",
+      "schedule": "0 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/worry-list-manager \u0026\u0026 echo 'running'",
+      "description": "worry-list-manager daily run"
+    }
+  ]
+}

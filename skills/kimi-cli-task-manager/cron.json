@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "kimi-cli-task-manager-check",
+      "schedule": "28 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/kimi-cli-task-manager && python3 scripts/kimi-cli-task-manager-runner.py status",
+      "description": "kimi-cli-task-manager status check"
+    }
+  ]
+}

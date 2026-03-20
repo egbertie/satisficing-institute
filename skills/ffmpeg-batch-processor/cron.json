@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "ffmpeg-batch-processor",
+  "description": "FFmpeg批处理器 - 每日凌晨批处理",
+  "jobs": [
+    {
+      "name": "daily-video-processing",
+      "schedule": "0 1 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/ffmpeg-batch-processor/scripts/batch_processor.py",
+      "timeout": 3600,
+      "description": "每日凌晨1点执行视频批处理"
+    }
+  ]
+}

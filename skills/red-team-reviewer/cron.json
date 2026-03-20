@@ -1,0 +1,1 @@
+{"jobs": [{"name": "red-team-reviewer-auto", "schedule": "27 12 * * *", "command": "python3 scripts/red-team-reviewer-runner.py check"}]}

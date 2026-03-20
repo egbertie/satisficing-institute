@@ -1,0 +1,19 @@
+{
+  "name": "n8n-idempotency-checker",
+  "version": "1.0.0",
+  "description": "n8n工作流幂等性检查",
+  "author": "OpenClaw",
+  "tags": [
+    "n8n",
+    "idempotency",
+    "workflow"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3",
+      "curl"
+    ],
+    "cron": true
+  }
+}

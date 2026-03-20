@@ -1,0 +1,1 @@
+{"jobs": [{"name": "quick-reference-card-check", "schedule": "28 10 * * *", "command": "cd /root/.openclaw/workspace/skills/quick-reference-card && python3 scripts/quick-reference-card-runner.py status"}]}

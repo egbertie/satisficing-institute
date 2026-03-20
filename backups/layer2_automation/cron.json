@@ -1,0 +1,22 @@
+{
+  "jobs": [
+    {
+      "name": "daily-backup-health-check",
+      "schedule": "0 18 * * *",
+      "command": "cd /root/.openclaw/workspace/backups/layer2_automation \u0026\u0026 python3 immortality_protocol.py health",
+      "description": "每日18:00灾备健康检查"
+    },
+    {
+      "name": "weekly-full-snapshot",
+      "schedule": "0 23 * * 0",
+      "command": "cd /root/.openclaw/workspace/backups/layer2_automation \u0026\u0026 python3 immortality_protocol.py snapshot",
+      "description": "每周日23:00全量快照"
+    },
+    {
+      "name": "backup-verify-after-snapshot",
+      "schedule": "30 23 * * 0",
+      "command": "cd /root/.openclaw/workspace/backups/layer2_automation \u0026\u0026 python3 immortality_protocol.py verify",
+      "description": "每周日23:30验证备份完整性"
+    }
+  ]
+}

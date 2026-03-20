@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "checklist-quality-audit",
+      "schedule": "47 18 * * 5",
+      "command": "cd /root/.openclaw/workspace/skills/universal-checklist-enforcer && python3 scripts/enforcer.py report",
+      "description": "每周五检查清单质量审计"
+    }
+  ]
+}

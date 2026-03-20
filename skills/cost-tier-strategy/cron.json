@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "cost-tier-strategy",
+  "description": "成本分层策略监控 - 每15分钟检查",
+  "jobs": [
+    {
+      "name": "cost-monitor",
+      "schedule": "*/15 * * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/cost-tier-strategy/scripts/cost-monitor.py",
+      "timeout": 60,
+      "description": "每15分钟监控成本使用情况"
+    }
+  ]
+}

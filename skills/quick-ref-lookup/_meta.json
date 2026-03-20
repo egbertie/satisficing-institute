@@ -1,0 +1,18 @@
+{
+  "name": "quick-ref-lookup",
+  "version": "1.0.0",
+  "description": "快速参考查询机制",
+  "author": "OpenClaw",
+  "tags": [
+    "quick-reference",
+    "lookup",
+    "decision"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3"
+    ],
+    "cron": false
+  }
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "skill": "ab-test-generator",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "bmc-consistency-checker",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "copywriting-framework-engine",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "cron-merge-optimizer",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "customer-journey-mapper",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "data-quality-auditor",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "data-visualization-engine",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "disaster-recovery-drill",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "docker-workflow-automation",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "effective-meeting",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "email-daily-summary",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "error-guard",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "evolution-experiment-lab",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "expert-profile-manager",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "feishu-doc-manager",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "feishu-docx-powerwrite",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "feishu-file-sender",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "feishu-messaging",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "feishu-send-file",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "ffmpeg-video-editor",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "file-management-system",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "firecrawl-search",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "first-principle-auditor",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "first-principles-work",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "git",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "git-essentials",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "github",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "github-models",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "global-file-governance",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  },
+  {
+    "skill": "growth-path-monitor",
+    "created": true,
+    "verified": true,
+    "message": "OK"
+  }
+]

@@ -1,0 +1,1 @@
+{"jobs": [{"name": "management-enforcer-daily", "schedule": "44 11 * * *", "command": "cd /root/.openclaw/workspace/skills/management-enforcer && python3 scripts/management-enforcer-runner.py status"}]}

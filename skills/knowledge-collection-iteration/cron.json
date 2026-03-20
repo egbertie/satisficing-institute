@@ -1,0 +1,1 @@
+{"jobs": [{"name": "knowledge-collection-iteration-check", "schedule": "9 10 * * *", "command": "cd /root/.openclaw/workspace/skills/knowledge-collection-iteration && python3 scripts/knowledge-collection-iteration-runner.py status"}]}

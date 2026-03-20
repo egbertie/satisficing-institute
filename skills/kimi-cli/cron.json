@@ -1,0 +1,1 @@
+{"jobs": [{"name": "kimi-cli-auto", "schedule": "42 12 * * *", "command": "python3 scripts/kimi-cli-runner.py check"}]}

@@ -1,0 +1,405 @@
+# 满意解技能注册表 - Core定义
+# 
+# 用途: 189个Skill的统一索引
+# 影响: Skill目录、能力地图、调用路由
+
+metadata:
+  version: "1.0"
+  last_updated: "2026-03-20"
+  total_skills: 189
+  categories: 30+
+
+skill_registry:
+  # ===== 自建核心技能 =====
+  core_skills:
+    - name: "satisficing-partner-decision"
+      version: "1.0.0"
+      type: "自建"
+      status: "已部署"
+      description: "合伙人决策支持体系"
+      
+    - name: "archive-handler"
+      version: "1.0.0"
+      type: "自建"
+      status: "已部署"
+      description: "通用解压工具"
+      
+    - name: "workspace-integrity-guardian"
+      version: "1.0.0"
+      type: "自建"
+      status: "已部署"
+      description: "工作空间完整性守护者"
+      
+    - name: "skill-integration-optimizer"
+      version: "1.0.0"
+      type: "自建"
+      status: "已部署"
+      description: "Skill整合优化器"
+      
+    - name: "v2-architecture-executor"
+      version: "1.0.0"
+      type: "自建"
+      status: "已部署"
+      description: "V2.0架构执行器"
+
+  # ===== 满意解自建替代套件（P0批次） =====
+  replacement_suite:
+    - name: "unified-search"
+      version: "1.0.0"
+      replaces: ["tavily-search", "web_search", "firecrawl"]
+      status: "已部署"
+      
+    - name: "data-processor-suite"
+      version: "1.0.0"
+      replaces: ["data-processor-v1", "data-processor-v2"]
+      status: "已部署"
+      
+    - name: "document-processor"
+      version: "1.0.0"
+      replaces: ["doc-processor-legacy"]
+      status: "已部署"
+      
+    - name: "notification-router"
+      version: "1.0.0"
+      replaces: ["notifier-old"]
+      status: "已部署"
+
+  # ===== 外部关键技能（按类别） =====
+  external_skills:
+    # 信息获取类
+    information:
+      - name: "tavily"
+        source: "外部"
+        status: "已部署"
+        description: "AI优化搜索"
+        
+      - name: "web_search"
+        source: "外部"
+        status: "已部署"
+        description: "Brave搜索"
+        
+      - name: "web_fetch"
+        source: "外部"
+        status: "已部署"
+        description: "网页内容提取"
+        
+      - name: "kimi_search"
+        source: "外部"
+        status: "已部署"
+        description: "Kimi搜索"
+        
+      - name: "kimi_fetch"
+        source: "外部"
+        status: "已部署"
+        description: "Kimi网页获取"
+        
+      - name: "firecrawl"
+        source: "外部"
+        status: "已部署"
+        description: "网页抓取"
+
+    # 内容创作类
+    content_creation:
+      - name: "copywriting-zh-pro"
+        source: "外部"
+        status: "已部署"
+        description: "中文文案增强"
+        
+      - name: "xhs-note-creator"
+        source: "外部"
+        status: "已部署"
+        description: "小红书笔记创作"
+        
+      - name: "adwords"
+        source: "外部"
+        status: "已部署"
+        description: "营销文案助手"
+        
+      - name: "social-media-content-calendar"
+        source: "外部"
+        status: "已部署"
+        description: "社媒内容日历"
+
+    # 数据分析类
+    data_analysis:
+      - name: "data-analyst"
+        source: "外部"
+        status: "已部署"
+        description: "数据分析Skill"
+        
+      - name: "chart-generator"
+        source: "外部"
+        status: "已部署"
+        description: "图表生成"
+        
+      - name: "dashboard"
+        source: "外部"
+        status: "已部署"
+        description: "仪表盘构建"
+        
+      - name: "us-stock-analysis"
+        source: "外部"
+        status: "已部署"
+        description: "美股分析"
+        
+      - name: "kimi_finance"
+        source: "外部"
+        status: "已部署"
+        description: "A股数据"
+
+    # 文档处理类
+    document:
+      - name: "feishu_doc"
+        source: "外部"
+        status: "已部署"
+        description: "飞书文档"
+        
+      - name: "feishu_wiki"
+        source: "外部"
+        status: "已部署"
+        description: "飞书知识库"
+        
+      - name: "feishu_drive"
+        source: "外部"
+        status: "已部署"
+        description: "飞书云盘"
+        
+      - name: "feishu_bitable_get_meta"
+        source: "外部"
+        status: "已部署"
+        description: "飞书多维表格"
+        
+      - name: "wecom_doc_manager"
+        source: "外部"
+        status: "已部署"
+        description: "企微文档"
+        
+      - name: "mineru"
+        source: "外部"
+        status: "已部署"
+        description: "PDF解析"
+        
+      - name: "pandoc-convert"
+        source: "外部"
+        status: "已部署"
+        description: "文档转换"
+
+    # 飞书生态
+    feishu_ecosystem:
+      - name: "feishu-messaging"
+        source: "外部"
+        status: "已部署"
+        description: "飞书消息"
+        
+      - name: "feishu-send-file"
+        source: "外部"
+        status: "已部署"
+        description: "飞书文件发送"
+        
+      - name: "feishu-doc-manager"
+        source: "外部"
+        status: "已部署"
+        description: "飞书文档管理"
+        
+      - name: "feishu-perm"
+        source: "外部"
+        status: "已部署"
+        description: "飞书权限管理"
+
+    # 企业微信生态
+    wecom_ecosystem:
+      - name: "wecom_mcp"
+        source: "外部"
+        status: "已部署"
+        description: "企微MCP"
+        
+      - name: "wecom-schedule"
+        source: "外部"
+        status: "已部署"
+        description: "企微日程"
+        
+      - name: "wecom-meeting-create"
+        source: "外部"
+        status: "已部署"
+        description: "企微会议"
+        
+      - name: "wecom-get-todo-list"
+        source: "外部"
+        status: "已部署"
+        description: "企微待办列表"
+        
+      - name: "wecom-get-todo-detail"
+        source: "外部"
+        status: "已部署"
+        description: "企微待办详情"
+        
+      - name: "wecom-edit-todo"
+        source: "外部"
+        status: "已部署"
+        description: "企微待办编辑"
+        
+      - name: "wecom-contact-lookup"
+        source: "外部"
+        status: "已部署"
+        description: "企微通讯录"
+        
+      - name: "wecom-smartsheet-schema"
+        source: "外部"
+        status: "已部署"
+        description: "企微智能表格结构"
+        
+      - name: "wecom-smartsheet-data"
+        source: "外部"
+        status: "已部署"
+        description: "企微智能表格数据"
+        
+      - name: "wecom-doc-sync"
+        source: "外部"
+        status: "已部署"
+        description: "企微文档同步"
+
+    # 自动化与工作流
+    automation:
+      - name: "cron"
+        source: "外部"
+        status: "已部署"
+        description: "定时任务"
+        
+      - name: "n8n-workflow-automation"
+        source: "外部"
+        status: "已部署"
+        description: "n8n工作流"
+        
+      - name: "agentic-workflow-automation"
+        source: "外部"
+        status: "已部署"
+        description: "Agent工作流"
+
+    # 开发工具
+    development:
+      - name: "coding-agent"
+        source: "外部"
+        status: "已部署"
+        description: "代码Agent"
+        
+      - name: "kimi-cli"
+        source: "外部"
+        status: "已部署"
+        description: "Kimi CLI"
+        
+      - name: "git"
+        source: "外部"
+        status: "已部署"
+        description: "Git技能"
+        
+      - name: "github"
+        source: "外部"
+        status: "已部署"
+        description: "GitHub技能"
+        
+      - name: "docker-essentials"
+        source: "外部"
+        status: "已部署"
+        description: "Docker基础"
+
+    # 多媒体处理
+    multimedia:
+      - name: "video-frames"
+        source: "外部"
+        status: "已部署"
+        description: "视频帧提取"
+        
+      - name: "tts"
+        source: "外部"
+        status: "已部署"
+        description: "语音合成"
+        
+      - name: "image"
+        source: "外部"
+        status: "已部署"
+        description: "图像分析"
+
+    # 其他重要技能
+    other:
+      - name: "browser"
+        source: "外部"
+        status: "已部署"
+        description: "浏览器控制"
+        
+      - name: "canvas"
+        source: "外部"
+        status: "已部署"
+        description: "Canvas操作"
+        
+      - name: "notion"
+        source: "外部"
+        status: "已部署"
+        description: "Notion集成"
+        
+      - name: "obsidian"
+        source: "外部"
+        status: "已部署"
+        description: "Obsidian集成"
+        
+      - name: "slack"
+        source: "外部"
+        status: "已部署"
+        description: "Slack集成"
+        
+      - name: "weather"
+        source: "外部"
+        status: "已部署"
+        description: "天气查询"
+        
+      - name: "news-summary"
+        source: "外部"
+        status: "已部署"
+        description: "新闻摘要"
+        
+      - name: "ai-meeting-notes"
+        source: "外部"
+        status: "已部署"
+        description: "会议笔记"
+        
+      - name: "meeting-to-action"
+        source: "外部"
+        status: "已部署"
+        description: "会议转行动"
+        
+      - name: "business-model-canvas"
+        source: "外部"
+        status: "已部署"
+        description: "商业模式画布"
+        
+      - name: "patent-assistant"
+        source: "外部"
+        status: "已部署"
+        description: "专利助手"
+        
+      - name: "healthcheck"
+        source: "外部"
+        status: "已部署"
+        description: "安全加固"
+
+# 统计信息
+statistics:
+  by_source:
+    internal: 9      # 自建核心技能
+    external: 180    # 外部技能
+  
+  by_status:
+    deployed: 189
+    pending: 0
+    deprecated: 0
+    
+  by_category:
+    information: 6
+    content_creation: 4
+    data_analysis: 5
+    document: 7
+    feishu_ecosystem: 4
+    wecom_ecosystem: 10
+    automation: 3
+    development: 5
+    multimedia: 3
+    other: 13

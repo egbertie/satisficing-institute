@@ -1,0 +1,19 @@
+{
+  "name": "obsidian-archiver",
+  "version": "1.0.0",
+  "description": "Obsidian笔记自动归档",
+  "author": "OpenClaw",
+  "tags": [
+    "obsidian",
+    "archive",
+    "notes"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3",
+      "obsidian-cli"
+    ],
+    "cron": true
+  }
+}

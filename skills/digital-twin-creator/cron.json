@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "digital-twin-creator-check",
+      "schedule": "20 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/digital-twin-creator && python3 scripts/digital-twin-creator-runner.py status",
+      "description": "digital-twin-creator status check"
+    }
+  ]
+}

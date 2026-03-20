@@ -1,0 +1,493 @@
+{
+  "namespace": "satisficing",
+  "skills": [
+    {
+      "id": "d9a43f61-a57b-4ec9-8b18-d2cafcbbc7d8",
+      "name": "partner_evaluation",
+      "version": "1.0.0",
+      "description": "合伙人评估与匹配",
+      "endpoint": "/skills/partner_evaluation",
+      "parameters": {
+        "partner_context": "object"
+      },
+      "created_at": "2026-03-19T11:28:04.316837",
+      "updated_at": "2026-03-19T11:28:04.316837"
+    },
+    {
+      "id": "4cb1e099-a378-4286-93fd-38bfc974f735",
+      "name": "risk_analysis",
+      "version": "1.0.0",
+      "description": "风险评估与分析",
+      "endpoint": "/skills/risk_analysis",
+      "parameters": {
+        "risk_factors": "array"
+      },
+      "created_at": "2026-03-19T11:28:04.316857",
+      "updated_at": "2026-03-19T11:28:04.316857"
+    },
+    {
+      "id": "c805eee2-2a80-475a-89a1-fbbfadeaef83",
+      "name": "decision_gene_test",
+      "version": "1.0.0",
+      "description": "决策基因体检",
+      "endpoint": "/skills/decision_gene_test",
+      "parameters": {
+        "decision_history": "array"
+      },
+      "created_at": "2026-03-19T11:28:04.316865",
+      "updated_at": "2026-03-19T11:28:04.316865"
+    },
+    {
+      "id": "399e66d5-bd56-4efa-80a9-468388f6cee8",
+      "name": "pfi_scorecard",
+      "version": "1.0.0",
+      "description": "PFI评分卡生成",
+      "endpoint": "/skills/pfi_scorecard",
+      "parameters": {
+        "partner_data": "object"
+      },
+      "created_at": "2026-03-19T11:28:04.316871",
+      "updated_at": "2026-03-19T11:28:04.316871"
+    },
+    {
+      "id": "bf7da5d6-4f96-4c61-80f6-37805d47dfb4",
+      "name": "conflict_resolution",
+      "version": "1.0.0",
+      "description": "冲突调解分析",
+      "endpoint": "/skills/conflict_resolution",
+      "parameters": {
+        "conflict_context": "object"
+      },
+      "created_at": "2026-03-19T11:28:04.316878",
+      "updated_at": "2026-03-19T11:28:04.316878"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "fa74698e-a10a-46fa-a3b3-cd6fdd14ee34",
+      "name": "li_honglei_philosophy",
+      "version": "1.0.0",
+      "template": "你现在是黎红雷教授的数字替身，儒商哲学专家。\n                \n问题: {question}\n\n请以儒商哲学的视角分析，强调：\n1. 合伙人关系中的伦理维度\n2. 长期主义的价值观\n3. 和谐共生的商业哲学\n\n回答:",
+      "variables": [
+        "question"
+      ],
+      "created_at": "2026-03-19T11:28:04.316885",
+      "updated_at": "2026-03-19T11:28:04.316885"
+    },
+    {
+      "id": "224f7376-3b78-4148-a033-3a652f69b0a5",
+      "name": "luohan_math",
+      "version": "1.0.0",
+      "template": "你现在是罗汉教授的数字替身，数学建模专家。\n\n问题: {question}\n\n请以数学严谨性分析：\n1. 建立量化模型\n2. 给出可计算的指标\n3. 提供置信区间\n\n回答:",
+      "variables": [
+        "question"
+      ],
+      "created_at": "2026-03-19T11:28:04.316891",
+      "updated_at": "2026-03-19T11:28:04.316891"
+    },
+    {
+      "id": "fc493736-3fdc-47c8-b53d-d171d2b27793",
+      "name": "xie_baojian_strategy",
+      "version": "1.0.0",
+      "template": "你现在是谢宝剑研究员的数字替身，深港战略专家。\n\n问题: {question}\n\n请从战略视角分析：\n1. 区域发展机遇\n2. 政策环境评估\n3. 地理优势分析\n\n回答:",
+      "variables": [
+        "question"
+      ],
+      "created_at": "2026-03-19T11:28:04.316897",
+      "updated_at": "2026-03-19T11:28:04.316897"
+    }
+  ],
+  "agents": [
+    {
+      "id": "orchestrator",
+      "name": "任务编排Agent",
+      "capabilities": [
+        "task_decomposition",
+        "agent_coordination"
+      ],
+      "endpoint": "https://satisficing.ai/agents/orchestrator",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316972"
+    },
+    {
+      "id": "evaluator",
+      "name": "质量评估Agent",
+      "capabilities": [
+        "quality_assurance",
+        "consensus_voting"
+      ],
+      "endpoint": "https://satisficing.ai/agents/evaluator",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316977"
+    },
+    {
+      "id": "integrator",
+      "name": "结果整合Agent",
+      "capabilities": [
+        "report_generation",
+        "multi_source_fusion"
+      ],
+      "endpoint": "https://satisficing.ai/agents/integrator",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316980"
+    },
+    {
+      "id": "communicator",
+      "name": "客户沟通Agent",
+      "capabilities": [
+        "client_interaction",
+        "progress_reporting"
+      ],
+      "endpoint": "https://satisficing.ai/agents/communicator",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316982"
+    },
+    {
+      "id": "monitor",
+      "name": "实时监控Agent",
+      "capabilities": [
+        "performance_tracking",
+        "anomaly_detection"
+      ],
+      "endpoint": "https://satisficing.ai/agents/monitor",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316984"
+    },
+    {
+      "id": "executor_1",
+      "name": "执行Agent-1",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_1",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316987"
+    },
+    {
+      "id": "executor_2",
+      "name": "执行Agent-2",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_2",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316990"
+    },
+    {
+      "id": "executor_3",
+      "name": "执行Agent-3",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_3",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316992"
+    },
+    {
+      "id": "executor_4",
+      "name": "执行Agent-4",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_4",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316994"
+    },
+    {
+      "id": "executor_5",
+      "name": "执行Agent-5",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_5",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316996"
+    },
+    {
+      "id": "executor_6",
+      "name": "执行Agent-6",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_6",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.316998"
+    },
+    {
+      "id": "executor_7",
+      "name": "执行Agent-7",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_7",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317000"
+    },
+    {
+      "id": "executor_8",
+      "name": "执行Agent-8",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_8",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317002"
+    },
+    {
+      "id": "executor_9",
+      "name": "执行Agent-9",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_9",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317004"
+    },
+    {
+      "id": "executor_10",
+      "name": "执行Agent-10",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_10",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317006"
+    },
+    {
+      "id": "executor_11",
+      "name": "执行Agent-11",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_11",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317008"
+    },
+    {
+      "id": "executor_12",
+      "name": "执行Agent-12",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_12",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317012"
+    },
+    {
+      "id": "executor_13",
+      "name": "执行Agent-13",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_13",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317014"
+    },
+    {
+      "id": "executor_14",
+      "name": "执行Agent-14",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_14",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317016"
+    },
+    {
+      "id": "executor_15",
+      "name": "执行Agent-15",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_15",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317018"
+    },
+    {
+      "id": "executor_16",
+      "name": "执行Agent-16",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_16",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317019"
+    },
+    {
+      "id": "executor_17",
+      "name": "执行Agent-17",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_17",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317022"
+    },
+    {
+      "id": "executor_18",
+      "name": "执行Agent-18",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_18",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317037"
+    },
+    {
+      "id": "executor_19",
+      "name": "执行Agent-19",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_19",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317040"
+    },
+    {
+      "id": "executor_20",
+      "name": "执行Agent-20",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_20",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317042"
+    },
+    {
+      "id": "executor_21",
+      "name": "执行Agent-21",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_21",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317043"
+    },
+    {
+      "id": "executor_22",
+      "name": "执行Agent-22",
+      "capabilities": [
+        "task_execution",
+        "data_processing"
+      ],
+      "endpoint": "https://satisficing.ai/agents/executor_22",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317045"
+    },
+    {
+      "id": "li_honglei_expert",
+      "name": "黎红雷教授替身",
+      "capabilities": [
+        "confucian_ethics",
+        "partnership_morality"
+      ],
+      "endpoint": "https://satisficing.ai/agents/li_honglei_expert",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317048"
+    },
+    {
+      "id": "luohan_expert",
+      "name": "罗汉教授替身",
+      "capabilities": [
+        "mathematical_modeling",
+        "algorithm_design"
+      ],
+      "endpoint": "https://satisficing.ai/agents/luohan_expert",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317050"
+    },
+    {
+      "id": "xie_baojian_expert",
+      "name": "谢宝剑研究员替身",
+      "capabilities": [
+        "regional_strategy",
+        "policy_analysis"
+      ],
+      "endpoint": "https://satisficing.ai/agents/xie_baojian_expert",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317052"
+    },
+    {
+      "id": "xu_expert",
+      "name": "XU先生替身",
+      "capabilities": [
+        "stress_testing",
+        "ai_systems"
+      ],
+      "endpoint": "https://satisficing.ai/agents/xu_expert",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317054"
+    },
+    {
+      "id": "fang_yifeng_expert",
+      "name": "方翊沣博士替身",
+      "capabilities": [
+        "perception_training",
+        "bci"
+      ],
+      "endpoint": "https://satisficing.ai/agents/fang_yifeng_expert",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317056"
+    },
+    {
+      "id": "chen_guoxiang_expert",
+      "name": "陈国祥博士替身",
+      "capabilities": [
+        "energy_therapy",
+        "wellness"
+      ],
+      "endpoint": "https://satisficing.ai/agents/chen_guoxiang_expert",
+      "status": "online",
+      "last_heartbeat": "2026-03-19T11:28:04.317058"
+    }
+  ],
+  "mcp": [
+    {
+      "id": "fefe1590-7bf9-4143-8849-0d744ea8e1de",
+      "server_name": "github_tools",
+      "transport": "stdio",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github"
+        ]
+      },
+      "status": "connected"
+    },
+    {
+      "id": "bff4ce31-0daf-4d01-ad67-d07d863f8c35",
+      "server_name": "filesystem",
+      "transport": "stdio",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem"
+        ]
+      },
+      "status": "connected"
+    }
+  ]
+}

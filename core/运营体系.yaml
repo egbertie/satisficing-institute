@@ -1,0 +1,183 @@
+# 满意解运营体系 - Core定义
+# 
+# 用途: 运营文档核心定义的单一数据源
+# 影响: 运营手册、培训材料、流程文档
+
+metadata:
+  version: "1.0"
+  last_updated: "2026-03-20"
+  
+operations:
+  # ===== 小伙伴30天提升计划 =====
+  team_enhancement_30d:
+    name: "全体小伙伴30天提升计划"
+    status: "已启动"
+    start_date: "2026-03-20"
+    end_date: "2026-04-19"
+    budget: "¥0"
+    
+    structure:
+      core_layer:
+        count: 5
+        target: "掌握V2.0全栈技术"
+        duration: "30天"
+        daily_hours: 4
+        total_hours: 600
+        
+      execution_layer:
+        count: 20
+        target: "熟练操作V1.3工具链"
+        duration: "14天"
+        daily_hours: 2
+        total_hours: 1200
+        
+      reserve_layer:
+        count: 8
+        target: "理解方法论基础"
+        duration: "30天"
+        daily_hours: 1
+        total_hours: 240
+        
+    total_investment: "2,040人时"
+    
+    schedule:
+      week_1:
+        name: "基础对齐"
+        days: "第1-7天"
+        activities:
+          - "Day 1-2: 全员文档研读"
+          - "Day 3-4: 工具链实操"
+          - "Day 5-7: 案例复盘"
+          
+      week_2:
+        name: "实战演练"
+        days: "第8-14天"
+        activities:
+          - "Day 8-10: 模拟评估"
+          - "Day 11-12: 交叉评审"
+          - "Day 13-14: 技能认证"
+          
+      week_3:
+        name: "深化专精"
+        days: "第15-21天"
+        activities:
+          - "核心层: V2.0技术栈"
+          - "执行层: 批量交付能力"
+          - "储备层: 基础能力补全"
+          
+      week_4:
+        name: "体系固化"
+        days: "第22-30天"
+        activities:
+          - "Day 22-25: SOP文档化"
+          - "Day 26-28: 压力测试"
+          - "Day 29-30: 复盘优化"
+
+  # ===== 关键里程碑 =====
+  milestones:
+    - name: "满意解研究所官宣"
+      date: "2026-03-25"
+      status: "准备中"
+      days_remaining: 5
+      deliverables:
+        - "V1.3完全版本"
+        - "战略定位1.1"
+        - "产品工具手册"
+        
+    - name: "首年30案例库"
+      date: "2026-12-31"
+      status: "积累中"
+      current_count: 15
+      target_count: 30
+      completion_rate: "50%"
+
+  # ===== 运营指标 =====
+  kpi:
+    efficiency:
+      current: "2人日/案例"
+      target_30d: "1人日/案例"
+      improvement: "100%"
+      
+    throughput:
+      current: "10案例/周"
+      target_30d: "30案例/周"
+      improvement: "200%"
+      
+    quality:
+      current: "85%"
+      target_30d: "95%"
+      improvement: "12%"
+      
+    scalability:
+      current: "33人"
+      target_30d: "100人"
+      improvement: "200%"
+
+  # ===== 质量保障机制 =====
+  quality_assurance:
+    process_monitoring:
+      - metric: "学习进度"
+        frequency: "每日"
+        tool: "打卡系统"
+        
+      - metric: "案例质量"
+        frequency: "每案例"
+        tool: "PFI评分卡"
+        
+      - metric: "协作效率"
+        frequency: "每周"
+        tool: "A2A日志"
+        
+    incentives:
+      - level: "学习标兵"
+        condition: "周打卡7天"
+        reward: "公开表扬"
+        
+      - level: "案例之星"
+        condition: "评审得分最高"
+        reward: "优先分配高质量案例"
+        
+      - level: "认证专家"
+        condition: "通过全部考核"
+        reward: "核心层资格"
+
+  # ===== 资源清单 =====
+  resources:
+    free_resources:
+      - name: "V1.3文档"
+        source: "已有交付"
+        
+      - name: "V2.0代码"
+        source: "Phase 1成果"
+        
+      - name: "Skill工具"
+        source: "自主开发"
+        
+      - name: "案例库"
+        source: "历史积累"
+        
+      - name: "AI辅助"
+        source: "Kimi API"
+
+# 执行检查清单
+checklist:
+  pre_start:
+    - "发布提升计划全员通知"
+    - "分配学习材料访问权限"
+    - "建立打卡跟踪系统"
+    - "准备Week 1案例材料"
+    
+  week_1_end:
+    - "收集全员学习收获"
+    - "回答集中疑问"
+    - "检查工具实操完成率"
+    
+  week_2_end:
+    - "执行技能认证"
+    - "公布认证结果"
+    - "调整分层名单"
+    
+  week_4_end:
+    - "完成30天复盘"
+    - "制定下一阶段计划"
+    - "表彰优秀学员"

@@ -1,0 +1,1 @@
+{"jobs": [{"name": "multi-search-engine-daily", "schedule": "46 11 * * *", "command": "cd /root/.openclaw/workspace/skills/multi-search-engine && python3 scripts/multi-search-engine-runner.py status"}]}

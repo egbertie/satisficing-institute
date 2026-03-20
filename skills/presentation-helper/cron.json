@@ -1,0 +1,1 @@
+{"jobs": [{"name": "presentation-helper-auto", "schedule": "7 12 * * *", "command": "python3 scripts/presentation-helper-runner.py check"}]}

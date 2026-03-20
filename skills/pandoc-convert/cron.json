@@ -1,0 +1,1 @@
+{"jobs": [{"name": "pandoc-convert-auto", "schedule": "19 12 * * *", "command": "python3 scripts/pandoc-convert-runner.py check"}]}

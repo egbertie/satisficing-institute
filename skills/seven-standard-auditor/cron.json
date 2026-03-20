@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "name": "seven-standard-daily-audit",
+      "schedule": "0 20 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/seven-standard-auditor \u0026\u0026 python3 scripts/auditor.py audit-all /root/.openclaw/workspace/skills",
+      "description": "每日20:00自动检验所有Skill的7标准达成率"
+    },
+    {
+      "name": "seven-standard-self-audit",
+      "schedule": "0 21 * * 1",
+      "command": "cd /root/.openclaw/workspace/skills/seven-standard-auditor \u0026\u0026 python3 scripts/auditor.py self-audit",
+      "description": "每周一21:007标准自我检验（元检验）"
+    }
+  ]
+}

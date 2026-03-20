@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "api-status-daily-check",
+      "schedule": "17 8 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/api-configuration-manager && python3 scripts/api-configuration-manager.py verify",
+      "description": "每日检查API配置状态"
+    }
+  ]
+}

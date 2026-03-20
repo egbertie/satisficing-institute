@@ -1,0 +1,1 @@
+{"jobs": [{"name": "feishu-doc-manager-daily", "schedule": "56 11 * * *", "command": "cd /root/.openclaw/workspace/skills/feishu-doc-manager && python3 scripts/feishu-doc-manager-runner.py status"}]}

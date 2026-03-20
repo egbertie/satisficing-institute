@@ -1,0 +1,240 @@
+# 满意解案例库 - Core定义
+# 
+# 用途: 15个案例的单一数据源
+# 影响: 案例展示页、研究分析、营销素材
+
+metadata:
+  version: "1.0"
+  last_updated: "2026-03-20"
+  total_cases: 15
+  categories:
+    success: 8
+    failure: 5
+    ongoing: 2
+
+cases:
+  # 成功案例 (8个)
+  - id: CASE-001
+    name: "芯片设计公司A合伙人匹配"
+    category: success
+    industry: 半导体
+    stage: 初创期
+    founder_type: 技术型
+    partner_type: 商业型
+    match_score: 92
+    key_factors:
+      - 技术互补性
+      - 价值观对齐
+      - 风险共担机制
+    outcome: 成功融资，团队稳定
+    lessons: "技术+商业的黄金组合"
+    
+  - id: CASE-002
+    name: "机器人创业公司B股权设计"
+    category: success
+    industry: 机器人
+    stage: 成长期
+    founder_type: 产品型
+    partner_type: 运营型
+    match_score: 88
+    key_factors:
+      - 股权比例合理
+      - 退出机制明确
+      - 决策权清晰
+    outcome: B轮融资顺利，团队扩张
+    lessons: "股权设计是合伙的基石"
+    
+  - id: CASE-003
+    name: "AI硬件企业C合伙人危机化解"
+    category: success
+    industry: AI硬件
+    stage: 扩张期
+    founder_type: 学术型
+    partner_type: 产业型
+    match_score: 85
+    key_factors:
+      - 及时识别风险信号
+      - 第三方调解介入
+      - 利益重新平衡
+    outcome: 化解分裂危机，继续发展
+    lessons: "危机干预的黄金72小时"
+    
+  - id: CASE-004
+    name: "新能源车企D联合创始团队"
+    category: success
+    industry: 新能源汽车
+    stage: 初创期
+    founder_type: 连续创业者
+    partner_type: 技术专家
+    match_score: 90
+    key_factors:
+      - 连续创业经验
+      - 技术壁垒构建
+      - 资源整合能力
+    outcome: 首轮融资超额认购
+    lessons: "经验+技术的双轮驱动"
+    
+  - id: CASE-005
+    name: "生物医药E学术转化项目"
+    category: success
+    industry: 生物医药
+    stage: 种子期
+    founder_type: 科学家
+    partner_type: 商业化专家
+    match_score: 87
+    key_factors:
+      - 学术背景验证
+      - 转化路径清晰
+      - 监管合规意识
+    outcome: 政府补贴+天使轮同步到位
+    lessons: "硬科技转化的特殊考量"
+    
+  - id: CASE-006
+    name: "物联网F家族企业转型"
+    category: success
+    industry: 物联网
+    stage: 转型期
+    founder_type: 二代接班人
+    partner_type: 职业经理人
+    match_score: 86
+    key_factors:
+      - 家族信任基础
+      - 专业管理引入
+      - 代际传承规划
+    outcome: 成功转型，业绩翻倍
+    lessons: "家族企业的特殊合伙逻辑"
+    
+  - id: CASE-007
+    name: "智能制造G跨界组合"
+    category: success
+    industry: 智能制造
+    stage: 初创期
+    founder_type: 制造业老兵
+    partner_type: 互联网背景
+    match_score: 89
+    key_factors:
+      - 产业深度+互联网速度
+      - 互补技能组合
+      - 共同愿景驱动
+    outcome: 产品快速迭代，市场认可
+    lessons: "跨界组合的关键是共同语言"
+    
+  - id: CASE-008
+    name: "航天科技H军民融合项目"
+    category: success
+    industry: 航天科技
+    stage: 初创期
+    founder_type: 科研院所
+    partner_type: 军方背景
+    match_score: 91
+    key_factors:
+      - 技术保密机制
+      - 军品资质获取
+      - 军民市场双轮
+    outcome: 军品订单+民品融资并行
+    lessons: "特殊行业的合规先行"
+
+  # 失败案例 (5个)
+  - id: CASE-F01
+    name: "智能硬件I合伙人反目"
+    category: failure
+    industry: 智能硬件
+    stage: 成长期
+    founder_type: 技术型
+    partner_type: 商业型
+    match_score: 45
+    failure_factors:
+      - 股权分配不公
+      - 贡献评估分歧
+      - 沟通机制缺失
+    outcome: 公司分裂，两败俱伤
+    lessons: "合伙前必须明确的5件事"
+    
+  - id: CASE-F02
+    name: "芯片设计J技术路线分歧"
+    category: failure
+    industry: 半导体
+    stage: 初创期
+    founder_type: 学术型
+    partner_type: 工程型
+    match_score: 52
+    failure_factors:
+      - 技术方向争执
+      - 决策权模糊
+      - 缺乏调解机制
+    outcome: 团队解散，技术流失
+    lessons: "技术合伙需要决策仲裁机制"
+    
+  - id: CASE-F03
+    name: "新材料K信任崩塌"
+    category: failure
+    industry: 新材料
+    stage: 扩张期
+    founder_type: 研究型
+    partner_type: 投资型
+    match_score: 38
+    failure_factors:
+      - 信息不对称
+      - 承诺不兑现
+      - 利益输送嫌疑
+    outcome: 法律诉讼，项目停滞
+    lessons: "信任建立需要透明机制"
+    
+  - id: CASE-F04
+    name: "自动驾驶L价值观冲突"
+    category: failure
+    industry: 自动驾驶
+    stage: 初创期
+    founder_type: 理想主义
+    partner_type: 现实主义
+    match_score: 41
+    failure_factors:
+      - 发展节奏分歧
+      - 商业伦理争议
+      - 退出机制缺失
+    outcome: 创始团队分裂
+    lessons: "价值观对齐比能力互补更重要"
+    
+  - id: CASE-F05
+    name: "医疗器械M监管风险"
+    category: failure
+    industry: 医疗器械
+    stage: 成长期
+    founder_type: 医生背景
+    partner_type: 商业背景
+    match_score: 48
+    failure_factors:
+      - 合规意识薄弱
+      - 风险分担不均
+      - 应急资金不足
+    outcome: 监管处罚，融资失败
+    lessons: "高风险行业需要风险共担机制"
+
+  # 进行中案例 (2个)
+  - id: CASE-O01
+    name: "量子计算N早期配对"
+    category: ongoing
+    industry: 量子计算
+    stage: 种子期
+    founder_type: 物理学家
+    partner_type: 待匹配
+    match_score: null
+    current_status: 正在寻找商业合伙人
+    challenges:
+      - 技术门槛极高
+      - 商业路径不明
+      - 人才稀缺
+    
+  - id: CASE-O02
+    name: "商业航天O政府关系"
+    category: ongoing
+    industry: 商业航天
+    stage: 初创期
+    founder_type: 航天背景
+    partner_type: 待匹配
+    match_score: null
+    current_status: 寻找政策资源型合伙人
+    challenges:
+      - 准入门槛高
+      - 资金需求大
+      - 政策依赖强"

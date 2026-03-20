@@ -1,0 +1,1 @@
+{"jobs": [{"name": "content-consistency-governance-check", "schedule": "7 10 * * *", "command": "cd /root/.openclaw/workspace/skills/content-consistency-governance && python3 scripts/content-consistency-governance-runner.py status"}]}

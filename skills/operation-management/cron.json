@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "skill_name": "operation-management",
+  "description": "运营管理规则 - 日/周/季度执行",
+  "jobs": [
+    {
+      "name": "daily-ops",
+      "schedule": "0 9 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/operation-management/scripts/ops-manager.py --level daily",
+      "timeout": 300,
+      "description": "每日09:00执行运营检查"
+    },
+    {
+      "name": "weekly-tactical",
+      "schedule": "0 10 * * 6",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/operation-management/scripts/ops-manager.py --level tactical",
+      "timeout": 600,
+      "description": "每周六10:00执行战术复盘"
+    },
+    {
+      "name": "quarterly-strategic",
+      "schedule": "0 9 1 1,4,7,10 *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/operation-management/scripts/ops-manager.py --level strategic",
+      "timeout": 1800,
+      "description": "每季度首日09:00执行战略回顾"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "ownerId": "satisficing-institute",
+  "slug": "satisficing-partner-decision",
+  "version": "1.0.0",
+  "publishedAt": 1767551400000,
+  "type": "custom",
+  "source": "internal",
+  "cost_optimized": true,
+  "priority_models": ["kimi-coding/k2p5", "moonshot-v1-32k"]
+}

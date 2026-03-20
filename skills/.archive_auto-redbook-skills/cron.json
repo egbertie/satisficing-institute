@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "auto-redbook-skills-check",
+      "schedule": "18 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/auto-redbook-skills && python3 scripts/auto-redbook-skills-runner.py status",
+      "description": "auto-redbook-skills status check"
+    }
+  ]
+}

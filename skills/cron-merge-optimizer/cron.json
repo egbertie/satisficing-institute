@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "cron-merge-optimizer-check",
+      "schedule": "9 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/cron-merge-optimizer && python3 scripts/cron-merge-optimizer-runner.py status",
+      "description": "cron-merge-optimizer status check"
+    }
+  ]
+}

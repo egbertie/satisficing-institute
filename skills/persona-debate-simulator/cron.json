@@ -1,0 +1,1 @@
+{"jobs": [{"name": "persona-debate-simulator-auto", "schedule": "40 12 * * *", "command": "python3 scripts/persona-debate-simulator-runner.py check"}]}

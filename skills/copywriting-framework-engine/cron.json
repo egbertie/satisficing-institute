@@ -1,0 +1,1 @@
+{"jobs": [{"name": "copywriting-framework-engine-auto", "schedule": "48 12 * * *", "command": "python3 scripts/copywriting-framework-engine-runner.py check"}]}

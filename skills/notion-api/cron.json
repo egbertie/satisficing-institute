@@ -1,0 +1,1 @@
+{"jobs": [{"name": "notion-api-daily", "schedule": "26 11 * * *", "command": "cd /root/.openclaw/workspace/skills/notion-api && python3 scripts/notion-api-runner.py status"}]}

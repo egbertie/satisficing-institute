@@ -1,0 +1,1 @@
+{"jobs": [{"name": "data-quality-auditor-daily", "schedule": "32 11 * * *", "command": "cd /root/.openclaw/workspace/skills/data-quality-auditor && python3 scripts/data-quality-auditor-runner.py status"}]}

@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "multi-format-delivery-check",
+      "schedule": "17 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/multi-format-delivery && python3 scripts/multi-format-delivery-runner.py status",
+      "description": "multi-format-delivery status check"
+    }
+  ]
+}

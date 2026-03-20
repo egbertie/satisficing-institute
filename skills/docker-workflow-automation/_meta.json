@@ -1,0 +1,14 @@
+{
+  "name": "docker-workflow-automation",
+  "version": "1.0.0",
+  "author": "Satisficing Institute",
+  "created": "2026-03-20",
+  "source": "scattered-mechanism-extraction",
+  "standards": {
+    "global_coverage": true,
+    "systematic": true,
+    "iterative": true,
+    "skill_ified": true,
+    "automated": true
+  }
+}

@@ -1,0 +1,1 @@
+{"jobs": [{"name": "decision-matrix-calculator-check", "schedule": "26 10 * * *", "command": "cd /root/.openclaw/workspace/skills/decision-matrix-calculator && python3 scripts/decision-matrix-calculator-runner.py status"}]}

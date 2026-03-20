@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "github-ci-monitor-check",
+      "schedule": "24 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/github-ci-monitor && python3 scripts/github-ci-monitor-runner.py status",
+      "description": "github-ci-monitor status check"
+    }
+  ]
+}

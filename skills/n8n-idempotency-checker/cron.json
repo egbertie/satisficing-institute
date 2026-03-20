@@ -1,0 +1,1 @@
+{"jobs": [{"name": "n8n-idempotency-checker-daily", "schedule": "58 11 * * *", "command": "cd /root/.openclaw/workspace/skills/n8n-idempotency-checker && python3 scripts/n8n-idempotency-checker-runner.py status"}]}

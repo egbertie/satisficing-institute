@@ -1,0 +1,1 @@
+{"jobs": [{"name": "weekly-meeting-daily", "schedule": "42 11 * * *", "command": "cd /root/.openclaw/workspace/skills/weekly-meeting && python3 scripts/weekly-meeting-runner.py status"}]}

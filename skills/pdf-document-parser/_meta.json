@@ -1,0 +1,24 @@
+{
+  "name": "pdf-document-parser",
+  "version": "1.0.0",
+  "description": "PDF文档解析自动化机制 - 基于MinerU API",
+  "author": "OpenClaw",
+  "tags": [
+    "pdf",
+    "parser",
+    "mineru",
+    "automation"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "curl",
+      "jq",
+      "unzip"
+    ],
+    "env": [
+      "MINERU_TOKEN"
+    ],
+    "cron": true
+  }
+}

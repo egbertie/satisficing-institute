@@ -1,0 +1,22 @@
+{
+  "name": "notion-db-sync",
+  "version": "1.0.0",
+  "description": "Notion数据库同步机制",
+  "author": "OpenClaw",
+  "tags": [
+    "notion",
+    "sync",
+    "database"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "node",
+      "python3"
+    ],
+    "env": [
+      "NOTION_KEY"
+    ],
+    "cron": true
+  }
+}

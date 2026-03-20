@@ -1,0 +1,1 @@
+{"jobs": [{"name": "content-distribution-engine-check", "schedule": "16 10 * * *", "command": "cd /root/.openclaw/workspace/skills/content-distribution-engine && python3 scripts/content-distribution-engine-runner.py status"}]}

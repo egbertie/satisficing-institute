@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "social-media-content-calendar-check",
+      "schedule": "23 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/social-media-content-calendar && python3 scripts/social-media-content-calendar-runner.py status",
+      "description": "social-media-content-calendar status check"
+    }
+  ]
+}

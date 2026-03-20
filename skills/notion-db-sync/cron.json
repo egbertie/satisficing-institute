@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "notion-db-sync",
+  "description": "Notion数据库同步 - 每4小时同步",
+  "jobs": [
+    {
+      "name": "notion-sync",
+      "schedule": "0 */4 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/notion-db-sync/scripts/sync.py",
+      "timeout": 300,
+      "description": "每4小时同步Notion数据库"
+    }
+  ]
+}

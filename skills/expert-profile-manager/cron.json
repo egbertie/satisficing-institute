@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "skill": "expert-profile-manager",
+  "description": "专家数字替身深化",
+  "timezone": "Asia/Shanghai",
+  "jobs": [
+    {
+      "name": "weekly-knowledge-deepening",
+      "schedule": "0 23 * * 0",
+      "enabled": true,
+      "command": "/bin/bash /root/.openclaw/workspace/skills/expert-profile-manager/expert.sh --deepen",
+      "timeout": 180,
+      "description": "每周日晚上23点执行专家知识深化任务",
+      "log_file": "/root/.openclaw/workspace/logs/expert-deepening.log"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"jobs": [{"name": "promise-system-guardian-auto", "schedule": "59 12 * * *", "command": "python3 scripts/promise-system-guardian-runner.py check"}]}

@@ -1,0 +1,1 @@
+{"jobs": [{"name": "business-model-canvas-auto", "schedule": "35 12 * * *", "command": "python3 scripts/business-model-canvas-runner.py check"}]}

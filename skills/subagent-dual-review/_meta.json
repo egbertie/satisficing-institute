@@ -1,0 +1,19 @@
+{
+  "name": "subagent-dual-review",
+  "version": "1.0.0",
+  "description": "子代理双审机制",
+  "author": "OpenClaw",
+  "tags": [
+    "subagent",
+    "dual-review",
+    "quality"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "python3",
+      "git"
+    ],
+    "cron": false
+  }
+}

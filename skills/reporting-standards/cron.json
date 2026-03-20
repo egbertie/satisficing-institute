@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "skill_name": "reporting-standards",
+  "description": "汇报标准协议 - 日报+周报",
+  "jobs": [
+    {
+      "name": "daily-report-generation",
+      "schedule": "0 20 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/reporting-standards/scripts/generate-report.sh daily",
+      "timeout": 180,
+      "description": "每日20:00生成5要素汇报"
+    },
+    {
+      "name": "weekly-compliance-report",
+      "schedule": "0 22 * * 6",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/reporting-standards/scripts/generate-report.sh weekly",
+      "timeout": 300,
+      "description": "每周六22:00生成制度执行率报告"
+    }
+  ]
+}

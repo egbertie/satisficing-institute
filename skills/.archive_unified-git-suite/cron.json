@@ -1,0 +1,1 @@
+{"jobs": [{"name": "unified-git-suite-auto", "schedule": "32 12 * * *", "command": "python3 scripts/unified-git-suite-runner.py check"}]}

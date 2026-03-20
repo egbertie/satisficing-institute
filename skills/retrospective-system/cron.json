@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "skill_name": "retrospective-system",
+  "description": "复盘优化报告 - 日/周/月三级复盘",
+  "jobs": [
+    {
+      "name": "daily-retrospective",
+      "schedule": "30 23 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/retrospective-system/scripts/retro-generator.py --type daily",
+      "timeout": 300,
+      "description": "每日23:30生成日复盘"
+    },
+    {
+      "name": "weekly-retrospective",
+      "schedule": "0 18 * * 6",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/retrospective-system/scripts/retro-generator.py --type weekly",
+      "timeout": 600,
+      "description": "每周六18:00生成周复盘"
+    },
+    {
+      "name": "monthly-retrospective",
+      "schedule": "0 18 28-31 * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/retrospective-system/scripts/retro-generator.py --type monthly",
+      "timeout": 900,
+      "description": "每月末18:00生成月复盘"
+    }
+  ]
+}

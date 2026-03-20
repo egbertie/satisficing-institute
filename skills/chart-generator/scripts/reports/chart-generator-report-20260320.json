@@ -1,0 +1,22 @@
+{
+  "skill_name": "chart-generator",
+  "generated_at": "2026-03-20T14:37:47.604104",
+  "status": "completed",
+  "results": {
+    "status": {
+      "skill_name": "chart-generator",
+      "timestamp": "2026-03-20T14:37:47.604104",
+      "working_directory": "/root/.openclaw/workspace/skills/chart-generator/scripts",
+      "python_version": "3.12.3 (main, Jun 18 2025, 17:59:45) [GCC 13.3.0]",
+      "dependencies": {},
+      "environment": {
+        "path_exists": true
+      },
+      "skill_md_exists": false
+    },
+    "execution": {
+      "status": "success",
+      "mode": "standard"
+    }
+  }
+}

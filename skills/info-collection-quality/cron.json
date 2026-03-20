@@ -1,0 +1,1 @@
+{"jobs": [{"name": "info-collection-quality-auto", "schedule": "29 12 * * *", "command": "python3 scripts/info-collection-quality-runner.py check"}]}

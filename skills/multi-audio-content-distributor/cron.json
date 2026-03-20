@@ -1,0 +1,1 @@
+{"jobs": [{"name": "multi-audio-content-distributor-auto", "schedule": "49 12 * * *", "command": "python3 scripts/multi-audio-content-distributor-runner.py check"}]}

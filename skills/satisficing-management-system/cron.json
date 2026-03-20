@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "satisficing-management-system-check",
+      "schedule": "16 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/satisficing-management-system && python3 scripts/satisficing-management-system-runner.py status",
+      "description": "satisficing-management-system status check"
+    }
+  ]
+}

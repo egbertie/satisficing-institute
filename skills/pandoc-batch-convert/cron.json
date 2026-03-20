@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "pandoc-batch-convert",
+  "description": "Pandoc批量转换 - 每日凌晨执行",
+  "jobs": [
+    {
+      "name": "daily-batch-convert",
+      "schedule": "0 1 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/pandoc-batch-convert/scripts/batch_convert.py",
+      "timeout": 3600,
+      "description": "每日凌晨1点执行文档批量转换"
+    }
+  ]
+}

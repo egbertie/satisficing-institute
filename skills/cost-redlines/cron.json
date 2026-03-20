@@ -1,0 +1,28 @@
+{
+  "name": "cost-redlines",
+  "description": "成本红线机制 - 4级成本模型",
+  "version": "1.0",
+  "jobs": [
+    {
+      "name": "cost-redline-check",
+      "schedule": "0 */4 * * *",
+      "command": "bash /root/.openclaw/workspace/skills/cost-redlines/scripts/cost-redlines-check.sh",
+      "enabled": true,
+      "description": "每4小时检查成本红线"
+    },
+    {
+      "name": "cost-daily-report",
+      "schedule": "0 18 * * *",
+      "command": "echo '成本日报: $(date)' >> /root/.openclaw/workspace/skills/cost-redlines/logs/daily-report.log",
+      "enabled": true,
+      "description": "每日18点生成成本报告"
+    },
+    {
+      "name": "cost-weekly-analysis",
+      "schedule": "0 9 * * 1",
+      "command": "echo '周成本分析: $(date)' >> /root/.openclaw/workspace/skills/cost-redlines/logs/weekly-analysis.log",
+      "enabled": true,
+      "description": "每周一9点生成成本分析"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "closed-loop-principles",
+  "description": "闭环三原则强制执行 - 发出→确认→落实→反馈",
+  "version": "1.0",
+  "jobs": [
+    {
+      "name": "closed-loop-check",
+      "schedule": "0 * * * *",
+      "command": "bash /root/.openclaw/workspace/skills/closed-loop-principles/scripts/closed-loop-check.sh",
+      "enabled": true,
+      "description": "每小时检查待闭环事项"
+    },
+    {
+      "name": "closed-loop-daily-report",
+      "schedule": "0 9 * * *",
+      "command": "echo '闭环日报: $(date)' >> /root/.openclaw/workspace/skills/closed-loop-principles/logs/daily-report.log",
+      "enabled": true,
+      "description": "每日9点生成闭环执行报告"
+    }
+  ]
+}

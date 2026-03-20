@@ -1,0 +1,1 @@
+{"jobs": [{"name": "reversibility-checker-check", "schedule": "8 10 * * *", "command": "cd /root/.openclaw/workspace/skills/reversibility-checker && python3 scripts/reversibility-checker-runner.py status"}]}

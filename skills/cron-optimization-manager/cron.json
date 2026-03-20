@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "cron-optimization-manager-check",
+      "schedule": "6 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/cron-optimization-manager && python3 scripts/cron-optimization-manager-runner.py status",
+      "description": "cron-optimization-manager status check"
+    }
+  ]
+}

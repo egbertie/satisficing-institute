@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "perception-training-system",
+  "description": "感知训练系统 - 每周五晚间执行",
+  "jobs": [
+    {
+      "name": "weekly-training",
+      "schedule": "0 20 * * 5",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/perception-training-system/scripts/training-generator.py",
+      "timeout": 1800,
+      "description": "每周五20:00执行感知训练"
+    }
+  ]
+}

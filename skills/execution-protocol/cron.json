@@ -1,0 +1,1 @@
+{"jobs": [{"name": "execution-protocol-auto", "schedule": "4 13 * * *", "command": "python3 scripts/execution-protocol-runner.py check"}]}

@@ -1,0 +1,22 @@
+{
+  "jobs": [
+    {
+      "name": "five-standard-daily-audit",
+      "schedule": "47 20 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/five-standard-auditor \u0026\u0026 python3 scripts/auditor.py audit-all /root/.openclaw/workspace/skills",
+      "description": "每日20:47自动检验所有Skill的5标准达成率（错开整点）"
+    },
+    {
+      "name": "five-standard-self-audit",
+      "schedule": "23 21 * * 1",
+      "command": "cd /root/.openclaw/workspace/skills/five-standard-auditor \u0026\u0026 python3 scripts/auditor.py self-audit",
+      "description": "每周一21:235标准自我检验（元检验，错开整点）"
+    },
+    {
+      "name": "enhanced-standards-weekly",
+      "schedule": "17 22 * * 0",
+      "command": "cd /root/.openclaw/workspace/skills/five-standard-auditor \u0026\u0026 python3 scripts/auditor.py enhanced-check",
+      "description": "每周日22:17增强标准检查（S6认知谦逊+S7对抗验证，可选）"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "pandoc-batch-convert",
+  "version": "1.0.0",
+  "description": "Pandoc文档批量转换",
+  "author": "OpenClaw",
+  "tags": [
+    "pandoc",
+    "convert",
+    "batch"
+  ],
+  "requires": {
+    "model": "kimi-coding/k2p5",
+    "local_tools": [
+      "pandoc",
+      "python3"
+    ],
+    "cron": true
+  }
+}

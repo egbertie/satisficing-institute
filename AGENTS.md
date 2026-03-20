@@ -14,6 +14,7 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+5. **Run baseline check** — execute `skills/baseline-checker/scripts/baseline-checker-runner.py` to verify 9 baselines
 
 Don't ask permission. Just do it.
 

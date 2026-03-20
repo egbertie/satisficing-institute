@@ -1,0 +1,103 @@
+{
+  "name": "system-integration-framework",
+  "version": "1.0.0",
+  "description": "完整体系整合框架 - 合伙人匹配决策体系",
+  "author": "满意解研究所",
+  "entry": "integration-framework.js",
+  "schema": {
+    "type": "system-framework",
+    "capabilities": [
+      "architecture-management",
+      "asset-tracking",
+      "progress-monitoring",
+      "checklist-enforcement",
+      "insight-generation"
+    ]
+  },
+  "architecture": {
+    "data_layer": {
+      "name": "数据层",
+      "components": ["案例库 (15个案例)"],
+      "breakdown": {
+        "success": 8,
+        "failure": 5,
+        "ongoing": 2
+      }
+    },
+    "methodology_layer": {
+      "name": "方法论层",
+      "components": ["理论基础", "评估模型"],
+      "theories": ["西蒙满意解理论", "五路图腾决策法", "儒商合伙伦理"],
+      "models": ["7维度权重体系", "风险预警指标", "决策流程"]
+    },
+    "product_layer": {
+      "name": "产品层",
+      "components": ["评估工具V2.0 (Python)", "评估工具V2.1 (Web)", "专家会诊系统"]
+    },
+    "collaboration_layer": {
+      "name": "协作层",
+      "p0_components": ["决策权限矩阵", "系统仪表盘", "分级通知", "记忆审计"],
+      "p1_components": ["质量门控", "专家会诊", "事务工作流"]
+    },
+    "output_layer": {
+      "name": "输出层",
+      "components": ["评估报告", "风险预警", "改进建议"]
+    }
+  },
+  "assets": {
+    "completed": [
+      "案例库: 10→15个案例（双线进行中）",
+      "方法论: 7维度评估模型",
+      "工具V2.0: Python交互式评估",
+      "协作套件: P0P1完整组件",
+      "仪表盘: 实时状态监控"
+    ],
+    "in_progress": [
+      "方法论文档: 白皮书撰写",
+      "案例扩展: 5个新增案例",
+      "工具V2.1: Web界面技术方案"
+    ],
+    "pending": [
+      "工具V2.1开发: Web实现",
+      "专家网络: 数字替身训练",
+      "官宣准备: 品牌物料"
+    ]
+  },
+  "kpis": {
+    "case_count": {"target": 30, "current": 15, "rate": "50%"},
+    "methodology_completeness": {"target": "100%", "current": "80%", "rate": "80%"},
+    "product_maturity": {"target": "V3.0", "current": "V2.0", "rate": "67%"},
+    "collaboration_efficiency": {"target": "95%", "current": "95%", "rate": "100%"}
+  },
+  "checklist": {
+    "document_integration": {
+      "completed": ["案例库索引文档", "产品使用手册", "快速参考卡"],
+      "pending": ["方法论白皮书", "API接口文档"]
+    },
+    "code_integration": {
+      "completed": ["案例库管理器", "评估模型核心", "风险预警系统", "报告生成器"]
+    },
+    "data_integration": {
+      "completed": ["案例标签体系", "权重参数配置", "风险阈值设定"],
+      "pending": ["用户配置文件"]
+    }
+  },
+  "case_insights": {
+    "critical_findings": [
+      {"finding": "临界值", "value": "满意解评分6.5分区分成功/失败"},
+      {"finding": "最致命冲突", "value": "价值观冲突（失败率100%）"},
+      {"finding": "最稳定模式", "value": "技术+商业互补（成功率100%）"},
+      {"finding": "高风险行业", "value": "生物医药（监管风险）"}
+    ],
+    "new_insights": [
+      "物联网软硬结合是高效模式",
+      "工业软件市场教育成本被低估",
+      "技术迭代期需要更灵活的合伙机制"
+    ]
+  },
+  "next_steps": {
+    "immediate": ["监控子代理输出", "整合方法论文档", "更新案例库统计"],
+    "short_term": ["启动Web界面开发", "完善专家网络", "生成官宣物料"],
+    "medium_term": ["Web工具上线", "案例库达20个", "首次客户验证"]
+  }
+}

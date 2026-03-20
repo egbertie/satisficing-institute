@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "firecrawl-search-check",
+      "schedule": "25 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/firecrawl-search && python3 scripts/firecrawl-search-runner.py status",
+      "description": "firecrawl-search status check"
+    }
+  ]
+}

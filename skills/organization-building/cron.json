@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "organization-building-check",
+      "schedule": "8 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/organization-building && python3 scripts/organization-building-runner.py status",
+      "description": "organization-building status check"
+    }
+  ]
+}

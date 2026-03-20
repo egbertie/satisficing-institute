@@ -1,0 +1,1 @@
+{"jobs": [{"name": "decision-guardian-auto", "schedule": "30 12 * * *", "command": "python3 scripts/decision-guardian-runner.py check"}]}

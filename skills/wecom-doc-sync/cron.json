@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "wecom-doc-sync-check",
+      "schedule": "29 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/wecom-doc-sync && python3 scripts/wecom-doc-sync-runner.py status",
+      "description": "wecom-doc-sync status check"
+    }
+  ]
+}

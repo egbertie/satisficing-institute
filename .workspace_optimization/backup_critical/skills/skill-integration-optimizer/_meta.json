@@ -1,0 +1,17 @@
+{
+  "ownerId": "satisficing-institute",
+  "slug": "skill-integration-optimizer",
+  "version": "1.0.0",
+  "publishedAt": 1767553800000,
+  "type": "custom",
+  "source": "internal",
+  "principle": "first-principles",
+  "target": "12_core_skills",
+  "current": "25_total_skills",
+  "strategies": ["merge", "replace", "defer", "eliminate"],
+  "frequency": {
+    "monthly": "first_saturday",
+    "quarterly": "quarter_end",
+    "yearly": "december"
+  }
+}

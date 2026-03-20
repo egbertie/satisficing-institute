@@ -1,0 +1,1 @@
+{"jobs": [{"name": "jina-ai-reader-check", "schedule": "5 10 * * *", "command": "cd /root/.openclaw/workspace/skills/jina-ai-reader && python3 scripts/jina-ai-reader-runner.py status"}]}

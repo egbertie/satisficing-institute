@@ -1,0 +1,1 @@
+{"jobs": [{"name": "channel-script-suite-daily", "schedule": "36 11 * * *", "command": "cd /root/.openclaw/workspace/skills/channel-script-suite && python3 scripts/channel-script-suite-runner.py status"}]}

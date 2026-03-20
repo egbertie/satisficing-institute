@@ -1,0 +1,1 @@
+{"jobs": [{"name": "wulu-totem-system-daily", "schedule": "0 11 * * *", "command": "cd /root/.openclaw/workspace/skills/wulu-totem-system && python3 scripts/wulu-totem-system-runner.py status"}]}

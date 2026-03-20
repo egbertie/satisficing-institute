@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "skill_name": "knowledge-extraction",
+  "description": "知识沉淀萃取 - 每日晚间+每周整合",
+  "jobs": [
+    {
+      "name": "daily-extraction",
+      "schedule": "47 23 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/knowledge-extraction/scripts/extractor.py --mode daily",
+      "timeout": 600,
+      "description": "每日23:47执行知识萃取"
+    },
+    {
+      "name": "weekly-integration",
+      "schedule": "0 11 * * 6",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/knowledge-extraction/scripts/extractor.py --mode weekly",
+      "timeout": 900,
+      "description": "每周六11:00执行知识整合"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "name": "case-library-weekly-check",
+      "schedule": "37 9 * * 1",
+      "command": "cd /root/.openclaw/workspace/skills/case-library-expander && python3 scripts/case-library-expander.py analyze",
+      "description": "每周一检查案例库进度"
+    },
+    {
+      "name": "case-collection-trigger",
+      "schedule": "0 22 * * 3",
+      "command": "cd /root/.openclaw/workspace/skills/case-library-expander && python3 scripts/case-library-expander.py collect",
+      "description": "每周三触发案例收集"
+    }
+  ]
+}

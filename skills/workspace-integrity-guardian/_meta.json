@@ -6,9 +6,15 @@
   "type": "custom",
   "source": "internal",
   "principle": "first-principles",
-  "inspection_dimensions": ["structure", "timeliness", "reference", "security"],
+  "inspection_dimensions": [
+    "structure",
+    "timeliness",
+    "reference",
+    "security"
+  ],
   "frequency": {
     "auto": "daily_0900",
     "manual": "saturday_1000"
-  }
+  },
+  "name": "workspace-integrity-guardian"
 }

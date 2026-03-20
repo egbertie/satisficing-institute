@@ -1,0 +1,1 @@
+{"jobs": [{"name": "sql-query-templates-daily", "schedule": "54 11 * * *", "command": "cd /root/.openclaw/workspace/skills/sql-query-templates && python3 scripts/sql-query-templates-runner.py status"}]}

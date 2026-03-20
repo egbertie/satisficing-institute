@@ -1,0 +1,36 @@
+{
+  "_comment": "飞书云文档API配置",
+  
+  "app_id": "cli_a927c5dfa4381cc6",
+  "app_secret": "8950yzh6jj17nQkKBjvGIdRocdrslhjI",
+  
+  "base_url": "https://open.feishu.cn/open-apis",
+  
+  "timeout": 30,
+  
+  "max_retries": 3,
+  
+  "retry_delay": 1.0,
+  
+  "token_refresh_margin": 300,
+  
+  "rate_limit": {
+    "requests_per_second": 20,
+    "burst_size": 50,
+    "batch_size": 50
+  },
+  
+  "sync": {
+    "max_workers": 4,
+    "batch_size": 50,
+    "auto_resume": true,
+    "skip_existing_images": true
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "logs/feishu_sync.log",
+    "max_size": "10MB",
+    "backup_count": 5
+  }
+}

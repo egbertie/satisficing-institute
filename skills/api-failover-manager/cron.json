@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "api-health-check",
+      "schedule": "*/5 * * * *",
+      "command": "cd /root/.openclaw/workspace/skills/api-failover-manager && python3 scripts/api-failover-manager.py monitor",
+      "description": "每5分钟检查API健康状态"
+    }
+  ]
+}

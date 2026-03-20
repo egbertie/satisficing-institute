@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "announcement-deadline-alert",
+      "schedule": "7 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/announcement-manager && python3 scripts/announcement-manager.py alert",
+      "description": "每日检查官宣截止日期"
+    }
+  ]
+}

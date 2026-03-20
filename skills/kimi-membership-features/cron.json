@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "kimi-membership-features-check",
+      "schedule": "30 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/kimi-membership-features && python3 scripts/kimi-membership-features-runner.py status",
+      "description": "kimi-membership-features status check"
+    }
+  ]
+}

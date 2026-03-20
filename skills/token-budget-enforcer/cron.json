@@ -1,0 +1,16 @@
+{
+  "jobs": [
+    {
+      "name": "token-morning-brief",
+      "schedule": "7 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/token-budget-enforcer \u0026\u0026 python3 scripts/enforcer.py budget",
+      "description": "每日09:07显示Token预算看板"
+    },
+    {
+      "name": "token-daily-report",
+      "schedule": "37 18 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/token-budget-enforcer \u0026\u0026 python3 scripts/enforcer.py report",
+      "description": "每日18:37生成Token效率报告"
+    }
+  ]
+}

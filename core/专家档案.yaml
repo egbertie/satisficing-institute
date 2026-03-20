@@ -1,0 +1,354 @@
+# 满意解专家档案 - Core定义（扩展模式）
+# 
+# 用途: 6位专家数字替身的完整档案（单一数据源）
+# 影响: 专家详细档案页、咨询对话、知识图谱
+
+metadata:
+  version: "1.0"
+  last_updated: "2026-03-20"
+  total_experts: 6
+  status_distribution:
+    top_tier: 0    # 顶级专家（目标）
+    established: 3 # 已建档
+    developing: 3  # 待深化
+
+experts:
+  # ===== 黎红雷教授 =====
+  - id: EXPERT-001
+    name: "黎红雷"
+    title: "教授"
+    annotation: "拟邀"
+    status: established
+    target_status: top_tier
+    priority: P1
+    
+    basic_info:
+      position: "中山大学哲学系"
+      specialty: "儒商哲学"
+      role: "合伙伦理学术源头"
+      totem: "CONFUCIUS·木"
+    
+    knowledge_graph:
+      status: "待构建"
+      target_nodes: 60
+      current_nodes: 0
+      
+    knowledge_domains:
+      - name: "儒商哲学核心理论"
+        key_concepts:
+          - "仁义礼智信的现代商业应用"
+          - "义利之辨与合伙人关系"
+          - "儒家企业治理模式"
+      - name: "合伙人伦理框架"
+        key_concepts:
+          - "信任建立的儒家路径"
+          - "长期主义的价值基础"
+          - "责任担当的伦理要求"
+      - name: "儒商企业案例"
+        key_concepts:
+          - "成功合伙的儒家智慧"
+          - "失败案例的伦理反思"
+          
+    satisfaction_integration:
+      - "五路图腾·木的核心精神来源"
+      - "合伙人伦理评估的理论基础"
+      - "CONFUCIUS决策校准的精神内核"
+      
+    research_tasks:
+      - "核心文本研读（《管理哲学导论》等）"
+      - "儒商企业案例收集"
+      - "合伙人伦理框架构建"
+      
+    deliverables:
+      - "黎红雷教授知识图谱"
+      - "儒商合伙伦理手册"
+      - "可引用金句库"
+
+  # ===== 罗汉教授 =====
+  - id: EXPERT-002
+    name: "罗汉"
+    title: "教授"
+    annotation: "拟邀"
+    status: established
+    target_status: top_tier
+    priority: P1
+    
+    basic_info:
+      position: "中山大学"
+      specialty: "数学/软件工程"
+      role: "方法论护法"
+      totem: "SIMON·金"
+    
+    knowledge_graph:
+      status: "待构建"
+      target_nodes: 50
+      current_nodes: 0
+      
+    knowledge_domains:
+      - name: "数学建模工具"
+        key_concepts:
+          - "合伙人评估量化模型"
+          - "风险概率计算"
+          - "决策树分析"
+      - name: "软件工程方法"
+        key_concepts:
+          - "系统可靠性分析"
+          - "复杂度评估"
+          - "技术债务量化"
+      - name: "博弈论应用"
+        key_concepts:
+          - "合伙博弈模型"
+          - "激励机制设计"
+          - "纳什均衡在合伙中的应用"
+          
+    satisfaction_integration:
+      - "PFI评分卡的数学基础"
+      - "风险量化的方法论支撑"
+      - "决策模型的严谨性验证"
+      
+    research_tasks:
+      - "数学建模工具库构建"
+      - "软件工程最佳实践整理"
+      - "博弈论案例收集"
+      
+    deliverables:
+      - "罗汉教授数学工具包"
+      - "合伙人评估模型手册"
+      - "可复用算法库"
+
+  # ===== 谢宝剑研究员 =====
+  - id: EXPERT-003
+    name: "谢宝剑"
+    title: "研究员"
+    annotation: "拟邀"
+    status: established
+    target_status: top_tier
+    priority: P2
+    
+    basic_info:
+      position: "深港战略研究机构"
+      specialty: "深港战略"
+      role: "地理自在官"
+      totem: "GUANYIN·水"
+    
+    knowledge_graph:
+      status: "待构建"
+      target_nodes: 40
+      current_nodes: 0
+      
+    knowledge_domains:
+      - name: "深港政策对比"
+        key_concepts:
+          - "香港X计划"
+          - "深圳孔雀计划"
+          - "河套/前海政策"
+      - name: "硬科技创业生态"
+        key_concepts:
+          - "深港产业链互补"
+          - "人才流动趋势"
+          - "资本活跃度"
+      - name: "政府关系策略"
+        key_concepts:
+          - "补贴政策解读"
+          - "合规要求"
+          - "政府沟通渠道"
+          
+    satisfaction_integration:
+      - "深港硬科技定位的政策支撑"
+      - "客户地理分布策略"
+      - "政府资源的对接路径"
+      
+    research_tasks:
+      - "深港政策数据库构建"
+      - "硬科技创业生态图谱"
+      - "政府关系最佳实践"
+      
+    deliverables:
+      - "谢宝剑研究员政策数据库"
+      - "深港创业指南"
+      - "政策解读手册"
+
+  # ===== XU先生 =====
+  - id: EXPERT-004
+    name: "XU先生"
+    title: ""
+    annotation: ""
+    status: established
+    target_status: top_tier
+    priority: P0
+    
+    basic_info:
+      position: "AI/系统可靠性领域"
+      specialty: "AI压力测试/蓝军思维"
+      role: "钻木人"
+      totem: null
+    
+    knowledge_graph:
+      status: "待构建"
+      target_nodes: 60
+      current_nodes: 0
+      
+    knowledge_domains:
+      - name: "AI系统压力测试"
+        key_concepts:
+          - "大模型失效模式分析"
+          - "对抗性测试方法"
+          - "AI系统边界探测"
+          - "大疆蓝军方法论"
+      - name: "系统可靠性工程"
+        key_concepts:
+          - "故障树分析(FTA)"
+          - "失效模式与影响分析(FMEA)"
+          - "混沌工程原则"
+      - name: "蓝军思维方法论"
+        key_concepts:
+          - "红队/蓝队对抗演练"
+          - "假设挑战与压力测试"
+          - "决策前的钻木验证"
+          
+    satisfaction_integration:
+      - "72小时极限压力测试设计"
+      - "合伙方案的风险探测"
+      - "决策前的蓝军挑战机制"
+      
+    research_tasks:
+      - "AI压力测试知识体系"
+      - "大疆蓝军方法论研究"
+      - "系统可靠性工程实践"
+      
+    deliverables:
+      - "XU先生AI压力测试知识图谱"
+      - "72小时极限测试实施方案"
+      - "蓝军思维操作手册"
+
+  # ===== 方翊沣博士 =====
+  - id: EXPERT-005
+    name: "方翊沣"
+    title: "博士"
+    annotation: "拟邀"
+    status: developing
+    target_status: top_tier
+    priority: P0
+    
+    basic_info:
+      position: "马来西亚理科大学/韩国脑科学研究院"
+      specialty: "脑科学/BCI"
+      role: "CEO感知力训练导师"
+      totem: null
+    
+    knowledge_graph:
+      status: "研究中"
+      target_nodes: 60
+      current_nodes: 15
+      
+    knowledge_domains:
+      - name: "基础神经科学"
+        key_concepts:
+          - "大脑结构与功能分区"
+          - "神经可塑性原理"
+          - "决策的神经机制"
+      - name: "脑机接口(BCI)技术"
+        key_concepts:
+          - "BCI技术原理与分类"
+          - "非侵入式BCI应用(EEG等)"
+          - "认知增强的BCI应用"
+      - name: "神经反馈技术"
+        key_concepts:
+          - "神经反馈训练原理"
+          - "注意力/情绪调节应用"
+          - "性能优化(运动/认知)"
+      - name: "感知力与直觉科学"
+        key_concepts:
+          - "直觉的神经科学解释"
+          - "身体感知与决策"
+          - "第六感的科学基础"
+          
+    satisfaction_integration:
+      - "右脑直觉的科学解释"
+      - "感知力训练体系设计"
+      - "五路图腾与大脑功能对应"
+      
+    research_tasks:
+      - "脑科学×决策科学交叉研究"
+      - "BCI商业应用案例收集"
+      - "神经反馈训练方案设计"
+      
+    deliverables:
+      - "方翊沣博士脑科学知识图谱"
+      - "CEO感知力训练手册"
+      - "直觉决策科学白皮书"
+
+  # ===== 陈国祥博士 =====
+  - id: EXPERT-006
+    name: "陈国祥"
+    title: "博士"
+    annotation: "拟邀"
+    status: developing
+    target_status: top_tier
+    priority: P0
+    
+    basic_info:
+      position: "USM神经科/IPHM英国国际整体医学会"
+      specialty: "神经科/能量治疗"
+      role: "能量治疗导师"
+      totem: null
+    
+    knowledge_graph:
+      status: "待构建"
+      target_nodes: 60
+      current_nodes: 0
+      
+    knowledge_domains:
+      - name: "神经科基础"
+        key_concepts:
+          - "神经系统疾病与认知"
+          - "神经递质与情绪状态"
+          - "慢性压力对大脑的影响"
+      - name: "能量治疗体系"
+        key_concepts:
+          - "能量治疗的科学解释框架"
+          - "生物场与身体自愈"
+          - "能量治疗在现代医疗中的定位"
+      - name: "催眠治疗"
+        key_concepts:
+          - "催眠的神经科学机制"
+          - "临床催眠治疗应用"
+          - "自我催眠与状态调节"
+      - name: "整体医学"
+        key_concepts:
+          - "身心整合模型"
+          - "预防医学与健康管理"
+          - "东西方医学融合"
+          
+    satisfaction_integration:
+      - "高压决策下的心理状态调节"
+      - "合伙人关系的能量动态"
+      - "儒商修身与神经健康"
+      
+    research_tasks:
+      - "神经科×能量治疗交叉研究"
+      - "整体医学知识体系构建"
+      - "高压高管健康管理方案"
+      
+    deliverables:
+      - "陈国祥博士整体医学知识图谱"
+      - "高管身心健康手册"
+      - "能量治疗应用指南"
+
+# 专家能力提升计划追踪
+progress_tracking:
+  week_1_target:
+    - expert: "方翊沣博士"
+      tasks: ["建立研究框架", "学术背景梳理", "知识体系构建", "素材收集整理"]
+      status: "进行中"
+    
+  overall_target:
+    - metric: "知识图谱完整度"
+      target: "≥30节点/专家"
+      current_average: 2.5
+    - metric: "可引用素材数量"
+      target: "≥15条/专家"
+      current_average: 0
+    - metric: "顶级专家达成率"
+      target: "100%"
+      current: "0%"

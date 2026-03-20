@@ -1,0 +1,1 @@
+{"jobs": [{"name": "dingtalk-feishu-cn-auto", "schedule": "52 12 * * *", "command": "python3 scripts/dingtalk-feishu-cn-runner.py check"}]}

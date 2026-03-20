@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "zero-idle-enforcer",
+  "description": "零空置强制执行器 - 每15分钟检查",
+  "jobs": [
+    {
+      "name": "idle-check",
+      "schedule": "*/15 * * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/zero-idle-enforcer/scripts/enforcer.py",
+      "timeout": 120,
+      "description": "每15分钟检查并消除空置状态"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "cycleInfo": {
+    "startDate": "2026-03-18",
+    "startTime": "12:00",
+    "endDate": "2026-03-25",
+    "endTime": "11:59",
+    "currentDay": 1,
+    "totalDays": 7,
+ "status": "active"
+  },
+  "openclawToken": {
+    "weeklyBudget": 70000,
+    "dailyBudget": 10000,
+    "consumed": 0,
+    "remaining": 70000,
+    "percentage": 100,
+    "status": "healthy",
+    "lastCheck": "2026-03-18T12:00:00+08:00"
+  },
+  "kimi": {
+    "tier": "Allegretto",
+    "monthlyQuota": {
+      "deepResearch": 40,
+      "ppt": 40,
+      "agentPool": 40
+    },
+    "weeklyQuota": {
+      "deepResearch": 10,
+      "ppt": 10,
+      "agentPool": 10
+    },
+    "weeklyUsed": {
+      "deepResearch": 0,
+      "ppt": 0,
+      "agentPool": 0
+    },
+    "weeklyRemaining": {
+      "deepResearch": 10,
+      "ppt": 10,
+      "agentPool": 10
+    }
+  },
+  "wps": {
+    "tier": "SuperVIP",
+    "status": "active",
+    "features": [
+      "WPS AI",
+      "PDF转换",
+      "模板库",
+      "云空间"
+    ],
+    "note": "大会员级别，额度充足，按需使用"
+  },
+  "dailyLog": [
+    {
+      "date": "2026-03-18",
+      "openclawConsumed": 0,
+      "kimiDeepResearch": 0,
+      "kimiPPT": 0,
+      "kimiAgent": 0,
+      "notes": "新周期开始，资源重置"
+    }
+  ],
+  "executionRules": {
+    "p0Task": "优先使用所有资源",
+    "p1Task": "Kimi深度研究每日1次，OpenClaw日均预算内",
+    "p2Task": "Kimi Agent池处理文档，WPS辅助",
+    "p3Task": "Token>50%时才执行"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "scanner_config": {
+    "version": "1.0.0",
+    "scan_dimensions": ["structure", "freshness", "reference", "security"],
+    "thresholds": {
+      "endangered_days": 30,
+      "zombie_days": 90,
+      "skill_unused_days": 90
+    },
+    "core_files": [
+      "MEMORY.md",
+      "HEARTBEAT.md",
+      "skill.json",
+      "AGENTS.md",
+      "SOUL.md",
+      "USER.md"
+    ],
+    "exclude_patterns": [
+      "**/archive/**",
+      "**/.git/**",
+      "**/__pycache__/**",
+      "**/node_modules/**"
+    ]
+  }
+}

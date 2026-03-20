@@ -1,0 +1,1 @@
+{"jobs": [{"name": "unified-intelligence-suite-auto", "schedule": "8 12 * * *", "command": "python3 scripts/unified-intelligence-suite-runner.py check"}]}

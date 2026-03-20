@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "expert-weekly-scan",
+      "schedule": "17 10 * * 1",
+      "command": "cd /root/.openclaw/workspace/skills/expert-network-manager && python3 scripts/expert-network-manager.py report",
+      "description": "每周一扫描专家关系状态"
+    }
+  ]
+}

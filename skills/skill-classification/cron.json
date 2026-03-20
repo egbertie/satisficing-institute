@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "skill-classification",
+  "description": "Skill分类器 - 每周日凌晨执行",
+  "jobs": [
+    {
+      "name": "weekly-classification",
+      "schedule": "0 3 * * 0",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/skill-classification/scripts/classifier.py",
+      "timeout": 600,
+      "description": "每周日03:00执行Skill分类整理"
+    }
+  ]
+}

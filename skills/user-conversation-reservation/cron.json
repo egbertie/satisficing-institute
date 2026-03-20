@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "user-activity-monitor",
+      "schedule": "*/2 * * * *",
+      "command": "cd /root/.openclaw/workspace/skills/user-conversation-reservation && python3 scripts/user-conversation-reservation.py monitor",
+      "description": "每2分钟监控用户活跃度"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "multi-format-output-evolution-check",
+      "schedule": "11 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/multi-format-output-evolution && python3 scripts/multi-format-output-evolution-runner.py status",
+      "description": "multi-format-output-evolution status check"
+    }
+  ]
+}

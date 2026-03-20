@@ -1,0 +1,1 @@
+{"jobs": [{"name": "unit-economics-validator-daily", "schedule": "34 11 * * *", "command": "cd /root/.openclaw/workspace/skills/unit-economics-validator && python3 scripts/unit-economics-validator-runner.py status"}]}

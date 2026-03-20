@@ -1,0 +1,106 @@
+./partner-match-system/models
+./partner-match-system/assets
+./data/cases
+./memory/core
+./memory/expert_profiles
+./disaster-recovery/archive/config
+./disaster-recovery/archive/docs
+./disaster-recovery/archive/scripts
+./disaster-recovery/archive/backups
+./logs/learning
+./logs/backups
+./deliverables/v1.1_theory_upgrade/tools
+./deliverables/v1.1_theory_upgrade/roadmap
+./constructivist-decision-theory/references
+./.workspace_optimization/backup_critical/memory/core
+./.workspace_optimization/backup_critical/memory/expert_profiles
+./.workspace_optimization/backup_critical/docs/meetings/weekly
+./.workspace_optimization/backup_critical/docs/meetings/standup
+./.workspace_optimization/backup_critical/docs/meetings/2026-03
+./.workspace_optimization/backup_critical/docs/meetings/milestone
+./.workspace_optimization/backup_critical/skills/channel-script-generator/scripts
+./.workspace_optimization/backup_critical/skills/cron-optimization-manager/reports
+./.workspace_optimization/backup_critical/skills/management-optimization
+./.workspace_optimization/backup_critical/skills/evolution-experiment-lab/experiments/_template
+./.workspace_optimization/backup_critical/skills/content-distribution-engine/templates
+./.workspace_optimization/backup_critical/skills/document-processor/references
+./.workspace_optimization/backup_critical/skills/marketing-content-generator/references
+./.workspace_optimization/backup_critical/skills/skills
+./.workspace_optimization/backup_critical/skills/data-processor-suite/references
+./.workspace_optimization/backup_critical/skills/optimization-prioritizer/templates
+./.workspace_optimization/backup_critical/skills/optimization-rollback-guard/data/versions
+./.workspace_optimization/backup_critical/skills/optimization-rollback-guard/templates
+./.workspace_optimization/backup_critical/skills/prospect-theory
+./.workspace_optimization/backup_critical/skills/storytelling-engine/stories
+./.workspace_optimization/backup_20260318_223855
+./docs/meetings/weekly
+./docs/meetings/standup
+./docs/meetings/2026-03
+./docs/meetings/milestone
+./skills/channel-script-generator/scripts
+./skills/cron-optimization-manager/reports
+./skills/management-optimization
+./skills/evolution-experiment-lab/experiments/_template
+./skills/content-distribution-engine/templates
+./skills/document-processor/references
+./skills/marketing-content-generator/references
+./skills/skills
+./skills/data-processor-suite/references
+./skills/optimization-prioritizer/templates
+./skills/optimization-rollback-guard/data/versions
+./skills/optimization-rollback-guard/templates
+./skills/prospect-theory
+./skills/storytelling-engine/stories
+./diary
+./excalidraw-docker/data
+./excalidraw-docker/storage
+./A满意哥专属文件夹/07_📊数据资产/🖼️ 可视化图片
+./A满意哥专属文件夹/07_📊数据资产/📈 图表源文件
+./A满意哥专属文件夹/角色专区/PEO_项目进化官/工作日志/📄 源文件
+./A满意哥专属文件夹/角色专区/PEO_项目进化官/工作日志/📑 Word成品
+./A满意哥专属文件夹/角色专区/专家档案/📄 源文件
+./A满意哥专属文件夹/角色专区/专家档案/📑 Word成品
+./A满意哥专属文件夹/角色专区/EEO_经验萃取官/工作日志/📄 源文件
+./A满意哥专属文件夹/角色专区/EEO_经验萃取官/工作日志/📑 Word成品
+./A满意哥专属文件夹/罗盘指南/📄 源文件
+./A满意哥专属文件夹/罗盘指南/📑 Word成品
+./A满意哥专属文件夹/计划队列/📄 源文件
+./A满意哥专属文件夹/计划队列/📑 Word成品
+./A满意哥专属文件夹/📄 源文件
+./A满意哥专属文件夹/📑 Word成品
+./A满意哥专属文件夹/进行中/📄 源文件
+./A满意哥专属文件夹/进行中/📑 Word成品
+./A满意哥专属文件夹/00_🧭 罗盘指南/📄 源文件
+./A满意哥专属文件夹/00_🧭 罗盘指南/📑 Word成品
+./A满意哥专属文件夹/02_✅成果交付/📊 Excel表格
+./A满意哥专属文件夹/02_✅成果交付/视觉设计/视觉设计V1.0/Logo设计
+./reports/learning
+./reports/cron
+./knowledge_base/03-EXECUTION/templates
+./knowledge_base/03-EXECUTION/resources
+./knowledge_base/03-EXECUTION/agents
+./knowledge_base/expert_council/{philosophy,mathematics,ai_science,literature,neuroscience,business,strategy,hr,intuition,
+./knowledge_base/clients
+./knowledge_base/templates
+./knowledge_base/pmo
+./knowledge_base/content
+./knowledge_base/00-CORE/templates
+./knowledge_base/00-CORE/resources
+./knowledge_base/00-CORE/agents
+./knowledge_base/assets
+./knowledge_base/02-CULTURE/templates
+./knowledge_base/02-CULTURE/resources
+./knowledge_base/02-CULTURE/agents
+./knowledge_base/agents/architecture
+./knowledge_base/01-STRATEGY/templates
+./knowledge_base/01-STRATEGY/resources
+./knowledge_base/01-STRATEGY/agents
+./knowledge_base/04-EXPERTS/templates
+./knowledge_base/04-EXPERTS/resources
+./knowledge_base/04-EXPERTS/agents
+./knowledge_base/05-SUPPORT/templates
+./knowledge_base/05-SUPPORT/resources
+./knowledge_base/05-SUPPORT/agents
+./perceptual-intelligence/certification
+./personas/industry-trends
+./personas/regional

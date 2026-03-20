@@ -1,0 +1,1 @@
+{"jobs": [{"name": "team-execution-culture-auto", "schedule": "2 12 * * *", "command": "python3 scripts/team-execution-culture-runner.py check"}]}

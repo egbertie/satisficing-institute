@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "github-check",
+      "schedule": "1 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/github && python3 scripts/github-runner.py status",
+      "description": "github status check"
+    }
+  ]
+}

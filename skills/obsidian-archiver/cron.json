@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "obsidian-archiver",
+  "description": "Obsidian归档 - 每周日执行",
+  "jobs": [
+    {
+      "name": "weekly-archiving",
+      "schedule": "0 2 * * 0",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/obsidian-archiver/scripts/archive.py",
+      "timeout": 1800,
+      "description": "每周日02:00执行Obsidian归档"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {
+      "name": "decision-governance-check",
+      "schedule": "15 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/decision-governance && python3 scripts/decision-governance-runner.py status",
+      "description": "decision-governance status check"
+    }
+  ]
+}

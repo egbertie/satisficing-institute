@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "decision-safety-redlines",
+  "description": "决策安全红线审计 - 每日14:00执行",
+  "jobs": [
+    {
+      "name": "daily-redline-audit",
+      "schedule": "0 14 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/decision-safety-redlines/scripts/redline-checker.py --audit",
+      "timeout": 300,
+      "description": "每日14:00执行安全红线审计"
+    }
+  ]
+}

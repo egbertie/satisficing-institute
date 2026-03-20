@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "skill_name": "rss-news-fetcher",
+  "description": "RSS新闻获取 - 每3小时拉取",
+  "jobs": [
+    {
+      "name": "rss-fetch",
+      "schedule": "0 */3 * * *",
+      "enabled": true,
+      "command": "/root/.openclaw/workspace/skills/rss-news-fetcher/scripts/fetch.py",
+      "timeout": 300,
+      "description": "每3小时拉取RSS新闻"
+    }
+  ]
+}
