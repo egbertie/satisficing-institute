@@ -1,0 +1,8 @@
+{
+  "name": "vendor-api-monitor",
+  "version": "1.0.0",
+  "description": "厂商API能力监控 - 钉钉/企业微信/飞书/Notion API能力对比",
+  "author": "Claw",
+  "schedule": "daily",
+  "output_channel": "kimi-claw"
+}

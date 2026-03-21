@@ -1,0 +1,23 @@
+{
+  "version": "V4.0",
+  "lastCheck": 1742523120,
+  "lastBackfill": 1742523120,
+  "backfillCount": 1,
+  "currentMode": "精简2线",
+  "line1": {
+    "status": "skipped",
+    "reason": "周六非深度学习时段",
+    "lastRun": null
+  },
+  "line2": {
+    "status": "activated",
+    "task": "复盘+轻维护",
+    "tokenBudget": 5000,
+    "lastRun": 1742523120
+  },
+  "tokenThresholds": {
+    "line1Pause": 30,
+    "fullPause": 15
+  },
+  "notes": "首次零空置检查完成。线2已激活，执行复盘与轻维护任务。"
+}
