@@ -20,3 +20,14 @@ ktransformers/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Security: Environment variables and secrets
+.env
+.env.*
+.config/*.env
+*.pem
+*.key
+secrets/
+credentials/
+.DS_Store
+Thumbs.db
