@@ -11,12 +11,12 @@
   "openclawToken": {
     "weeklyBudget": 70000,
     "dailyBudget": 10000,
-    "consumed": 30800,
-    "remaining": 39200,
-    "percentage": 44,
-    "status": "healthy",
-    "lastCheck": "2026-03-20T21:30:00+08:00",
-    "notes": "用户校准: 44%消耗。第3天检查: 3/7=42.8%时间 vs 44%消耗，基本吻合，未超1/7的20%阈值。"
+    "consumed": 44800,
+    "remaining": 25200,
+    "percentage": 64.0,
+    "status": "caution",
+    "lastCheck": "2026-03-21T19:47:24.459732",
+    "notes": "用户校准: 64%消耗。第4天检查: 4/7=57%时间 vs 64%消耗，略超前7%，但在可控范围内。本周剩余90小时。"
   },
   "kimi": {
     "tier": "Allegretto",
@@ -67,6 +67,11 @@
       "date": "2026-03-20",
       "openclawConsumed": 10800,
       "notes": "大规模Skill创建(237个)，9.75小时工作"
+    },
+    {
+      "date": "2026-03-21",
+      "openclawConsumed": 14000,
+      "notes": "蓝军建设(5个Skill)，自我审计与整改"
     }
   ],
   "executionRules": {
@@ -79,13 +84,21 @@
         "enabled": true,
         "tokenLimit": 10000,
         "trigger": "idle>2h + token>30%",
-        "tasks": ["专家论文研读", "AI模型研究", "行业趋势分析"]
+        "tasks": [
+          "专家论文研读",
+          "AI模型研究",
+          "行业趋势分析"
+        ]
       },
       "line2_optimizationReview": {
         "enabled": true,
         "tokenLimit": 5000,
         "trigger": "daily_once",
-        "tasks": ["当日复盘", "系统轻维护", "知识图谱更新"]
+        "tasks": [
+          "当日复盘",
+          "系统轻维护",
+          "知识图谱更新"
+        ]
       },
       "line3_deepResearch": {
         "enabled": false,
@@ -101,6 +114,23 @@
       "percentage": 44,
       "action": "updated_from_user_input",
       "status": "calibrated"
+    },
+    {
+      "timestamp": "2026-03-21T17:25:00+08:00",
+      "type": "user_calibration",
+      "percentage": 64,
+      "action": "updated_from_user_input",
+      "status": "calibrated",
+      "notes": "标签记录: 已用64%，剩余36%，本周余90小时。第4天/7，消耗略超前时间进度。"
+    },
+    {
+      "timestamp": "2026-03-21T19:47:24.459739",
+      "type": "user_calibration",
+      "oldPercentage": 64,
+      "newPercentage": 64.0,
+      "action": "updated_from_user_input",
+      "status": "calibrated",
+      "notes": "自检校准"
     }
   ]
 }

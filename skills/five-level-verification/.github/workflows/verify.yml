@@ -1,0 +1,235 @@
+name: Five-Level Verification (S4)
+
+on:
+  push:
+    paths:
+      - 'skills/**'
+  pull_request:
+    paths:
+      - 'skills/**'
+  workflow_dispatch:
+    inputs:
+      skill:
+        description: '要验证的Skill名称'
+        required: true
+        type: string
+      level:
+        description: '验证级别'
+        required: false
+        default: 'L4'
+        type: choice
+        options:
+          - L1
+          - L2
+          - L3
+          - L4
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      skills: ${{ steps.set-skills.outputs.skills }}
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: 发现修改的Skills
+        id: set-skills
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "skills=[\"${{ inputs.skill }}\"]" >> $GITHUB_OUTPUT
+          else
+            # 获取修改的文件
+            git fetch origin ${{ github.base_ref }} --depth=1 2>/dev/null || true
+            CHANGED=$(git diff --name-only HEAD^ HEAD 2>/dev/null | grep "^skills/" | cut -d'/' -f2 | sort -u | jq -R . | jq -s .)
+            echo "skills=$CHANGED" >> $GITHUB_OUTPUT
+          fi
+
+  verify-L1:
+    runs-on: ubuntu-latest
+    needs: discover
+    if: ${{ needs.discover.outputs.skills != '[]' }}
+    strategy:
+      matrix:
+        skill: ${{ fromJson(needs.discover.outputs.skills) }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 安装依赖
+        run: pip install pyyaml
+      
+      - name: L1 存在验证
+        run: |
+          python3 skills/five-level-verification/scripts/verify.py \
+            --skill ${{ matrix.skill }} \
+            --level L1 \
+            --ci
+
+  verify-L2:
+    runs-on: ubuntu-latest
+    needs: verify-L1
+    if: ${{ needs.discover.outputs.skills != '[]' }}
+    strategy:
+      matrix:
+        skill: ${{ fromJson(needs.discover.outputs.skills) }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 安装依赖
+        run: pip install pyyaml
+      
+      - name: L2 语法验证
+        run: |
+          python3 skills/five-level-verification/scripts/verify.py \
+            --skill ${{ matrix.skill }} \
+            --level L2 \
+            --ci
+
+  verify-L3:
+    runs-on: ubuntu-latest
+    needs: verify-L2
+    if: ${{ needs.discover.outputs.skills != '[]' }}
+    strategy:
+      matrix:
+        skill: ${{ fromJson(needs.discover.outputs.skills) }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 安装依赖
+        run: pip install pyyaml
+      
+      - name: L3 可执行验证
+        run: |
+          python3 skills/five-level-verification/scripts/verify.py \
+            --skill ${{ matrix.skill }} \
+            --level L3 \
+            --ci
+
+  verify-L4:
+    runs-on: ubuntu-latest
+    needs: verify-L3
+    if: ${{ needs.discover.outputs.skills != '[]' }}
+    strategy:
+      matrix:
+        skill: ${{ fromJson(needs.discover.outputs.skills) }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 安装依赖
+        run: pip install pyyaml
+      
+      - name: L4 集成验证
+        run: |
+          python3 skills/five-level-verification/scripts/verify.py \
+            --skill ${{ matrix.skill }} \
+            --level L4 \
+            --ci
+
+  adversarial-test:
+    runs-on: ubuntu-latest
+    needs: verify-L4
+    if: ${{ needs.discover.outputs.skills != '[]' }}
+    strategy:
+      matrix:
+        skill: ${{ fromJson(needs.discover.outputs.skills) }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 安装依赖
+        run: pip install pyyaml
+      
+      - name: S7 对抗测试
+        run: |
+          python3 skills/five-level-verification/scripts/adversarial_test.py \
+            --skill skills/${{ matrix.skill }} \
+            --output adversarial_report.json
+      
+      - name: 上传对抗测试报告
+        uses: actions/upload-artifact@v3
+        with:
+          name: adversarial-report-${{ matrix.skill }}
+          path: adversarial_report.json
+
+  generate-report:
+    runs-on: ubuntu-latest
+    needs: [verify-L1, verify-L2, verify-L3, verify-L4]
+    if: always()
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: 安装依赖
+        run: pip install pyyaml
+      
+      - name: 生成完整报告
+        run: |
+          mkdir -p reports
+          for skill in $(echo '${{ needs.discover.outputs.skills }}' | jq -r '.[]'); do
+            python3 skills/five-level-verification/scripts/verify.py \
+              --skill $skill \
+              --all \
+              --report \
+              --output reports/
+          done
+      
+      - name: 上传报告
+        uses: actions/upload-artifact@v3
+        with:
+          name: verification-reports
+          path: reports/
+
+  summary:
+    runs-on: ubuntu-latest
+    needs: [discover, verify-L1, verify-L2, verify-L3, verify-L4, adversarial-test]
+    if: always()
+    steps:
+      - name: 结果汇总
+        run: |
+          echo "## Five-Level Verification Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.verify-L1.result }}" == "success" ]; then
+            echo "- ✅ L1 存在验证: 通过" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ❌ L1 存在验证: 失败" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ needs.verify-L2.result }}" == "success" ]; then
+            echo "- ✅ L2 语法验证: 通过" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ❌ L2 语法验证: 失败" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ needs.verify-L3.result }}" == "success" ]; then
+            echo "- ✅ L3 可执行验证: 通过" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ❌ L3 可执行验证: 失败" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ needs.verify-L4.result }}" == "success" ]; then
+            echo "- ✅ L4 集成验证: 通过" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ❌ L4 集成验证: 失败" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ needs.adversarial-test.result }}" == "success" ]; then
+            echo "- ✅ S7 对抗测试: 通过" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ⚠️ S7 对抗测试: 需关注" >> $GITHUB_STEP_SUMMARY
+          fi

@@ -32302,3 +32302,796 @@ python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/en
 python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
 python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
 python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+python3: can't open file '/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py': [Errno 2] No such file or directory
+[ZERO-IDLE] 不触发补位
+  - 空闲时间: 0h3m
+  - Token状态: 充足
+  - 规则检查: {'no_active': False, 'token_sufficient': True, 'time_since_fill': True, 'token_critical': True}
+[ZERO-IDLE] 不触发补位
+  - 空闲时间: 0h13m
+  - Token状态: 充足
+  - 规则检查: {'no_active': False, 'token_sufficient': True, 'time_since_fill': True, 'token_critical': True}
+[ZERO-IDLE] 不触发补位
+  - 空闲时间: 0h23m
+  - Token状态: 充足
+  - 规则检查: {'no_active': False, 'token_sufficient': True, 'time_since_fill': True, 'token_critical': True}
+[ZERO-IDLE] 不触发补位
+  - 空闲时间: 0h33m
+  - Token状态: 充足
+  - 规则检查: {'no_active': False, 'token_sufficient': True, 'time_since_fill': True, 'token_critical': True}
+[ZERO-IDLE] 不触发补位
+  - 空闲时间: 0h43m
+  - Token状态: 充足
+  - 规则检查: {'no_active': False, 'token_sufficient': True, 'time_since_fill': True, 'token_critical': True}
+[ZERO-IDLE] 不触发补位
+  - 空闲时间: 0h53m
+  - Token状态: 充足
+  - 规则检查: {'no_active': False, 'token_sufficient': True, 'time_since_fill': True, 'token_critical': True}
+[ZERO-IDLE] 不触发补位
+  - 空闲时间: 1h3m
+  - Token状态: 充足
+  - 规则检查: {'no_active': False, 'token_sufficient': True, 'time_since_fill': True, 'token_critical': True}
+  File "/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py", line 1
+    /usr/bin/bash: line 1: enforce: command not found
+    ^
+SyntaxError: invalid syntax
+  File "/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py", line 1
+    /usr/bin/bash: line 1: enforce: command not found
+    ^
+SyntaxError: invalid syntax
+  File "/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py", line 1
+    /usr/bin/bash: line 1: enforce: command not found
+    ^
+SyntaxError: invalid syntax
+  File "/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py", line 1
+    /usr/bin/bash: line 1: enforce: command not found
+    ^
+SyntaxError: invalid syntax
+  File "/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py", line 1
+    /usr/bin/bash: line 1: enforce: command not found
+    ^
+SyntaxError: invalid syntax
+  File "/root/.openclaw/workspace/skills/zero-idle-enforcer/enforcer.py", line 1
+    /usr/bin/bash: line 1: enforce: command not found
+    ^
+SyntaxError: invalid syntax
+[2026-03-21 16:30:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 16:30:01] [INFO] 当前时间: 2026-03-21 16:30:01
+[2026-03-21 16:30:01] [INFO] 用户空闲时间: 2小时13分钟 (>= 2小时)
+[2026-03-21 16:30:01] [INFO] 距离上次补位仅6分钟 (< 2小时)
+[2026-03-21 16:30:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774081801
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 16:40:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 16:40:01] [INFO] 当前时间: 2026-03-21 16:40:01
+[2026-03-21 16:40:01] [INFO] 用户空闲时间: 2小时23分钟 (>= 2小时)
+[2026-03-21 16:40:01] [INFO] 距离上次补位仅16分钟 (< 2小时)
+[2026-03-21 16:40:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774082401
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 16:50:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 16:50:01] [INFO] 当前时间: 2026-03-21 16:50:01
+[2026-03-21 16:50:01] [INFO] 用户空闲时间: 2小时33分钟 (>= 2小时)
+[2026-03-21 16:50:01] [INFO] 距离上次补位仅26分钟 (< 2小时)
+[2026-03-21 16:50:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774083001
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 17:00:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 17:00:01] [INFO] 当前时间: 2026-03-21 17:00:01
+[2026-03-21 17:00:01] [INFO] 用户空闲时间: 2小时43分钟 (>= 2小时)
+[2026-03-21 17:00:01] [INFO] 距离上次补位仅36分钟 (< 2小时)
+[2026-03-21 17:00:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774083601
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 17:10:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 17:10:01] [INFO] 当前时间: 2026-03-21 17:10:01
+[2026-03-21 17:10:01] [INFO] 用户空闲时间: 2小时53分钟 (>= 2小时)
+[2026-03-21 17:10:01] [INFO] 距离上次补位仅46分钟 (< 2小时)
+[2026-03-21 17:10:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774084201
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 17:20:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 17:20:01] [INFO] 当前时间: 2026-03-21 17:20:01
+[2026-03-21 17:20:01] [INFO] 用户空闲时间: 3小时3分钟 (>= 2小时)
+[2026-03-21 17:20:01] [INFO] 距离上次补位仅56分钟 (< 2小时)
+[2026-03-21 17:20:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774084801
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 17:30:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 17:30:01] [INFO] 当前时间: 2026-03-21 17:30:01
+[2026-03-21 17:30:01] [INFO] 用户空闲时间: 3小时13分钟 (>= 2小时)
+[2026-03-21 17:30:01] [INFO] 距离上次补位仅66分钟 (< 2小时)
+[2026-03-21 17:30:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774085401
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 17:40:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 17:40:01] [INFO] 当前时间: 2026-03-21 17:40:01
+[2026-03-21 17:40:01] [INFO] 用户空闲时间: 3小时23分钟 (>= 2小时)
+[2026-03-21 17:40:01] [INFO] 距离上次补位仅76分钟 (< 2小时)
+[2026-03-21 17:40:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774086001
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 17:50:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 17:50:01] [INFO] 当前时间: 2026-03-21 17:50:01
+[2026-03-21 17:50:01] [INFO] 用户空闲时间: 3小时33分钟 (>= 2小时)
+[2026-03-21 17:50:01] [INFO] 距离上次补位仅86分钟 (< 2小时)
+[2026-03-21 17:50:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774086601
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 18:00:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 18:00:01] [INFO] 当前时间: 2026-03-21 18:00:01
+[2026-03-21 18:00:01] [INFO] 用户活跃中，空闲时间: 5分钟 (< 2小时)
+[2026-03-21 18:00:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774087201
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 18:10:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 18:10:01] [INFO] 当前时间: 2026-03-21 18:10:01
+[2026-03-21 18:10:01] [INFO] 用户活跃中，空闲时间: 0分钟 (< 2小时)
+[2026-03-21 18:10:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774087801
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 18:20:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 18:20:01] [INFO] 当前时间: 2026-03-21 18:20:01
+[2026-03-21 18:20:01] [INFO] 用户活跃中，空闲时间: 10分钟 (< 2小时)
+[2026-03-21 18:20:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774088401
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 18:30:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 18:30:01] [INFO] 当前时间: 2026-03-21 18:30:01
+[2026-03-21 18:30:01] [INFO] 用户活跃中，空闲时间: 20分钟 (< 2小时)
+[2026-03-21 18:30:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774089001
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 18:40:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 18:40:01] [INFO] 当前时间: 2026-03-21 18:40:01
+[2026-03-21 18:40:01] [INFO] 用户活跃中，空闲时间: 30分钟 (< 2小时)
+[2026-03-21 18:40:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774089601
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 18:50:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 18:50:01] [INFO] 当前时间: 2026-03-21 18:50:01
+[2026-03-21 18:50:01] [INFO] 用户活跃中，空闲时间: 40分钟 (< 2小时)
+[2026-03-21 18:50:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774090201
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 19:00:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 19:00:01] [INFO] 当前时间: 2026-03-21 19:00:01
+[2026-03-21 19:00:01] [INFO] 用户活跃中，空闲时间: 50分钟 (< 2小时)
+[2026-03-21 19:00:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774090801
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 19:10:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 19:10:01] [INFO] 当前时间: 2026-03-21 19:10:01
+[2026-03-21 19:10:01] [INFO] 用户活跃中，空闲时间: 60分钟 (< 2小时)
+[2026-03-21 19:10:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774091401
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 19:20:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 19:20:01] [INFO] 当前时间: 2026-03-21 19:20:01
+[2026-03-21 19:20:01] [INFO] 用户活跃中，空闲时间: 70分钟 (< 2小时)
+[2026-03-21 19:20:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774092001
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 19:30:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 19:30:01] [INFO] 当前时间: 2026-03-21 19:30:01
+[2026-03-21 19:30:01] [INFO] 用户活跃中，空闲时间: 80分钟 (< 2小时)
+[2026-03-21 19:30:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774092601
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 19:40:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 19:40:01] [INFO] 当前时间: 2026-03-21 19:40:01
+[2026-03-21 19:40:01] [INFO] 用户活跃中，空闲时间: 90分钟 (< 2小时)
+[2026-03-21 19:40:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774093201
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 19:50:01] [INFO] === 零空置强制执行检查 V4.0 ===
+[2026-03-21 19:50:01] [INFO] 当前时间: 2026-03-21 19:50:01
+[2026-03-21 19:50:01] [INFO] 用户活跃中，空闲时间: 100分钟 (< 2小时)
+[2026-03-21 19:50:01] [INFO] 条件不满足，跳过补位
+{
+  "status": "skipped",
+  "reason": "trigger_conditions_not_met",
+  "timestamp": 1774093801
+}
+
+【零空置检查报告】
+状态: 未触发补位
+原因: 触发条件不满足
+[2026-03-21 20:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 20:00:01] [INFO] 当前时间: 2026-03-21 20:00:01
+[2026-03-21 20:00:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 2分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 2分钟",
+  "metrics": {
+    "inactive_seconds": 159,
+    "inactive_hours": 0.04,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774094401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 2分钟
+[2026-03-21 20:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 20:10:01] [INFO] 当前时间: 2026-03-21 20:10:01
+[2026-03-21 20:10:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 12分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 12分钟",
+  "metrics": {
+    "inactive_seconds": 759,
+    "inactive_hours": 0.21,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774095001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 12分钟
+[2026-03-21 20:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 20:20:01] [INFO] 当前时间: 2026-03-21 20:20:01
+[2026-03-21 20:20:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 22分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 22分钟",
+  "metrics": {
+    "inactive_seconds": 1359,
+    "inactive_hours": 0.38,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774095601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 22分钟
+[2026-03-21 20:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 20:30:01] [INFO] 当前时间: 2026-03-21 20:30:01
+[2026-03-21 20:30:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 32分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 32分钟",
+  "metrics": {
+    "inactive_seconds": 1959,
+    "inactive_hours": 0.54,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774096201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 32分钟
+[2026-03-21 20:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 20:40:01] [INFO] 当前时间: 2026-03-21 20:40:01
+[2026-03-21 20:40:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 42分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 42分钟",
+  "metrics": {
+    "inactive_seconds": 2559,
+    "inactive_hours": 0.71,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774096801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 42分钟
+[2026-03-21 20:50:02] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 20:50:02] [INFO] 当前时间: 2026-03-21 20:50:02
+[2026-03-21 20:50:02] [INFO] 不执行补位: 用户活跃中，空闲时间: 52分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 52分钟",
+  "metrics": {
+    "inactive_seconds": 3160,
+    "inactive_hours": 0.88,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774097402
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 52分钟
+[2026-03-21 21:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 21:00:01] [INFO] 当前时间: 2026-03-21 21:00:01
+[2026-03-21 21:00:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 62分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 62分钟",
+  "metrics": {
+    "inactive_seconds": 3759,
+    "inactive_hours": 1.04,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774098001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 62分钟
+[2026-03-21 21:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 21:10:01] [INFO] 当前时间: 2026-03-21 21:10:01
+[2026-03-21 21:10:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 72分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 72分钟",
+  "metrics": {
+    "inactive_seconds": 4359,
+    "inactive_hours": 1.21,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774098601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 72分钟
+[2026-03-21 21:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 21:20:01] [INFO] 当前时间: 2026-03-21 21:20:01
+[2026-03-21 21:20:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 7分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 7分钟",
+  "metrics": {
+    "inactive_seconds": 437,
+    "inactive_hours": 0.12,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774099201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 7分钟
+[2026-03-21 21:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 21:30:01] [INFO] 当前时间: 2026-03-21 21:30:01
+[2026-03-21 21:30:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 8分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 8分钟",
+  "metrics": {
+    "inactive_seconds": 497,
+    "inactive_hours": 0.14,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774099801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 8分钟
+[2026-03-21 21:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 21:40:01] [INFO] 当前时间: 2026-03-21 21:40:01
+[2026-03-21 21:40:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 18分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 18分钟",
+  "metrics": {
+    "inactive_seconds": 1097,
+    "inactive_hours": 0.3,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774100401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 18分钟
+[2026-03-21 21:50:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 21:50:01] [INFO] 当前时间: 2026-03-21 21:50:01
+[2026-03-21 21:50:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 28分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 28分钟",
+  "metrics": {
+    "inactive_seconds": 1697,
+    "inactive_hours": 0.47,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774101001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 28分钟
+[2026-03-21 22:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 22:00:01] [INFO] 当前时间: 2026-03-21 22:00:01
+[2026-03-21 22:00:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 38分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 38分钟",
+  "metrics": {
+    "inactive_seconds": 2297,
+    "inactive_hours": 0.64,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774101601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 38分钟
+[2026-03-21 22:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 22:10:01] [INFO] 当前时间: 2026-03-21 22:10:01
+[2026-03-21 22:10:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 48分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 48分钟",
+  "metrics": {
+    "inactive_seconds": 2897,
+    "inactive_hours": 0.8,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774102201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 48分钟
+[2026-03-21 22:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 22:20:01] [INFO] 当前时间: 2026-03-21 22:20:01
+[2026-03-21 22:20:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 58分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 58分钟",
+  "metrics": {
+    "inactive_seconds": 3497,
+    "inactive_hours": 0.97,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774102801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 58分钟
+[2026-03-21 22:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 22:30:01] [INFO] 当前时间: 2026-03-21 22:30:01
+[2026-03-21 22:30:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 68分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 68分钟",
+  "metrics": {
+    "inactive_seconds": 4097,
+    "inactive_hours": 1.14,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774103401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 68分钟
+[2026-03-21 22:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 22:40:01] [INFO] 当前时间: 2026-03-21 22:40:01
+[2026-03-21 22:40:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 78分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 78分钟",
+  "metrics": {
+    "inactive_seconds": 4697,
+    "inactive_hours": 1.3,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774104001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 78分钟
+[2026-03-21 22:50:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 22:50:01] [INFO] 当前时间: 2026-03-21 22:50:01
+[2026-03-21 22:50:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 88分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 88分钟",
+  "metrics": {
+    "inactive_seconds": 5297,
+    "inactive_hours": 1.47,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774104601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 88分钟
+[2026-03-21 23:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 23:00:01] [INFO] 当前时间: 2026-03-21 23:00:01
+[2026-03-21 23:00:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 98分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 98分钟",
+  "metrics": {
+    "inactive_seconds": 5897,
+    "inactive_hours": 1.64,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774105201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 98分钟
+[2026-03-21 23:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 23:10:01] [INFO] 当前时间: 2026-03-21 23:10:01
+[2026-03-21 23:10:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 108分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 108分钟",
+  "metrics": {
+    "inactive_seconds": 6497,
+    "inactive_hours": 1.8,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774105801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 108分钟
+[2026-03-21 23:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 23:20:01] [INFO] 当前时间: 2026-03-21 23:20:01
+[2026-03-21 23:20:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 118分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 118分钟",
+  "metrics": {
+    "inactive_seconds": 7097,
+    "inactive_hours": 1.97,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774106401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 118分钟
+[2026-03-21 23:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 23:30:01] [INFO] 当前时间: 2026-03-21 23:30:01
+[2026-03-21 23:30:01] [INFO] 不执行补位: 距离上次补位仅7分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅7分钟",
+  "metrics": {
+    "inactive_seconds": 7697,
+    "inactive_hours": 2.14,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 7
+  },
+  "timestamp": 1774107001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅7分钟
+[2026-03-21 23:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 23:40:01] [INFO] 当前时间: 2026-03-21 23:40:01
+[2026-03-21 23:40:01] [INFO] 不执行补位: 距离上次补位仅17分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅17分钟",
+  "metrics": {
+    "inactive_seconds": 8297,
+    "inactive_hours": 2.3,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 17
+  },
+  "timestamp": 1774107601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅17分钟
+[2026-03-21 23:50:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-21 23:50:01] [INFO] 当前时间: 2026-03-21 23:50:01
+[2026-03-21 23:50:01] [INFO] 不执行补位: 距离上次补位仅27分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅27分钟",
+  "metrics": {
+    "inactive_seconds": 8897,
+    "inactive_hours": 2.47,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 27
+  },
+  "timestamp": 1774108201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅27分钟
+[2026-03-22 00:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 00:00:01] [INFO] 当前时间: 2026-03-22 00:00:01
+[2026-03-22 00:00:01] [INFO] 不执行补位: 距离上次补位仅37分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅37分钟",
+  "metrics": {
+    "inactive_seconds": 9497,
+    "inactive_hours": 2.64,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 37
+  },
+  "timestamp": 1774108801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅37分钟
+[2026-03-22 00:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 00:10:01] [INFO] 当前时间: 2026-03-22 00:10:01
+[2026-03-22 00:10:01] [INFO] 不执行补位: 距离上次补位仅47分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅47分钟",
+  "metrics": {
+    "inactive_seconds": 10097,
+    "inactive_hours": 2.8,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 47
+  },
+  "timestamp": 1774109401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅47分钟

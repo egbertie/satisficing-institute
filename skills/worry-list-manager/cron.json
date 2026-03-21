@@ -1,10 +1,28 @@
 {
   "jobs": [
     {
-      "name": "worry_list_manager_cron",
-      "schedule": "0 9 * * *",
-      "command": "cd /root/.openclaw/workspace/skills/worry-list-manager \u0026\u0026 echo 'running'",
-      "description": "worry-list-manager daily run"
+      "name": "worry_list_morning_push",
+      "schedule": "7 9 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/worry-list-manager && python3 scripts/worry_runner.py push",
+      "description": "每日09:07推送担忧清单简报"
+    },
+    {
+      "name": "worry_list_system_scan",
+      "schedule": "0 */4 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/worry-list-manager && python3 scripts/worry_runner.py scan",
+      "description": "每4小时扫描系统状态"
+    },
+    {
+      "name": "worry_list_daily_report",
+      "schedule": "53 23 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/worry-list-manager && python3 scripts/worry_runner.py report",
+      "description": "每日23:53生成担忧日报"
+    },
+    {
+      "name": "worry_list_weekly_review",
+      "schedule": "37 22 * * 0",
+      "command": "cd /root/.openclaw/workspace/skills/worry-list-manager && python3 scripts/worry_runner.py weekly",
+      "description": "每周日22:37生成周回顾"
     }
   ]
 }

@@ -1,469 +1,493 @@
----
-name: honesty-tagging-protocol
-version: 2.0.0
-description: |
-  诚实性标注协议 - 根治"幻觉"和"虚假忙碌"：
-  1. 全局考虑：覆盖人/事/物/环境/外部集成/边界情况
-  2. 系统考虑：标注→验证→奖惩→进化完整闭环
-  3. 迭代机制：PDCA循环，版本历史，反馈收集
-  4. Skill化：标准SKILL.md格式，可安装可调用
-  5. 自动化：自动检测+cron审计+报告生成
-  6. 认知谦逊：标注来源/置信度/局限(S6增强)
-  7. 对抗验证：反方观点/失效场景分析(S7增强)
-author: Satisficing Institute
-tags:
-  - honesty
-  - tagging
-  - epistemic
-  - trust
-requires:
-  - model: "kimi-coding/k2p5"
-  - local_tools: ["python3"]
----
+# Honesty Tagging Protocol Skill
 
-# 诚实性标注协议 Skill V2.0.0
+## Overview
 
-## S1: 全局考虑 (Global Coverage)
+**Standard**: 5/7 (Production-Ready)
 
-### 1.1 人 - 信任分体系
+诚实性标注协议 - 根治AI"幻觉"和"虚假忙碌"：
+强制认知状态标签，建立可信度体系，确保每句话都有诚实性标注。
 
-| 信任等级 | 分数范围 | 权限 | 边界情况 |
-|----------|----------|------|----------|
-| Apprentice | 0-30 | 每步需确认 | 人工复核所有输出 |
-| Journeyman | 31-70 | 子任务自主 | 关键决策需确认 |
+## Standards Compliance
+
+| Standard | Status | Description |
+|----------|--------|-------------|
+| S1 | ✅ | 输入待标注内容/标注场景/置信度要求 |
+| S2 | ✅ | 诚实标注（来源标注→置信度→局限说明→对抗验证） |
+| S3 | ✅ | 输出标注后内容+诚实标签+验证建议 |
+| S4 | ✅ | 可手动触发或自动检测关键声明 |
+| S5 | ✅ | 标注准确性验证（抽检机制） |
+| S6 | ✅ | 局限标注（无法识别所有虚假声明） |
+| S7 | ✅ | 对抗测试（故意虚假信息测试发现率） |
+
+## Installation
+
+无需安装，Python 3.8+ 内置依赖。
+
+```bash
+# 验证运行环境
+python3 scripts/honesty_runner.py status
+```
+
+## Usage
+
+### 手动执行
+
+```bash
+# 查看当前状态
+python3 scripts/honesty_runner.py status
+
+# 标注内容
+python3 scripts/honesty_runner.py tag "市场规模达1000亿" KNOWN "工信部2025年报"
+
+# 自动检测并标注
+python3 scripts/honesty_runner.py auto "预计明年增长25%"
+
+# 抽检验证
+python3 scripts/honesty_runner.py validate
+
+# 运行对抗测试
+python3 scripts/honesty_runner.py adversarial-test
+
+# 生成局限说明
+python3 scripts/honesty_runner.py limitations general
+
+# 生成完整报告
+python3 scripts/honesty_runner.py report
+```
+
+### 自动执行
+
+通过 cron.json 配置定时任务：
+- 每日 18:23 生成诚实性审计报告
+- 每 6 小时抽检验证
+- 每周日凌晨对抗测试
+
+```bash
+# 手动触发定时任务
+python3 scripts/honesty_runner.py report
+```
+
+## Input (S1)
+
+### 待标注内容
+
+```bash
+python3 scripts/honesty_runner.py tag [content] [tag_type] [source]
+```
+
+- `content`: 待标注的文本内容
+- `tag_type`: 标签类型 (KNOWN/INFERRED/UNKNOWN/CONTRADICTORY/AUTO)
+- `source`: 信息来源（可选）
+
+### 标注场景
+
+| 场景 | 说明 | 默认置信度要求 |
+|------|------|----------------|
+| general | 通用场景 | ≥90% |
+| technical | 技术文档 | ≥95% |
+| news | 新闻报道 | ≥85% |
+| prediction | 预测估计 | ≥70% |
+
+### 置信度要求
+
+配置在 `config/tags.json`:
+
+```json
+{
+  "validation_rules": {
+    "known_threshold": 90,
+    "sample_rate": 0.1,
+    "manual_review_threshold": 85
+  }
+}
+```
+
+## Processing (S2)
+
+### 诚实标注流程
+
+```
+输入内容 → 自动检测 → 标签分配 → 来源标注 → 置信度评估 → 局限说明 → 对抗验证
+```
+
+### 四级标签体系
+
+**[KNOWN] - 已知且验证**
+- 条件: 有确凿证据，多源验证
+- 置信度: ≥90%
+- 必须: 提供来源
+- 颜色: 🟢
+- 信任分: +5
+
+**[INFERRED] - 合理推断**
+- 条件: 基于已知，逻辑成立
+- 置信度: 60-89%
+- 必须: 提供推理链条
+- 颜色: 🟡
+- 信任分: +3
+
+**[UNKNOWN] - 明确未知**
+- 条件: 查不到，不假装知道
+- 置信度: <60%
+- 必须: 明确承认未知
+- 颜色: 🔴
+- 信任分: +2（主动承认）
+
+**[CONTRADICTORY] - 证据矛盾**
+- 条件: 信息冲突，待判断
+- 置信度: 不确定
+- 必须: 列出所有冲突来源
+- 颜色: ⚠️
+- 信任分: +6（发现矛盾）
+
+### 自动检测规则
+
+```yaml
+contradiction_markers: ["但是", "不过", "然而", "相反", "质疑"]
+uncertainty_markers: ["不确定", "不知道", "不清楚", "可能", "也许"]
+estimate_markers: ["预计", "估计", "推测", "推断", "预测"]
+number_patterns: ["数值声明", "百分比", "年份", "大数字"]
+```
+
+### 信任分体系
+
+| 等级 | 分数 | 权限 | 升级要求 |
+|------|------|------|----------|
+| Apprentice | 0-30 | 每步需确认 | 人工复核 |
+| Journeyman | 31-70 | 子任务自主 | 关键决策确认 |
 | Master | 71-90 | 项目自主 | 异常时降级 |
 | Partner | 91-100 | 战略自主 | 全权限 |
 
-### 1.2 事 - 四级标注体系
+## Output (S3)
 
-```yaml
-epistemic_tags:
-  KNOWN:
-    label: "[KNOWN]"
-    description: "已知且验证 - 有确凿证据"
-    evidence_required: true
-    source_required: true
-    confidence: "高(≥90%)"
-    color: "🟢"
-    external_validation: "建议交叉验证"
-    
-  INFERRED:
-    label: "[INFERRED]"
-    description: "合理推断 - 基于已知，逻辑成立"
-    evidence_required: false
-    logic_chain_required: true
-    confidence: "中(60-89%)"
-    color: "🟡"
-    external_validation: "需标注推理链条"
-    
-  UNKNOWN:
-    label: "[UNKNOWN]"
-    description: "明确未知 - 查不到，不假装知道"
-    evidence_required: false
-    admission_required: true
-    confidence: "低(<60%)"
-    color: "🔴"
-    external_validation: "标注待查信息"
-    
-  CONTRADICTORY:
-    label: "[CONTRADICTORY]"
-    description: "证据矛盾 - 信息冲突，待判断"
-    evidence_required: true
-    conflict_documentation: true
-    confidence: "不确定"
-    color: "⚠️"
-    external_validation: "列出所有冲突来源"
+### 标准输出格式
+
+```json
+{
+  "tagged_content": "市场规模达1000亿（[KNOWN]｜置信度：高(≥90%)｜来源：工信部2025年报｜时间：2026-03-21）",
+  "honesty_label": {
+    "type": "KNOWN",
+    "label": "[KNOWN]",
+    "color": "🟢",
+    "confidence": "高(≥90%)"
+  },
+  "metadata": {
+    "source": "工信部2025年报",
+    "timestamp": "2026-03-21",
+    "limitations": ["数据截止至检查时间", "方法局限性说明"]
+  },
+  "verification_suggestions": [
+    "建议使用 web_search 交叉验证来源",
+    "核实数据时效性"
+  ]
+}
 ```
 
-### 1.3 物 - 数据资产标注
+### 标注模板
 
-| 数据类型 | 标注要求 | 验证方式 | 边界情况 |
-|----------|----------|----------|----------|
-| 统计数字 | 来源+时间+置信度 | web_search验证 | 过时数据标注 |
-| 引用内容 | 原文链接+段落 | web_fetch核对 | 断链标注 |
-| 结论判断 | 推理链条 | 逻辑验证 | 条件变化时重标 |
-| 预测估计 | 模型+假设 | 历史准确率 | 范围估计 |
-
-### 1.4 环境 - 上下文依赖
-
-| 环境因素 | 标注调整 | 验证策略 |
-|----------|----------|----------|
-| 时效性变化 | 更新时间戳 | 定期检查 |
-| 来源失效 | 标注断链 | 寻找备用源 |
-| 新证据出现 | 升级/降级标签 | 自动重评 |
-| 领域差异 | 领域特异性标注 | 专家验证 |
-
-### 1.5 外部集成
-
-```yaml
-integrations:
-  web_search:
-    type: 验证工具
-    trigger: KNOWN标签自动验证
-    action: 交叉验证来源
-  
-  web_fetch:
-    type: 验证工具
-    trigger: 引用内容核查
-    action: 获取原文对比
-  
-  quality_gate_system:
-    type: 质量审计
-    trigger: 输出提交
-    action: 检查标注完整性
-  
-  role_federation:
-    type: 角色协同
-    trigger: 高影响输出
-    action: Auditor复核标注
-  
-  trust_scoring_system:
-    type: 信任分管理
-    trigger: 验证完成
-    action: 更新信任分
+**KNOWN 示例:**
+```
+市场规模达1000亿（[KNOWN]｜置信度：95%｜来源：工信部2025年报｜时间：2026-01）
 ```
 
-### 1.6 边界情况处理
-
-| 边界场景 | 检测 | 处理 |
-|----------|------|------|
-| 无法标注 | 内容模糊 | 标记为UNKNOWN |
-| 多重标签 | 混合信息 | 分句标注 |
-| 标签冲突 | 自相矛盾 | 拆分为CONTRADICTORY |
-| 验证失败 | 来源不可达 | 降级为INFERRED/UNKNOWN |
-| 批量标注 | 大量内容 | 抽样检查+置信度加权 |
-
----
-
-## S2: 系统考虑 (Systematic)
-
-### 2.1 诚实性闭环
-
+**INFERRED 示例:**
 ```
-内容生成 → 自动标注 → 质量审计 → 验证检查 → {通过?}
-                                           ├─ 是 → 输出交付
-                                           └─ 否 → 修正重标 → 再审计
-                ↑                                                    ↓
-                └──────────── 信任分更新 ← 反馈评估 ← 用户反馈 ───────────┘
+预计增长率25%（[INFERRED]｜置信度：75%｜基于Q1-Q3趋势推断｜时间：2026-03）
+推理链条: Q1增长20% → Q2增长22% → Q3增长23% → 推断Q4约25%
 ```
 
-### 2.2 输入处理
-
-| 输入类型 | 处理规则 | 输出标注 |
-|----------|----------|----------|
-| 原始内容 | 逐句分析 | 分句标注 |
-| 已有标签 | 验证一致性 | 修正建议 |
-| 批量内容 | 抽样+分层 | 代表性标注 |
-| 外部引用 | 溯源验证 | 链接标注 |
-
-### 2.3 标注引擎
-
-```yaml
-annotation_engine:
-  rule_based:
-    - 数字类 → 强制KNOWN+来源
-    - "预计/可能" → 强制INFERRED
-    - "不知道/不确定" → 强制UNKNOWN
-    - 矛盾表述 → 强制CONTRADICTORY
-  
-  ml_assisted:
-    - 置信度预测
-    - 来源推荐
-    - 标签建议
-  
-  human_review:
-    - 高影响内容复核
-    - 争议标签仲裁
-    - 新模式学习
+**UNKNOWN 示例:**
+```
+竞争对手内部策略（[UNKNOWN]｜置信度：低(<60%)｜来源：非公开信息无法获取｜时间：2026-03）
+待查: 需寻找行业报告或内部人士访谈
 ```
 
-### 2.4 输出规范
-
-**标准标注格式：**
+**CONTRADICTORY 示例:**
 ```
-[结论内容]（[标签]｜置信度：[X]%｜来源：[source]｜时间：[date]）
-```
-
-**示例：**
-- 市场规模达1000亿（[KNOWN]｜置信度：95%｜来源：工信部2025年报｜时间：2026-01）
-- 预计增长率25%（[INFERRED]｜置信度：75%｜基于Q1-Q3趋势推断｜时间：2026-03）
-- 竞争对手内部策略（[UNKNOWN]｜无法获取非公开信息）
-
-### 2.5 反馈闭环
-
-| 反馈类型 | 来源 | 处理 |
-|----------|------|------|
-| 验证结果 | 自动检查 | 更新标签+信任分 |
-| 用户纠正 | 人工反馈 | 学习案例+规则更新 |
-| 审计发现 | Auditor | 批量修正+培训 |
-| 时效变化 | 定时检查 | 标签重评+更新 |
-
-### 2.6 故障处理
-
-| 故障场景 | 检测 | 响应 |
-|----------|------|------|
-| 标注遗漏 | 审计扫描 | 自动补标+警告 |
-| 格式错误 | 正则检查 | 自动修正+日志 |
-| 验证超时 | 超时检测 | 降级为INFERRED |
-| 规则冲突 | 一致性检查 | 人工仲裁 |
-
----
-
-## S3: 迭代机制 (Iterative)
-
-### 3.1 PDCA循环
-
-```yaml
-Plan(计划):
-  - 设定标注准确率目标(≥95%)
-  - 规划验证覆盖范围
-  - 制定信任分升级路径
-
-Do(执行):
-  - 执行自动标注
-  - 进行人工抽检
-  - 收集验证数据
-
-Check(检查):
-  - 计算标注准确率
-  - 分析错误模式
-  - 评估信任分变化
-
-Act(改进):
-  - 优化标注规则
-  - 更新验证策略
-  - 调整信任分权重
+市场增长率（[CONTRADICTORY]｜置信度：不确定｜来源冲突｜时间：2026-03）
+冲突来源A: 艾瑞咨询报告 - 增长30%
+冲突来源B: 易观分析报告 - 增长15%
 ```
 
-### 3.2 版本历史
+## Automation (S4)
 
-| 版本 | 日期 | 变更说明 | 作者 |
-|------|------|----------|------|
-| v2.0.0 | 2026-03-21 | 5+2标准全覆盖，系统重构 | 满意解研究所 |
-| v1.1.0 | 2026-03-19 | 增加信任分奖惩机制 | 满意解研究所 |
-| v1.0.0 | 2026-03-20 | 四级标签体系初始版本 | 满意解研究所 |
+### 关键声明自动检测
 
-### 3.3 反馈收集
-
-| 反馈源 | 频率 | 用途 |
-|--------|------|------|
-| 自动验证 | 实时 | 标签准确性 |
-| 人工抽检 | 每日10% | 质量监控 |
-| 用户反馈 | 实时 | 错误修正 |
-| 审计报告 | 每周 | 系统改进 |
-
-### 3.4 优化触发
-
-| 指标 | 阈值 | 动作 |
-|------|------|------|
-| 标注准确率 | <95% | 规则优化 |
-| 遗漏率 | >5% | 引擎升级 |
-| 验证失败率 | >10% | 来源更新 |
-| 用户投诉 | >2/周 | 专项复盘 |
-
----
-
-## S4: Skill化 (Skill-ified)
-
-### 4.1 目录结构
-
+触发关键词:
 ```
-honesty-tagging-protocol/
-├── SKILL.md                    # 本文件
-├── _meta.json                  # 元数据
-├── scripts/
-│   ├── honesty_runner.py       # 主运行脚本
-│   ├── tagger.py               # 自动标注器
-│   ├── validator.py            # 验证引擎
-│   ├── trust_scorer.py         # 信任分管理
-│   ├── auditor.py              # 审计检查
-│   └── reporter.py             # 报告生成
-├── config/
-│   ├── tags.yaml               # 标签定义
-│   ├── scoring_rules.yaml      # 评分规则
-│   └── templates.yaml          # 标注模板
-├── data/
-│   ├── trust_scores.json       # 信任分数据
-│   └── annotation_history/     # 标注历史
-└── logs/
-    └── honesty.log             # 运行日志
+["据统计", "研究表明", "数据显示", "预计", "可能", "也许", "不确定", "但是...不过"]
 ```
 
-### 4.2 标准化接口
+### 定时配置
 
-```python
-class HonestyTaggingProtocol:
-    
-    def tag_content(self, content: str) -> TaggedContent:
-        """自动标注内容"""
-        pass
-    
-    def validate_tags(self, content: str) -> ValidationResult:
-        """验证标注准确性"""
-        pass
-    
-    def update_trust_score(self, entity: str, delta: int) -> None:
-        """更新信任分"""
-        pass
-    
-    def audit_content(self, content_id: str) -> AuditResult:
-        """审计内容标注"""
-        pass
-    
-    def generate_report(self, period: str) -> Report:
-        """生成诚实性报告"""
-        pass
-```
-
-### 4.3 调用方式
-
-```bash
-# 安装Skill
-openclaw skill install honesty-tagging-protocol
-
-# 标注内容
-openclaw skill run honesty-tagging-protocol tag --content "市场规模1000亿"
-
-# 验证标注
-openclaw skill run honesty-tagging-protocol validate --file report.md
-
-# 查看信任分
-openclaw skill run honesty-tagging-protocol score
-
-# 生成报告
-openclaw skill run honesty-tagging-protocol report --period daily
-```
-
----
-
-## S5: 自动化 (Automation)
-
-### 5.1 Cron定时任务
-
+`cron.json`:
 ```json
 {
   "jobs": [
     {
       "name": "honesty-daily-audit",
-      "schedule": "29 18 * * *",
-      "command": "cd /root/.openclaw/workspace/skills/honesty-tagging-protocol && python3 scripts/honesty_runner.py audit",
-      "description": "每日18:29自动审计标注质量"
+      "schedule": "23 18 * * *",
+      "command": "python3 scripts/honesty_runner.py report"
     },
     {
-      "name": "honesty-trust-update",
+      "name": "honesty-validation",
       "schedule": "0 */6 * * *",
-      "command": "cd /root/.openclaw/workspace/skills/honesty-tagging-protocol && python3 scripts/honesty_runner.py update-trust",
-      "description": "每6小时更新信任分"
+      "command": "python3 scripts/honesty_runner.py validate"
     },
     {
-      "name": "honesty-weekly-report",
-      "schedule": "53 22 * * 0",
-      "command": "cd /root/.openclaw/workspace/skills/honesty-tagging-protocol && python3 scripts/honesty_runner.py weekly",
-      "description": "每周日22:53生成周报告"
+      "name": "honesty-adversarial-test",
+      "schedule": "0 2 * * 0",
+      "command": "python3 scripts/honesty_runner.py adversarial-test"
     }
   ]
 }
 ```
 
-### 5.2 自动化脚本
+### 自动检测模式
 
-| 脚本 | 功能 | 触发 |
-|------|------|------|
-| `honesty_runner.py` | 主控脚本 | cron/手动 |
-| `tagger.py` | 自动标注 | 内容生成时 |
-| `validator.py` | 自动验证 | 标注完成时 |
-| `trust_scorer.py` | 信任分计算 | 验证完成时 |
-| `auditor.py` | 批量审计 | 定时触发 |
-| `reporter.py` | 报告生成 | 定时触发 |
-
-### 5.3 自动监控
-
-| 监控项 | 阈值 | 告警 |
-|--------|------|------|
-| 未标注内容 | >0 | 立即告警 |
-| 准确率 | <95% | 日报高亮 |
-| 信任分骤降 | >10分 | 紧急通知 |
-| 验证失败 | >10% | 技术告警 |
-
----
-
-## S6: 认知谦逊 (Epistemic Humility)
-
-### 6.1 来源标注规范
-
-| 来源类型 | 标注格式 | 示例 |
-|----------|----------|------|
-| 官方数据 | 部门+年份 | 工信部2025年报 |
-| 研究报告 | 机构+标题 | 艾瑞咨询《AI市场研究》 |
-| 学术论文 | 作者+年份 | Smith et al. 2024 |
-| 新闻来源 | 媒体+日期 | 财新网2026-03-15 |
-| 内部数据 | 系统+时间 | 内部CRM 2026-Q1 |
-| 个人经验 | 标注局限 | 基于有限样本 |
-
-### 6.2 置信度标准
-
-| 置信度 | 条件 | 标注方式 |
-|--------|------|----------|
-| ≥95% | 多源验证+时效内 | 置信度：95% |
-| 80-94% | 可靠来源+逻辑成立 | 置信度：85% |
-| 60-79% | 单一来源/部分推断 | 置信度：70% |
-| <60% | 推测/不完整信息 | 置信度：50% |
-
-### 6.3 局限性声明
-
-```yaml
-limitation_statements:
-  data_scope: "本分析基于公开数据，内部数据可能改变结论"
-  time_limit: "数据截止至[日期]，后续变化未纳入"
-  method_limit: "采用[方法]，其他方法可能得出不同结论"
-  sample_limit: "样本来自[范围]，外推需谨慎"
-  knowledge_limit: "领域知识截止至[日期]，新进展未包含"
+```bash
+# 自动检测内容中的关键声明并标注
+python3 scripts/honesty_runner.py auto "待检测内容"
 ```
 
----
+返回:
+```json
+{
+  "action": "tagged",
+  "key_claims_detected": ["预计", "数值声明"],
+  "output": { /* 标注结果 */ }
+}
+```
 
-## S7: 对抗验证 (Adversarial Validation)
+## Validation (S5)
 
-### 7.1 反方观点生成
+### 抽检机制
 
-| 论点类型 | 生成方式 | 处理策略 |
-|----------|----------|----------|
-| 数据来源质疑 | 来源可靠性评估 | 寻找更多佐证 |
-| 方法论质疑 | 替代方法对比 | 多方法交叉验证 |
-| 结论反向论证 | 假设相反结论 | 证伪测试 |
-| 边界条件测试 | 极端场景推演 | 适用范围限定 |
+```bash
+python3 scripts/honesty_runner.py validate [sample_rate]
+```
 
-### 7.2 失效场景分析
+验证内容:
+1. **标签有效性**: 标签是否在定义范围内
+2. **置信度匹配**: 标签类型与置信度是否一致
+3. **来源标注**: KNOWN标签是否有来源
+4. **格式规范**: 是否符合输出格式要求
 
-| 失效类型 | 触发条件 | 缓解措施 |
-|----------|----------|----------|
-| 数据过时 | 时间敏感性 | 标注时效+定期更新 |
-| 来源偏见 | 来源立场 | 多源交叉+对立源 |
-| 推理错误 | 逻辑漏洞 | 第三方审计 |
-| 黑天鹅事件 | 极端情况 | 风险声明 |
+### 验证报告
 
-### 7.3 替代方案
+```json
+{
+  "validation_time": "2026-03-21T20:00:00+08:00",
+  "sample_size": 10,
+  "passed": 9,
+  "failed": 1,
+  "accuracy": 90.0,
+  "details": [
+    {
+      "annotation_id": "...",
+      "status": "PASSED",
+      "checks": [
+        {"check": "标签有效性", "status": "PASS"},
+        {"check": "置信度匹配", "status": "PASS"},
+        {"check": "来源标注", "status": "PASS"}
+      ]
+    }
+  ]
+}
+```
 
-对于每个INFERRED/KNOWN结论，列出：
-1. 替代解释
-2. 其他数据来源
-3. 不同方法论
-4. 相反观点及其依据
+### 准确率目标
 
----
+- 目标: ≥95%
+- 警告: <90%
+- 严重: <80%
 
-## 附录：命令参考
+## Limitations (S6)
 
-| 命令 | 功能 | 示例 |
-|------|------|------|
-| `tag [content]` | 标注内容 | `tag "市场规模1000亿"` |
-| `validate [file]` | 验证标注 | `validate report.md` |
-| `score` | 查看信任分 | `score` |
-| `audit` | 审计内容 | `audit` |
-| `report [period]` | 生成报告 | `report daily` |
+### 系统局限
 
----
+```bash
+python3 scripts/honesty_runner.py limitations [scope]
+```
 
-*版本: v2.0.0*  
-*更新日期: 2026-03-21*  
-*作者: 满意解研究所*
+scope 选项:
+- `general`: 通用局限
+- `technical`: 技术局限
+- `data`: 数据局限
+- `method`: 方法论局限
+
+### 局限说明示例
+
+```json
+{
+  "scope": "general",
+  "statements": [
+    "本分析基于公开数据，内部数据可能改变结论",
+    "数据截止至检查时间，后续变化未纳入",
+    "⚠️ 诚实性标注系统无法识别所有虚假声明，特别是：",
+    "  - 精心构造的虚假信息",
+    "  - 来源伪装成可信的虚假信息",
+    "  - 超出当前知识截止日期的信息",
+    "  - 主观判断性质的虚假陈述"
+  ],
+  "disclaimer": "本标注结果仅供参考，重要决策请人工复核"
+}
+```
+
+### 无法识别的虚假声明类型
+
+1. **精心构造型**: 虚假信息伪装成可信来源
+2. **来源伪装型**: 伪造权威来源
+3. **知识边界型**: 超出训练数据的知识
+4. **主观判断型**: 难以验证的主观陈述
+
+## Adversarial Testing (S7)
+
+### 对抗测试执行
+
+```bash
+python3 scripts/honesty_runner.py adversarial-test
+```
+
+### 测试用例
+
+**虚假信息检测:**
+- 内容: "研究表明每天喝一杯汽油可以延年益寿"
+- 期望标签: CONTRADICTORY
+- 原因: 违反常识
+
+**置信度校准:**
+- 内容: "太阳从东方升起"
+- 期望置信度: 100%
+- 期望标签: KNOWN
+
+### 测试结果
+
+```json
+{
+  "test_time": "2026-03-21T20:00:00+08:00",
+  "total_tests": 6,
+  "passed": 5,
+  "failed": 1,
+  "pass_rate": 83.3,
+  "assessment": "GOOD",
+  "suites": [
+    {
+      "suite_name": "虚假信息检测",
+      "suite_pass_rate": 80.0,
+      "results": [ /* 详细结果 */ ]
+    }
+  ]
+}
+```
+
+### 评估标准
+
+- **EXCELLENT**: ≥90% 通过率
+- **GOOD**: 75-89% 通过率
+- **NEEDS_IMPROVEMENT**: <75% 通过率
+
+## File Structure
+
+```
+skills/honesty-tagging-protocol/
+├── SKILL.md                      # 本文件
+├── _meta.json                    # 元数据
+├── cron.json                     # 定时任务配置
+├── config/
+│   └── tags.json                # 标签和评分规则配置
+├── scripts/
+│   ├── honesty_runner.py        # 主执行脚本
+│   └── honesty.py               # 兼容旧版脚本
+├── data/
+│   ├── trust_scores.json        # 信任分数据
+│   └── annotation_history/      # 标注历史
+├── logs/
+│   └── honesty.log              # 运行日志
+└── reports/
+    └── honesty-report-YYYYMMDD.json  # 每日报告
+```
+
+## Examples
+
+### 场景1: 日常标注
+
+```bash
+# 标注已知事实
+python3 scripts/honesty_runner.py tag "中国GDP增长5.2%" KNOWN "国家统计局2025年报"
+
+# 输出: 中国GDP增长5.2%（[KNOWN]｜置信度：高(≥90%)｜来源：国家统计局2025年报｜时间：2026-03）
+```
+
+### 场景2: 自动检测
+
+```bash
+# 自动检测内容
+python3 scripts/honesty_runner.py auto "据艾瑞咨询报告，预计明年AI市场将增长30%"
+
+# 检测到: 关键声明 ["据...报告", "预计", "数值声明"]
+# 自动标注: INFERRED（因包含"预计"）
+```
+
+### 场景3: 验证检查
+
+```bash
+# 抽检最近标注
+python3 scripts/honesty_runner.py validate
+
+# 输出: 准确率 92% (11/12 通过)
+```
+
+### 场景4: 对抗测试
+
+```bash
+# 运行对抗测试
+python3 scripts/honesty_runner.py adversarial-test
+
+# 评估系统对虚假信息的识别能力
+```
+
+## Troubleshooting
+
+### 问题: 标注执行失败
+
+```bash
+# 检查配置
+python3 scripts/honesty_runner.py status
+
+# 验证配置文件
+python3 -c "import json; json.load(open('config/tags.json'))"
+```
+
+### 问题: 验证通过率低
+
+```bash
+# 查看详细验证结果
+python3 scripts/honesty_runner.py validate 0.5  # 提高抽检比例
+
+# 检查历史标注
+ls -la data/annotation_history/
+```
+
+### 问题: 对抗测试未通过
+
+```bash
+# 查看具体失败用例
+python3 scripts/honesty_runner.py adversarial-test 2>&1 | grep -A5 '"passed": false'
+
+# 更新检测规则
+# 编辑 config/tags.json 中的 adversarial_tests
+```
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.0.0 | 2026-03-21 | 升级至 5-Standard，完整实现 S1-S7 |
+| 1.1.0 | 2026-03-19 | 增加信任分奖惩机制 |
+| 1.0.0 | 2026-03-20 | 四级标签体系初始版本 |
+
+## See Also
+
+- [AGENTS.md](/root/.openclaw/workspace/AGENTS.md) - Agent 工作规范
+- [baseline-checker SKILL](/root/.openclaw/workspace/skills/baseline-checker/SKILL.md) - 基线检查Skill

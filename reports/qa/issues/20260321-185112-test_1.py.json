@@ -1,0 +1,5 @@
+{
+    "target": "/tmp/qa-adversarial-test-602524/test_1.py",
+    "timestamp": "2026-03-21T18:51:12+08:00",
+    "issues": [[0;34m[INFO][0m 执行语法检查...,{"category":"Syntax","severity":"Critical","message":"Python语法错误:   File "/tmp/qa-adversarial-test-602524/test_1.py", line 4","auto_fixable":false}[0;34m[INFO][0m 执行逻辑检查...[0;34m[INFO][0m 执行格式检查...[0;34m[INFO][0m 执行合规检查...]
+}

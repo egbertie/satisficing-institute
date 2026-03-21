@@ -1,13 +1,15 @@
 ---
 name: worry-list-manager
-version: 2.0.0
+version: 2.5.0
 description: |
-  担忧清单管理器 - 从被动响应到主动预警：
-  1. 全局考虑：覆盖人/事/物/环境/外部集成/边界情况
-  2. 系统考虑：收集→评估→预警→行动→复盘完整闭环
-  3. 迭代机制：PDCA循环，版本历史，反馈收集与模型优化
-  4. Skill化：标准SKILL.md格式，可安装可调用
-  5. 自动化：cron定时推送+自动扫描+报告生成
+  担忧清单管理器 - 从被动响应到主动预警（5标准版本）：
+  S1: 输入担忧来源/风险信号/监控范围
+  S2: 担忧管理（收集→评估→分级→预警→行动）
+  S3: 输出担忧报告+应对建议+状态更新
+  S4: cron每日09:07自动执行并推送
+  S5: 担忧评估准确性验证（误报/漏报检查）
+  S6: 局限标注（无法预测黑天鹅事件）
+  S7: 对抗测试（模拟已知风险测试发现能力）
 author: Satisficing Institute
 tags:
   - worry
@@ -16,10 +18,10 @@ tags:
   - automation
 requires:
   - model: "kimi-coding/k2p5"
-  - local_tools: ["python3"]
+  - local_tools: ["python3", "pyyaml"]
 ---
 
-# 担忧清单管理器 Skill V2.0.0
+# 担忧清单管理器 Skill V2.5.0
 
 ## S1: 全局考虑 (Global Coverage)
 
@@ -358,9 +360,9 @@ openclaw skill run worry-list-manager scan
   "jobs": [
     {
       "name": "worry-list-morning-push",
-      "schedule": "17 9 * * *",
+      "schedule": "7 9 * * *",
       "command": "cd /root/.openclaw/workspace/skills/worry-list-manager && python3 scripts/worry_runner.py push",
-      "description": "每日09:17推送担忧清单简报"
+      "description": "每日09:07推送担忧清单简报"
     },
     {
       "name": "worry-list-system-scan",

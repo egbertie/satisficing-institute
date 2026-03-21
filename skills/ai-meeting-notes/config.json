@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "skill_level": 5,
+  "input": {
+    "supported_formats": ["txt", "md", "vtt", "srt", "mp3", "wav", "m4a"],
+    "encoding": "utf-8",
+    "max_file_size": "100MB",
+    "language": "auto",
+    "fallback_encodings": ["gbk", "latin-1"]
+  },
+  "processing": {
+    "extract_attendees": true,
+    "extract_action_items": true,
+    "extract_decisions": true,
+    "extract_deadlines": true,
+    "extract_open_questions": true,
+    "confidence_threshold": 0.7,
+    "max_action_items": 50,
+    "enable_self_check": true,
+    "enable_limitation_detection": true
+  },
+  "output": {
+    "default_format": "markdown",
+    "save_location": "./meeting-notes/",
+    "naming_pattern": "{date}_{topic}.md",
+    "include_raw": true,
+    "include_confidence": true,
+    "include_limitations": true
+  },
+  "automation": {
+    "watch_paths": [
+      "~/Downloads/meetings/",
+      "~/Documents/meeting-notes/",
+      "/shared/meeting-uploads/"
+    ],
+    "file_patterns": ["*.txt", "*.md", "*.vtt", "*.srt"],
+    "auto_process": false,
+    "backup_original": true,
+    "check_interval": 300
+  },
+  "self_check": {
+    "enabled": true,
+    "min_confidence": 0.7,
+    "warn_on_low_confidence": true,
+    "check_items": {
+      "title": {"weight": 0.15, "required": true},
+      "date": {"weight": 0.10, "required": true},
+      "attendees": {"weight": 0.15, "required": false},
+      "summary": {"weight": 0.20, "required": true},
+      "action_items": {"weight": 0.25, "required": false},
+      "owner": {"weight": 0.10, "required": false},
+      "deadline": {"weight": 0.05, "required": false}
+    }
+  },
+  "limitations": {
+    "show_limitations": true,
+    "warn_on_dialect": true,
+    "warn_on_specialized_terms": true,
+    "custom_terms": {},
+    "person_aliases": {}
+  },
+  "adversarial_test": {
+    "enabled": true,
+    "test_categories": ["noise_injection", "format_corruption", "semantic_chaos", "edge_cases"],
+    "min_pass_rate": 0.8
+  }
+}

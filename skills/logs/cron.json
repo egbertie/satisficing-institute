@@ -1,1 +1,0 @@
-{"jobs": [{"name": "logs-daily", "schedule": "20 11 * * *", "command": "cd /root/.openclaw/workspace/skills/logs && python3 scripts/logs-runner.py status"}]}

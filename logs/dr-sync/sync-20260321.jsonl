@@ -1,0 +1,22 @@
+[]
+{"time":"2026-03-21 20:52:37","level":"INFO","message":"使用默认配置"}
+{"time":"2026-03-21 20:52:37","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:37","level":"INFO","message":"S7: 异常场景测试套件"}
+{"time":"2026-03-21 20:52:37","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:43","level":"INFO","message":"使用默认配置"}
+{"time":"2026-03-21 20:52:43","level":"INFO","message":"S1: 验证运行环境..."}
+{"time":"2026-03-21 20:52:43","level":"SUCCESS","message":"工作区目录存在: /root/.openclaw/workspace"}
+{"time":"2026-03-21 20:52:43","level":"SUCCESS","message":"核心文件存在: SOUL.md"}
+{"time":"2026-03-21 20:52:43","level":"SUCCESS","message":"核心文件存在: IDENTITY.md"}
+{"time":"2026-03-21 20:52:43","level":"SUCCESS","message":"核心文件存在: AGENTS.md"}
+{"time":"2026-03-21 20:52:43","level":"SUCCESS","message":"磁盘空间充足: 10871MB"}
+{"time":"2026-03-21 20:52:43","level":"DEBUG","message":"依赖已安装: rsync"}
+{"time":"2026-03-21 20:52:43","level":"DEBUG","message":"依赖已安装: tar"}
+{"time":"2026-03-21 20:52:43","level":"DEBUG","message":"依赖已安装: gzip"}
+{"time":"2026-03-21 20:52:43","level":"DEBUG","message":"依赖已安装: find"}
+{"time":"2026-03-21 20:52:43","level":"DEBUG","message":"依赖已安装: wc"}
+{"time":"2026-03-21 20:52:43","level":"SUCCESS","message":"环境验证通过"}
+{"time":"2026-03-21 20:52:43","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:43","level":"INFO","message":"灾备复刻V3.0同步开始"}
+{"time":"2026-03-21 20:52:43","level":"INFO","message":"版本: 3.0 | 模式: full"}
+{"time":"2026-03-21 20:52:43","level":"INFO","message":"=========================================="}

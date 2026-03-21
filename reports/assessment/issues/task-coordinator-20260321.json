@@ -1,0 +1,16 @@
+{
+    "skill_name": "task-coordinator",
+    "timestamp": "2026-03-21T19:27:59+08:00",
+    "overall_score": 84,
+    "overall_grade": "B",
+    "dimensions": {
+        "compliance": { "score": 69, "grade": "D" },
+        "effectiveness": { "score": 89, "grade": "B+" },
+        "reliability": { "score": 95, "grade": "A+" },
+        "maintainability": { "score": 90, "grade": "A" }
+    },
+    "issues": [
+        {"id":"QA-001","dimension":"compliance","severity":"Medium","message":"符合性得分可优化"}
+    ],
+    "confidence": "高"
+}

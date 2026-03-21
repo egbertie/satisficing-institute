@@ -1,0 +1,62 @@
+{"time":"2026-03-21 20:52:37","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:37","level":"INFO","message":"S7: 异常场景测试套件"}
+{"time":"2026-03-21 20:52:37","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"🛡️ 灾备完整性验证 V2.0"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"时间: Sat Mar 21 08:52:44 PM CST 2026"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"工作区: /root/.openclaw/workspace"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"📋 [L4] 核心身份文件检查"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"----------------------------------------"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"SOUL.md 存在 (8724字节)"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"IDENTITY.md 存在 (3130字节)"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"USER.md 存在 (4501字节)"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"AGENTS.md 存在 (11084字节)"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"BOOTSTRAP.md 存在 (1470字节)"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"🧠 [L6] 动态记忆系统检查"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"----------------------------------------"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"MEMORY.md 存在 (4965字节)"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"今日日志存在 (3680字节)"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"记忆文件总数: 127"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"⚙️  [L2] 自动化配置检查"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"----------------------------------------"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"INFO_LOOP_CRON.md 存在"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"cron-rules.yaml 存在"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"脚本数量: 128"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"备份脚本套件存在 (7个)"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"📚 [L5] 知识资产检查"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"----------------------------------------"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"knowledge/ 目录存在 (42个文件)"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"skill.json 存在且格式正确"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"📖 [L1] 元协议检查"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"----------------------------------------"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"灾备手册V1.1存在 (23484字节)"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"灾备策略文档存在"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"🔀 [Git] 版本控制检查"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"----------------------------------------"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"Git仓库正常"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"当前分支: main"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"最新提交: 1be470f [auto-backup] MEMORY.md backup at 20260321-201709"}
+{"time":"2026-03-21 20:52:44","level":"WARN","message":"有 210 个未提交变更"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"⏱️  [RTO] 恢复时间目标验证"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"----------------------------------------"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"核心文件读取时间: 1ms"}
+{"time":"2026-03-21 20:52:44","level":"SUCCESS","message":"满足RTO目标 (<10000ms)"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"📊 验证结果汇总"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"=========================================="}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"执行时长: 0秒"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"检查通过: 16"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"检查失败: 0"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"错误数: 0"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":"警告数: 1"}
+{"time":"2026-03-21 20:52:44","level":"INFO","message":""}
+{"time":"2026-03-21 20:52:44","level":"WARN","message":"⚠️ 发现 1 个警告，建议处理但非紧急"}

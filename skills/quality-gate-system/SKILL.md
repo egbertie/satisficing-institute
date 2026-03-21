@@ -1,416 +1,983 @@
 ---
 name: quality-gate-system
-version: 2.0.0
+version: 5.0.0
 description: |
-  质量门禁系统 - 研究/内容/代码的自动化质量检查：
-  1. 全局考虑：覆盖人/事/物/环境/外部集成/边界情况
-  2. 系统考虑：检查→评分→决策→反馈完整闭环
-  3. 迭代机制：PDCA循环，版本历史，反馈收集
-  4. Skill化：标准SKILL.md格式，可安装可调用
-  5. 自动化：全自动检查+cron监控+自动报告
-  6. 认知谦逊：检查结果置信度/局限标注(S6增强)
-  7. 对抗验证：假阳性/假阴性分析(S7增强)
+  质量门禁系统 Skill V5 - 完整的CI/CD质量门禁检查系统
+  覆盖：代码/文档/配置的质量检查，支持自动化门禁判定
 author: Satisficing Institute
 tags:
   - quality
-  5. automation
+  - ci-cd
+  - gate
+  - automation
+  - testing
 requires:
   - model: "kimi-coding/k2p5"
-  - local_tools: ["python3"]
+  - local_tools: ["python3", "bash", "git"]
 ---
 
-# 质量门禁系统 Skill V2.0.0
+# 质量门禁系统 Skill V5.0.0
 
-## S1: 全局考虑 (Global Coverage)
+## 概述
 
-### 1.1 人 - 质量干系人
+质量门禁系统是一个完整的CI/CD质量检查框架，提供自动化的质量门禁判定能力。
 
-| 干系人 | 质量关注点 | 权限 | 边界情况 |
-|--------|------------|------|----------|
-| Director | 战略质量、合规 | 最高决策 | 豁免权 |
-| Captain | 任务质量、效率 | 质量通过权 | 降级放行 |
-| Auditor | 检查执行、标准 | 否决权 | 强制阻断 |
-| Specialist | 专业质量 | 自检权 | 申诉权 |
-| 外部审计 | 独立验证 | 查阅权 | 报告权 |
+**核心能力：**
+- 多维度质量检查（S2）
+- 自动化门禁判定（S1/S3）
+- CI/CD无缝集成（S4）
+- 标准一致性验证（S5）
+- 认知谦逊与局限标注（S6）
+- 对抗测试验证（S7）
 
-### 1.2 事 - 五维质量检查
+---
 
-| 维度 | 检查内容 | 权重 | 边界情况 |
-|------|----------|------|----------|
-| **真实性** | 数据分级标注、来源可验证 | 25% | 无法验证时标记 |
-| **溯源性** | 引用完整性、链接有效性 | 25% | 断链标记+存档 |
-| **逻辑性** | 因果推断正确性、一致性 | 20% | 矛盾标记 |
-| **完整性** | 要素全覆盖、无遗漏 | 15% | 缺失清单 |
-| **可复现** | 方法论详细程度 | 15% | 步骤缺失标记 |
+## S1: 输入标准化
 
-### 1.3 物 - 内容类型适配
+### 1.1 被测对象定义
 
-| 内容类型 | 检查重点 | 通过阈值 | 特殊处理 |
-|----------|----------|----------|----------|
-| 研究报告 | 溯源性+逻辑性 | 80分 | 引用验证 |
-| 营销文案 | 真实性+完整性 | 75分 | 合规检查 |
-| 代码提交 | 可复现+逻辑性 | 85分 | 自动测试 |
-| 文档更新 | 完整性+溯源性 | 70分 | 版本对比 |
-| Skill文件 | 标准化+完整性 | 90分 | 5标准检查 |
+| 对象类型 | 描述 | 检查范围 | 示例 |
+|----------|------|----------|------|
+| **代码文件** | 源代码、脚本 | 语法、规范、测试覆盖 | .py, .js, .go |
+| **配置文件** | 环境/部署配置 | 格式、完整性、安全性 | .yaml, .json, .env |
+| **文档文件** | 技术/用户文档 | 完整性、准确性、一致性 | .md, .rst |
+| **Skill文件** | OpenClaw Skill | 5标准合规性 | SKILL.md, 脚本 |
+| **提交记录** | Git commit | 规范、描述完整性 | commit message |
 
-### 1.4 环境 - 质量上下文
+### 1.2 质量门禁标准
 
-| 环境因素 | 调整策略 | 验证 |
-|----------|----------|------|
-| 紧急程度 | P0可降级通过 | 事后审计 |
-| 领域特性 | 领域规则加载 | 专家复核 |
-| 历史质量 | 信任分调整阈值 | 趋势分析 |
-| 外部依赖 | 依赖项检查 | 可用性验证 |
+#### 1.2.1 门禁维度与权重
 
-### 1.5 外部集成
+| 维度 | 权重 | 描述 | 关键检查点 |
+|------|------|------|------------|
+| **前置条件** | 15% | 环境/依赖就绪 | 环境变量、依赖安装、权限检查 |
+| **过程合规** | 25% | 流程规范执行 | 代码规范、提交规范、构建流程 |
+| **结果验收** | 40% | 质量指标达标 | 测试通过、覆盖率、性能指标 |
+| **文档完整** | 20% | 配套文档齐全 | 变更说明、API文档、部署指南 |
+
+#### 1.2.2 门禁等级定义
 
 ```yaml
-integrations:
-  honesty_tagging:
-    type: 认知状态
-    data_flow: "标注检查 → 质量评分"
-    action: "验证KNOWN/INFERRED准确性"
-  
-  token_budget_enforcer:
-    type: 效率监控
-    data_flow: "产出/token → 效率评估"
-    action: "低效内容标记"
-  
-  role_federation:
-    type: 任务质量
-    data_flow: "任务输出 → 质量检查"
-    action: "阻断低质量输出"
-  
-  feishu_messaging:
-    type: 通知推送
-    data_flow: "检查结果 → 消息通知"
-    action: "推送质量报告"
-  
-  git_workflow:
-    type: CI/CD
-    data_flow: "代码提交 → 自动检查"
-    action: "阻断不合规提交"
+gate_levels:
+  critical:  # 发布前门禁
+    min_score: 90
+    block_on_fail: true
+    dimensions: [前置条件, 过程合规, 结果验收, 文档完整]
+    
+  standard:  # 合并前门禁
+    min_score: 75
+    block_on_fail: true
+    dimensions: [前置条件, 过程合规, 结果验收]
+    
+  basic:  # 提交前门禁
+    min_score: 60
+    block_on_fail: false
+    dimensions: [过程合规]
+    
+  warning:  # 仅告警
+    min_score: 50
+    block_on_fail: false
+    dimensions: [过程合规, 结果验收]
 ```
 
-### 1.6 边界情况处理
+### 1.3 通过准则
 
-| 边界场景 | 检测 | 处理 |
-|----------|------|------|
-| 检查工具故障 | 超时/异常 | 人工接管+标记 |
-| 标准冲突 | 多标准矛盾 | 优先级仲裁 |
-| 内容过大 | 大小检测 | 分段检查+抽样 |
-| 新类型内容 | 类型未知 | 通用检查+标记 |
-| 豁免请求 | 人工申请 | 审计追踪+授权 |
+| 等级 | 总分要求 | 单项最低 | 处理动作 |
+|------|----------|----------|----------|
+| **PASS** | ≥90分 | ≥70分 | 自动通过，进入下一环节 |
+| **CONDITIONAL** | 75-89分 | ≥60分 | 通过，附带改进建议 |
+| **FAIL** | 60-74分 | ≥50分 | 阻断，需修复后重试 |
+| **BLOCK** | <60分 | - | 强制阻断，需人工评审 |
 
----
-
-## S2: 系统考虑 (Systematic)
-
-### 2.1 质量门禁流程
-
-```
-内容输入 → 类型识别 → 五维检查 → 综合评分 → {≥阈值?}
-  ├─ 是 → 标记通过 → 进入下一环节
-  └─ 否 → 生成反馈 → 返回修改
-                ↓
-         效果追踪 ← 质量统计 ← 定期复盘
-```
-
-### 2.2 输入处理
-
-| 输入类型 | 验证 | 转换 |
-|----------|------|------|
-| 文本内容 | 格式+编码 | 标准化文本 |
-| 结构化数据 | Schema验证 | 内部格式 |
-| 代码文件 | 语法检查 | AST解析 |
-| 混合内容 | 组件分离 | 分别处理 |
-
-### 2.3 检查引擎
+### 1.4 豁免规则
 
 ```yaml
-inspection_engine:
-  dimension_reality:
-    - 来源验证 (web_search/web_fetch)
-    - 数据新鲜度检查
-    - 偏见检测
-  
-  dimension_traceability:
-    - 链接有效性检查
-    - 引用格式验证
-    - 去重检测
-  
-  dimension_logic:
-    - 一致性检查
-    - 因果链验证
-    - 矛盾检测
-  
-  dimension_completeness:
-    - 要素清单核对
-    - 模板匹配
-    - 缺失检测
-  
-  dimension_reproducibility:
-    - 步骤完整性
-    - 参数明确性
-    - 环境说明
+exemption_rules:
+  hotfix:
+    description: "紧急修复可降级通过"
+    max_score_drop: 10
+    requires_approval: [captain, director]
+    audit_required: true
+    
+  docs_only:
+    description: "纯文档变更简化检查"
+    skip_dimensions: [结果验收]
+    min_score: 70
+    
+  wip:
+    description: "Work-in-Progress标记"
+    block_on_fail: false
+    requires_tag: "[WIP]"
 ```
-
-### 2.4 分级处理机制
-
-| 评分区间 | 处理动作 | 人工介入 |
-|----------|----------|----------|
-| 90-100 | 自动通过 | 无需 |
-| 75-89 | 自动通过+标记建议 | 可选 |
-| 60-74 | 自动标记+等待确认 | 建议 |
-| <60 | 自动拒绝+详细反馈 | 必须 |
-
-### 2.5 反馈闭环
-
-| 反馈类型 | 来源 | 应用 |
-|----------|------|------|
-| 修改结果 | 重新提交 | 验证改进 |
-| 申诉反馈 | 人工申诉 | 规则优化 |
-| 误报标记 | 用户标记 | 阈值调整 |
-| 漏报发现 | 事后发现 | 检查项补充 |
-
-### 2.6 故障处理
-
-| 故障 | 检测 | 响应 |
-|------|------|------|
-| 检查超时 | 计时器 | 降级检查+告警 |
-| 规则错误 | 验证失败 | 回滚规则 |
-| 数据源失效 | 连接检测 | 切换备用源 |
-| 评分异常 | 范围检查 | 人工复核 |
 
 ---
 
-## S3: 迭代机制 (Iterative)
+## S2: 门禁检查流程
 
-### 3.1 PDCA循环
-
-```yaml
-Plan(计划):
-  - 每周制定质量目标
-  - 设定通过率/准确率目标
-  - 规划检查规则更新
-
-Do(执行):
-  - 执行自动化检查
-  - 收集检查数据
-  - 记录异常情况
-
-Check(检查):
-  - 统计通过率/误报率/漏报率
-  - 分析质量问题模式
-  - 评估检查效果
-
-Act(改进):
-  - 调整检查阈值
-  - 优化检查规则
-  - 更新维度权重
-```
-
-### 3.2 版本历史
-
-| 版本 | 日期 | 变更 | 作者 |
-|------|------|------|------|
-| v2.0.0 | 2026-03-21 | 5+2标准全覆盖 | 满意解研究所 |
-| v1.1.0 | 2026-03-19 | 增加CI/CD集成 | 满意解研究所 |
-| v1.0.0 | 2026-03-20 | 五维检查初始版 | 满意解研究所 |
-
-### 3.3 反馈收集
-
-| 源 | 频率 | 用途 |
-|----|------|------|
-| 检查结果 | 每次 | 质量统计 |
-| 申诉记录 | 每次 | 规则优化 |
-| 趋势分析 | 每周 | 策略调整 |
-| 外部审计 | 每月 | 体系改进 |
-
-### 3.4 优化触发
-
-| 指标 | 阈值 | 动作 |
-|------|------|------|
-| 误报率 | >10% | 阈值调整 |
-| 漏报率 | >5% | 检查项补充 |
-| 通过率骤降 | >20% | 专项审计 |
-| 申诉率 | >15% | 规则重审 |
-
----
-
-## S4: Skill化 (Skill-ified)
-
-### 4.1 目录结构
+### 2.1 检查流程图
 
 ```
-quality-gate-system/
-├── SKILL.md                    # 本文件
-├── _meta.json                  # 元数据
-├── scripts/
-│   ├── quality_runner.py       # 主运行脚本
-│   ├── dimension_reality.py    # 真实性检查
-│   ├── dimension_traceability.py # 溯源性检查
-│   ├── dimension_logic.py      # 逻辑性检查
-│   ├── dimension_completeness.py # 完整性检查
-│   ├── dimension_reproducibility.py # 可复现检查
-│   ├── scorer.py               # 综合评分
-│   └── reporter.py             # 报告生成
-├── config/
-│   ├── dimensions.yaml         # 维度配置
-│   ├── thresholds.yaml         # 阈值配置
-│   └── content_types.yaml      # 内容类型
-├── rules/
-│   └── quality_rules.yaml      # 检查规则
-└── logs/
-    └── quality.log             # 运行日志
+┌─────────────────────────────────────────────────────────────────┐
+│                        质量门禁检查流程                          │
+└─────────────────────────────────────────────────────────────────┘
+
+[开始] → [解析输入] → [识别对象类型] → [加载对应标准]
+                              ↓
+                    ┌─────────────────┐
+                    │   四维度检查    │
+                    └─────────────────┘
+                              ↓
+        ┌─────────────────────┼─────────────────────┐
+        ↓                     ↓                     ↓
+   [前置条件]            [过程合规]            [结果验收]
+   - 环境检查            - 代码规范            - 单元测试
+   - 依赖验证            - 提交规范            - 集成测试
+   - 权限确认            - 安全扫描            - 性能测试
+   - 配置验证            - 静态分析            - 覆盖率检查
+        ↓                     ↓                     ↓
+        └─────────────────────┼─────────────────────┘
+                              ↓
+                        [文档完整]
+                        - 变更日志
+                        - API文档
+                        - 部署说明
+                              ↓
+                    [综合评分计算]
+                              ↓
+                    [通过/拒绝判定]
+                              ↓
+              ┌───────────────┴───────────────┐
+              ↓                               ↓
+          [通过]                          [拒绝]
+              ↓                               ↓
+        [生成通过报告]                  [生成修复清单]
+        [允许继续流程]                  [阻断流程]
 ```
 
-### 4.2 标准化接口
+### 2.2 前置条件检查 (15%)
+
+| 检查项 | 权重 | 通过标准 | 失败处理 |
+|--------|------|----------|----------|
+| 环境变量 | 25% | 必需变量已设置 | 报错并列出缺失 |
+| 依赖安装 | 25% | 所有依赖已安装 | 尝试自动安装 |
+| 权限检查 | 25% | 具有执行权限 | 报错提示 |
+| 配置文件 | 25% | 配置文件存在且有效 | 报错并给出模板 |
 
 ```python
-class QualityGate:
-    
-    def check(self, content: str, content_type: str) -> CheckResult:
-        """检查内容质量"""
-        pass
-    
-    def batch_check(self, contents: List[str], content_type: str) -> List[CheckResult]:
-        """批量检查"""
-        pass
-    
-    def get_score(self, check_id: str) -> Score:
-        """获取检查分数"""
-        pass
-    
-    def generate_report(self, check_id: str) -> Report:
-        """生成检查报告"""
-        pass
-    
-    def update_rules(self, dimension: str, rules: dict) -> None:
-        """更新检查规则"""
-        pass
+# 前置条件检查示例
+def check_prerequisites():
+    checks = {
+        'env_vars': check_required_env(),
+        'dependencies': check_dependencies(),
+        'permissions': check_permissions(),
+        'config': check_config_files()
+    }
+    return calculate_score(checks, weights={'env_vars': 0.25, ...})
 ```
 
-### 4.3 调用方式
+### 2.3 过程合规检查 (25%)
 
-```bash
-# 安装Skill
-openclaw skill install quality-gate-system
+| 检查项 | 权重 | 通过标准 | 工具 |
+|--------|------|----------|------|
+| 代码规范 | 30% | 符合项目规范 | pylint, eslint, gofmt |
+| 提交规范 | 20% | 符合Conventional Commits | commitlint |
+| 安全扫描 | 30% | 无高危漏洞 | bandit, safety, trivy |
+| 静态分析 | 20% | 无严重问题 | sonarqube, codeql |
 
-# 检查内容
-openclaw skill run quality-gate-system check --file report.md --type research
+```python
+# 过程合规检查
+def check_compliance():
+    checks = {
+        'code_style': run_linter(),
+        'commit_msg': check_commit_message(),
+        'security': run_security_scan(),
+        'static_analysis': run_static_analysis()
+    }
+    return calculate_score(checks)
+```
 
-# 批量检查
-openclaw skill run quality-gate-system batch-check --dir ./docs/ --type document
+### 2.4 结果验收检查 (40%)
 
-# 生成报告
-openclaw skill run quality-gate-system report --check-id Q-001
+| 检查项 | 权重 | 通过标准 | 阈值 |
+|--------|------|----------|------|
+| 单元测试 | 30% | 全部通过 | 100%通过 |
+| 测试覆盖率 | 25% | 覆盖率达到要求 | ≥80% |
+| 集成测试 | 25% | 全部通过 | 100%通过 |
+| 性能测试 | 20% | 性能指标达标 | 无回归>10% |
+
+```python
+# 结果验收检查
+def check_results():
+    checks = {
+        'unit_tests': run_unit_tests(),
+        'coverage': check_coverage(),
+        'integration': run_integration_tests(),
+        'performance': run_performance_tests()
+    }
+    return calculate_score(checks)
+```
+
+### 2.5 文档完整检查 (20%)
+
+| 检查项 | 权重 | 通过标准 | 检查方式 |
+|--------|------|----------|----------|
+| 变更说明 | 30% | CHANGELOG已更新 | 文件变更检测 |
+| API文档 | 30% | 公共API有文档 | 文档存在性检查 |
+| 部署说明 | 20% | 部署文档最新 | 版本匹配检查 |
+| README更新 | 20% | README反映最新变更 | 关键信息检查 |
+
+```python
+# 文档完整检查
+def check_documentation():
+    checks = {
+        'changelog': check_changelog_updated(),
+        'api_docs': check_api_documentation(),
+        'deploy_docs': check_deployment_docs(),
+        'readme': check_readme_updated()
+    }
+    return calculate_score(checks)
 ```
 
 ---
 
-## S5: 自动化 (Automation)
+## S3: 输出标准化
 
-### 5.1 Cron定时任务
+### 3.1 门禁报告格式
 
 ```json
 {
-  "jobs": [
+  "report_version": "5.0.0",
+  "gate_id": "QG-20260321-001",
+  "timestamp": "2026-03-21T19:38:00+08:00",
+  "target": {
+    "type": "commit",
+    "ref": "abc123",
+    "branch": "feature/new-api",
+    "author": "developer@example.com"
+  },
+  "gate_config": {
+    "level": "standard",
+    "min_score": 75,
+    "block_on_fail": true
+  },
+  "dimensions": {
+    "prerequisites": {
+      "score": 95,
+      "weight": 0.15,
+      "weighted_score": 14.25,
+      "checks": [
+        {"name": "env_vars", "passed": true, "score": 100, "details": "All required env vars set"},
+        {"name": "dependencies", "passed": true, "score": 90, "details": "All deps installed"}
+      ]
+    },
+    "compliance": {
+      "score": 82,
+      "weight": 0.25,
+      "weighted_score": 20.5,
+      "checks": [...]
+    },
+    "results": {
+      "score": 88,
+      "weight": 0.40,
+      "weighted_score": 35.2,
+      "checks": [...]
+    },
+    "documentation": {
+      "score": 75,
+      "weight": 0.20,
+      "weighted_score": 15.0,
+      "checks": [...]
+    }
+  },
+  "summary": {
+    "total_score": 84.95,
+    "grade": "CONDITIONAL",
+    "passed": true,
+    "blocked": false
+  },
+  "findings": [...],
+  "remediation": [...]
+}
+```
+
+### 3.2 通过/拒绝判定
+
+```python
+class GateDecision:
+    """门禁判定逻辑"""
+    
+    def evaluate(self, report: GateReport) -> Decision:
+        # 计算总分
+        total_score = sum(
+            dim.score * dim.weight 
+            for dim in report.dimensions.values()
+        )
+        
+        # 检查单项最低分
+        min_dimension_score = min(
+            dim.score for dim in report.dimensions.values()
+        )
+        
+        # 判定等级
+        if total_score >= 90 and min_dimension_score >= 70:
+            grade = Grade.PASS
+            blocked = False
+        elif total_score >= 75 and min_dimension_score >= 60:
+            grade = Grade.CONDITIONAL
+            blocked = False
+        elif total_score >= 60 and min_dimension_score >= 50:
+            grade = Grade.FAIL
+            blocked = report.gate_config.block_on_fail
+        else:
+            grade = Grade.BLOCK
+            blocked = True
+            
+        return Decision(
+            total_score=total_score,
+            grade=grade,
+            blocked=blocked,
+            message=self._generate_message(grade)
+        )
+```
+
+### 3.3 修复清单生成
+
+当门禁未通过时，自动生成修复清单：
+
+```yaml
+remediation_plan:
+  gate_id: "QG-20260321-001"
+  total_issues: 5
+  critical: 1
+  warning: 4
+  
+  tasks:
+    - id: 1
+      severity: critical
+      dimension: results
+      check: unit_tests
+      issue: "3个单元测试失败"
+      suggestion: "修复失败的测试用例"
+      auto_fixable: false
+      command: "pytest tests/ -v"
+      
+    - id: 2
+      severity: warning
+      dimension: compliance
+      check: code_style
+      issue: "代码格式不符合PEP8"
+      suggestion: "运行自动格式化"
+      auto_fixable: true
+      command: "black . && isort ."
+      
+    - id: 3
+      severity: warning
+      dimension: documentation
+      check: changelog
+      issue: "CHANGELOG未更新"
+      suggestion: "添加变更说明"
+      auto_fixable: false
+      template: "- [类型] 简短描述 (#PR号)"
+```
+
+### 3.4 输出格式支持
+
+| 格式 | 用途 | 命令行选项 |
+|------|------|------------|
+| JSON | 程序化消费 | `--format json` |
+| Markdown | 人工阅读 | `--format md` |
+| JUnit XML | CI集成 | `--format junit` |
+| HTML | 报告展示 | `--format html` |
+| Console | 终端输出 | `--format console` |
+
+---
+
+## S4: CI/CD集成
+
+### 4.1 集成模式
+
+```yaml
+# GitHub Actions 集成示例
+name: Quality Gate
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  pre-commit-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Pre-commit Gate
+        run: |
+          python3 -m quality_gate \
+            --level basic \
+            --target ${{ github.sha }} \
+            --format junit \
+            --output gate-report.xml
+      
+  merge-gate:
+    runs-on: ubuntu-latest
+    needs: pre-commit-gate
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Merge Gate
+        run: |
+          python3 -m quality_gate \
+            --level standard \
+            --target ${{ github.sha }} \
+            --block-on-fail \
+            --notify slack
+      
+  release-gate:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Release Gate
+        run: |
+          python3 -m quality_gate \
+            --level critical \
+            --target ${{ github.ref }} \
+            --block-on-fail
+```
+
+### 4.2 Git Hooks集成
+
+```bash
+#!/bin/bash
+# .git/hooks/pre-commit
+# 提交前门禁检查
+
+echo "🔍 Running pre-commit quality gate..."
+
+python3 -m quality_gate \
+    --level basic \
+    --target staged \
+    --quick \
+    --format console
+
+if [ $? -ne 0 ]; then
+    echo "❌ Quality gate failed. Fix issues before committing."
+    exit 1
+fi
+
+echo "✅ Quality gate passed!"
+exit 0
+```
+
+```bash
+#!/bin/bash
+# .git/hooks/pre-push
+# 推送前门禁检查
+
+echo "🔍 Running pre-push quality gate..."
+
+python3 -m quality_gate \
+    --level standard \
+    --target local \
+    --format console
+
+if [ $? -ne 0 ]; then
+    echo "❌ Quality gate failed. Fix issues before pushing."
+    exit 1
+fi
+
+echo "✅ Quality gate passed!"
+exit 0
+```
+
+### 4.3 自动触发配置
+
+```json
+{
+  "triggers": [
     {
-      "name": "quality-gate-daily-scan",
-      "schedule": "43 10 * * *",
-      "command": "cd /root/.openclaw/workspace/skills/quality-gate-system && python3 scripts/quality_runner.py scan",
-      "description": "每日10:43扫描待检查内容"
+      "name": "pre-commit",
+      "event": "git.pre-commit",
+      "level": "basic",
+      "blocking": false,
+      "timeout": 60
     },
     {
-      "name": "quality-gate-trend-analysis",
-      "schedule": "7 23 * * *",
-      "command": "cd /root/.openclaw/workspace/skills/quality-gate-system && python3 scripts/quality_runner.py trend",
-      "description": "每日23:07生成质量趋势分析"
+      "name": "pre-push",
+      "event": "git.pre-push",
+      "level": "standard",
+      "blocking": true,
+      "timeout": 300
     },
     {
-      "name": "quality-gate-weekly-report",
-      "schedule": "27 22 * * 0",
-      "command": "cd /root/.openclaw/workspace/skills/quality-gate-system && python3 scripts/quality_runner.py weekly",
-      "description": "每周日22:27生成质量周报"
+      "name": "pr-merge",
+      "event": "github.pull_request",
+      "level": "standard",
+      "blocking": true,
+      "timeout": 600
+    },
+    {
+      "name": "release",
+      "event": "github.release",
+      "level": "critical",
+      "blocking": true,
+      "timeout": 900
     }
   ]
 }
 ```
 
-### 5.2 自动化脚本
+### 4.4 CI状态上报
 
-| 脚本 | 功能 | 触发 |
-|------|------|------|
-| `quality_runner.py` | 主控 | cron/手动 |
-| `dimension_*.py` | 维度检查 | 内容提交 |
-| `scorer.py` | 综合评分 | 检查完成 |
-| `reporter.py` | 报告 | 定时/按需 |
-
-### 5.3 自动监控
-
-| 监控项 | 阈值 | 告警 |
-|--------|------|------|
-| 待检查积压 | >50 | 处理告警 |
-| 检查失败率 | >5% | 技术告警 |
-| 通过率异常 | 波动>20% | 质量告警 |
-| 平均检查时间 | >30s | 性能告警 |
-
----
-
-## S6: 认知谦逊 (Epistemic Humility)
-
-### 6.1 检查结果置信度
-
-| 检查类型 | 置信度 | 说明 |
-|----------|--------|------|
-| 自动验证 | 高 | 来源可访问 |
-| 模式匹配 | 中 | 规则匹配度 |
-| 启发式检测 | 低 | 建议人工复核 |
-
-### 6.2 局限性声明
-
-```yaml
-quality_limitations:
-  automation: "自动检查有假阳性/假阴性"
-  source_access: "外部来源可能临时不可达"
-  domain_knowledge: "专业领域需专家复核"
-  context_understanding: "语义理解有局限"
+```python
+# 向CI系统上报状态
+class CIReporter:
+    def report_github(self, decision: Decision):
+        """上报到GitHub Status API"""
+        status = "success" if not decision.blocked else "failure"
+        data = {
+            "state": status,
+            "description": f"Quality Gate: {decision.grade.value}",
+            "context": "quality-gate-system"
+        }
+        # POST to GitHub API
+        
+    def report_gitlab(self, decision: Decision):
+        """上报到GitLab Pipeline"""
+        # GitLab CI集成
+        
+    def report_jenkins(self, decision: Decision):
+        """上报到Jenkins"""
+        # Jenkins插件集成
 ```
 
 ---
 
-## S7: 对抗验证 (Adversarial Validation)
+## S5: 标准一致性验证
 
-### 7.1 假阳性/假阴性分析
+### 5.1 标准版本控制
 
-| 类型 | 定义 | 缓解措施 |
-|------|------|----------|
-| 假阳性 | 合格内容被误判 | 申诉机制+阈值调整 |
-| 假阴性 | 不合格内容通过 | 抽检+补充规则 |
-| 边界模糊 | 标准不明确 | 人工仲裁+标准细化 |
+```yaml
+# config/standards.yaml
+standards_version: "5.0.0"
+last_updated: "2026-03-21"
 
-### 7.2 对抗测试
+dimensions:
+  prerequisites:
+    version: "1.0.0"
+    checksum: "sha256:abc123..."
+    
+  compliance:
+    version: "1.0.0"
+    checksum: "sha256:def456..."
+    
+  results:
+    version: "1.0.0"
+    checksum: "sha256:ghi789..."
+    
+  documentation:
+    version: "1.0.0"
+    checksum: "sha256:jkl012..."
+```
 
-定期执行：
-1. 已知问题内容检测率测试
-2. 已知优质内容误杀率测试
-3. 极端/边界内容处理测试
-4. 新类型内容适应性测试
+### 5.2 标准漂移检测
+
+```python
+class StandardDriftDetector:
+    """检测门禁标准是否发生非预期变更"""
+    
+    def detect_drift(self) -> DriftReport:
+        drifts = []
+        
+        # 检查维度权重变更
+        for dim_name, dim_config in self.current_standards.items():
+            baseline = self.load_baseline(dim_name)
+            if dim_config.weight != baseline.weight:
+                drifts.append(Drift(
+                    type="weight_change",
+                    dimension=dim_name,
+                    old=baseline.weight,
+                    new=dim_config.weight
+                ))
+        
+        # 检查检查项变更
+        for check_name in self.get_all_checks():
+            if not self.check_exists_in_baseline(check_name):
+                drifts.append(Drift(
+                    type="new_check",
+                    check=check_name
+                ))
+        
+        return DriftReport(drifts=drifts)
+```
+
+### 5.3 变更审批流程
+
+```
+[标准变更申请] → [影响评估] → [审批] → [实施] → [验证]
+      ↓               ↓          ↓         ↓         ↓
+   提交PR         分析影响     Director   更新配置   回归测试
+   说明理由       通知干系人   审批        记录版本   验证一致性
+```
+
+### 5.4 一致性审计
+
+```python
+# 定期审计门禁标准的一致性
+def run_consistency_audit():
+    audit = {
+        "timestamp": datetime.now().isoformat(),
+        "checks": {
+            "standards_version_match": check_version_match(),
+            "dimension_weights_valid": check_weights_sum_to_100(),
+            "thresholds_consistent": check_threshold_consistency(),
+            "configs_synced": check_config_synchronization(),
+            "scripts_up_to_date": check_scripts_version()
+        }
+    }
+    
+    if not all(audit["checks"].values()):
+        alert_audit_failure(audit)
+    
+    return audit
+```
 
 ---
 
-## 附录：命令参考
+## S6: 局限标注
 
-| 命令 | 功能 | 示例 |
-|------|------|------|
-| `check [file]` | 检查内容 | `check report.md` |
-| `batch-check [dir]` | 批量检查 | `batch-check ./docs` |
-| `score [id]` | 查看分数 | `score Q-001` |
-| `report [id]` | 生成报告 | `report Q-001` |
+### 6.1 系统局限性
+
+| 局限类型 | 描述 | 影响范围 | 缓解措施 |
+|----------|------|----------|----------|
+| **自动化局限** | 无法完全替代人工代码审查 | 复杂逻辑、架构设计 | 保留人工评审环节 |
+| **上下文理解** | 无法理解业务逻辑正确性 | 业务规则验证 | 领域专家参与 |
+| **工具依赖** | 依赖外部检查工具的准确性 | 工具误报/漏报 | 多工具交叉验证 |
+| **性能约束** | 大规模项目检查耗时较长 | 大型代码库 | 增量检查、并行化 |
+| **安全边界** | 无法检测所有安全漏洞 | 安全关键系统 | 结合专业安全扫描 |
+
+### 6.2 置信度标注
+
+```python
+class ConfidenceLevel(Enum):
+    HIGH = "high"      # 自动化可准确判断
+    MEDIUM = "medium"  # 建议人工复核
+    LOW = "low"        # 必须人工确认
+
+# 在报告中标注置信度
+class CheckResult:
+    def __init__(self):
+        self.confidence: ConfidenceLevel
+        self.automated: bool
+        self.requires_human_review: bool
+```
+
+### 6.3 免责声明
+
+```yaml
+disclaimer: |
+  本质量门禁系统的检查结果仅供参考，不构成质量保证。
+  
+  已知局限：
+  1. 无法保证业务逻辑的正确性
+  2. 无法检测所有类型的缺陷
+  3. 工具可能存在误报和漏报
+  4. 不替代人工代码审查和测试
+  
+  建议：
+  - 关键系统应结合人工评审
+  - 定期评估门禁检查的有效性
+  - 根据项目特点调整检查规则
+```
+
+### 6.4 不适用场景
+
+| 场景 | 原因 | 建议替代方案 |
+|------|------|--------------|
+| 算法正确性验证 | 需要形式化证明 | 单元测试+数学证明 |
+| UI/UX质量评估 | 主观性强 | 用户测试+A/B测试 |
+| 性能瓶颈定位 | 需要运行时分析 | Profiling工具 |
+| 架构合理性判断 | 需要领域知识 | 架构评审 |
 
 ---
 
-*版本: v2.0.0*  
+## S7: 对抗测试
+
+### 7.1 测试策略
+
+```python
+class AdversarialTestSuite:
+    """对抗测试套件 - 验证门禁系统的有效性"""
+    
+    def run_all_tests(self) -> TestReport:
+        return {
+            "detection_rate": self.test_detection_rate(),
+            "false_positive": self.test_false_positive(),
+            "false_negative": self.test_false_negative(),
+            "boundary": self.test_boundary_conditions()
+        }
+```
+
+### 7.2 缺陷植入测试
+
+```python
+# tests/adversarial/defect_injection.py
+
+DEFECT_TEMPLATES = {
+    "syntax_error": {
+        "description": "植入语法错误",
+        "injection": lambda code: code.replace("def ", "df "),
+        "expected": "FAIL"
+    },
+    "security_vulnerability": {
+        "description": "植入SQL注入漏洞",
+        "injection": lambda code: code + '\nquery = f"SELECT * FROM users WHERE id = {user_id}"',
+        "expected": "FAIL"
+    },
+    "missing_test": {
+        "description": "删除测试覆盖",
+        "injection": lambda files: [f for f in files if not f.endswith("_test.py")],
+        "expected": "FAIL"
+    },
+    "broken_doc": {
+        "description": "损坏文档链接",
+        "injection": lambda md: md.replace("](http", "](broken_http"),
+        "expected": "CONDITIONAL"
+    }
+}
+
+def test_defect_detection():
+    """测试门禁能否发现植入的缺陷"""
+    for defect_type, template in DEFECT_TEMPLATES.items():
+        # 植入缺陷
+        modified = template["injection"](load_target())
+        
+        # 运行门禁
+        result = run_quality_gate(modified)
+        
+        # 验证结果
+        assert result.grade.value == template["expected"], \
+            f"{defect_type}: expected {template['expected']}, got {result.grade.value}"
+```
+
+### 7.3 假阳性/假阴性分析
+
+```python
+class FalseRateAnalyzer:
+    """分析假阳性和假阴性率"""
+    
+    def analyze(self, historical_results: List[Result]):
+        # 假阳性：实际合格但被拒绝
+        false_positives = [
+            r for r in historical_results 
+            if r.decision.blocked and r.post_hoc_review == "ACCEPTABLE"
+        ]
+        
+        # 假阴性：实际不合格但通过
+        false_negatives = [
+            r for r in historical_results 
+            if not r.decision.blocked and r.post_hoc_review == "DEFECTIVE"
+        ]
+        
+        return {
+            "false_positive_rate": len(false_positives) / len(historical_results),
+            "false_negative_rate": len(false_negatives) / len(historical_results),
+            "false_positives": false_positives,
+            "false_negatives": false_negatives,
+            "recommendations": self.generate_recommendations(false_positives, false_negatives)
+        }
+```
+
+### 7.4 边界条件测试
+
+```python
+BOUNDARY_TESTS = [
+    {
+        "name": "exact_threshold",
+        "description": "测试刚好在阈值边界的情况",
+        "setup": lambda: set_score(74.99),  # 刚好低于75
+        "expected": "CONDITIONAL"  # 根据配置可能为FAIL
+    },
+    {
+        "name": "empty_content",
+        "description": "测试空内容",
+        "setup": lambda: "",
+        "expected": "BLOCK"
+    },
+    {
+        "name": "huge_content",
+        "description": "测试超大内容",
+        "setup": lambda: "x" * 100_000_000,
+        "expected": "handled_gracefully"
+    },
+    {
+        "name": "special_chars",
+        "description": "测试特殊字符",
+        "setup": lambda: "<script>alert('xss')</script>",
+        "expected": "FAIL"
+    }
+]
+```
+
+### 7.5 定期对抗测试
+
+```yaml
+# 对抗测试计划
+adversarial_testing:
+  schedule:
+    frequency: weekly
+    day: sunday
+    time: "02:00"
+  
+  test_cases:
+    - type: defect_injection
+      count: 10
+      categories: [syntax, security, logic, docs]
+    
+    - type: false_positive
+      count: 5
+      sources: [historical_appeals]
+    
+    - type: boundary
+      count: 8
+      scenarios: [threshold, empty, huge, special]
+  
+  acceptance_criteria:
+    detection_rate: ">= 85%"
+    false_positive_rate: "<= 10%"
+    false_negative_rate: "<= 5%"
+```
+
+---
+
+## 附录A: 脚本参考
+
+### A.1 门禁检查脚本
+
+```bash
+# 运行完整门禁检查
+python3 scripts/quality-gate-check.py \
+    --target ./src \
+    --level standard \
+    --format json \
+    --output report.json
+
+# 快速检查（提交前）
+python3 scripts/quality-gate-check.py --quick
+
+# 检查特定维度
+python3 scripts/quality-gate-check.py --dimension compliance
+```
+
+### A.2 CI钩子
+
+| 钩子 | 安装位置 | 触发时机 |
+|------|----------|----------|
+| `pre-commit` | `.git/hooks/` | git commit前 |
+| `pre-push` | `.git/hooks/` | git push前 |
+| `github-action.yml` | `.github/workflows/` | PR/推送 |
+| `gitlab-ci.yml` | 项目根目录 | MR/流水线 |
+
+### A.3 报告生成
+
+```bash
+# 生成HTML报告
+python3 scripts/generate-report.py \
+    --input report.json \
+    --format html \
+    --output report.html
+
+# 生成趋势分析
+python3 scripts/generate-report.py --trend --days 30
+```
+
+---
+
+## 附录B: 配置参考
+
+### B.1 完整配置示例
+
+```yaml
+# config/quality-gate.yaml
+version: "5.0.0"
+
+# 门禁等级
+gate_levels:
+  basic:
+    min_score: 60
+    block_on_fail: false
+    dimensions: [compliance]
+    timeout: 60
+    
+  standard:
+    min_score: 75
+    block_on_fail: true
+    dimensions: [prerequisites, compliance, results]
+    timeout: 300
+    
+  critical:
+    min_score: 90
+    block_on_fail: true
+    dimensions: [prerequisites, compliance, results, documentation]
+    timeout: 600
+
+# 维度权重
+dimensions:
+  prerequisites:
+    weight: 0.15
+    checks:
+      env_vars: 0.25
+      dependencies: 0.25
+      permissions: 0.25
+      config_files: 0.25
+      
+  compliance:
+    weight: 0.25
+    checks:
+      code_style: 0.30
+      commit_message: 0.20
+      security_scan: 0.30
+      static_analysis: 0.20
+      
+  results:
+    weight: 0.40
+    checks:
+      unit_tests: 0.30
+      coverage: 0.25
+      integration_tests: 0.25
+      performance: 0.20
+      
+  documentation:
+    weight: 0.20
+    checks:
+      changelog: 0.30
+      api_docs: 0.30
+      deploy_docs: 0.20
+      readme: 0.20
+
+# 通知配置
+notifications:
+  slack:
+    webhook: "${SLACK_WEBHOOK_URL}"
+    on: [fail, block]
+  email:
+    to: ["team@example.com"]
+    on: [block]
+```
+
+---
+
+## 附录C: 版本历史
+
+| 版本 | 日期 | 变更内容 | 作者 |
+|------|------|----------|------|
+| 5.0.0 | 2026-03-21 | 完整7标准实现，CI/CD集成，对抗测试 | Satisficing Institute |
+| 2.0.0 | 2026-03-21 | 5+2标准初版 | Satisficing Institute |
+| 1.1.0 | 2026-03-19 | 增加CI/CD集成 | Satisficing Institute |
+| 1.0.0 | 2026-03-20 | 五维检查初始版 | Satisficing Institute |
+
+---
+
+*版本: v5.0.0*  
 *更新日期: 2026-03-21*  
-*作者: 满意解研究所*
+*作者: Satisficing Institute*

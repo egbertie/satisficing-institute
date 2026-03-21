@@ -1,1 +1,20 @@
-{"jobs": [{"name": "ai-meeting-notes-auto", "schedule": "6 12 * * *", "command": "python3 scripts/ai-meeting-notes-runner.py check"}]}
+[
+  {
+    "name": "meeting-file-watcher",
+    "schedule": "*/5 * * * *",
+    "command": "cd /root/.openclaw/workspace/skills/ai-meeting-notes && python3 scripts/ai-meeting-notes.py watch",
+    "description": "每5分钟检查新会议文件"
+  },
+  {
+    "name": "daily-todo-sync",
+    "schedule": "0 9 * * *",
+    "command": "cd /root/.openclaw/workspace/skills/ai-meeting-notes && python3 scripts/ai-meeting-notes.py todo-sync",
+    "description": "每天早上9点同步TODO清单"
+  },
+  {
+    "name": "weekly-self-check",
+    "schedule": "0 10 * * 1",
+    "command": "cd /root/.openclaw/workspace/skills/ai-meeting-notes && python3 scripts/ai-meeting-notes.py self-check-all",
+    "description": "每周一上午10点运行全面自检"
+  }
+]
