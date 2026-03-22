@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Token消耗监控与熔断系统 V1.0
-功能：实时监控Token消耗，触发分级熔断，与休眠协议联动
+Token消耗监控与熔断系统 V2.0
+基于周预算进度比例的分级熔断机制
 """
 
 import json
@@ -11,24 +11,79 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 WORKSPACE = Path("/root/.openclaw/workspace")
-TOKEN_STATE_FILE = WORKSPACE / "memory" / "token-monitor-state.json"
+TOKEN_STATE_FILE = WORKSPACE / "memory" / "token-weekly-monitor.json"
 FUSE_STATE_FILE = WORKSPACE / "memory" / "token-fuse-state.json"
 
-# 熔断阈值配置
+# 熔断阈值配置 - 基于周预算进度比例
+# 假设每周预算100%，按7天平均分配，每天约14.3%
+# 超额10%触发预警（即当天消耗超过24.3%）
 FUSE_THRESHOLDS = {
-    "yellow": 80,   # 黄色预警：禁用非核心研究类任务
-    "orange": 90,   # 橙色预警：仅保留用户对话
-    "red": 95,      # 红色熔断：完全静默，仅等待指令
-    "emergency": 98 # 紧急状态：强制休眠所有子代理
+    "yellow": 110,   # 黄色预警：超出预算10%，暂停P3+P4任务
+    "orange": 120,  # 橙色预警：超出预算20%，仅保留P0+P1
+    "red": 130,     # 红色熔断：超出预算30%，仅保留P0
+    "emergency": 150 # 紧急状态：超出预算50%，完全静默
 }
 
-# 任务分级
+# 预期进度（每天结束时）
+DAILY_EXPECTED_PROGRESS = {
+    0: 0,      # 周一开始
+    1: 14.3,   # 周一结束
+    2: 28.6,   # 周二结束
+    3: 42.9,   # 周三结束
+    4: 57.2,   # 周四结束
+    5: 71.5,   # 周五结束
+    6: 85.8,   # 周六结束
+    7: 100     # 周日结束
+}
+
+
+def get_week_progress_percentage():
+    """
+    计算当前周预算消耗进度百分比
+    返回: (实际消耗%, 预期进度%, 超额比例%)
+    """
+    now = datetime.now()
+    weekday = now.weekday()  # 0=周一, 6=周日
+    
+    # 读取Token监控数据
+    if TOKEN_STATE_FILE.exists():
+        with open(TOKEN_STATE_FILE, 'r') as f:
+            data = json.load(f)
+            weekly_used = data.get("week_used_percentage", 0)
+    else:
+        weekly_used = 84  # 默认值
+    
+    # 计算预期进度（基于当前是周几）
+    expected = DAILY_EXPECTED_PROGRESS.get(weekday, 100)
+    
+    # 计算超额比例
+    if expected > 0:
+        excess_ratio = (weekly_used / expected) * 100
+    else:
+        excess_ratio = 100 if weekly_used > 0 else 0
+    
+    return weekly_used, expected, excess_ratio
+
+
+def determine_fuse_level(excess_ratio):
+    """根据超额比例确定熔断等级"""
+    if excess_ratio >= FUSE_THRESHOLDS["emergency"]:
+        return "emergency"
+    elif excess_ratio >= FUSE_THRESHOLDS["red"]:
+        return "red"
+    elif excess_ratio >= FUSE_THRESHOLDS["orange"]:
+        return "orange"
+    elif excess_ratio >= FUSE_THRESHOLDS["yellow"]:
+        return "yellow"
+    return "normal"
+
+
 def get_task_tiers():
+    """任务分级 - 已合并重复任务"""
     return {
         "P0_CRITICAL": [  # 即使熔断也必须保留
             "backup-daily-001",           # 每日备份
-            "278707b5-a688-4d23-adbc-3d73ea925a10",  # 灾备同步
-            "445d0246-d405-4bd4-b38c-8a1742b7a93b",  # 全方位灾备
+            "278707b5-a688-4d23-adbc-3d73ea925a10",  # 灾备复刻每日同步（合并后）
         ],
         "P1_ESSENTIAL": [  # 橙色预警时保留
             "milestone-daily-check",      # 里程碑检查
@@ -46,12 +101,10 @@ def get_task_tiers():
             "ad1fb129-d204-4a66-9b41-490e883d855e",  # 自主执行摘要
             "83c4750e-73bb-4c58-8a67-d658357448fb",  # API能力监控
             "0991f0cf-1c59-4dff-abd6-93b617636077",  # 每周六复盘
-            "249ef31e-3fc7-4d45-9a68-681d5deb0b25",  # 引用一致性
-            "8b6eba18-8116-4a8e-b6d3-593ff8697c83",  # 引用检查
+            "249ef31e-3fc7-4d45-9a68-681d5deb0b25",  # 引用一致性检查（已合并）
         ],
         "P4_LOW_FREQ": [  # 低频任务，可灵活调整
             "a4e7fe12-b645-4a84-b495-5697df8a3903",  # 每周组织罗盘
-            "41f3d606-e5f6-490f-bbb1-d557a64004bf",  # 飞书帮助中心
             "30014b47-8363-4555-b24f-04574dc356a7",  # API双周审查
             "backup-weekly-001",          # 每周全量备份
             "backup-cleanup-001",         # 备份清理
@@ -60,120 +113,54 @@ def get_task_tiers():
     }
 
 
-def get_current_token_usage():
-    """获取当前Token使用情况（从session_status解析）"""
-    # 这里应该调用实际的API获取Token数据
-    # 简化版：读取之前的状态
-    if TOKEN_STATE_FILE.exists():
-        with open(TOKEN_STATE_FILE, 'r') as f:
-            return json.load(f)
-    return {"percentage": 84, "timestamp": datetime.now().isoformat()}
-
-
-def determine_fuse_level(percentage):
-    """根据Token百分比确定熔断等级"""
-    if percentage >= FUSE_THRESHOLDS["emergency"]:
-        return "emergency"
-    elif percentage >= FUSE_THRESHOLDS["red"]:
-        return "red"
-    elif percentage >= FUSE_THRESHOLDS["orange"]:
-        return "orange"
-    elif percentage >= FUSE_THRESHOLDS["yellow"]:
-        return "yellow"
-    return "normal"
-
-
-def get_jobs_to_pause(fuse_level, task_tiers):
-    """根据熔断等级确定要暂停的任务"""
-    if fuse_level == "emergency":
-        # 紧急状态：只保留P0
-        keep = set(task_tiers["P0_CRITICAL"])
-        pause_all = True
-    elif fuse_level == "red":
-        # 红色熔断：保留P0+P1
-        keep = set(task_tiers["P0_CRITICAL"] + task_tiers["P1_ESSENTIAL"])
-        pause_all = False
-    elif fuse_level == "orange":
-        # 橙色预警：保留P0+P1+P2
-        keep = set(task_tiers["P0_CRITICAL"] + task_tiers["P1_ESSENTIAL"] + task_tiers["P2_IMPORTANT"])
-        pause_all = False
-    elif fuse_level == "yellow":
-        # 黄色预警：保留P0+P1+P2+P3
-        keep = set(task_tiers["P0_CRITICAL"] + task_tiers["P1_ESSENTIAL"] + 
-                   task_tiers["P2_IMPORTANT"] + task_tiers["P3_ROUTINE"])
-        pause_all = False
-    else:
-        # 正常状态：全部运行
-        return [], False
-    
-    return keep, pause_all
-
-
-def trigger_fuse(fuse_level, token_percentage):
+def trigger_fuse(fuse_level, weekly_used, expected, excess_ratio):
     """触发熔断机制"""
     print(f"\n🔴 TOKEN熔断触发: {fuse_level.upper()}")
-    print(f"当前消耗: {token_percentage}%")
+    print(f"周预算消耗: {weekly_used:.1f}%")
+    print(f"预期进度: {expected:.1f}%")
+    print(f"超额比例: {excess_ratio:.1f}%")
     print("=" * 50)
     
     task_tiers = get_task_tiers()
-    keep_jobs, pause_all = get_jobs_to_pause(fuse_level, task_tiers)
+    
+    # 根据熔断等级确定保留任务
+    if fuse_level == "emergency":
+        keep = set(task_tiers["P0_CRITICAL"])
+    elif fuse_level == "red":
+        keep = set(task_tiers["P0_CRITICAL"] + task_tiers["P1_ESSENTIAL"])
+    elif fuse_level == "orange":
+        keep = set(task_tiers["P0_CRITICAL"] + task_tiers["P1_ESSENTIAL"] + 
+                   task_tiers["P2_IMPORTANT"])
+    elif fuse_level == "yellow":
+        keep = set(task_tiers["P0_CRITICAL"] + task_tiers["P1_ESSENTIAL"] + 
+                   task_tiers["P2_IMPORTANT"] + task_tiers["P3_ROUTINE"])
+    else:
+        keep = set()
     
     # 记录熔断状态
     fuse_state = {
         "level": fuse_level,
-        "token_percentage": token_percentage,
+        "weekly_used_percentage": weekly_used,
+        "expected_percentage": expected,
+        "excess_ratio": excess_ratio,
         "triggered_at": datetime.now().isoformat(),
-        "kept_jobs": list(keep_jobs),
-        "paused_all": pause_all
+        "kept_jobs": list(keep)
     }
     
     with open(FUSE_STATE_FILE, 'w') as f:
         json.dump(fuse_state, f, indent=2)
     
-    # 输出熔断指令
-    if pause_all:
-        print("🚨 紧急状态：暂停所有非核心任务")
-        print("保留任务仅:", keep_jobs)
-    else:
-        print(f"⚠️  {fuse_level}级别熔断")
-        print(f"保留任务数: {len(keep_jobs)}")
-    
-    # 生成暂停命令列表
-    print("\n执行命令:")
-    # 这里应该生成实际的cron update命令
-    
+    print(f"保留任务: {len(keep)}个")
     return fuse_state
 
 
-def release_fuse():
-    """解除熔断，恢复所有任务"""
-    print("\n🟢 解除Token熔断，恢复正常运行")
-    
-    if FUSE_STATE_FILE.exists():
-        with open(FUSE_STATE_FILE, 'r') as f:
-            old_state = json.load(f)
-        print(f"上一次熔断等级: {old_state.get('level', 'unknown')}")
-    
-    # 记录解除时间
-    fuse_state = {
-        "level": "normal",
-        "released_at": datetime.now().isoformat(),
-        "previous_state": old_state if FUSE_STATE_FILE.exists() else None
-    }
-    
-    with open(FUSE_STATE_FILE, 'w') as f:
-        json.dump(fuse_state, f, indent=2)
-    
-    # 这里应该生成恢复所有cron的命令
-    print("所有任务已恢复")
-
-
 def monitor_loop():
-    """监控循环 - 由Cron每15分钟调用"""
-    token_data = get_current_token_usage()
-    percentage = token_data.get("percentage", 0)
+    """监控循环 - 由Cron每2小时调用"""
+    weekly_used, expected, excess_ratio = get_week_progress_percentage()
+    fuse_level = determine_fuse_level(excess_ratio)
     
-    fuse_level = determine_fuse_level(percentage)
+    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M')}] "
+          f"周消耗: {weekly_used:.1f}%, 预期: {expected:.1f}%, 超额: {excess_ratio:.1f}%")
     
     if fuse_level != "normal":
         # 检查是否已经处于熔断状态
@@ -181,51 +168,45 @@ def monitor_loop():
             with open(FUSE_STATE_FILE, 'r') as f:
                 current_fuse = json.load(f)
             if current_fuse.get("level") == fuse_level:
-                print(f"当前已处于{fuse_level}熔断状态，无需重复触发")
+                print(f"  当前已处于{fuse_level}熔断状态")
                 return
         
-        trigger_fuse(fuse_level, percentage)
+        trigger_fuse(fuse_level, weekly_used, expected, excess_ratio)
     else:
         # 检查是否需要解除熔断
         if FUSE_STATE_FILE.exists():
             with open(FUSE_STATE_FILE, 'r') as f:
                 current_fuse = json.load(f)
             if current_fuse.get("level") != "normal":
-                release_fuse()
+                print("  解除熔断，恢复正常运行")
+                # 记录解除
+                with open(FUSE_STATE_FILE, 'w') as f:
+                    json.dump({"level": "normal", "released_at": datetime.now().isoformat()}, f)
 
 
 def status():
     """显示当前熔断状态"""
-    print("\n📊 Token熔断系统状态")
+    weekly_used, expected, excess_ratio = get_week_progress_percentage()
+    fuse_level = determine_fuse_level(excess_ratio)
+    
+    print("\n📊 Token熔断系统状态 V2.0")
     print("=" * 50)
-    
-    token_data = get_current_token_usage()
-    percentage = token_data.get("percentage", 0)
-    
-    print(f"当前Token消耗: {percentage}%")
-    print(f"熔断阈值:")
+    print(f"当前时间: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"周预算消耗: {weekly_used:.1f}%")
+    print(f"预期进度: {expected:.1f}%")
+    print(f"超额比例: {excess_ratio:.1f}%")
+    print(f"熔断等级: {fuse_level}")
+    print("-" * 50)
+    print("熔断阈值（超额比例）:")
     for level, threshold in FUSE_THRESHOLDS.items():
-        status = "🔴" if percentage >= threshold else "🟢"
-        print(f"  {status} {level}: {threshold}%")
-    
-    fuse_level = determine_fuse_level(percentage)
-    print(f"\n当前熔断等级: {fuse_level}")
-    
-    if FUSE_STATE_FILE.exists():
-        with open(FUSE_STATE_FILE, 'r') as f:
-            fuse_state = json.load(f)
-        print(f"熔断状态: {fuse_state.get('level', 'unknown')}")
-        if fuse_state.get('triggered_at'):
-            print(f"触发时间: {fuse_state['triggered_at']}")
-        if fuse_state.get('kept_jobs'):
-            print(f"保留任务: {len(fuse_state['kept_jobs'])}个")
-    
+        status_icon = "🔴" if excess_ratio >= threshold else "🟢"
+        print(f"  {status_icon} {level}: {threshold}%")
     print("=" * 50)
 
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: token-fuse-system.py [monitor|status|trigger|release]")
+        print("Usage: token-fuse-system.py [monitor|status]")
         sys.exit(1)
     
     command = sys.argv[1]
@@ -234,11 +215,6 @@ def main():
         monitor_loop()
     elif command == "status":
         status()
-    elif command == "trigger":
-        level = sys.argv[2] if len(sys.argv) > 2 else "red"
-        trigger_fuse(level, 95)
-    elif command == "release":
-        release_fuse()
     else:
         print(f"Unknown command: {command}")
         sys.exit(1)

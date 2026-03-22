@@ -1,0 +1,19 @@
+{
+  "name": "duckdb-cli-ai-skills",
+  "version": "0.1.0",
+  "description": "DuckDB CLI integration for SQL analytics and data processing with AI assistance",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/duckdb-cli-ai-skills",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": ["duckdb"]
+  },
+  "provides": {
+    "commands": [
+      "duckdb query"
+    ]
+  },
+  "keywords": ["duckdb", "sql", "database", "analytics"],
+  "license": "MIT"
+}

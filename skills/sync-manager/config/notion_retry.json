@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "description": "Notion同步重试配置文件 - 第1批失败文件",
+  "notion_token": "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",
+  "parent_page_id": "31fa8a0e-2bba-81fa-b98a-d61da835051e",
+  "retry_config": {
+    "max_retries": 3,
+    "retry_delay_seconds": 5,
+    "connect_timeout_seconds": 10,
+    "read_timeout_seconds": 30,
+    "batch_size": 10
+  },
+  "files_to_sync": [
+    "docs/MANAGEMENT_RULES.md",
+    "docs/TASK_MASTER.md",
+    "docs/API_INVENTORY.md",
+    "MEMORY.md",
+    "SOUL.md",
+    "USER.md",
+    "AGENTS.md",
+    "IDENTITY.md",
+    "memory/2026-03-06.md",
+    "memory/2026-03-07.md",
+    "memory/2026-03-08.md",
+    "memory/2026-03-09-回顾清单.md",
+    "memory/2026-03-10.md",
+    "WORKSPACE_STATUS.md"
+  ],
+  "integrity_check": {
+    "check_source_exists": true,
+    "check_source_size": true,
+    "check_source_readable": true,
+    "verify_target_after_sync": true,
+    "content_hash_verification": true
+  },
+  "created_at": "2026-03-10T11:17:00+08:00",
+  "purpose": "修复第1批失败的14个文件同步"
+}

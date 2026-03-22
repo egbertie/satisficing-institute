@@ -1,104 +1,126 @@
-# file-handler-universal Skill
+# file-handler-universal Skill V5标准版本
 
-统一文件处理器 - 整合DOCX、PDF、Excel、CSV等所有文件处理能力
+## S1: 全局考虑
 
----
+### 输入
+- 文件路径
+- 操作类型（read/convert/upload）
+- 目标格式/渠道
 
-## 功能概览
-
-| 文件类型 | 读取 | 转换 | 上传 |
-|----------|------|------|------|
-| **.docx** | ✅ pandoc | ↔ Markdown | ✅ 飞书/Notion |
-| **.pdf** | ✅ pypdf | → 文本 | ✅ 飞书Drive |
-| **.xlsx** | ✅ openpyxl | ↔ CSV | ✅ 飞书Bitable |
-| **.csv** | ✅ csv | ↔ Excel | ✅ 飞书 |
-| **.md/.txt** | ✅ 原生 | ↔ DOCX | ✅ 多渠道 |
-| **图片** | - | - | ✅ 飞书/Notion |
-
----
-
-## 使用方法
-
-### 1. 读取文件（任意格式转文本）
-
-```bash
-# 读取DOCX
-python3 skills/file-handler-universal/file_handler.py read document.docx
-
-# 读取PDF
-python3 skills/file-handler-universal/file_handler.py read report.pdf
-
-# 读取Excel
-python3 skills/file-handler-universal/file_handler.py read data.xlsx
-
-# 读取CSV
-python3 skills/file-handler-universal/file_handler.py read data.csv
-```
-
-### 2. 转换文件格式
-
-```bash
-# DOCX → Markdown
-python3 skills/file-handler-universal/file_handler.py convert document.docx md
-
-# Markdown → DOCX
-python3 skills/file-handler-universal/file_handler.py convert notes.md docx
-
-# Excel → CSV
-python3 skills/file-handler-universal/file_handler.py convert data.xlsx csv
-
-# CSV → Excel
-python3 skills/file-handler-universal/file_handler.py convert data.csv xlsx
-```
-
-### 3. 上传文件到云端
-
-```bash
-# 上传到飞书（默认）
-python3 skills/file-handler-universal/file_handler.py upload document.pdf
-
-# 上传到Notion
-python3 skills/file-handler-universal/file_handler.py upload report.md notion
-
-# 上传图片到飞书
-python3 skills/file-handler-universal/file_handler.py upload chart.png feishu
-```
+### 覆盖维度
+| 维度 | 考虑内容 |
+|------|----------|
+| **人** | 用户读取文件、转换格式、上传云端 |
+| **事** | 文件读取、格式转换、多渠道上传 |
+| **物** | DOCX、PDF、Excel、CSV、Markdown、图片 |
+| **环境** | 本地文件系统、临时目录、网络 |
+| **外部集成** | 飞书、Notion、Telegram、邮件 |
+| **边界情况** | 文件不存在、格式不支持、上传失败 |
 
 ---
 
-## Python API
+## S2: 系统考虑
 
+### 处理流程
+```
+接收请求 → 识别文件类型 → 选择处理器 → 执行操作 → 返回结果
+```
+
+### 故障处理
+- **文件不存在**: 返回明确错误
+- **格式不支持**: 返回支持的格式列表
+- **转换失败**: 返回错误详情
+- **上传失败**: 返回失败原因，建议重试
+
+---
+
+## S3: 输出规范
+
+### 读取结果
 ```python
-from skills.file-handler-universal.file_handler import FileHandler
+{
+    "success": True,
+    "content": "文件文本内容...",
+    "format": "markdown",
+    "metadata": {
+        "pages": 10,
+        "word_count": 5000
+    }
+}
+```
 
-handler = FileHandler()
+### 转换结果
+```python
+{
+    "success": True,
+    "output_path": "/tmp/output.md",
+    "input_format": "docx",
+    "output_format": "md"
+}
+```
 
+---
+
+## S4: 自动化集成
+
+### 支持格式
+| 格式 | 读取 | 写入 | 转换 | 上传 |
+|------|------|------|------|------|
+| DOCX | ✅ pandoc | ✅ pandoc | ↔ Markdown | ✅ |
+| PDF | ✅ pypdf | - | → 文本 | ✅ |
+| Excel | ✅ openpyxl | ✅ openpyxl | ↔ CSV | ✅ |
+| CSV | ✅ csv | ✅ csv | ↔ Excel | ✅ |
+| Markdown | ✅ 原生 | ✅ 原生 | ↔ DOCX | ✅ |
+| 图片 | - | - | - | ✅ |
+
+---
+
+## S5: 自我验证
+
+### 质量指标
+- 转换准确率: >95%
+- 上传成功率: >90%
+- 响应时间: <10s（小文件）
+
+### 测试用例
+1. DOCX→Markdown: 格式保留
+2. PDF→文本: 内容完整提取
+3. Excel→CSV: 数据不丢失
+4. 上传飞书: 成功返回链接
+
+---
+
+## S6: 认知谦逊
+
+### 局限
+- PDF扫描件无法提取文字（需OCR）
+- 复杂格式转换可能丢失样式
+- 大文件可能超时
+- 上传依赖外部服务可用性
+
+---
+
+## S7: 对抗测试
+
+| 场景 | 预期行为 |
+|------|----------|
+| 文件不存在 | 返回错误，提示检查路径 |
+| 空文件 | 返回空内容，标记为空 |
+| 超大文件（>100MB） | 返回错误，建议分块 |
+| 损坏的PDF | 返回已提取内容+警告 |
+| 上传网络中断 | 重试1次，失败报错 |
+
+---
+
+## 使用说明
+
+```bash
 # 读取文件
-content = handler.read_file("document.docx")
-print(content)
+python3 file_handler.py read document.docx
 
-# 转换文件
-output_path = handler.convert_file("document.docx", "md")
-print(f"Converted to: {output_path}")
+# 转换格式
+python3 file_handler.py convert document.docx md
 
 # 上传文件
-result = handler.upload_file("report.pdf", "feishu")
-print(result)
+python3 file_handler.py upload report.pdf feishu
 ```
-
----
-
-## 依赖要求
-
-| 依赖 | 用途 | 安装命令 |
-|------|------|----------|
-| pandoc | DOCX↔Markdown转换 | `apt-get install pandoc` |
-| pypdf | PDF读取 | `pip install pypdf` |
-| openpyxl | Excel处理 | `pip install openpyxl` |
-
----
-
-## 修复记录
-
-- **2026-03-22**: 创建统一文件处理器，整合分散的文件处理Skill
-- **恢复Skill**: automate-excel, csvtoexcel, file-gateway, file-integrity, markdown-converter, markdown-exporter

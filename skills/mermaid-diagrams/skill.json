@@ -1,0 +1,19 @@
+{
+  "name": "mermaid-diagrams",
+  "version": "0.1.0",
+  "description": "Create diagrams and flowcharts using Mermaid syntax",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/mermaid-diagrams",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": ["mmdc"]
+  },
+  "provides": {
+    "commands": [
+      "create diagram"
+    ]
+  },
+  "keywords": ["mermaid", "diagram", "flowchart", "visualization"],
+  "license": "MIT"
+}

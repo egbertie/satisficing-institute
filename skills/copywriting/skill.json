@@ -1,0 +1,19 @@
+{
+  "name": "copywriting",
+  "version": "0.1.0",
+  "description": "AI-powered copywriting assistance for marketing content, ads, and creative writing",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/copywriting",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": []
+  },
+  "provides": {
+    "commands": [
+      "copywrite"
+    ]
+  },
+  "keywords": ["copywriting", "marketing", "content", "creative"],
+  "license": "MIT"
+}

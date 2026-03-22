@@ -1,0 +1,20 @@
+{
+  "name": "brave-search",
+  "version": "0.1.0",
+  "description": "Brave Search API integration for web search with privacy-focused results",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/brave-search",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": ["BRAVE_API_KEY"],
+    "commands": []
+  },
+  "provides": {
+    "commands": [
+      "web_search",
+      "web_fetch"
+    ]
+  },
+  "keywords": ["search", "web", "brave", "api"],
+  "license": "MIT"
+}

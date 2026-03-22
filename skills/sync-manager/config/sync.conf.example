@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "retry": {
+    "max_attempts": 3,
+    "base_delay": 5,
+    "max_delay": 60
+  },
+  "targets": {
+    "notion": {
+      "enabled": true,
+      "api_key": "",
+      "database_id": "",
+      "page_size": 100
+    },
+    "github": {
+      "enabled": true,
+      "token": "",
+      "repo": "",
+      "branch": "main",
+      "path": "backup"
+    },
+    "local": {
+      "enabled": true,
+      "backup_dir": "/root/.openclaw/backups",
+      "keep_versions": 10
+    }
+  },
+  "sync": {
+    "batch_size": 50,
+    "checkpoint_file": ".sync_checkpoint.json",
+    "verify_after_sync": true
+  }
+}

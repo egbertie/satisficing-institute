@@ -1,0 +1,13 @@
+{
+  "max_concurrent_tasks": 5,
+  "default_timeout_seconds": 300,
+  "priority_timeout_seconds": {
+    "high": 600,
+    "medium": 300,
+    "low": 180
+  },
+  "orphan_detection_interval_seconds": 30,
+  "task_poll_interval_seconds": 1,
+  "auto_cleanup_completed": true,
+  "cleanup_after_seconds": 3600
+}

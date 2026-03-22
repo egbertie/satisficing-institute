@@ -1,0 +1,21 @@
+{
+  "name": "cron-scheduling",
+  "version": "0.1.0",
+  "description": "Cron job scheduling and management for automated task execution",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/cron-scheduling",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": ["crontab"]
+  },
+  "provides": {
+    "commands": [
+      "cron add",
+      "cron list",
+      "cron remove"
+    ]
+  },
+  "keywords": ["cron", "schedule", "automation", "timer"],
+  "license": "MIT"
+}
