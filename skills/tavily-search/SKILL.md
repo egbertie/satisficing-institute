@@ -1,48 +1,113 @@
+# tavily-search Skill V5标准版本
+
+## S1: 全局考虑
+
+### 输入
+- 搜索查询词
+- 搜索深度（basic/advanced）
+- 结果数量
+- 时间范围
+
+### 覆盖维度
+| 维度 | 考虑内容 |
+|------|----------|
+| **人** | 研究人员、分析师、决策者 |
+| **事** | 深度搜索、问答、研究辅助 |
+| **物** | 查询词、搜索结果、引用来源 |
+| **环境** | API配额、网络环境 |
+| **外部集成** | Tavily API |
+| **边界情况** | API限流、无结果、超时 |
+
 ---
-name: tavily-search
-description: "Web search via Tavily API (alternative to Brave). Use when the user asks to search the web / look up sources / find links and Brave web_search is unavailable or undesired. Returns a small set of relevant results (title, url, snippet) and can optionally include short answer summaries."
----
 
-# Tavily Search
+## S2: 系统考虑
 
-Use the bundled script to search the web with Tavily.
-
-## Requirements
-
-- Provide API key via either:
-  - environment variable: `TAVILY_API_KEY`, or
-  - `~/.openclaw/.env` line: `TAVILY_API_KEY=...`
-
-## Commands
-
-Run from the OpenClaw workspace:
-
-```bash
-# raw JSON (default)
-python3 {baseDir}/scripts/tavily_search.py --query "..." --max-results 5
-
-# include short answer (if available)
-python3 {baseDir}/scripts/tavily_search.py --query "..." --max-results 5 --include-answer
-
-# stable schema (closer to web_search): {query, results:[{title,url,snippet}], answer?}
-python3 {baseDir}/scripts/tavily_search.py --query "..." --max-results 5 --format brave
-
-# human-readable Markdown list
-python3 {baseDir}/scripts/tavily_search.py --query "..." --max-results 5 --format md
+### 处理流程
+```
+接收查询 → 调用Tavily API → 解析结果 → 格式化输出
 ```
 
-## Output
+### 故障处理
+- **API限流**: 返回错误，提示重试
+- **无结果**: 返回空列表+建议
+- **超时**: 重试1次，失败报错
 
-### raw (default)
-- JSON: `query`, optional `answer`, `results: [{title,url,content}]`
+---
 
-### brave
-- JSON: `query`, optional `answer`, `results: [{title,url,snippet}]`
+## S3: 输出规范
 
-### md
-- A compact Markdown list with title/url/snippet.
+### 搜索结果格式
+```json
+{
+  "query": "搜索词",
+  "answer": "AI总结答案（如适用）",
+  "results": [
+    {
+      "title": "标题",
+      "url": "链接",
+      "content": "摘要内容",
+      "score": 0.95
+    }
+  ],
+  "sources": ["来源1", "来源2"]
+}
+```
 
-## Notes
+---
 
-- Keep `max-results` small by default (3–5) to reduce token/reading load.
-- Prefer returning URLs + snippets; fetch full pages only when needed.
+## S4: 自动化集成
+
+### 使用方式
+```python
+from skills.tavily_search import search
+
+# 基础搜索
+results = search("query", max_results=10)
+
+# 深度搜索（带AI答案）
+results = search("query", search_depth="advanced")
+```
+
+---
+
+## S5: 自我验证
+
+### 质量指标
+- 结果相关性: >80%
+- 响应时间: <5s
+- 答案准确性: 人工验证
+
+---
+
+## S6: 认知谦逊
+
+### 局限
+- 依赖Tavily API可用性
+- AI答案可能不准确
+- 不保证信息时效性
+- 复杂查询可能理解偏差
+
+---
+
+## S7: 对抗测试
+
+| 场景 | 预期行为 |
+|------|----------|
+| API Key无效 | 明确报错 |
+| 查询为空 | 返回错误 |
+| 网络中断 | 超时后报错 |
+| 结果质量差 | 标记低置信度 |
+
+---
+
+## 使用说明
+
+```python
+import sys
+sys.path.insert(0, '/root/.openclaw/workspace/skills')
+from tavily_search import search
+
+results = search("人工智能最新发展", max_results=5)
+for r in results["results"]:
+    print(f"{r['title']}: {r['url']}")
+```
