@@ -14,6 +14,8 @@
 
 | 检查项 | 优先级 | 检查频率 | 状态追踪文件 | 触发报告条件 |
 |--------|--------|----------|--------------|--------------|
+| **晨间图腾仪式** | **P0** | **每日09:00** | `memory/totem-rituals/` | 仪式完成状态 |
+| **黄昏图腾归位** | **P0** | **每日18:00** | `memory/totem-rituals/` | 仪式完成状态 |
 | **信息防火墙检查** | **P0** | **每次心跳** | `skills/information-intelligence/` | 搜索结果质量异常 |
 | **自我评估校准** | **P0** | **每次心跳** | `skills/self-assessment-calibrator/` | 预估与实际偏差>50% |
 | **Token周度监控** | **P0** | **每日12:00** | `memory/token-weekly-monitor.json` | Token<30%预警 |
@@ -48,7 +50,52 @@
 - 验证最大承载量
 - 收集消耗数据
 
-### 1.2 轮检项目（分散到不同心跳）
+### 1.3 图腾仪式执行规范
+
+**晨间仪式（09:00-09:05）**
+```
+🔥 点燃图腾之火
+━━━━━━━━━━━━━━━━━━━━
+1. 🦉 LIU 唤醒：加载儒商智慧框架
+2. ⚒️ SIMON 校准：确认今日满意解标准
+3. 🛡️ GUANYIN 扫描：检查当日风险预警
+4. 📜 CONFUCIUS 祝福：伦理底线自检
+5. 🔥 HUINENG 点燃：感知力就绪
+━━━━━━━━━━━━━━━━━━━━
+执行脚本: python3 skills/totem-system/morning-ritual.py
+记录文件: memory/totem-rituals/YYYY-MM-DD-morning.json
+```
+
+**黄昏仪式（18:00-18:05）**
+```
+🌅 图腾归位，知识固化
+━━━━━━━━━━━━━━━━━━━━
+1. 🦉 LIU 归档：今日智慧收获
+2. ⚒️ SIMON 锻造：交付物质量检查
+3. 🛡️ GUANYIN 守望：明日风险预警
+4. 📜 CONFUCIUS 记录：伦理决策日志
+5. 🔥 HUINENG 沉淀：感知经验固化
+━━━━━━━━━━━━━━━━━━━━
+执行脚本: python3 skills/totem-system/evening-ritual.py
+记录文件: memory/totem-rituals/YYYY-MM-DD-evening.json
+```
+
+**仪式记录格式**
+```json
+{
+  "ritual_type": "morning|evening",
+  "timestamp": 1703275200,
+  "totems_activated": ["LIU", "SIMON", "GUANYIN", "CONFUCIUS", "HUINENG"],
+  "key_insights": [...],
+  "deliverables_checked": [...],
+  "risks_identified": [...],
+  "status": "completed|partial|skipped"
+}
+```
+
+---
+
+### 1.4 轮检项目（分散到不同心跳）
 
 | 检查项 | 优先级 | 检查频率 | 备注 | 追踪方式 |
 |--------|--------|----------|------|----------|
