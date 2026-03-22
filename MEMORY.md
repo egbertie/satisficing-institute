@@ -95,6 +95,9 @@
 |----------|------|------|------|------|
 | SKL-SKILL-v1.0-WIP-260322-Knowledge-Graph | SKILL | v1.0 | WIP | skills/knowledge-graph/SKILL.md |
 | SKL-SKILL-v1.0-FIN-260322-Blue-Sentinel | SKILL | v1.0 | FIN | skills/blue-sentinel/SKILL.md |
+| SKL-SKILL-v1.0-FIN-260322-Scenario-Planner | SKILL | v1.0 | FIN | skills/scenario-planner/SKILL.md |
+| SKL-SKILL-v1.0-FIN-260322-What-If-Engine | SKILL | v1.0 | FIN | skills/what-if-engine/SKILL.md |
+| SKL-SKILL-v1.0-FIN-260322-Meta-Cognitive-Evolver | SKILL | v1.0 | FIN | skills/meta-cognitive-evolver/SKILL.md |
 
 ---
 
