@@ -1,0 +1,19 @@
+{
+  "name": "markdown-exporter",
+  "version": "0.1.0",
+  "description": "Export Markdown to various formats including PDF, DOCX, and HTML",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/markdown-exporter",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": ["pandoc"]
+  },
+  "provides": {
+    "commands": [
+      "export markdown"
+    ]
+  },
+  "keywords": ["markdown", "export", "pdf", "docx", "html"],
+  "license": "MIT"
+}

@@ -1,0 +1,27 @@
+{
+    "feishu": {
+        "enabled": true,
+        "upload_method": "drive",
+        "note": "使用OpenClaw内置的feishu工具，无需额外配置"
+    },
+    "notion": {
+        "enabled": true,
+        "token": "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",
+        "parent_page_id": null,
+        "database_id": null
+    },
+    "email": {
+        "enabled": false,
+        "smtp_host": "smtp.gmail.com",
+        "smtp_port": 587,
+        "username": "",
+        "password": "",
+        "default_recipients": []
+    },
+    "telegram": {
+        "enabled": false,
+        "bot_token": "",
+        "chat_id": "",
+        "note": "需要配置bot_token和chat_id才能使用"
+    }
+}

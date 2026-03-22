@@ -1,0 +1,21 @@
+{
+  "name": "automate-excel",
+  "version": "0.1.0",
+  "description": "Excel automation with Python openpyxl for reading, writing, and manipulating Excel files",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/automate-excel",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": ["python3"]
+  },
+  "provides": {
+    "commands": [
+      "excel read",
+      "excel write",
+      "excel modify"
+    ]
+  },
+  "keywords": ["excel", "spreadsheet", "automation", "xlsx"],
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "markdown-converter",
+  "version": "0.1.0",
+  "description": "Convert various formats to Markdown including HTML, DOCX, and more",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/markdown-converter",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": ["pandoc"]
+  },
+  "provides": {
+    "commands": [
+      "convert to markdown"
+    ]
+  },
+  "keywords": ["markdown", "convert", "pandoc", "html"],
+  "license": "MIT"
+}

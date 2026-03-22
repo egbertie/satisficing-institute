@@ -1,0 +1,19 @@
+{
+  "name": "csvtoexcel",
+  "version": "0.1.0",
+  "description": "Convert CSV files to Excel format with formatting options",
+  "author": "OpenClaw",
+  "homepage": "https://github.com/clawhub/csvtoexcel",
+  "entry": "SKILL.md",
+  "requires": {
+    "env": [],
+    "commands": ["python3"]
+  },
+  "provides": {
+    "commands": [
+      "csv to excel"
+    ]
+  },
+  "keywords": ["csv", "excel", "convert", "xlsx"],
+  "license": "MIT"
+}
