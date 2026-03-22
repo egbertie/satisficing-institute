@@ -1,0 +1,40 @@
+{
+  "sync_id": "445d0246-d405-4bd4-b38c-8a1742b7a93b",
+  "timestamp": "2026-03-22T04:20:00+08:00",
+  "type": "full_backup",
+  "status": "success",
+  "stats": {
+    "total_files": 5003,
+    "total_size_mb": 364,
+    "tier0_core_identity_kb": 60,
+    "tier1_project_status_kb": 44,
+    "tier2_system_config_mb": 1.2,
+    "tier3_external_integration_mb": 13.2,
+    "tier4_skills_mb": 15,
+    "tier5_archive_mb": 5.2,
+    "skill_md_count": 256,
+    "skill_dirs_count": 590
+  },
+  "validation": {
+    "core_files_integrity": "7/7 pass",
+    "memory_system": "healthy",
+    "skill_system": "healthy",
+    "local_backup": "verified",
+    "github_push": "pending_auth",
+    "file_size_check": "no_alert"
+  },
+  "last_commit": {
+    "hash": "45f310b0d8be2b8521f6a9063d54eb1bcdb894df",
+    "time": "2026-03-22T04:17:35+08:00",
+    "message": "chore: auto-backup MEMORY.md [2026-03-22_04:17]"
+  },
+  "recovery_capability": {
+    "core_identity": "recoverable",
+    "project_status": "recoverable",
+    "skills": "recoverable",
+    "archive": "recoverable",
+    "estimated_recovery_time": "<2min"
+  },
+  "alerts": [],
+  "notes": "GitHub push requires manual authentication. WeCom sync pending."
+}

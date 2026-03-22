@@ -33653,3 +33653,560 @@ Token级别: NORMAL (100%)
 【零空置检查报告 - S3】
 状态: ⏭️ 未触发补位
 原因: 距离上次补位仅30分钟
+[2026-03-22 04:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 04:20:01] [INFO] 当前时间: 2026-03-22 04:20:01
+[2026-03-22 04:20:01] [INFO] 不执行补位: 距离上次补位仅40分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅40分钟",
+  "metrics": {
+    "inactive_seconds": 25097,
+    "inactive_hours": 6.97,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 40
+  },
+  "timestamp": 1774124401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅40分钟
+[2026-03-22 04:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 04:30:01] [INFO] 当前时间: 2026-03-22 04:30:01
+[2026-03-22 04:30:01] [INFO] 不执行补位: 距离上次补位仅50分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅50分钟",
+  "metrics": {
+    "inactive_seconds": 25697,
+    "inactive_hours": 7.14,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 50
+  },
+  "timestamp": 1774125001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅50分钟
+[2026-03-22 04:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 04:40:01] [INFO] 当前时间: 2026-03-22 04:40:01
+[2026-03-22 04:40:01] [INFO] 不执行补位: 距离上次补位仅60分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅60分钟",
+  "metrics": {
+    "inactive_seconds": 26297,
+    "inactive_hours": 7.3,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 60
+  },
+  "timestamp": 1774125601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅60分钟
+[2026-03-22 04:50:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 04:50:01] [INFO] 当前时间: 2026-03-22 04:50:01
+[2026-03-22 04:50:01] [INFO] 不执行补位: 距离上次补位仅70分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅70分钟",
+  "metrics": {
+    "inactive_seconds": 26897,
+    "inactive_hours": 7.47,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 70
+  },
+  "timestamp": 1774126201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅70分钟
+[2026-03-22 05:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 05:00:01] [INFO] 当前时间: 2026-03-22 05:00:01
+[2026-03-22 05:00:01] [INFO] 不执行补位: 距离上次补位仅80分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅80分钟",
+  "metrics": {
+    "inactive_seconds": 27497,
+    "inactive_hours": 7.64,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 80
+  },
+  "timestamp": 1774126801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅80分钟
+[2026-03-22 05:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 05:10:01] [INFO] 当前时间: 2026-03-22 05:10:01
+[2026-03-22 05:10:01] [INFO] 不执行补位: 距离上次补位仅90分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅90分钟",
+  "metrics": {
+    "inactive_seconds": 28097,
+    "inactive_hours": 7.8,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 90
+  },
+  "timestamp": 1774127401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅90分钟
+[2026-03-22 05:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 05:20:01] [INFO] 当前时间: 2026-03-22 05:20:01
+[2026-03-22 05:20:01] [INFO] 不执行补位: 距离上次补位仅100分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅100分钟",
+  "metrics": {
+    "inactive_seconds": 28697,
+    "inactive_hours": 7.97,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 100
+  },
+  "timestamp": 1774128001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅100分钟
+[2026-03-22 05:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 05:30:01] [INFO] 当前时间: 2026-03-22 05:30:01
+[2026-03-22 05:30:01] [INFO] 不执行补位: 距离上次补位仅110分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅110分钟",
+  "metrics": {
+    "inactive_seconds": 29297,
+    "inactive_hours": 8.14,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 110
+  },
+  "timestamp": 1774128601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅110分钟
+[2026-03-22 05:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 05:40:01] [INFO] 当前时间: 2026-03-22 05:40:01
+[2026-03-22 05:40:01] [INFO] 空闲检测通过: 空闲8.3小时, 来源: detected
+[2026-03-22 05:40:01] [INFO] === 启动线1: 学习研究合并 ===
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: 专家论文深度研读 → 产出: 学习笔记
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: AI模型/技术研究 → 产出: 技术报告
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: 行业趋势分析 → 产出: 洞察报告
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: 案例库扩展研究 → 产出: 案例分析
+[2026-03-22 05:40:01] [INFO] 线1完成: 4个任务
+[2026-03-22 05:40:01] [INFO] === 启动线2: 优化复盘合并 ===
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: 当日工作复盘
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: 系统配置轻维护
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: 知识图谱更新
+[2026-03-22 05:40:01] [INFO]   ✅ 完成任务: Skill质量自检
+[2026-03-22 05:40:01] [INFO] 线2完成: 4个任务
+[2026-03-22 05:40:01] [INFO] === 补位执行完成: 8个任务 ===
+{
+  "status": "executed",
+  "mode": "dual_line",
+  "token_level": "NORMAL",
+  "token_percentage": 100,
+  "timestamp": 1774129201,
+  "line1_tasks": [
+    {
+      "task_id": "LEARN-001",
+      "name": "专家论文深度研读",
+      "output_type": "学习笔记",
+      "status": "completed"
+    },
+    {
+      "task_id": "LEARN-002",
+      "name": "AI模型/技术研究",
+      "output_type": "技术报告",
+      "status": "completed"
+    },
+    {
+      "task_id": "LEARN-003",
+      "name": "行业趋势分析",
+      "output_type": "洞察报告",
+      "status": "completed"
+    },
+    {
+      "task_id": "LEARN-004",
+      "name": "案例库扩展研究",
+      "output_type": "案例分析",
+      "status": "completed"
+    }
+  ],
+  "line2_tasks": [
+    {
+      "task_id": "OPT-001",
+      "name": "当日工作复盘",
+      "status": "completed"
+    },
+    {
+      "task_id": "OPT-002",
+      "name": "系统配置轻维护",
+      "status": "completed"
+    },
+    {
+      "task_id": "OPT-003",
+      "name": "知识图谱更新",
+      "status": "completed"
+    },
+    {
+      "task_id": "OPT-004",
+      "name": "Skill质量自检",
+      "status": "completed"
+    }
+  ],
+  "duration_seconds": 0
+}
+
+【零空置检查报告 - S3】
+状态: ✅ 已执行补位
+模式: dual_line
+Token级别: NORMAL (100%)
+线1完成: 4个任务
+线2完成: 4个任务
+总计: 8个任务
+执行耗时: 0秒
+[2026-03-22 05:50:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 05:50:01] [INFO] 当前时间: 2026-03-22 05:50:01
+[2026-03-22 05:50:01] [INFO] 不执行补位: 距离上次补位仅10分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅10分钟",
+  "metrics": {
+    "inactive_seconds": 30497,
+    "inactive_hours": 8.47,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 10
+  },
+  "timestamp": 1774129801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅10分钟
+[2026-03-22 06:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 06:00:01] [INFO] 当前时间: 2026-03-22 06:00:01
+[2026-03-22 06:00:01] [INFO] 不执行补位: 距离上次补位仅20分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅20分钟",
+  "metrics": {
+    "inactive_seconds": 31097,
+    "inactive_hours": 8.64,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 20
+  },
+  "timestamp": 1774130401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅20分钟
+[2026-03-22 06:10:02] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 06:10:02] [INFO] 当前时间: 2026-03-22 06:10:02
+[2026-03-22 06:10:02] [INFO] 不执行补位: 距离上次补位仅30分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅30分钟",
+  "metrics": {
+    "inactive_seconds": 31698,
+    "inactive_hours": 8.8,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 30
+  },
+  "timestamp": 1774131002
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅30分钟
+[2026-03-22 06:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 06:20:01] [INFO] 当前时间: 2026-03-22 06:20:01
+[2026-03-22 06:20:01] [INFO] 不执行补位: 距离上次补位仅40分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅40分钟",
+  "metrics": {
+    "inactive_seconds": 32297,
+    "inactive_hours": 8.97,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 40
+  },
+  "timestamp": 1774131601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅40分钟
+[2026-03-22 06:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 06:30:01] [INFO] 当前时间: 2026-03-22 06:30:01
+[2026-03-22 06:30:01] [INFO] 不执行补位: 距离上次补位仅50分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅50分钟",
+  "metrics": {
+    "inactive_seconds": 32897,
+    "inactive_hours": 9.14,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 50
+  },
+  "timestamp": 1774132201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅50分钟
+[2026-03-22 06:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 06:40:01] [INFO] 当前时间: 2026-03-22 06:40:01
+[2026-03-22 06:40:01] [INFO] 不执行补位: 距离上次补位仅60分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅60分钟",
+  "metrics": {
+    "inactive_seconds": 33497,
+    "inactive_hours": 9.3,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 60
+  },
+  "timestamp": 1774132801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅60分钟
+[2026-03-22 06:50:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 06:50:01] [INFO] 当前时间: 2026-03-22 06:50:01
+[2026-03-22 06:50:01] [INFO] 不执行补位: 距离上次补位仅70分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅70分钟",
+  "metrics": {
+    "inactive_seconds": 34097,
+    "inactive_hours": 9.47,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 70
+  },
+  "timestamp": 1774133401
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅70分钟
+[2026-03-22 07:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 07:00:01] [INFO] 当前时间: 2026-03-22 07:00:01
+[2026-03-22 07:00:01] [INFO] 不执行补位: 距离上次补位仅80分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅80分钟",
+  "metrics": {
+    "inactive_seconds": 34697,
+    "inactive_hours": 9.64,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 80
+  },
+  "timestamp": 1774134001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅80分钟
+[2026-03-22 07:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 07:10:01] [INFO] 当前时间: 2026-03-22 07:10:01
+[2026-03-22 07:10:01] [INFO] 不执行补位: 距离上次补位仅90分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅90分钟",
+  "metrics": {
+    "inactive_seconds": 35297,
+    "inactive_hours": 9.8,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 90
+  },
+  "timestamp": 1774134601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅90分钟
+[2026-03-22 07:20:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 07:20:01] [INFO] 当前时间: 2026-03-22 07:20:01
+[2026-03-22 07:20:01] [INFO] 不执行补位: 距离上次补位仅100分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅100分钟",
+  "metrics": {
+    "inactive_seconds": 35897,
+    "inactive_hours": 9.97,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 100
+  },
+  "timestamp": 1774135201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅100分钟
+[2026-03-22 07:30:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 07:30:01] [INFO] 当前时间: 2026-03-22 07:30:01
+[2026-03-22 07:30:01] [INFO] 不执行补位: 距离上次补位仅110分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅110分钟",
+  "metrics": {
+    "inactive_seconds": 36497,
+    "inactive_hours": 10.14,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 110
+  },
+  "timestamp": 1774135801
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅110分钟
+[2026-03-22 07:40:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 07:40:01] [INFO] 当前时间: 2026-03-22 07:40:01
+[2026-03-22 07:40:01] [INFO] 空闲检测通过: 空闲10.3小时, 来源: detected
+[2026-03-22 07:40:01] [INFO] === 启动线1: 学习研究合并 ===
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: 专家论文深度研读 → 产出: 学习笔记
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: AI模型/技术研究 → 产出: 技术报告
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: 行业趋势分析 → 产出: 洞察报告
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: 案例库扩展研究 → 产出: 案例分析
+[2026-03-22 07:40:01] [INFO] 线1完成: 4个任务
+[2026-03-22 07:40:01] [INFO] === 启动线2: 优化复盘合并 ===
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: 当日工作复盘
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: 系统配置轻维护
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: 知识图谱更新
+[2026-03-22 07:40:01] [INFO]   ✅ 完成任务: Skill质量自检
+[2026-03-22 07:40:01] [INFO] 线2完成: 4个任务
+[2026-03-22 07:40:01] [INFO] === 补位执行完成: 8个任务 ===
+{
+  "status": "executed",
+  "mode": "dual_line",
+  "token_level": "NORMAL",
+  "token_percentage": 100,
+  "timestamp": 1774136401,
+  "line1_tasks": [
+    {
+      "task_id": "LEARN-001",
+      "name": "专家论文深度研读",
+      "output_type": "学习笔记",
+      "status": "completed"
+    },
+    {
+      "task_id": "LEARN-002",
+      "name": "AI模型/技术研究",
+      "output_type": "技术报告",
+      "status": "completed"
+    },
+    {
+      "task_id": "LEARN-003",
+      "name": "行业趋势分析",
+      "output_type": "洞察报告",
+      "status": "completed"
+    },
+    {
+      "task_id": "LEARN-004",
+      "name": "案例库扩展研究",
+      "output_type": "案例分析",
+      "status": "completed"
+    }
+  ],
+  "line2_tasks": [
+    {
+      "task_id": "OPT-001",
+      "name": "当日工作复盘",
+      "status": "completed"
+    },
+    {
+      "task_id": "OPT-002",
+      "name": "系统配置轻维护",
+      "status": "completed"
+    },
+    {
+      "task_id": "OPT-003",
+      "name": "知识图谱更新",
+      "status": "completed"
+    },
+    {
+      "task_id": "OPT-004",
+      "name": "Skill质量自检",
+      "status": "completed"
+    }
+  ],
+  "duration_seconds": 0
+}
+
+【零空置检查报告 - S3】
+状态: ✅ 已执行补位
+模式: dual_line
+Token级别: NORMAL (100%)
+线1完成: 4个任务
+线2完成: 4个任务
+总计: 8个任务
+执行耗时: 0秒
+[2026-03-22 07:50:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 07:50:01] [INFO] 当前时间: 2026-03-22 07:50:01
+[2026-03-22 07:50:01] [INFO] 不执行补位: 距离上次补位仅10分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅10分钟",
+  "metrics": {
+    "inactive_seconds": 37697,
+    "inactive_hours": 10.47,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 10
+  },
+  "timestamp": 1774137001
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅10分钟
+[2026-03-22 08:00:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 08:00:01] [INFO] 当前时间: 2026-03-22 08:00:01
+[2026-03-22 08:00:01] [INFO] 不执行补位: 距离上次补位仅20分钟
+{
+  "status": "skipped",
+  "reason": "距离上次补位仅20分钟",
+  "metrics": {
+    "inactive_seconds": 38297,
+    "inactive_hours": 10.64,
+    "detection_source": "detected",
+    "since_last_fill_minutes": 20
+  },
+  "timestamp": 1774137601
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 距离上次补位仅20分钟
+[2026-03-22 08:10:01] [INFO] === 零空置强制执行检查 V5.0 ===
+[2026-03-22 08:10:01] [INFO] 当前时间: 2026-03-22 08:10:01
+[2026-03-22 08:10:01] [INFO] 不执行补位: 用户活跃中，空闲时间: 0分钟
+{
+  "status": "skipped",
+  "reason": "用户活跃中，空闲时间: 0分钟",
+  "metrics": {
+    "inactive_seconds": 38,
+    "inactive_hours": 0.01,
+    "detection_source": "detected"
+  },
+  "timestamp": 1774138201
+}
+
+【零空置检查报告 - S3】
+状态: ⏭️ 未触发补位
+原因: 用户活跃中，空闲时间: 0分钟
