@@ -65,9 +65,36 @@
 | 技能体系 | `memory/archive/skill_system.md` |
 | 战略定位演进 | `memory/archive/strategy_evolution.md` |
 | 工作模式准则 | `memory/archive/working_principles.md` |
-| 五路图腾体系 | `memory/archive/wulu_totem_system.md` |
+| 五路图腾体系 | `docs/WLU-ARCH-v1.0-FIN-260322-Totem-System.md` |
 | 沙盘模拟系统 | `memory/archive/sandbox_system.md` |
 | 历史日志 | `memory/archive/logs/` |
+
+---
+
+## 命名空间索引 (NGT融合)
+
+### NGT (Negentropy Claw)
+| 命名空间 | 类型 | 版本 | 状态 | 路径 |
+|----------|------|------|------|------|
+| NGT-ARCH-v1.0-FIN-260322-Fusion-Design | ARCH | v1.0 | FIN | docs/NGT-ARCH-v1.0-FIN-260322-Fusion-Design.md |
+| NGT-IMPL-v1.0-FIN-260322-Lean-Waste-Track | IMPL | v1.0 | FIN | docs/NGT-IMPL-v1.0-FIN-260322-Lean-Waste-Track.md |
+| NGT-ARCH-v1.0-FIN-260322-Fusion-Completion-Report | ARCH | v1.0 | FIN | docs/NGT-ARCH-v1.0-FIN-260322-Fusion-Completion-Report.md |
+
+### WLU (五路图腾)
+| 命名空间 | 类型 | 版本 | 状态 | 路径 |
+|----------|------|------|------|------|
+| WLU-ARCH-v1.0-FIN-260322-Totem-System | ARCH | v1.0 | FIN | docs/WLU-ARCH-v1.0-FIN-260322-Totem-System.md |
+
+### MGT (管理机制)
+| 命名空间 | 类型 | 版本 | 状态 | 路径 |
+|----------|------|------|------|------|
+| MGT-ARCH-v1.0-FIN-260322-Namespace-Enforcement | ARCH | v1.0 | FIN | docs/MGT-ARCH-v1.0-FIN-260322-Namespace-Enforcement.md |
+
+### SKL (Skill体系)
+| 命名空间 | 类型 | 版本 | 状态 | 路径 |
+|----------|------|------|------|------|
+| SKL-SKILL-v1.0-WIP-260322-Knowledge-Graph | SKILL | v1.0 | WIP | skills/knowledge-graph/SKILL.md |
+| SKL-SKILL-v1.0-FIN-260322-Blue-Sentinel | SKILL | v1.0 | FIN | skills/blue-sentinel/SKILL.md |
 
 ---
 
