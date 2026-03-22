@@ -11,12 +11,12 @@
   "openclawToken": {
     "weeklyBudget": 70000,
     "dailyBudget": 10000,
-    "consumed": 44800,
-    "remaining": 25200,
-    "percentage": 64.0,
-    "status": "caution",
-    "lastCheck": "2026-03-21T19:47:24.459732",
-    "notes": "用户校准: 64%消耗。第4天检查: 4/7=57%时间 vs 64%消耗，略超前7%，但在可控范围内。本周剩余90小时。"
+    "consumed": 62300,
+    "remaining": 7700,
+    "percentage": 89.0,
+    "status": "alert",
+    "lastCheck": "2026-03-22T14:06:00+08:00",
+    "notes": "用户校准14:06: 89%消耗，剩余11%(7.7K)。第5天/7=71%时间 vs 89%消耗，超前18%。进入完全静默模式。"
   },
   "kimi": {
     "tier": "Allegretto",
@@ -131,6 +131,15 @@
       "action": "updated_from_user_input",
       "status": "calibrated",
       "notes": "自检校准"
+    },
+    {
+      "timestamp": "2026-03-22T14:06:00+08:00",
+      "type": "user_calibration",
+      "oldPercentage": 64.0,
+      "newPercentage": 89,
+      "action": "updated_from_user_input",
+      "status": "calibrated",
+      "notes": "用户校准14:06: 已用89%，剩余11%。第5天/7，严重超前时间进度。触发完全静默模式。"
     }
   ]
 }
