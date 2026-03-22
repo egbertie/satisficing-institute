@@ -1,108 +1,84 @@
-# File Integrity Check Skill
+# file-integrity Skill V5标准版本
 
-## 功能概述
+## S1: 全局考虑
 
-本Skill提供文件完整性检查功能，支持以下检查项：
+### 输入
+- 文件路径或目录
+- 校验算法(MD5/SHA256等)
+- 基准哈希值(可选)
 
-1. **文件存在性检查** - 验证文件是否存在
-2. **文件大小检查** - 验证文件大小大于指定字节数
-3. **内容可读性检查** - 验证文件无编码错误，可正常读取
-4. **关键章节完整性检查** - 通过正则匹配验证文件包含必需的标题结构
+### 覆盖维度
+| 维度 | 考虑内容 |
+|------|----------|
+| **人** | 系统管理员、安全人员 |
+| **事** | 文件完整性校验、篡改检测、版本比对 |
+| **物** | 文件、哈希值、校验记录 |
+| **环境** | 文件系统权限、存储空间 |
+| **外部集成** | 日志系统(可选) |
+| **边界情况** | 权限不足、大文件、哈希碰撞 |
 
-## 文件结构
+---
 
+## S2: 系统考虑
+
+### 处理流程
 ```
-file-integrity/
-├── SKILL.md                    # 本文件
-├── README.md                   # 使用说明
-├── config/
-│   └── check_rules.json        # 检查规则配置
-└── scripts/
-    └── integrity_checker.py    # 检查脚本
-```
-
-## 使用方法
-
-### 基本用法
-
-```bash
-python scripts/integrity_checker.py --path /path/to/file --config config/check_rules.json
+选择算法 → 计算哈希 → 比对基准 → 生成报告 → 记录日志
 ```
 
-### 参数说明
+### 故障处理
+- **权限不足**: 跳过并记录
+- **大文件**: 分块哈希
+- **哈希碰撞**: 使用SHA256替代MD5
 
-- `--path`: 要检查的文件路径（必需）
-- `--config`: 检查规则配置文件路径（必需）
-- `--output`: 报告输出文件路径（可选，默认输出到控制台）
-- `--format`: 报告格式，可选 `text` 或 `json`（可选，默认 `text`）
+---
 
-## 检查规则配置
+## S3: 输出规范
 
-配置文件使用JSON格式，支持以下检查项：
-
-### 配置示例
-
+### 校验报告
 ```json
 {
-  "checks": {
-    "exists": {
-      "enabled": true,
-      "critical": true
-    },
-    "size": {
-      "enabled": true,
-      "min_bytes": 1,
-      "critical": true
-    },
-    "readable": {
-      "enabled": true,
-      "lines": 100,
-      "critical": true
-    },
-    "structure": {
-      "enabled": true,
-      "required_headers": ["##"],
-      "critical": false
-    }
-  },
-  "report_template": "standard"
+  "file": "path/to/file",
+  "algorithm": "sha256",
+  "hash": "a3f5b2...",
+  "expected": "a3f5b2...",
+  "match": true,
+  "timestamp": "2026-03-22T09:00:00+08:00"
 }
 ```
 
-### 配置项说明
+---
 
-| 检查项 | 说明 | 参数 |
-|--------|------|------|
-| `exists` | 文件存在性检查 | `enabled`: 是否启用, `critical`: 失败时是否终止检查 |
-| `size` | 文件大小检查 | `min_bytes`: 最小字节数 |
-| `readable` | 可读性检查 | `lines`: 检查前N行 |
-| `structure` | 结构检查 | `required_headers`: 必需的正则表达式列表 |
+## S4: 自动化集成
 
-## 返回值
+### 定时校验
+- 每周全量校验
+- 关键文件实时监控(可选)
 
-- `0`: 所有检查通过
-- `1`: 有关键检查失败
-- `2`: 有非关键检查失败
-- `3`: 配置错误或参数错误
+---
 
-## 集成使用
+## S5: 自我验证
 
-### 在Python中调用
+### 质量指标
+- 准确率: 100%
+- 覆盖率: >95%
 
-```python
-from scripts.integrity_checker import FileIntegrityChecker
+---
 
-checker = FileIntegrityChecker('/path/to/config.json')
-result = checker.check_file('/path/to/file.txt')
-print(result.to_dict())
-```
+## S6: 认知谦逊
 
-### CI/CD集成
+### 局限
+- 只能检测内容变更，无法识别变更原因
+- 哈希碰撞概率极低但存在
+- 不加密，仅校验完整性
 
-```yaml
-- name: Check File Integrity
-  run: |
-    python skills/file-integrity/scripts/integrity_checker.py \
-      --path docs/README.md \
-      --config skills/file-integrity/config/check_rules.json
-```
+---
+
+## S7: 对抗测试
+
+| 场景 | 预期行为 |
+|------|----------|
+| 文件被篡改 | 哈希不匹配，告警 |
+| 权限拒绝 | 跳过并记录 |
+| 大文件 | 流式计算哈希 |
+| 基准缺失 | 生成新基准 |

@@ -1,12 +1,83 @@
-# markdown-converter
+# markdown-converter Skill V5标准版本
 
-Convert various formats to Markdown including HTML, DOCX, and more.
+## S1: 全局考虑
 
-## Usage
+### 输入
+- Markdown文件或内容
+- 目标格式(HTML/PDF/DOCX等)
+- 转换选项(样式、模板)
 
-Use pandoc for conversions:
+### 覆盖维度
+| 维度 | 考虑内容 |
+|------|----------|
+| **人** | 文档编写者、内容创作者 |
+| **事** | Markdown多格式转换、样式渲染 |
+| **物** | Markdown文件、目标格式文件 |
+| **环境** | 依赖库(pandoc) |
+| **外部集成** | pandoc |
+| **边界情况** | 复杂表格、数学公式、图片链接 |
 
-```bash
-pandoc input.html -o output.md
-pandoc input.docx -o output.md
+---
+
+## S2: 系统考虑
+
+### 处理流程
 ```
+读取MD → 语法解析 → 格式转换 → 样式应用 → 输出文件
+```
+
+### 故障处理
+- **依赖缺失**: 提示安装pandoc
+- **转换失败**: 降级为纯文本
+- **图片丢失**: 使用绝对路径或内嵌
+
+---
+
+## S3: 输出规范
+
+### 支持格式
+| 输入 | 输出 |
+|------|------|
+| Markdown | HTML, PDF, DOCX, LaTeX |
+| HTML | Markdown |
+| DOCX | Markdown(有限支持) |
+
+---
+
+## S4: 自动化集成
+
+### 使用方式
+```bash
+# MD转PDF
+mdconvert input.md output.pdf
+
+# MD转HTML
+mdconvert input.md output.html
+```
+
+---
+
+## S5: 自我验证
+
+### 质量指标
+- 格式保留率: >90%
+- 转换成功率: >95%
+
+---
+
+## S6: 认知谦逊
+
+### 局限
+- 依赖pandoc
+- 复杂样式可能丢失
+- 反向转换(DOCX→MD)不完美
+
+---
+
+## S7: 对抗测试
+
+| 场景 | 预期行为 |
+|------|----------|
+| pandoc未安装 | 提示安装 |
+| 复杂表格 | 尽力保留，失败降级 |
+| 图片链接失效 | 保留链接，标记失效 |

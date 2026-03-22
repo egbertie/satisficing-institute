@@ -1,97 +1,92 @@
-# file-gateway Skill
+# file-gateway Skill V5标准版本
 
-将本地文件上传到多个渠道（飞书、Notion、邮件、Telegram）的统一网关。
+## S1: 全局考虑
 
-## Purpose
+### 输入
+- 文件源路径(本地/远程URL)
+- 目标操作(读取/上传/转换)
+- 目标渠道(飞书/Notion/邮件等)
 
-解决用户无法直接读取本地文件的问题，提供一键分享到多个渠道的能力。
+### 覆盖维度
+| 维度 | 考虑内容 |
+|------|----------|
+| **人** | 内容创作者、运营人员 |
+| **事** | 多源文件接入、统一处理、多渠道分发 |
+| **物** | 本地文件、网络文件、云端文件 |
+| **环境** | 网络环境、存储空间、API配额 |
+| **外部集成** | 飞书、Notion、Telegram等 |
+| **边界情况** | 网络超时、文件过大、格式不支持 |
 
-## Usage
+---
 
-### 命令行使用
+## S2: 系统考虑
 
-```bash
-# 上传到所有配置的渠道
-file-gateway upload /path/to/file.md
-
-# 上传到指定渠道
-file-gateway upload /path/to/file.png --channels feishu,notion
-
-# 上传到单个渠道
-file-gateway upload /path/to/file.pdf --channel telegram
+### 处理流程
+```
+接收请求 → 源识别 → 获取文件 → 格式处理 → 目标分发 → 结果反馈
 ```
 
-### Python API
+### 故障处理
+- **网络超时**: 重试3次
+- **文件过大**: 压缩或分块
+- **格式不支持**: 转换或报错
+- **目标失败**: 记录并重试
 
-```python
-from skills.file_gateway.scripts.file_gateway import FileGateway
+---
 
-gateway = FileGateway()
+## S3: 输出规范
 
-# 上传到所有渠道
-result = gateway.upload("/path/to/file.md")
-
-# 上传到指定渠道
-result = gateway.upload("/path/to/file.png", channels=["feishu", "notion"])
-
-# 返回结果包含各渠道的上传状态和链接
-print(result)
-# {
-#     "success": True,
-#     "file": "/path/to/file.md",
-#     "channels": {
-#         "feishu": {"success": True, "url": "https://..."},
-#         "notion": {"success": True, "url": "https://..."},
-#         "telegram": {"success": False, "error": "..."}
-#     }
-# }
-```
-
-## Configuration
-
-配置文件位置：`/root/.openclaw/skills/file-gateway/config/channels.json`
-
+### 处理结果
 ```json
 {
-    "feishu": {
-        "enabled": true,
-        "upload_method": "drive"
-    },
-    "notion": {
-        "enabled": true,
-        "token": "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",
-        "parent_page_id": "your-parent-page-id"
-    },
-    "email": {
-        "enabled": false,
-        "smtp_host": "smtp.gmail.com",
-        "smtp_port": 587,
-        "username": "",
-        "password": ""
-    },
-    "telegram": {
-        "enabled": false,
-        "bot_token": "",
-        "chat_id": ""
-    }
+  "source": "local|url",
+  "file": "filename.pdf",
+  "size": 1024000,
+  "targets": [
+    {"channel": "feishu", "status": "success", "url": "..."},
+    {"channel": "notion", "status": "failed", "error": "..."}
+  ]
 }
 ```
 
-## Supported File Types
+---
 
-| 类型 | 扩展名 | 最佳上传渠道 |
-|------|--------|--------------|
-| 文档 | .md, .txt, .docx | Notion, Feishu Doc |
-| 图片 | .png, .jpg, .jpeg, .gif, .webp | Feishu Drive, Telegram |
-| 文档 | .pdf | Feishu Drive, Notion |
-| 表格 | .xlsx, .csv | Feishu Bitable, Notion |
+## S4: 自动化集成
 
-## Tools Provided
+### 支持源
+- 本地文件系统
+- HTTP/HTTPS URL
+- 云存储(可选)
 
-- `file-gateway.upload` - 上传文件到指定渠道
+### 支持目标
+- 飞书文档
+- Notion页面
+- Telegram消息
+- 邮件附件
 
-## Files
+---
 
-- `scripts/file_gateway.py` - 主程序
-- `config/channels.json` - 渠道配置
-- `utils/` - 工具函数
+## S5: 自我验证
+
+### 质量指标
+- 成功率: >90%
+- 响应时间: <10s
+
+---
+
+## S6: 认知谦逊
+
+### 局限
+- 依赖外部API可用性
+- 大文件可能超时
+- 格式转换可能丢失信息
+
+---
+
+## S7: 对抗测试
+
+| 场景 | 预期行为 |
+|------|----------|
+| 网络中断 | 重试后报错 |
+| 超大文件 | 拒绝或分块 |
+| 目标全部失败 | 本地存档 |
