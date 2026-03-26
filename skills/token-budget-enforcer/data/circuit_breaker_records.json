@@ -43,6 +43,28 @@
       "actual": 2500,
       "resolution": null,
       "resolved_at": null
+    },
+    {
+      "timestamp": "2026-03-23T09:15:18.084873",
+      "task_id": "T-002",
+      "reason": "hard_limit_exceeded",
+      "state_before": "closed",
+      "state_after": "open",
+      "estimated": 1000,
+      "actual": 2500,
+      "resolution": null,
+      "resolved_at": null
+    },
+    {
+      "timestamp": "2026-03-23T09:15:18.085264",
+      "task_id": "T-001",
+      "reason": "hard_limit_exceeded",
+      "state_before": "closed",
+      "state_after": "open",
+      "estimated": 1000,
+      "actual": 2500,
+      "resolution": null,
+      "resolved_at": null
     }
   ]
 }

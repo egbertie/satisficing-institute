@@ -1,49 +1,39 @@
 {
-  "protocolVersion": "V1.0",
+  "protocolVersion": "V2.0",
   "lastChecks": {
-    "email": 1742261040,
-    "calendar": 1742261040,
-    "mentions": 1742012640,
-    "weather": 1741920000,
-    "forgottenTasks": 1742066760,
-    "memoryMaintenance": 1741872000,
-    "projectStatus": 1742261040,
-    "backupStatus": 1742066760
+    "token": 1742682420,
+    "calendar": 1742682420,
+    "mentions": 1742682420,
+    "forgottenTasks": 1742682420,
+    "memoryMaintenance": 1742682000,
+    "projectStatus": 1742682420,
+    "backupStatus": 1742682420
+  },
+  "currentTokenLevel": "L4",
+  "checkFrequency": {
+    "normal": "30min",
+    "current": "120min",
+    "nightMode": "120min"
+  },
+  "activeChecks": {
+    "P0": [
+      "token_monitor"
+    ],
+    "P1": [],
+    "P2": [],
+    "P3": []
+  },
+  "pausedFeatures": {
+    "email": "未启用邮件功能",
+    "weather": "未使用天气功能"
   },
   "nextScheduled": {
-    "weatherCheckMorning": "08:00",
-    "weatherCheckEvening": "20:00",
-    "memoryMaintenance": "2026-03-18",
+    "memoryMaintenance": "2026-03-25",
     "projectReview": "18:00"
   },
   "currentStatus": {
     "pendingReports": [],
     "delayedChecks": [],
-    "notes": "08:24任务协调检查完成。周三早晨，系统运行平稳。风险分数0/100，无过期/阻塞/风险任务。补位任务3项（CASE-016/DASHBOARD-V2/QUALITY-TEST）正常推进，暂停任务4项等待用户决策。距离官宣7天。"
-  },
-  "hourlyCoordination": {
-    "checkCycle": 30,
-    "checkTime": "08:24",
-    "inProgressTasks": 3,
-    "overdueTasks": 0,
-    "dueWithin24h": 0,
-    "subAgentsLaunched": 0,
-    "severeBlocks": 0,
-    "riskScore": 0,
-    "requiresUserAction": [
-      "企微Webhook地址: 请参考docs/WEBHOOK_SETUP_QUICK.md获取"
-    ],
-    "inProgress": [
-      "定价市场调研: 子代理执行中，预计明早完成",
-      "工作空间深度整理: 子代理执行中"
-    ],
-    "completedActions": [
-      "GitHub secrets清理: 2026-03-18 22:15 完成",
-      "灾备规则V3.0: AI全量复刻内容已补充",
-      "Notion同步: 已暂停（保留手动触发）",
-      "安全持续改进机制: 已建立（docs/SECURITY_CONTINUOUS_IMPROVEMENT.md）"
-    ],
-    "notes": "【任务协调V2.0】周三晚间检查。WIP-004/005已处理：专家联系方式留空/虚拟化，真实信息由用户自行管理。新增需求：企微群机器人自动播报。定时任务已全部错开整点。灾备规则V3.0已更新。",
-    "notes": "【任务协调V2.0】周三早晨检查完成。系统平稳，无异常。补位任务3项正常推进，暂停任务4项等待用户决策。白天人机协作期就绪。距离官宣7天。"
+    "notes": "Token L4档位(剩余11%<30%)，检查间隔120分钟，零空置线1暂停，仅保留线2轻维护"
   }
 }

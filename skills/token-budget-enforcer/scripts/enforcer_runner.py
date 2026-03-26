@@ -6,6 +6,7 @@ Token Budget Enforcer - 主运行脚本
 
 import sys
 import json
+import os
 from pathlib import Path
 
 # 添加scripts目录到路径
@@ -130,7 +131,10 @@ class TokenBudgetEnforcer:
         return 0
     
     def run_adversarial_test(self):
-        """运行对抗测试"""
+        """运行对抗测试 (S7)"""
+        import sys
+        skill_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        sys.path.insert(0, skill_dir)
         from tests.adversarial_test import TokenBudgetAdversarialTest
         tester = TokenBudgetAdversarialTest()
         success = tester.run_all_tests()
