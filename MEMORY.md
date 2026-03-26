@@ -133,6 +133,28 @@
 
 ## 工具配置（已验证）
 
+### GitHub Token ✅ 已深度记忆
+
+**Token**: `[REDACTED - 见.env.github]`  
+**用户**: egbertie  
+**状态**: ✅ 有效（2026-03-26验证）  
+**到期**: 待观察（classic token无明确过期日）  
+**存储位置**（安全）:
+- `.env.github` - 环境变量文件（本地，不提交）
+- `scripts/auto-git-commit.sh` - 自动提交脚本（服务器本地）
+- 系统crontab - 定时任务（服务器本地）
+
+**⚠️ 安全规则**: 
+- Token **绝不**写入Markdown/文档
+- 仅存在于 `.env.*` 文件和服务器脚本
+- 如需更新Token，直接替换`.env.github`文件
+
+**自动提交配置**:
+- 频率: 每2小时一次
+- 日志: `/tmp/auto-git-commit.log`
+
+---
+
 ### 飞书云盘自服务上传 ✅
 
 **状态**: 已调通，深度记忆  

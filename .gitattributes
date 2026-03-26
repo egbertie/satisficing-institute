@@ -1,0 +1,5 @@
+# 安全: 阻止敏感文件被diff和merge
+.env* -diff -merge
+scripts/auto-git-commit.sh -diff -merge
+config/*-cron.json -diff -merge
+*.key -diff -merge
